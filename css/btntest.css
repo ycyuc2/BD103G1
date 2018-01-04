@@ -1,0 +1,19 @@
+.btn {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 120px;
+  height: 50px;
+  background-color: #0ee;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: inset 0px -2px 1px rgba(255, 255, 255, 0.8), inset 0px 5px 8px rgba(0, 255, 255, 0.7), inset 0px 0px 10px rgba(0, 0, 0, 0.2), inset 0px -10px 10px rgba(0, 0, 0, 0.1), inset 0px -30px 30px rgba(0, 0, 0, 0.3);
+  transition: all .3s; }
+  .btn img {
+    position: absolute;
+    width: 110%;
+    height: 130%;
+    left: -5%;
+    top: -15%; }
+  .btn:hover {
+    box-shadow: inset 0px 2px 1px rgba(255, 255, 255, 0.8), inset 0px -5px 8px rgba(0, 255, 255, 0.7), inset 0px 0px 10px rgba(0, 0, 0, 0.2), inset 0px 10px 10px rgba(0, 0, 0, 0.1), inset 0px 30px 30px rgba(0, 0, 0, 0.3); }

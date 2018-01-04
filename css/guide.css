@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "王漢宗粗明體繁-中";
+    src: url(../font/王漢宗粗明體繁-中.ttf);
+}
+
+body{
+	background-color: #000;
+	color: #fff;
+	font-family: "王漢宗粗明體繁-中";
+	margin:0;
+	/*cursor: url(../img/gudie/cursor.png),pointer;*/
+}
+
+.background img{
+	width: 100vw;
+	position: fixed;
+	z-index: -999999;
+}
+
+.logo{
+	width: 12%;
+	margin: 0 auto;
+}
+
+.logo img{
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 80px;
+}
+
+h1{
+	text-align: center;
+	font-size: 24px;
+	margin-top: 50px;
+}
+
+.button .wrapper{
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: center;	
+}
+
+.left-button{
+	float: left;
+}
+
+.right-button{
+	float: right;
+}
+
+.left-button:after,
+.right-button:after{
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.button .wrapper img{
+	background-color: #4e4aff;
+}
+
+.button .wrapper a{
+	position: relative;
+}
+
+.button .wrapper img:hover{
+	background-color: #f00;
+	transition: .3s;
+}
+
+h2{
+	display: inline-block;
+	color:#fff;
+	position: absolute;
+	bottom: 10px;
+}
+
+.left-button h2{
+	left: 90px;
+}
+
+.right-button h2{
+	right: 80px;
+}
+
+@media screen and (max-width: 480px){
+	a{
+		display: block;
+	}
+}
+
+

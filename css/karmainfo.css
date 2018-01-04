@@ -1,0 +1,171 @@
+@font-face {
+    font-family: "王漢宗粗明體繁-中";
+    src: url(../font/王漢宗粗明體繁-中.ttf);
+}
+
+body{
+	background-color: #000;
+	color: #fff;
+	font-family: "王漢宗粗明體繁-中";
+	margin:0;
+	cursor: url(../img/mercury/cursor.png),pointer;
+}
+
+.background img{
+	width: 100vw;
+	position: fixed;
+	z-index: -999999;
+}
+
+.header{
+	width: 100%;
+	text-align: center;
+}
+
+.header img{
+	width: 40%;
+	margin-top: 30px;
+}
+
+.text{
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.text p{
+	font-size: 20px;
+	line-height: 40px;
+	letter-spacing: .15em;
+}
+
+.text p span{
+	font-size: 34px;
+}
+
+.table .wrapper{
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.table .wrapper h3{
+	color: #f00;
+	font-size: 30px;
+	margin-top: 100px;
+	text-decoration: underline;
+}
+
+table{
+	font-size: 20px;
+	margin: 0 auto;
+}
+
+table th,td{
+	padding: 10px 40px;
+}
+
+table th{
+	color: #f00;
+}
+
+.effects .wrapper{
+	background-image: url(../img/karmainfo/frame_960x960.png);
+	background-position: cover;
+	background-size: 100%;
+	width: 960px;
+	height: 960px;
+	margin: 0 auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	background-color: #000;
+}
+
+.effects .wrapper h3{
+	font-size: 30px;
+	color: #f00;
+	text-align: center;
+	line-height: 200px;
+	text-decoration: underline;
+}
+
+.effects .wrapper .pics .logo{
+	width: 200px;
+	position: relative;
+	top: 180px;
+	left: 380px;
+}
+
+.effects .wrapper .pics .one{
+	position: relative;
+	top: -250px;
+	left: 400px;
+	opacity: 0.6;
+}
+
+.effects .wrapper .pics .two{
+	position: relative;
+	top: -120px;
+	left: 650px;
+	opacity: 0.6;
+}
+
+.effects .wrapper .pics .three{
+	position: relative;
+	top: 100px;
+	left: 650px;
+	opacity: 0.6;
+}
+
+.effects .wrapper .pics .four{
+	position: relative;
+	top: 250px;
+	left: 400px;
+	opacity: 0.6;
+}
+
+.effects .wrapper .pics .five{
+	position: relative;
+	top: 100px;
+	left: 170px;
+	opacity: 0.6;
+}
+
+.effects .wrapper .pics .six{
+	position: relative;
+	top: -120px;
+	left: 170px;
+	opacity: 0.8;
+}
+
+.effects .wrapper .pics img{
+	width: 150px;
+	position: absolute;
+}
+
+.effects .wrapper .pics p{
+	position: absolute;
+	z-index: 999;
+	color: #f00;
+	text-align: center;
+	left: 35px;
+	top: 35px;
+}
+
+.effects .wrapper .pics p span{
+	font-size: 30px;
+}
+
+.effects .wrapper .pics p:hover,
+.effects .wrapper .pics p span:hover{
+	opacity: 0;
+}
+
+.effects .wrapper .pics .one:hover,
+.effects .wrapper .pics .two:hover,
+.effects .wrapper .pics .three:hover,
+.effects .wrapper .pics .four:hover,
+.effects .wrapper .pics .five:hover,
+.effects .wrapper .pics .six:hover{
+	opacity: 1;
+}

@@ -1,0 +1,326 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "王漢宗粗明體繁-中";
+  src: url(../font/王漢宗粗明體繁-中.ttf); }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "王漢宗粗明體繁-中"; }
+
+.btn {
+  border: none;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 120px;
+  height: 50px;
+  background-color: #0ee;
+  text-align: center;
+  line-height: 50px;
+  margin: 30px auto;
+  box-shadow: inset 0px -2px 1px rgba(255, 255, 255, 0.8), inset 0px 5px 8px rgba(0, 255, 255, 0.7), inset 0px 0px 10px rgba(0, 0, 0, 0.2), inset 0px -10px 10px rgba(0, 0, 0, 0.1), inset 0px -30px 30px rgba(0, 0, 0, 0.3);
+  transition: all .3s; }
+  .btn img {
+    position: absolute;
+    width: 110%;
+    height: 130%;
+    left: -5%;
+    top: -13%; }
+  .btn:focus {
+    outline: 0px; }
+  .btn:active {
+    outline: 0px; }
+  .btn:hover {
+    box-shadow: inset 0px 2px 1px rgba(255, 255, 255, 0.8), inset 0px -5px 8px rgba(0, 255, 255, 0.7), inset 0px 0px 10px rgba(0, 0, 0, 0.2), inset 0px 10px 10px rgba(0, 0, 0, 0.1), inset 0px 30px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer; }
+
+#moveContainer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #aaa;
+  overflow: hidden; }
+  @media all and (max-width: 479px) {
+    #moveContainer {
+      position: static;
+      overflow: visible; } }
+
+#moveArea {
+  width: 5000px;
+  height: 3000px;
+  position: relative;
+  background-image: url(../img/findTeacher/bg.jpg);
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  overflow: hidden; }
+  @media all and (max-width: 479px) {
+    #moveArea {
+      width: 100%;
+      overflow: visible; } }
+
+#teacherInfo {
+  position: fixed;
+  z-index: 5;
+  width: 600px;
+  box-sizing: border-box;
+  background-color: transparent;
+  background-image: url(../img/findTeacher/parchment.jpg);
+  background-position: center center;
+  background-size: 100% 100%;
+  user-select: auto;
+  visibility: hidden;
+  opacity: 0;
+  left: calc(50vw - 300px);
+  transition: all 0.3s; }
+  @media all and (min-width: 760px) and (max-width: 959px) {
+    #teacherInfo {
+      width: 100%;
+      left: 0; } }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    #teacherInfo {
+      width: 100%;
+      left: 0; } }
+  @media all and (max-width: 479px) {
+    #teacherInfo {
+      width: 100%;
+      left: 0; } }
+  #teacherInfo #closeBtn {
+    z-index: 30;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px; }
+    #teacherInfo #closeBtn i {
+      color: #FFF;
+      font-size: 30px;
+      text-align: center;
+      transition: 0.2s; }
+      #teacherInfo #closeBtn i:hover {
+        cursor: pointer;
+        color: #0ff; }
+  #teacherInfo .columnBorder {
+    padding: 15%;
+    position: relative; }
+    @media all and (max-width: 479px) {
+      #teacherInfo .columnBorder {
+        padding-top: 20%; } }
+    #teacherInfo .columnBorder .authorInfo {
+      width: 100%; }
+      #teacherInfo .columnBorder .authorInfo .authorPhoto {
+        width: 50%;
+        float: left;
+        border-right: 1px solid #333;
+        text-align: center;
+        box-sizing: border-box; }
+        #teacherInfo .columnBorder .authorInfo .authorPhoto img {
+          width: 90%; }
+          @media all and (max-width: 479px) {
+            #teacherInfo .columnBorder .authorInfo .authorPhoto img {
+              width: 70%; } }
+        @media all and (max-width: 479px) {
+          #teacherInfo .columnBorder .authorInfo .authorPhoto {
+            width: 100%;
+            float: none;
+            border: 0; } }
+      #teacherInfo .columnBorder .authorInfo .authorIntro {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        padding-right: 5%;
+        padding-left: 5%; }
+        #teacherInfo .columnBorder .authorInfo .authorIntro h3 {
+          font-size: 20px;
+          color: #333;
+          text-align: center; }
+        #teacherInfo .columnBorder .authorInfo .authorIntro p {
+          color: #333; }
+          #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(2):before {
+            content: '專長：';
+            display: block;
+            font-size: 16px;
+            margin-top: 20px; }
+          #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) {
+            margin-top: 20px; }
+            #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) i {
+              font-size: 20px;
+              color: #333; }
+        @media all and (max-width: 479px) {
+          #teacherInfo .columnBorder .authorInfo .authorIntro {
+            width: 100%;
+            float: none; } }
+      #teacherInfo .columnBorder .authorInfo:after {
+        content: '';
+        display: block;
+        clear: both; }
+  #teacherInfo .teacherMaps {
+    margin-top: 30px;
+    width: 100%; }
+    #teacherInfo .teacherMaps iframe {
+      width: 100%;
+      height: 50%; }
+  #teacherInfo .teacherColumn {
+    width: 100%;
+    box-sizing: border-box; }
+    #teacherInfo .teacherColumn p {
+      font-size: 20px; }
+      @media all and (max-width: 479px) {
+        #teacherInfo .teacherColumn p {
+          font-size: 14px; } }
+    #teacherInfo .teacherColumn .column {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5%;
+      border-radius: 5px; }
+      #teacherInfo .teacherColumn .column a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+        font-weight: bold; }
+        @media all and (max-width: 479px) {
+          #teacherInfo .teacherColumn .column a {
+            font-size: 14px; } }
+      #teacherInfo .teacherColumn .column p {
+        margin-top: 20px;
+        font-size: 16px; }
+        @media all and (max-width: 479px) {
+          #teacherInfo .teacherColumn .column p {
+            font-size: 12px; } }
+    #teacherInfo .teacherColumn .btnGoToColumn {
+      display: block;
+      margin: 0 auto;
+      font-size: 18px;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-image: url(../img/findTeacher/btn.png);
+      background-position: center center;
+      background-size: 100% 100%; }
+
+.qqArea {
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+  .qqArea li {
+    width: calc(100% / 14);
+    height: calc(100% / 8);
+    display: inline-block;
+    position: relative;
+    user-select: none; }
+    @media all and (max-width: 479px) {
+      .qqArea li {
+        width: 100%; } }
+
+.box {
+  width: 200px;
+  position: absolute;
+  color: #000;
+  transition: 0.2s linear; }
+  @media all and (min-width: 760px) and (max-width: 959px) {
+    .box {
+      width: 100%;
+      position: static; } }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    .box {
+      width: 100%;
+      position: static; } }
+  @media all and (max-width: 479px) {
+    .box {
+      width: 100%;
+      position: static; } }
+  .box:hover {
+    filter: drop-shadow(0px 0px 5px #fc9) drop-shadow(0px 0px 10px #fec16a);
+    cursor: url(../img/findTeacher/cursor.png) 25 0, auto; }
+  .box:active {
+    cursor: url(../img/findTeacher/cursor2.png) 25 0, auto; }
+
+#search {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 30; }
+  #search i {
+    font-size: 30px;
+    color: #fff;
+    transition: color .2s; }
+    #search i:hover {
+      cursor: url(../img/findTeacher/cursor.png) 25 0, auto;
+      color: #333;
+      text-shadow: 0px 0px 10px white; }
+
+#inp {
+  width: auto;
+  text-align: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+  opacity: 0;
+  transition: all .4s ease-In-Out;
+  transform: scale(0, 0); }
+  #inp .findTeacher {
+    position: relative; }
+    #inp .findTeacher .teacherFinder {
+      background-image: url(../img/findTeacher/input.png);
+      background-color: transparent;
+      background-position: center center;
+      background-size: 100% 100%;
+      height: 50px;
+      width: 300px;
+      border: 0;
+      color: #fff;
+      padding-left: 35px;
+      padding-right: 30px;
+      box-sizing: border-box; }
+      #inp .findTeacher .teacherFinder:focus {
+        outline: none; }
+    #inp .findTeacher input[type="submit"] {
+      vertical-align: middle;
+      width: 100px;
+      height: 50px;
+      font-size: 18px;
+      background-color: transparent;
+      background-image: url(../img/findTeacher/btn.png);
+      background-position: center center;
+      background-size: 100% 100%;
+      border: none;
+      transition: 0.2s; }
+      #inp .findTeacher input[type="submit"]:hover {
+        cursor: pointer;
+        filter: drop-shadow(0 0 5px #FFF); }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    #inp {
+      width: 300px;
+      top: 20%;
+      left: calc(50% - 150px); } }
+  @media all and (max-width: 479px) {
+    #inp {
+      width: 300px;
+      top: 20%;
+      left: calc(50% - 150px); } }
+  #inp h2 {
+    font-size: 40px;
+    user-select: none;
+    margin-bottom: 20px;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+    background: -webkit-linear-gradient(top, #860 0, #fd8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+    @media all and (min-width: 480px) and (max-width: 759px) {
+      #inp h2 {
+        font-size: 35px; } }
+    @media all and (max-width: 479px) {
+      #inp h2 {
+        font-size: 30px; } }

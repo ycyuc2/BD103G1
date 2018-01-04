@@ -1,0 +1,36 @@
+.route table{
+	width: 90%;
+	text-align: center;
+}
+.route table tr td{
+	width: 20%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.route table tr td:nth-child(3){
+	width: 50%;
+}
+.route table tr td:last-child{
+	width: 10%;
+}
+.route iframe{
+	display: block;
+	margin: 30px 0;
+}
+.route button{
+	outline: none;
+	border: none;
+	display: inline-block;
+	width: 140px;
+	height: 50px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	background: url(../img/member/btn.png) center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: #FFC600;
+}
+.route button:hover{
+	color: #FFFF00;
+}

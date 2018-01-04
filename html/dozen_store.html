@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css ">
+    <link rel="stylesheet" type="text/css" href="../css/dozen_store.css">
+    <link rel="stylesheet" href="../css/dozen_nav.css">
+    
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <!-- <script src="../js/33_new.js"></script> -->
+
+    <script>
+            $(window).on("load",function(){
+                    $('.loadBG').delay(2000).fadeOut(1000);
+                    setTimeout(function(){
+                        $('body').css({
+                            'height':'inherit',
+                            'overflow':'inherit'
+                        });
+                    },2000);
+            });
+     </script>
+  
+</head>
+
+<body>
+    <!-- 閃電 -->
+        <div class="background">
+                <img src="../img/lightening/flash1.png" alt="" class="flash lt1">
+                <img src="../img/lightening/flash2.png" alt="" class="flash lt2">
+                <img src="../img/lightening/flash3.png" alt="" class="flash lt3">
+                <img src="../img/lightening/flash4.png" alt="" class="flash lt4">
+            </div>
+
+  <!-- 載入頁面   -->
+  <div class="loadBG">
+    <div class='loading'></div>
+    <div class="loadLOGO"><img src="../img/dozen_store/onlyLOGO.png" alt=""></div>
+    </div>
+
+        <input type="checkbox" name="" id="menuControl">
+		<label for="menuControl" class="hamburger">
+				<div></div>
+				<div></div>
+				<div></div>
+		</label for="menuControl">
+
+    <!-- menu -->
+    <div class="menu">
+        <a  href="index.html"><img  class="logo" src="../img/hamburger/LOGO-08.png" ></a>
+        <a class="title" href="findTeacher.html">
+            <span class="findTeacher"></span>
+        </a>
+        <a class="title" href="dozen_store.html">
+            <span class="store"></span>
+        </a>
+        <a class="title" href="member.html">
+            <span class="member"></span>
+        </a>
+    </div>
+
+    <i class="fa fa-address-book" aria-hidden="true"></i>
+    <div class="header">
+        <a href="#">
+            <img class="logo" src="../img/hamburger/LOGO-08.png">
+        </a>
+
+
+        <p>
+            <span id="person">
+                <a href="#" class="name">王小姐</a>
+            </span> 您好 購物車(<a href="#">0</a>)
+        </p>
+
+    </div>
+
+    <div class="frame">
+        <!-- <h1>最新商品</h1>
+
+        <div id="slideBoard">
+                <ul id="content">
+                    <li><img src="../../Skyline/album/01.PNG" class="image"></li>
+                    <li><img src="../../Skyline/album/02.jpg" class="image"></li>
+                    <li><img src="../../Skyline/album/03.jpg" class="image"></li>
+                    <li><img src="../../Skyline/album/04.jpg" class="image"></li>
+                    <li><img src="../../Skyline/album/05.png" class="image"></li>
+                    
+                    
+                </ul>
+
+                <ul id="contentButton">
+                    <li class="clickMe"></li>
+                    
+                </ul>
+        </div> -->
+        
+        <h1 style="margin-top:30px;">商品分類</h1>
+        <a href="#"></a>
+        <div class="product">
+            <div class="pdList">
+                <a href="#">家飾</a>
+                <a href="#">服飾</a>
+                <a href="#">文具</a>
+                <a href="#">食品</a>
+            </div>
+            <div class="filter">
+                    <form>
+                            <select name="YourLocation" class="select">
+                             <option value="Taipei">價格由高到低</option>
+                             <option value="Taoyuan"> 價格由低到高</option>
+                            </select>
+                    </form>
+                    
+                    <input class="search" type="text" placeholder="找商品...">
+                    
+            </div>
+            
+            <div class="productContent">
+                <div class="one">
+                    <a href="../html/dozen_storedetail.html"><img src="../img/dozen_store/lion.jpg" alt=""></a>
+                    <h2>開運石獅子</h2>
+                    <div class="price">
+                        
+                        <p >1000000$</p>
+                        <i class="fa fa-heart"></i>
+                    </div>    
+                             
+               </div>
+
+               <div class="one">
+                    <a href="../html/dozen_storedetail.html"><img src="../img/dozen_store/lion.jpg" alt=""></a>
+                    <h2>開運石獅子</h2>
+                    <div class="price">
+                        
+                        <p >1000000$</p>
+                        <i class="fa fa-heart"></i>
+                    </div>    
+                             
+               </div>
+
+               <div class="one">
+                    <a href="../html/dozen_storedetail.html"><img src="../img/dozen_store/lion.jpg" alt=""></a>
+                    <h2>開運石獅子</h2>
+                    <div class="price">
+                        
+                        <p >1000000$</p>
+                        <i class="fa fa-heart"></i>
+                    </div>    
+                             
+               </div>
+
+               <div class="one">
+                    <a href="../html/dozen_storedetail.html"><img src="../img/dozen_store/lion.jpg" alt=""></a>
+                    <h2>開運石獅子</h2>
+                    <div class="price">
+                        
+                        <p >1000000$</p>
+                        <i class="fa fa-heart"></i>
+                    </div>    
+                             
+               </div>
+
+               <div class="one">
+                    <a href="../html/dozen_storedetail.html"><img src="../img/dozen_store/lion.jpg" alt=""></a>
+                    <h2>開運石獅子</h2>
+                    <div class="price">
+                        
+                        <p >1000000$</p>
+                        <i class="fa fa-heart"></i>
+                    </div>    
+                             
+               </div>
+
+               <div class="one">
+                    <a href="../html/dozen_storedetail.html"><img src="../img/dozen_store/lion.jpg" alt=""></a>
+                    <h2>開運石獅子</h2>
+                    <div class="price">
+                        
+                        <p >1000000$</p>
+                        <i class="fa fa-heart"></i>
+                    </div>    
+                             
+               </div>
+
+               
+
+                 
+
+
+                
+                
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="footer">
+    <h4>© 2018 Dozen點算 - All rights reserved.</h4>
+    </div>
+
+
+
+    
+</body>
+
+</html>
