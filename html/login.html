@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/login.css">
+    
+</head>
+<body>
+    <div class="background">
+        <div class="ground">
+            <img src="../img/index/ground_only.png" alt="">
+        </div>
+    </div>
+    <div id="background">
+        <div id="logo">
+            <img src="../img/index/LOGO_08.png" alt="">
+        </div>
+        <form action="" id="login">
+            <table>
+                <tr>
+                    <th><p>帳號：</p></th>
+                    <td id="inp"><input type="text" name="memId" maxlength="12"></td>
+                </tr>
+                <tr>
+                    <th><p>密碼：</p></th>
+                    <td id="inp"><input type="text" name="memPsw" maxlength="12"></td>
+                </tr>
+                <tr>
+                    <td id="btn" colspan="2">    
+                        <div class="btn"><input type="submit" value="確認"></div>
+                        <div class="btn add">註冊</div>
+                    </td>
+                    
+                </tr>
+            </table>
+        </form>
+        <form action="login.html" id="add">
+                <table>
+                        <tr>
+                            <th><p>新增帳號：</p></th>
+                            <td id="inp"><input type="text" name="memId" maxlength="12" required></td>
+                        </tr>
+                        <tr>
+                            <th><p>新增密碼：</p></th>
+                            <td id="inp"><input type="text" name="memPsw" maxlength="12" required></td>
+                        </tr>
+                        <tr>
+                            <th><p>確認密碼:</p></th>
+                            <td id="inp"><input type="text" name="memPsw" maxlength="12" required></td>
+                        </tr>
+                        <tr>
+                            <th><p>暱稱:</p></th>
+                            <td id="inp"><input type="text" name="name" maxlength="12"></td>
+                        </tr>
+                        <tr>
+                            <th><p>電話:</p></th>
+                            <td id="inp"><input type="text" name="tel" maxlength="12"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td id="btn" colspan="2">
+                                <div class="btn"><input type="submit" value="確認"></div>
+                                <div class="btn"><input type="reset" value="重填"></div>
+                            </td>
+                        </tr>
+                    </table>
+        </form>
+    </div>
+    </div>
+    
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html>

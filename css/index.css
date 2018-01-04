@@ -155,7 +155,7 @@ h6 {
 }
 @font-face {
     font-family: "王漢宗粗明體繁-中";
-    src: url("../font/王漢宗特明體 – 標準.ttf");
+    src: url("../../font/王漢宗特明體 – 標準.ttf");
 }
 *{
     color: rgba(255,255,255,0.9);
@@ -187,7 +187,7 @@ h6 {
     .background {
         background-size: 100% auto;
     }
-    #result{
+    #start #test,#result{
         width: 960px;
     }
     #result .item{
@@ -198,7 +198,7 @@ h6 {
     .background {
         background-size:auto 100% ;
     }
-    #result{
+    #start #test,#result{
         width: 85%;
     }
 }
@@ -206,7 +206,7 @@ h6 {
     .background {
         background-size: auto 100%;
     }
-    #result {
+     #start #test,#result {
         width: 90%;
     }
     #result .item {
@@ -222,7 +222,7 @@ h6 {
     .background {
         background-size: auto 100%;
     }
-    #result {
+    #start #test,#result{
         width: 95%;
     }
     #result .item {
@@ -262,7 +262,7 @@ h6 {
 }
 #top #logo{
     padding:5% 0;
-    transition:0.3s all linear;
+    /* transition:0.3s all linear; */
     transform: scale(1);
 }
 #top h2{
@@ -274,9 +274,9 @@ h6 {
     width: 0;
     opacity: 0;
 }
-#top #logo.smaller{
+/* #top #logo.smaller{
     transform: scale(0.3);
-}
+} */
 #top #logo img {
     margin: 0 auto;
     display: block;
@@ -286,17 +286,111 @@ h6 {
 
 #top #logo h2 {
     text-align: center;
+    width: 400px;
+    transition: 0.5s all linear;
+    opacity: 1;
 }
 
 #top #logo h2.disap {
     width: 0;
     opacity: 0;
 }
+
+
+#start {
+    margin: 0 auto 0;
+    height: 50vh;
+}
+
+#start #test {
+    display: block;
+    clear: both;
+    margin: 0em auto 2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 50px transparent solid;
+    border-image: url('../img/index/border.png') 90 90 repeat;
+    position: relative;
+    line-height: 2em;
+    font: 1em;
+    text-align: center;
+    transition: 1s all ease;
+}
+
+#start #double {
+    display: none;
+}
+
+#start #test select {
+    font-size: 1em;
+    width: 120px;
+    height: 2em;
+    cursor: pointer;
+    color: #000000;
+}
+
+#start #test .radio {
+    position: absolute;
+    left: -1000px;
+}
+#start #test h5{
+    line-height: 2em;
+}
+#start #test .btn1 {
+    background: url('../img/index/btn_love.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#start #test .btn2 {
+    background: url('../img/index/btn_money.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#start #test .btn3 {
+    background: url('../img/index/btn_health.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#start #test .btn4 {
+    background: url('../img/index/btn_work.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#start #test input {
+    line-height: 2em;;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 0px;
+    color: #fff;
+}
+
+#start input:focus {
+    outline: none;
+}
+
+#start input:hover {
+    cursor: pointer;
+}
+
+#start h1 {
+    margin: 2em 0 1em;
+}
+
+#start .star canvas {
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(200, 30, 60, 0.4);
+}
+
+
+
 #result{
     margin: 0 auto;
-}
-#result .get p{
-    margin: 0.5em 0;
+    padding: 5em 0;
 }
 #result .title{
     margin: 0.5em auto;
@@ -309,17 +403,23 @@ h6 {
     display: inline-block;
     margin: 1em ;
 }
+#result .goal{
+    margin: 5em 0;
+}
 #result .goal .birth{
     text-align: center;
     margin: 1em 0;
 }
 #result .get {
      border: 50px transparent solid;
-     border-image: url('../img/index/frame_960x960.png') 90 90 repeat;
+     border-image: url('../img/index/border.png') 90 90 repeat;
     background-color: rgba(0, 0, 0, 0.4);
     text-align:justify;
     text-justify: distribute;
 
+}
+#result .get p {
+    margin: 0.5em 0;
 }
 #result .get h3{
     background:linear-gradient(to bottom,rgb(243, 138, 236) ,rgb(195, 52, 174) 50%,rgb(160,70,160) 100%);
@@ -333,11 +433,15 @@ h6 {
     filter:blur(3px);
     background-color: rgba(255,2555,255,0.4);
 }
-#result .fortune .btn.out{
+#result .fortune .special0{
+    background:linear-gradient(to bottom, rgb(243, 233, 138), rgb(168, 127, 14) 50%, rgb(83, 63, 6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.7em;
     position: absolute;
     bottom: 15%;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -163px;
     margin-top: -1em;
 
 }
@@ -370,7 +474,6 @@ h6 {
 }
 .item img {
     width: 100%;
-    min-width:200px;
     display: block;
 }
 

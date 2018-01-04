@@ -1,0 +1,260 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("../../img/index/background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media all and (min-width: 960px) {
+  .background {
+    background-size: 100% auto;
+  }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+  .background {
+    background-size: 100% auto;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+  .background {
+    background-size: auto 100%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .background {
+    background-size: auto 100%;
+  }
+}
+
+.background .ground img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "王漢宗粗明體繁-中";
+  src: url("../font/王漢宗特明體 – 標準.ttf");
+}
+*,th,a{
+  font-family: "王漢宗粗明體繁-中";
+}
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font: 1em;
+}
+
+h6 {
+  font: 0.8em;
+}
+
+#background {
+  width: 100vw;
+  height: 100vh;
+}
+
+#background #logo {
+  padding: 3% 0;
+  max-width: 300px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#background #logo img {
+  transition: 1s all ease;
+  transform: scale(1);
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#background #logo img.smaller {
+  transform: scale(0.7);
+}
+
+#background table {
+  width: 350px;
+  height: auto;
+  margin: 0 auto;
+  font-size: 1em;
+  color: #fff;
+  border-bottom: 0.7em transparent solid;
+}
+
+#background table tr {
+  padding-bottom: 0.3em;
+  border-bottom: 0.7em transparent solid;
+}
+
+#background table tr th {
+  width: 100px;
+  text-align: left;
+  border-bottom: 0.7em transparent solid;
+}
+
+#background table tr td {
+  width: 200px;
+  text-align: right;
+}
+
+#background table tr #inp {
+  background: url("../../img/index/input.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-bottom: 0.7em transparent solid;
+}
+
+#background table tr input {
+  width: 100%;
+  height: 2em;
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+  border: transparent;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+}
+
+#background table tr input:focus {
+  outline: none;
+}
+
+#background table tr input:hover {
+  cursor: pointer;
+}
+
+#background table tr #btn {
+  width: 400px;
+  text-align: center;
+  border-bottom: 0.7em transparent solid;
+}
+
+#background table tr #btn .btn {
+  width: 120px;
+  height: 2em;
+  line-height: 2em;
+  padding: 0.3em 0;
+  background: url("../../img/index/btn.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+    font-family: "王漢宗粗明體繁-中";
+
+}
+
+#background table tr #btn .btn p {
+  margin: 0.5em auto;
+}
+
+#background table tr #btn .btn p:hover {
+  cursor: pointer;
+}
+
+#background #login {
+  transition: 1s all ease;
+  height: auto;
+  display: '';
+}
+
+#background #login.click {
+  height: 0;
+  display: none;
+}
+
+#background #add {
+  transition: 1s all ease 2s;
+  height: 0;
+  line-height: 2em;
+  display: none;
+}
+
+#background #add.click {
+  height: auto;
+  display: '';
+}
+
+/*# sourceMappingURL=login.css.map */
