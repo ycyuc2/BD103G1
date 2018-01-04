@@ -59,7 +59,7 @@ table {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: url("../../img/index/background.png");
+  background: url("../img/index/background.png");
   background-position: center center;
   background-repeat: no-repeat;
   position: fixed;
@@ -180,7 +180,7 @@ h6 {
 }
 
 #background table tr #inp {
-  background: url("../../img/index/input.png");
+  background: url("../img/index/input.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-bottom: 0.7em transparent solid;
@@ -217,7 +217,7 @@ h6 {
   height: 2em;
   line-height: 2em;
   padding: 0.3em 0;
-  background: url("../../img/index/btn.png");
+  background: url("../img/index/btn.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: inline-block;
