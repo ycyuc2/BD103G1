@@ -11,6 +11,8 @@
 	<title>Document</title>
 </head>
 <body id="body">
+
+	<!-- 漢堡 -->
 	<input type="checkbox" name="" id="menuControl">
 	<label for="menuControl" class="hamburger">
 		<div></div>
@@ -32,11 +34,13 @@
 		</a>
 	</div>
 
-
+	<!-- 搜尋icon -->
 	<div id="search">
 		<i class="fa fa-search"></i>
 	</div>
 
+
+	<!-- 搜尋按鈕 -->
 	<div id="inp">
 		<h2>請選擇您要找的老師</h2>
 		<div class="findTeacher">
@@ -47,12 +51,37 @@
 		<button id="addTeacher" class="btn"><img src="../img/findTeacher/btnframe2.png">AddTeacher</button>
 	</div>
 
+	<!-- 說明頁燈箱 -->
+	<div class="directions">
+		<div class="content">
+			<p>點擊搜尋按鈕可依關鍵字搜尋老師</p>
+			<p>或按住滑鼠拖曳在茫茫星空中找尋與你有緣的老師</p>
+		</div>
+	</div>
+
+
+	<!-- 說明頁js -->
+	<script>
+		// 5秒後關閉說明頁燈箱
+		window.onload = function(){
+			setTimeout(closeDirections, 5000);
+
+		}
+
+		// 關閉的function
+		function closeDirections(){
+			var directionLightBox = document.getElementsByClassName('directions')[0];
+			directionLightBox.style.visibility = 'hidden';
+			directionLightBox.style.opacity = '0';
+		}
+
+
+	</script>
 
 
 
 
-
-<!-- 老師細節燈箱 -->
+	<!-- 老師細節燈箱 -->
 	<div id="teacherInfo">
 		<div id="closeBtn">
 			<i class="fa fa-times"></i>
@@ -95,17 +124,11 @@
 
 
 
-
+	<!-- 裝拖曳效果的容器 -->
 	<div id="moveContainer">
+		<!-- 拖曳效果位置 -->
 		<div id="moveArea">
-
-
-
-			
-
-
-
-
+			<!-- 預設的老師儲存空間 -->
 			<ul class="qqArea">
 					<li></li>
 					<li></li>
@@ -297,12 +320,13 @@
 
 		}
 
-
+		//老師燈箱叉叉按鈕關閉
 		function closeTeacherInfo(){
 			var teacherInfo = document.getElementById('teacherInfo');
 
 			var search = document.getElementById('search');
 			
+			//使老師燈箱在顯示狀態無法使用放大鏡
 			if (teacherInfo.style.visibility === 'visible') {
 				teacherInfo.style.visibility = 'hidden';
 				teacherInfo.style.opacity = 0;
