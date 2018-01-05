@@ -78,9 +78,7 @@ function queryWidth(){
 //清除空白老師欄位
 function clearEmptyLi(){
 	var screenWidth = window.innerWidth;
-	console.log(screenWidth);
 	if (screenWidth < 480 ) {
-		console.log(boxes);
 		for (var i = 0; i < boxes.length; i++) {
 			if (boxes[i].childElementCount < 1) {
 				boxes[i].style.display = 'none';
