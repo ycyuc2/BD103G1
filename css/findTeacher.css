@@ -230,6 +230,10 @@
     margin: auto;
     background-color: #db6;
     color: #333; }
+    .directions .content .btnarea {
+      text-align: center; }
+    .directions .content #clickCloseDirection {
+      margin: auto; }
 
 .qqArea {
   width: 100%;

@@ -56,18 +56,21 @@
 		<div class="content">
 			<p>點擊搜尋按鈕可依關鍵字搜尋老師</p>
 			<p>或按住滑鼠拖曳在茫茫星空中找尋與你有緣的老師</p>
+			<div class="btnarea"><button id="clickCloseDirection">我知道了</button></div>
 		</div>
+		
 	</div>
 
 
 	<!-- 說明頁js -->
 	<script>
-		// 5秒後關閉說明頁燈箱
+		// 10秒後關閉說明頁燈箱
 		window.onload = function(){
 			setTimeout(closeDirections, 5000);
 
 		}
-
+		//點擊按鈕亦可關閉說明頁燈箱
+		document.getElementById('clickCloseDirection').onclick = closeDirections;
 		// 關閉的function
 		function closeDirections(){
 			var directionLightBox = document.getElementsByClassName('directions')[0];
