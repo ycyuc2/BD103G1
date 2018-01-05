@@ -39,7 +39,43 @@
 		addBtn.addEventListener('click', addTeacher, false);
 
 
-	window.addEventListener('resize',clearEmptyLi, false );
+
+	var container = document.getElementById('moveContainer');
+
+	var theScroll;
+
+	function queryWidth(){
+		var screenWidth = window.innerWidth;
+		if (screenWidth > 480 ) {
+				scroll();
+				theScroll.scrollTo(-1600,-1000);
+		}else{
+			clearEmptyLi();
+		}
+	}
+	function scroll() {
+	    theScroll = new IScroll(container,{
+	    	scrollX : true,
+	    	scrollY : true,
+	    	freeScroll : true,
+	    	bindToWrapper : true,
+	    	mouseWheelSpeed : 3,
+	    	deceleration : 0.02,
+	    	scrollbars : true,
+	    	interactiveScrollbars : true
+	    });
+	    
+	    
+	}
+
+	document.addEventListener('DOMContentLoaded', queryWidth, false);
+
+
+
+
+
+	window.addEventListener('resize', clearEmptyLi, false );
+	window.addEventListener('resize', queryWidth, false );
 
 	function clearEmptyLi(){
 		var screenWidth = window.innerWidth;

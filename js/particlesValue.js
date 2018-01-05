@@ -1,7 +1,7 @@
 particlesJS("moveArea",{
 			  "particles": {
 			    "number": {
-			      "value": 30,
+			      "value": 10,
 			      "density": {
 			        "enable": true,
 			        "value_area": 631.3480069132609

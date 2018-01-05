@@ -80,14 +80,20 @@
   @media all and (min-width: 760px) and (max-width: 959px) {
     #teacherInfo {
       width: 100%;
+      position: absolute;
+      top: 0;
       left: 0; } }
   @media all and (min-width: 480px) and (max-width: 759px) {
     #teacherInfo {
       width: 100%;
+      position: absolute;
+      top: 0;
       left: 0; } }
   @media all and (max-width: 479px) {
     #teacherInfo {
       width: 100%;
+      position: absolute;
+      top: 0;
       left: 0; } }
   #teacherInfo #closeBtn {
     z-index: 30;
@@ -123,7 +129,7 @@
           width: 90%; }
           @media all and (max-width: 479px) {
             #teacherInfo .columnBorder .authorInfo .authorPhoto img {
-              width: 70%; } }
+              width: 50%; } }
         @media all and (max-width: 479px) {
           #teacherInfo .columnBorder .authorInfo .authorPhoto {
             width: 100%;
@@ -148,6 +154,15 @@
             margin-top: 20px; }
           #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) {
             margin-top: 20px; }
+            @media all and (min-width: 760px) and (max-width: 959px) {
+              #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) {
+                margin-top: 10px; } }
+            @media all and (min-width: 480px) and (max-width: 759px) {
+              #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) {
+                margin-top: 10px; } }
+            @media all and (max-width: 479px) {
+              #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) {
+                margin-top: 10px; } }
             #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) i {
               font-size: 20px;
               color: #333; }
@@ -162,6 +177,15 @@
   #teacherInfo .teacherMaps {
     margin-top: 30px;
     width: 100%; }
+    @media all and (min-width: 760px) and (max-width: 959px) {
+      #teacherInfo .teacherMaps {
+        margin-top: 10px; } }
+    @media all and (min-width: 480px) and (max-width: 759px) {
+      #teacherInfo .teacherMaps {
+        margin-top: 10px; } }
+    @media all and (max-width: 479px) {
+      #teacherInfo .teacherMaps {
+        margin-top: 10px; } }
     #teacherInfo .teacherMaps iframe {
       width: 100%;
       height: 50%; }
@@ -192,19 +216,37 @@
         @media all and (max-width: 479px) {
           #teacherInfo .teacherColumn .column p {
             font-size: 12px; } }
-    #teacherInfo .teacherColumn .btnGoToColumn {
-      display: block;
-      margin: 0 auto;
-      font-size: 18px;
-      width: 100px;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
-      text-decoration: none;
-      color: #fff;
-      background-image: url(../img/findTeacher/btn.png);
-      background-position: center center;
-      background-size: 100% 100%; }
+    #teacherInfo .teacherColumn .teacherInfoBtn {
+      width: 70%;
+      margin: 0 auto; }
+      @media all and (min-width: 760px) and (max-width: 959px) {
+        #teacherInfo .teacherColumn .teacherInfoBtn {
+          width: 70%; } }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        #teacherInfo .teacherColumn .teacherInfoBtn {
+          width: 70%; } }
+      @media all and (max-width: 479px) {
+        #teacherInfo .teacherColumn .teacherInfoBtn {
+          width: 100%; } }
+      #teacherInfo .teacherColumn .teacherInfoBtn:after {
+        content: '';
+        clear: both;
+        display: block; }
+      #teacherInfo .teacherColumn .teacherInfoBtn .btnGoToColumn {
+        display: block;
+        float: left;
+        font-size: 18px;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-image: url(../img/findTeacher/btn.png);
+        background-position: center center;
+        background-size: 100% 100%; }
+      #teacherInfo .teacherColumn .teacherInfoBtn .btn2 {
+        float: right; }
 
 .directions {
   width: 100vw;
