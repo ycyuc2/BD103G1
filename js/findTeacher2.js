@@ -61,30 +61,34 @@ function scroll() {
 }
 
 
+
 //判斷瀏覽器寬
 function queryWidth(){
 	var screenWidth = window.innerWidth;
 	//寬度大於480使用iscroll拖曳效果
 	if (screenWidth > 480 ) {
 			scroll();
+			sortLi();
 			theScroll.scrollTo(-1600,-1000);
 	//小於則否，並將空白老師欄位清除
 	}else{
-		clearEmptyLi();
+		sortLi();
 	}
 }
 
 
-//清除空白老師欄位
-function clearEmptyLi(){
+//整理空白老師欄位
+function sortLi(){
 	var screenWidth = window.innerWidth;
 	if (screenWidth < 480 ) {
+		//手機板隱藏
 		for (var i = 0; i < boxes.length; i++) {
 			if (boxes[i].childElementCount < 1) {
 				boxes[i].style.display = 'none';
 			}
 		}
 	}else{
+		//桌機版要回來
 		for (var i = 0; i < boxes.length; i++) {
 			if (boxes[i].childElementCount < 1) {
 				boxes[i].style.display = 'inline-block';

@@ -298,6 +298,7 @@
 			}
 		}
 
+		//顯示老師細節
 		function showTeacher(){
 
 			//找到放大鏡
@@ -307,21 +308,32 @@
 			var teacherInfo = document.getElementById('teacherInfo');
 
 			var screenWidth = window.innerWidth;
+			//遵循古法找到物件寬
 			var infoWidth = parseInt(window.getComputedStyle(teacherInfo).getPropertyValue('width'));
-			console.log(infoWidth);
-			console.log(screenWidth);
-			
-			if (teacherInfo.style.visibility === 'visible') {
-				teacherInfo.style.visibility = 'hidden';
-				teacherInfo.style.opacity = 0;
-				search.style.display = 'block';
+
+			var screenWidth = window.innerWidth;
+			//判斷寬度是否大於480
+			if (screenWidth > 480 ) {
+				//這段為toggle效果
+				if (teacherInfo.style.visibility === 'visible') {
+					teacherInfo.style.visibility = 'hidden';
+					teacherInfo.style.opacity = 0;
+					search.style.display = 'block';
+				}else{
+					teacherInfo.style.visibility = 'visible';
+					teacherInfo.style.opacity = 1;
+					search.style.display = 'none';
+				}
+			//這段為手機板點擊老師後可以顯示在當前頁面頂端
 			}else{
+				//chrome無法使用window.scrollTop
+				teacherInfo.style.top = document.documentElement.scrollTop + 'px';
 				teacherInfo.style.visibility = 'visible';
 				teacherInfo.style.opacity = 1;
 				search.style.display = 'none';
-				// teacherInfo.style.left = (screenWidth - infoWidth)/2 + 'px';
-				// teacherInfo.style.top = '0px';
 			}
+			
+			
 
 		}
 
@@ -332,15 +344,9 @@
 			var search = document.getElementById('search');
 			
 			//使老師燈箱在顯示狀態無法使用放大鏡
-			if (teacherInfo.style.visibility === 'visible') {
 				teacherInfo.style.visibility = 'hidden';
 				teacherInfo.style.opacity = 0;
 				search.style.display = 'block';
-			}else{
-				teacherInfo.style.visibility = 'visible';
-				teacherInfo.style.opacity = 1;
-				search.style.display = 'none';
-			}
 		}
 	</script>
 </body>
