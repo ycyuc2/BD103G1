@@ -128,7 +128,7 @@ h1 {
 
 .teacher {
   max-width: 960px;
-  margin: 30px auto;
+  margin: auto;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.8); }
   .teacher .teacherBorder {
@@ -536,3 +536,71 @@ h1 {
         right: 0;
         top: 0;
         margin: auto; }
+    .teacher .teacherBorder .submit a {
+      display: block;
+      width: 200px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 16px;
+      margin: auto;
+      margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-image: url(../img/findTeacher/btn.png);
+      background-position: center center;
+      background-size: 100% 100%; }
+
+.teacher .teacherBorder .intro {
+  font-size: 20px;
+  color: #ddd;
+  padding: 0;
+  margin-top: 30px; }
+
+.teacher .teacherBorder .inputTopic {
+  display: block;
+  width: 90%;
+  height: 40px;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 10px; }
+  .teacher .teacherBorder .inputTopic:focus {
+    outline: none; }
+
+.teacher .teacherBorder .inputImg {
+  display: block;
+  margin-left: 5%;
+  width: 100px;
+  height: 30px;
+  margin-top: 10px; }
+  .teacher .teacherBorder .inputImg:focus {
+    outline: none; }
+
+.teacher .teacherBorder .inputContent {
+  width: 90%;
+  display: block;
+  height: 200px;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 10px; }
+  .teacher .teacherBorder .inputContent:focus {
+    outline: none; }
+
+.teacher .teacherBorder .submit {
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border: 0;
+  background-color: transparent;
+  background-image: url(../img/findTeacher/btn.png);
+  background-position: center center;
+  background-size: 100% 100%; }
+  .teacher .teacherBorder .submit:focus {
+    outline: none; }
