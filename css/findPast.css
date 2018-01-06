@@ -1,0 +1,56 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "微軟正黑體","arial"; }
+
+.findPast {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  background-color: #333;
+  cursor: pointer; }
+  .findPast p {
+    font-size: 20px;
+    line-height: 50px; }
+
+.howToFindPast {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7); }
+  .howToFindPast .paper {
+    max-width: 600px;
+    background-image: url(../img/findTeacher/paper.png);
+    background-size: 100% 100%;
+    background-position: center center;
+    padding: 50px;
+    box-sizing: border-box; }
+    .howToFindPast .paper h3 {
+      font-size: 30px;
+      text-align: center; }
+    .howToFindPast .paper .step {
+      margin-top: 30px; }
+      .howToFindPast .paper .step:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .howToFindPast .paper .step h3 {
+        font-size: 25px;
+        color: #333; }
+      .howToFindPast .paper .step .pic {
+        float: left;
+        width: 30%; }
+      .howToFindPast .paper .step .content {
+        float: left;
+        width: 70%; }
+        .howToFindPast .paper .step .content h4 {
+          font-size: 20px;
+          color: #333; }
+        .howToFindPast .paper .step .content p {
+          font-size: 18px;
+          color: #333;
+          margin-top: 10px; }
