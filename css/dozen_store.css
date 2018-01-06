@@ -147,35 +147,74 @@
   left: calc(50% - 75px);
   top: calc(50% - 75px); }
 
-@-webkit-keyframes loading {
-  from {
-    -webkit-transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg); } }
-
-@-moz-keyframes loading {
-  from {
-    -moz-transform: rotate(0deg); }
-  to {
-    -moz-transform: rotate(360deg); } }
-
-@-o-keyframes loading {
-  from {
-    -o-transform: rotate(0deg); }
-  to {
-    -o-transform: rotate(360deg); } }
-
 @keyframes loading {
   from {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
 
+@keyframes LOGOrotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(-360deg); } }
+
 .loadLOGO img {
   position: fixed;
   left: calc(50% - 50px);
   top: calc(50% - 50px);
   width: 100px; }
+
+.bar {
+  z-index: 100;
+  width: 12vw;
+  height: .25vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16vw;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  background: #333; }
+
+.progress {
+  z-index: 100;
+  width: 12vw;
+  height: .5vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  background: #fff; }
+
+.progress {
+  animation: progress 4s ease;
+  -moz-animation: progress 4s ease;
+  /* Firefox */
+  -webkit-animation: progress 4s ease;
+  /* Safari and Chrome */
+  -o-animation: progress 4s ease;
+  /* Opera */ }
+
+@keyframes progress {
+  0% {
+    left: -24vw; }
+  10% {
+    left: -20vw; }
+  30% {
+    left: -16vw; }
+  50% {
+    left: -12vw; }
+  65% {
+    left: -10vw; }
+  80% {
+    left: -4vw; }
+  100% {
+    left: 0; } }
 
 body {
   margin: 0;
