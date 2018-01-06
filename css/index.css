@@ -1,236 +1,121 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-
-body {
-    line-height: 1;
-}
-
-ol,
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-blockquote,
-q {
-    quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
-}
-
-a {
-    color: #ffffff;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-h1 {
-    font: 2em;
-}
-
-h2 {
-    font: 1.5em;
-}
-
-h3 {
-    font: 1.17em;
-}
-
-h4 {
-    font: 1em;
-}
-
-h5 {
-    font: 0.83em;
-}
-
-h6 {
-    font: 0.75em;
-}
-@font-face {
-    font-family: "王漢宗粗明體繁-中";
-    src: url("../../font/王漢宗特明體 – 標準.ttf");
-}
 *{
-    color: rgba(255,255,255,0.9);
-    font-family: "王漢宗粗明體繁-中";
-    letter-spacing: 1px;
-    line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+    color: #dddddd;
 }
 .background {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: url("../img/index/background.png");
     background-position: center center;
     background-repeat: no-repeat;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -5;
 }
-
 .background .ground img {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: auto;
 }
-
 @media all and (min-width: 960px) {
     .background {
         background-size: 100% auto;
     }
-    #start #test,#result{
-        width: 960px;
-    }
-    #result .item{
-        width: 48%;
-    }
 }
+
 @media all and (min-width: 760px) and (max-width: 959px) {
     .background {
-        background-size:auto 100% ;
-    }
-    #start #test,#result{
-        width: 85%;
+        background-size : auto 100%;
     }
 }
+
 @media all and (min-width: 480px) and (max-width: 759px) {
     .background {
         background-size: auto 100%;
     }
-     #start #test,#result {
-        width: 90%;
-    }
-    #result .item {
-        width: 100%;
-        text-align: center;
-    } 
-    #result .btn{
-        margin: 0 auto;
-    }
-
 }
+
 @media all and (max-width: 479px) {
     .background {
         background-size: auto 100%;
     }
-    #start #test,#result{
-        width: 95%;
-    }
-    #result .item {
-        width: 100%;
-    }#result .item .left{
-        width: 100%;
-    }
 }
+ 
+@font-face {
+    font-family: "王漢宗中明體繁- 細";
+    src: url("../font/王漢宗中明體繁- 細.ttf");
+}
+h1,h2,h3,h4,h5{
+    font-family: "王漢宗中明體繁- 細";
+}
+p{
+    font-family: "微軟正黑體";
+}
+#ball{
+    position: fixed;
+    right: 5%;
+    top: 30%;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 70px;
+    z-index:20;
+    background-image: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #43e 100%);
+}
+#top{
+    text-align: center;
+    position: fixed;
+    bottom: 5%;
+    left: 1%;
+    width: 50px;
+    height: 50px;
+    background: url('../img/index/scrolltotop.png');
+    background-size: 100% 100%;
+    z-index:20;
+}
+#top:hover{
+    cursor:pointer;
+}
+#ball:hover{
+    cursor: pointer;
+    background-color: #aa0000;
+}
+/* header */
+
+.logo {
+    width: 100px;
+    position: fixed;
+    left: calc(50% - 50px);
+    top: 3%;
+}
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.header p { 
+    font-family: "王漢宗中明體繁- 細"; /*不知道為什麼裝不上去？*/
+    display: inline-block;
+    margin-right: 2%;
+    margin-top: 5%;
+    position: fixed;
+    right: 2%;
+}
+
+.header p a {
+    text-decoration: none;
+    color: red;
+}
+
+/* 按鈕 */
 .btn {
     line-height: 2em;
     width: 120px;
@@ -244,71 +129,102 @@ h6 {
 .btn:hover {
     cursor: pointer;
 }
+.btn1 {
+    background: url('../img/index/btn_love.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.btn2 {
+    background: url('../img/index/btn_money.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 
 .btn.out {
     background: url('../img/index/btn.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
- .hello{
-    position: fixed;
-    top: 10%;
-    right: 5%;
 
-}
-#top{
-    height: 100vh;
-    text-align: center;
-}
-#top #logo{
-    padding:5% 0;
-    /* transition:0.3s all linear; */
-    transform: scale(1);
-}
-#top h2{
-    width: 400px;
-    text-align: center;
+/* 選擇算命方式與banner */
+
+.container{
+    width: 960px;
     margin: 0 auto;
 }
-#top h2.disap {
-    width: 0;
-    opacity: 0;
+@media all and (min-width: 760px) and (max-width: 959px) {
+    .container {
+        width: 90%;
+    }
 }
-/* #top #logo.smaller{
-    transform: scale(0.3);
-} */
-#top #logo img {
-    margin: 0 auto;
+@media all and (min-width: 480px) and (max-width: 759px) {
+    .container{
+        width: 90%;
+    }
+}
+@media all and (max-width: 479px) {
+    .container{
+        width: 90%;;
+    }
+}
+#choose{
+    text-align: center;
+    height: 80vh;
+    position: relative;
+    padding-top: 25vh;
+}
+#choose p{
     display: block;
-    width: 60vh;
-    height: auto;
+    font-size: 4em;
+    margin:15vh 0.5em 5vh;
 }
-
-#top #logo h2 {
-    text-align: center;
-    width: 400px;
-    transition: 0.5s all linear;
-    opacity: 1;
+@media all and (min-width: 760px) and (max-width: 959px){
+    #choose p{
+        font-size: 3em;
+    }
+    #choose h2{
+        font-size: 1.5em;
+    }
 }
-
-#top #logo h2.disap {
-    width: 0;
-    opacity: 0;
+@media all and (min-width: 480px) and (max-width: 759px) {
+    #choose p {
+        font-size: 2.5em;
+    }
+    #choose h2 {
+        font-size: 1.5em;
+    }
 }
-
-
-#start {
-    margin: 0 auto 0;
-    height: 50vh;
+@media all and (max-width: 479px) {
+    #choose p {
+        font-size: 2.5em;
+    }
+    #choose h2 {
+        font-size: 1.5em;
+    }
 }
-
+#choose #btn .btn{
+    margin:5vh 2em 0;
+    width: 150px;
+}
+#choose .radio{
+    position: absolute;
+    top: 0;
+    left: -100%;
+}
+/* 輸入生日 */
+#start{
+    position: relative;
+    width: 100%;
+}
+#start .push{
+    padding: 30vh 0;
+}
 #start #test {
     display: block;
+    margin: 0 auto 20%;
     clear: both;
-    margin: 0em auto 2em;
     background-color: rgba(0, 0, 0, 0.5);
-    border: 50px transparent solid;
-    border-image: url('../img/index/border.png') 90 90 repeat;
     position: relative;
     line-height: 2em;
     font: 1em;
@@ -332,9 +248,11 @@ h6 {
     position: absolute;
     left: -1000px;
 }
-#start #test h5{
+
+#start #test h5 {
     line-height: 2em;
 }
+
 #start #test .btn1 {
     background: url('../img/index/btn_love.png');
     background-size: 100% 100%;
@@ -360,7 +278,8 @@ h6 {
 }
 
 #start #test input {
-    line-height: 2em;;
+    line-height: 2em;
+    ;
     width: 100%;
     height: 100%;
     background: transparent;
@@ -380,107 +299,146 @@ h6 {
     margin: 2em 0 1em;
 }
 
-#start .star canvas {
-    width: 100%;
-    height: 50vh;
-    background-color: rgba(200, 30, 60, 0.4);
-}
-
-
-
 #result{
-    margin: 0 auto;
-    padding: 5em 0;
-}
-#result .title{
-    margin: 0.5em auto;
-}
-#result .title div{
-    margin:0.3em;
-    display: inline-block;
-}
-#result .tell{
-    display: inline-block;
-    margin: 1em ;
-}
-#result .goal{
-    margin: 5em 0;
-}
-#result .goal .birth{
-    text-align: center;
-    margin: 1em 0;
-}
-#result .get {
-     border: 50px transparent solid;
-     border-image: url('../img/index/border.png') 90 90 repeat;
-    background-color: rgba(0, 0, 0, 0.4);
-    text-align:justify;
-    text-justify: distribute;
-
-}
-#result .get p {
-    margin: 0.5em 0;
-}
-#result .get h3{
-    background:linear-gradient(to bottom,rgb(243, 138, 236) ,rgb(195, 52, 174) 50%,rgb(160,70,160) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;   
-}
-#result .fortune{
-    position: relative;
-}
-#result .fortune span{
-    filter:blur(3px);
-    background-color: rgba(255,2555,255,0.4);
-}
-#result .fortune .special0{
-    background:linear-gradient(to bottom, rgb(243, 233, 138), rgb(168, 127, 14) 50%, rgb(83, 63, 6) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.7em;
-    position: absolute;
-    bottom: 15%;
-    left: 50%;
-    margin-left: -163px;
-    margin-top: -1em;
-
-}
-#result .item h3{
-    margin: 0.5em 0;
-    text-align: center;
-}
-#result .item {
-    text-indent: 0em;
-    margin: 0 auto;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.item .left {
-    width: 40%;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.item .right {
-    width: 45%;
-    min-width:200px;
-    padding: 3%;
-    display: inline-block;
-    vertical-align: top;
-}
-.item p{
-    text-indent: 0em;
-}
-.item img {
     width: 100%;
+    padding-top:150px; /* 看header到時候設計的高*/
+    display:none;
+}
+#result #star{
+    width: 100%;
+    height: 80vh; 
+    background-color: rgba(0,0,100,0.5);
+    text-align: center;
+}
+#result .result{
+    margin-top: 150px;
+    background-color: rgba(0,0,0,0.7);
+    text-align: justify;
+    text-justify: distribute;
+}
+#result .love {
+    width: 100%;
+    text-align: center;
+}
+#result .love .item{
+    width: 35%;
+    padding-top: 8%;
+     display: inline-block;
+     vertical-align:middle;
+     text-align: left;
+}
+#result .love .item:first-of-type{
+    text-align: right;
+}
+#result .love .pairing{
+    width: 20%;
+    padding: 4% 1% 9%;
+    display: inline-block;
+    vertical-align: top;
+    background:url('../img/index/love.png');
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-weight:700;
+    font-size: 10%;
+    font-size: 3em;
+}
+#result .result .love h3{
+    text-align: center;
+}
+#result .result h1{
+    text-align: center;
+    line-height: 3em;
+}
+#result .result .chart{
+    padding: 1em;
+    margin-top: 5%;
+    border:1px #ddd double;
+}
+#result .result .chart .topic{
+    margin: 2em 0;
+    line-height: 6em;
+    background:linear-gradient(to top,rgba(0,0,100,1) 0%,rgba(0,100,200,1) 100%);
+    text-align: center;
+}
+#result .result .chart .content.blur{
+    width: 100%;
+    height: 20em;
+    background-color: rgba(255,255,255,0.7);
+    filter:blur(3px);
+}
+#result  .other h2{
     display: block;
+    margin: 2em 0;
+    line-height: 4em;
+    background:linear-gradient(to top, rgba(100, 0, 0, 1) 0%, rgba(200, 100, 0, 1) 100%);
+    text-align: center;
+}
+#result  .other .item{
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 auto;
+   
+}
+#result .other .item img{
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+    margin-top: 10%;
+}
+#result .other .item .right{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding: 3%;
+}
+#result .other .item h2{
+    margin: 0;
+    line-height: 2em;
+  background:linear-gradient(to bottom, rgb(243, 233, 138), rgb(168, 127, 14) 50%, rgb(83, 63, 6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#result .other .right h3{
+    padding-top: 2em;
+    line-height: 3em;
+}
+#result .other .right p{
+    margin-top: 1em;
+}
+@media all and (min-width: 960px){
+    #result .other .item:last-of-type {
+        border-left: #ddd 1px solid;
+    }
+    #result .other .item{
+         padding: 1em;
+    }
+    #result .chart{
+        padding: 2em;
+    }
+}
+@media all and (min-width: 760px) and (max-width: 959px) {
+   #result .other .item{
+        width: 100%;
+   }
 }
 
-.item .btn {
-    margin-top: 2em;
+@media all and (min-width: 480px) and (max-width: 759px) {
+   #result .other .item{
+        width: 100%;
+   }
 }
 
-.item h4 {
-    margin: 1em 0;
+@media all and (max-width: 479px) {
+   #result .other .item{
+        width: 100%;
+   }
+}
+/* footer */
+#footer{
+    width: 100%;
+    height: 20vh;
+    background-color: #000055;
+    text-align: center;
 }
