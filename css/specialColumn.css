@@ -1,13 +1,9 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "王漢宗粗明體繁-中";
-  src: url(../font/王漢宗粗明體繁-中.ttf); }
-
 * {
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: 'Arial',"王漢宗粗明體繁-中"; }
+  font-family: 'Arial',"微軟正黑體"; }
 
 .background {
   background-image: url(../img/specialColumn/background.jpg);
@@ -276,6 +272,27 @@ h1 {
             margin-right: 1.666%;
             height: 30px;
             line-height: 30px; } }
+    .teacher .teacherBorder .newArticle {
+      margin-top: 30px; }
+      .teacher .teacherBorder .newArticle a {
+        float: right;
+        display: inline-block;
+        width: 20%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        margin-left: 6.666%;
+        margin-right: 6.666%;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-image: url(../img/findTeacher/btn.png);
+        background-position: center center;
+        background-size: 100% 100%; }
+      .teacher .teacherBorder .newArticle:after {
+        content: '';
+        display: block;
+        clear: right; }
     .teacher .teacherBorder .articleList {
       width: 100%;
       padding: 30px;
@@ -386,7 +403,7 @@ h1 {
         width: 30%;
         box-sizing: border-box;
         float: left;
-        margin: 0 1.16666%; }
+        margin: 0 1.66666%; }
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .merchandise .content {
             width: 100%;
@@ -442,3 +459,80 @@ h1 {
         display: block;
         content: '';
         clear: both; }
+    .teacher .teacherBorder .recommend .content {
+      width: 25%;
+      margin: 0 4.16666%;
+      border: 2px solid #fff;
+      padding: 10px; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .teacher .teacherBorder .recommend .content {
+          float: none;
+          width: 100%;
+          margin: 0 auto; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .recommend .content {
+          width: 100%;
+          margin: 0 auto; } }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .teacher .teacherBorder .recommend .content .merchandisePhoto {
+          width: 25%;
+          float: left; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .recommend .content .merchandisePhoto {
+          width: 30%;
+          float: left; } }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .teacher .teacherBorder .recommend .content .merchandiseIntro {
+          margin-left: 5%;
+          width: 70%;
+          float: left; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .recommend .content .merchandiseIntro {
+          margin-left: 5%;
+          width: 65%;
+          float: left; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .recommend .content .merchandiseIntro p:nth-child(2) {
+          display: none; } }
+      .teacher .teacherBorder .recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
+        display: none; }
+      .teacher .teacherBorder .recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
+        font-size: 20px;
+        color: #ff0;
+        font-weight: bold; }
+      .teacher .teacherBorder .recommend .content:after {
+        content: '';
+        clear: both;
+        display: block; }
+    @media all and (min-width: 480px) and (max-width: 759px) {
+      .teacher .teacherBorder .content.rear {
+        margin-top: 10px; } }
+    @media all and (max-width: 479px) {
+      .teacher .teacherBorder .content.rear {
+        margin-top: 10px; } }
+    .teacher .teacherBorder .productsSelect {
+      width: 100%;
+      height: 300px;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      position: relative; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .teacher .teacherBorder .productsSelect {
+          height: 200px; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .productsSelect {
+          height: 150px; } }
+      .teacher .teacherBorder .productsSelect p {
+        display: block;
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 40px;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        margin: auto; }
