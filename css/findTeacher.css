@@ -141,7 +141,7 @@
         box-sizing: border-box;
         padding-right: 5%;
         padding-left: 5%; }
-        #teacherInfo .columnBorder .authorInfo .authorIntro h3 {
+        #teacherInfo .columnBorder .authorInfo .authorIntro h2 {
           font-size: 20px;
           color: #333;
           text-align: center; }
@@ -149,6 +149,7 @@
           color: #333; }
           #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(2):before {
             content: '專長：';
+            color: #555;
             display: block;
             font-size: 16px;
             margin-top: 20px; }
@@ -175,7 +176,7 @@
         display: block;
         clear: both; }
   #teacherInfo .teacherMaps {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%; }
     @media all and (min-width: 760px) and (max-width: 959px) {
       #teacherInfo .teacherMaps {
@@ -193,25 +194,28 @@
     width: 100%;
     box-sizing: border-box; }
     #teacherInfo .teacherColumn p {
+      margin: 5px;
+      text-align: center;
       font-size: 20px; }
       @media all and (max-width: 479px) {
         #teacherInfo .teacherColumn p {
           font-size: 14px; } }
     #teacherInfo .teacherColumn .column {
       width: 100%;
-      box-sizing: border-box;
-      padding: 5%;
-      border-radius: 5px; }
+      box-sizing: border-box; }
       #teacherInfo .teacherColumn .column a {
         text-decoration: none;
-        font-size: 20px;
         color: #333;
         font-weight: bold; }
-        @media all and (max-width: 479px) {
-          #teacherInfo .teacherColumn .column a {
-            font-size: 14px; } }
+        #teacherInfo .teacherColumn .column a h3 {
+          font-size: 20px;
+          margin-top: 10px; }
+          @media all and (max-width: 479px) {
+            #teacherInfo .teacherColumn .column a h3 {
+              font-size: 14px; } }
       #teacherInfo .teacherColumn .column p {
-        margin-top: 20px;
+        text-align: left;
+        margin-top: 10px;
         font-size: 16px; }
         @media all and (max-width: 479px) {
           #teacherInfo .teacherColumn .column p {
