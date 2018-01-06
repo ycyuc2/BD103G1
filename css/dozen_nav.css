@@ -13,7 +13,7 @@ body {
 .menu {
   height: 100vh;
   width: 100vw;
-  background-image: url(../img/nav_bg.jpg);
+  background-image: url(../img/share/nav_bg.jpg);
   background-size: cover;
   background-position: center center;
   position: fixed;
@@ -108,7 +108,7 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/store.png);
+  background-image: url(../img/share/store.png);
   background-size: cover;
   margin: 0 auto;
   transition: 0.5s all ease-in-out; }
@@ -117,14 +117,14 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/storeLight.png);
+  background-image: url(../img/share/storeLight.png);
   background-size: cover; }
 
 .menu .findTeacher {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/findTeacher.png);
+  background-image: url(../img/share/findTeacher.png);
   background-size: cover;
   margin: 0 auto;
   transition: 0.5s all ease-in-out; }
@@ -133,14 +133,14 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/findTeacherLight.png);
+  background-image: url(../img/share/findTeacherLight.png);
   background-size: cover; }
 
 .menu .member {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/member.png);
+  background-image: url(../img/share/member.png);
   background-size: cover;
   margin: 0 auto;
   transition: 0.5s all ease-in-out; }
@@ -149,7 +149,7 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/memberLight.png);
+  background-image: url(../img/share/memberLight.png);
   background-size: cover; }
 
 .menu a {
