@@ -6,12 +6,12 @@
 .backBtn{
 	width: 70px;
 	height: 70px;
-	background-image: url(img/crystalball.png);
+	background-image: url(../img/backBtn/crystalball.png);
 	background-size: 100%;
 }
 
 .backBtn:hover{
-	background-image: url(img/crystalball_hover.png);
+	background-image: url(../img/backBtn/crystalball_hover.png);
 	background-size: 100%;
 	transition: .2s;
 }
@@ -20,6 +20,6 @@
 	text-decoration: none;
 	color: #ddd;
 	position: absolute;
-	top: 4.5%;
+	top: 3%;
 	left: 1.1%;
 }
