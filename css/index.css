@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color: #dddddd;
+    letter-spacing: 1px;
 }
 .background {
     width: 100vw;
@@ -141,12 +142,12 @@
     right: -95%;
     z-index: 100;
     opacity: 0.1;
-    transition: opacity 1s 0s,right 0s 1s;
+    transition: opacity 0.2s 0s,right 0s 0.2s;
 }
 #box-control:checked~.wrapper {
     opacity: 1;
     right: 0;
-    transition:opacity 1s;
+    transition:opacity 0.2s;
 }
 #lightbox {
     width: 500px;
@@ -170,7 +171,7 @@
 }
 
 #lightbox #logo img {
-    transition: 1s all ease;
+    transition: 0.2s all ease;
     transform: scale(1);
     display: block;
     width: 100%;
@@ -261,7 +262,7 @@
 }
 
 #lightbox #login {
-    transition: 1s all ease;
+    transition: 0.2s all ease;
     height: auto;
     display: '';
 }
@@ -272,7 +273,7 @@
 }
 
 #lightbox #add {
-    transition: 1s all ease 2s;
+    transition: 0.2s all ease 2s;
     height: 0;
     line-height: 2em;
     display: none;
@@ -373,7 +374,7 @@
     line-height: 2em;
     font: 1em;
     text-align: center;
-    transition: 1s all ease;
+    transition: 0.2s all ease;
 }
 #start form {
     display: block;
@@ -462,41 +463,11 @@
     text-align: justify;
     text-justify: distribute;
 }
-#result .love {
-    width: 100%;
-    text-align: center;
-}
-#result .love .item{
-    width: 35%;
-    padding-top: 8%;
-     display: inline-block;
-     vertical-align:middle;
-     text-align: left;
-}
-#result .love .item:first-of-type{
-    text-align: right;
-}
-#result .love .pairing{
-    width: 20%;
-    padding: 4% 1% 9%;
-    display: inline-block;
-    vertical-align: top;
-    background:url('../img/index/love.png');
-    background-size:100% auto;
-    background-repeat: no-repeat;
-    text-align: center;
-    font-weight:700;
-    font-size: 10%;
-    font-size: 3em;
-}
-#result .result .love h3{
-    text-align: center;
-}
 #result .result h1{
     text-align: center;
     line-height: 3em;
 }
-#result .result h2{
+    #result .result h2,#result .result h3 {
     text-align: center;
 }
 #result .result .chart{
@@ -511,7 +482,7 @@
 }
 #result .result .chart .content.blur{
     width: 100%;
-    height: 20em;
+    height: 10em;
     filter:blur(3px);
 }
 #result  .other h2{
@@ -526,13 +497,13 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 auto;
-   
+    padding: 1em 1em 3em 0em;
+
 }
 #result .other .item img{
     display: inline-block;
     vertical-align: top;
     width: 40%;
-    margin-top: 10%;
 }
 #result .other .item .right{
     display: inline-block;
@@ -543,23 +514,29 @@
 #result .other .item h2{
     margin: 0;
     line-height: 2em;
+    text-align: left;
   background:linear-gradient(to bottom, rgb(243, 233, 138), rgb(168, 127, 14) 50%, rgb(83, 63, 6) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #result .other .right h3{
-    padding-top: 2em;
     line-height: 3em;
 }
 #result .other .right p{
     margin-top: 1em;
 }
+#result .other .right p:nth-last-of-type(2){
+    text-decoration: line-through;
+}
+#result .other .right .discount{
+    color: #ff0000;
+    font-weight: 900;
+    font-size: 1.7em;
+    line-height: 0;
+}
 @media all and (min-width: 960px){
     #result .other .item:last-of-type {
         border-left: #ddd 1px solid;
-    }
-    #result .other .item{
-         padding: 1em;
     }
     #result .chart{
         padding: 2em;
@@ -569,27 +546,22 @@
    #result .other .item{
         width: 100%;
    }
-    #result .love .pairing {
-        font-size: 2em;
-    }
 }
 
 @media all and (min-width: 480px) and (max-width: 759px) {
    #result .other .item{
         width: 100%;
    }
-    #result .love .pairing {
-        font-size: 1.5em;
-    }
 }
 
 @media all and (max-width: 479px) {
    #result .other .item{
         width: 100%;
    }
-    #result .love .pairing {
-        font-size: 1.5em;
-    }
+   #result .other .item img,#result .other .item .right{
+       width: 90%;
+       margin: 0 auto;
+   }
 }
 /* footer */
 #footer{
