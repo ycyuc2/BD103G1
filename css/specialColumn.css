@@ -323,10 +323,18 @@ h1 {
       @media all and (max-width: 479px) {
         .teacher .teacherBorder .articleList {
           padding: 0px; } }
-      .teacher .teacherBorder .articleList .first {
-        border-bottom: 1px solid #ddd; }
-      .teacher .teacherBorder .articleList .second {
-        border-bottom: 1px solid #ddd; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .teacher .teacherBorder .articleList .first {
+          border-bottom: 1px solid #ddd; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .articleList .first {
+          border-bottom: 1px solid #ddd; } }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .teacher .teacherBorder .articleList .second {
+          border-bottom: 1px solid #ddd; } }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .articleList .second {
+          border-bottom: 1px solid #ddd; } }
       .teacher .teacherBorder .articleList .article {
         width: 100%;
         margin-top: 30px;
