@@ -1,0 +1,31 @@
+*{
+	margin: 0;
+	padding: 0;
+	background-color: #333;
+}
+
+ul.like-dislike-wrap{
+	list-style: none;
+}
+
+ul.like-dislike-wrap span{
+	color: #ddd;
+	margin-left: 10px;
+}
+
+ul.like-dislike-wrap li{
+	width: 80px;
+	height: 30px;
+	display: inline-block;
+	border: 1px solid #ddd;
+	padding: 10px 0 0 10px;
+}
+
+ul.like-dislike-wrap li i{
+	color: #ddd;
+}
+
+ul.like-dislike-wrap li i:hover{
+	color: #0ee7d5;
+	transition: .2s;
+}
