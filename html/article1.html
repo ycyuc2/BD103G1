@@ -94,16 +94,17 @@
 		
 	</div>
 
-
+<!-- 標題 -->
 	<h2>搞定水逆，讓你全家不再水逆</h2>
 
 	<div class="specialColumn">
-		
+<!-- 外框專用 -->
 		<div class="columnBorder">
 			<div class="authorIntro">
 				<div class="authorPhoto">
 					<img src="../img/findTeacher/horseman.jpg">
 				</div>
+<!-- 作者區 -->
 				<div class="author">
 					<div class="intro">
 						<a href="">馬男波傑克</a>
@@ -123,7 +124,7 @@
 					</ul>
 				</div>
 			</div>
-			
+<!-- 文章區 -->
 			<article>
 				<p>
 					　　最近正逢水星逆行，到底水逆有多可怕呢？一般來說，運勢變差、身體狀況不好都是常見的現象，其實3C產品也是會受到影響的，就以本月初的iPhone6系列更新完轉圈圈的狀況來說好了，雖然官方說法是系統更新的衝突，但明眼人都知道那只是'官方說法'，事實上很明顯的是受到今年最嚴重水逆的影響，如果不是的話，畫面又怎麼會如同行星自轉般旋轉呢？
@@ -155,7 +156,7 @@
 						<p>2017/12/2 04:37:10</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
@@ -186,7 +187,7 @@
 						<p>2017/12/2 19:07:42</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -220,7 +221,7 @@
 						<p>2017/12/3 06:55:08</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
@@ -257,7 +258,7 @@
 						<p>2017/12/3 11:42:17</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
@@ -276,6 +277,8 @@
 			</article>
 		</div>
 	</div>
+
+<!-- 會員回復 -->
 	<div class="memberReply">
 		<div class="columnBorder">
 			<h3>留言</h3>
@@ -285,5 +288,60 @@
 			</form>
 		</div>
 	</div>
+
+<!-- 檢舉燈箱 -->
+	<div class="reportLightBox">
+		<div class="content">
+			<div class="cancelBtn">
+				<i class="fa fa-times"></i>
+			</div>
+			<p>請輸入檢舉原因</p>
+			<form>
+				<textarea></textarea>
+				<input class="reportSubmit" type="submit" value="送出">
+			</form>
+		</div>
+	</div>
+	<script>
+			//宣告一堆變數
+			var reportBtn, lightBox, cancelBtn, reportSubmit;
+			//這是檢舉按鈕
+			reportBtn = document.getElementsByClassName('report');
+			//這是檢舉燈箱
+			lightBox = document.getElementsByClassName('reportLightBox')[0];
+			//這是燈箱關閉按鈕
+			cancelBtn = document.getElementsByClassName('cancelBtn')[0];
+			//這是燈箱送出按鈕
+			reportSubmit = document.getElementsByClassName('reportSubmit')[0];
+			//燈箱關閉按鈕按了關閉燈箱
+			cancelBtn.addEventListener('click', function(){
+					closeReport();
+			}, false);
+
+			//送出按鈕按了會顯示送出訊息，然後關閉燈箱
+			reportSubmit.addEventListener('click', function(){
+					alert('已送出檢舉');
+					closeReport();
+			}, false);
+
+			//將所有檢舉按鈕建立click事件
+			for (var i = 0; i < reportBtn.length; i++) {
+				reportBtn[i].addEventListener('click', showReport, false);
+			};
+			//關閉燈箱的function
+			function closeReport(){
+				lightBox.style.visibility = 'hidden';
+				lightBox.style.opacity = 0;
+
+			}
+			//打開燈箱的function
+			function showReport(){
+				lightBox.style.visibility = 'visible';
+				lightBox.style.opacity = 1;
+			}
+
+
+		
+	</script>
 </body>
 </html>
