@@ -2,6 +2,25 @@
     margin: 0;
     padding: 0;
     color: #dddddd;
+    letter-spacing: 1px;
+}
+h1{
+line-height: 40px;
+}
+h2{
+line-height: 32px;
+}
+h3{
+line-height: 26.72px;
+}
+h4{
+line-height: 24px;
+}
+h5{
+line-height: 21.28px;
+}
+p{
+  line-height: 24px;  
 }
 .background {
     width: 100vw;
@@ -44,15 +63,8 @@
         background-size: auto 100%;
     }
 }
- 
-@font-face {
-    font-family: "王漢宗中明體繁- 細";
-    src: url("../font/王漢宗中明體繁- 細.ttf");
-}
-h1,h2,h3,h4,h5{
-    font-family: "王漢宗中明體繁- 細";
-}
-p{
+
+*{
     font-family: "微軟正黑體";
 }
 #ball{
@@ -64,19 +76,8 @@ p{
     border-radius: 35px;
     text-align: center;
     line-height: 70px;
-    z-index:20;
+    z-index:5;
     background-image: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #000 100%);
-}
-#top{
-    text-align: center;
-    position: fixed;
-    bottom: 5%;
-    left: 1%;
-    width: 50px;
-    height: 50px;
-    background: url('../img/index/scrolltotop.png');
-    background-size: 100% 100%;
-    z-index:20;
 }
 #top:hover{
     cursor:pointer;
@@ -85,38 +86,8 @@ p{
     cursor: pointer;
     background-color: #aa0000;
 }
-/* header */
-
-.logo {
-    width: 100px;
-    position: fixed;
-    left: calc(50% - 50px);
-    top: 3%;
-}
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 150px;
-    background-color: rgba(0,0,0,0.2);
-}
-
-.header p { 
-    font-family: "王漢宗中明體繁- 細"; /*不知道為什麼裝不上去？*/
-    display: inline-block;
-    margin-right: 2%;
-    margin-top: 5%;
-    position: fixed;
-    right: 2%;
-}
-
-.header p a {
-    text-decoration: none;
-    color: red;
-}
-
 /* 按鈕 */
-.btn {
+.btn{
     line-height: 2em;
     width: 120px;
     height: 2em;
@@ -126,7 +97,7 @@ p{
     vertical-align: top;
 }
 
-.btn:hover {
+.btnM:hover {
     cursor: pointer;
 }
 .btn1 {
@@ -149,25 +120,54 @@ p{
 
 
 /* 燈箱 */
+.login{
+    position: fixed;
+    top: 50px;
+    left: 200px;
+    z-index:9;
+}
+@media all and (min-width: 760px) and (max-width: 959px) {
+    .login {
+        left: 200px;
+    }
+}
+@media all and (min-width: 480px) and (max-width: 759px) {
+    .login{
+        left: 170px;
+    }
+}
 
+@media all and (max-width: 479px) {
+    .login{
+        left: 100px;
+    }
+}
+.login:hover{
+    cursor:pointer;
+}
+#box-control{
+    position: absolute;
+    top: 0;
+    left: -100%;
+}
 .wrapper {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
-    right: -95%;
+    right: -100%;
     z-index: 100;
     opacity: 0.1;
-    transition: opacity 1s 0s,right 0s 1s;
+    transition: opacity 0.2s 0s,right 0s 0.2s;
 }
 #box-control:checked~.wrapper {
     opacity: 1;
     right: 0;
-    transition:opacity 1s;
+    transition:opacity 0.2s;
 }
 #lightbox {
-    width: 500px;
+    width: 400px;
     height: 500px;
     position: absolute;
     left: 0;
@@ -176,10 +176,27 @@ p{
     bottom: 0;
     margin: auto;
     background-color: #000000;
+    padding-top: 10%;
 }
-
+@media all and (max-width: 479px) {
+    #lightbox{
+        width:100%;
+        height: 80%;
+        padding-top: 30%;
+    }
+}
 .box-close {
     display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.box-close i{
+    display:block;
+}
+.box-close i:hover{
+    color: rgb(248, 42, 162);
+    cursor: pointer;
 }
 #lightbox #logo {
     padding: 3% 0;
@@ -188,7 +205,7 @@ p{
 }
 
 #lightbox #logo img {
-    transition: 1s all ease;
+    transition: 0.2s all ease;
     transform: scale(1);
     display: block;
     width: 100%;
@@ -207,18 +224,22 @@ p{
     color: #fff;
     border-bottom: 0.7em transparent solid;
 }
-
+#lightbox table caption{
+    margin: 1em 0;
+}
 #lightbox table tr {
     padding-bottom: 0.3em;
     border-bottom: 0.7em transparent solid;
 }
 
 #lightbox table tr th {
-    width: 100px;
+    width: 50px;
     text-align: left;
     border-bottom: 0.7em transparent solid;
 }
-
+#lightbox #add table tr th{
+    width:75px;
+}
 #lightbox table tr td {
     width: 200px;
     text-align: right;
@@ -263,7 +284,6 @@ p{
     background-repeat: no-repeat;
     display: inline-block;
     vertical-align: middle;
-    font-family: "王漢宗粗明體繁-中";
 }
 
 #lightbox table tr #btn .btn p {
@@ -275,7 +295,7 @@ p{
 }
 
 #lightbox #login {
-    transition: 1s all ease;
+    transition: 0.2s all ease;
     height: auto;
     display: '';
 }
@@ -286,7 +306,7 @@ p{
 }
 
 #lightbox #add {
-    transition: 1s all ease 2s;
+    transition: 0.2s all ease 2s;
     height: 0;
     line-height: 2em;
     display: none;
@@ -307,7 +327,7 @@ p{
 
 .container{
     width: 960px;
-    margin: 0 auto;
+    margin: 0 auto ;
 }
 @media all and (min-width: 760px) and (max-width: 959px) {
     .container {
@@ -345,18 +365,18 @@ p{
 }
 @media all and (min-width: 480px) and (max-width: 759px) {
     #choose p {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
     #choose h2 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 }
 @media all and (max-width: 479px) {
     #choose p {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
     #choose h2 {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 }
 #choose #btn .btn{
@@ -371,35 +391,46 @@ p{
 /* 輸入生日 */
 #start{
     position: relative;
-    width: 100%;
+    max-width:450px;
+    width: 90%;
+    margin: 0 auto;
 }
 #start .push{
     padding: 30vh 0;
 }
 #start #test {
     display: block;
-    margin: 0 auto 20%;
+    margin:0  auto 20%;
+    padding: 1em 0;
     clear: both;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     line-height: 2em;
     font: 1em;
     text-align: center;
-    transition: 1s all ease;
+    transition: 0.2s all ease;
 }
-
+#start #test form{
+    padding: 1em;
+}
+#start #test form p{
+    padding-bottom: 0.5em;
+}
 #start #double {
     display: none;
 }
 
 #start #test select {
     font-size: 1em;
-    width: 120px;
+    width: 75px;
     height: 2em;
     cursor: pointer;
     color: #000000;
+    margin: 0.2em 0.3em 0.5em;
 }
-
+#start #test select:nth-of-type(1){
+    width: 100px;
+}
 #start #test .radio {
     position: absolute;
     left: -1000px;
@@ -442,15 +473,13 @@ p{
     border: 0px;
     color: #fff;
 }
+#start .btn.out{
+    margin: 1em 0 0;
+}
 
 #start input:focus {
     outline: none;
 }
-
-#start input:hover {
-    cursor: pointer;
-}
-
 #start h1 {
     margin: 2em 0 1em;
 }
@@ -472,55 +501,28 @@ p{
     text-align: justify;
     text-justify: distribute;
 }
-#result .love {
-    width: 100%;
-    text-align: center;
-}
-#result .love .item{
-    width: 35%;
-    padding-top: 8%;
-     display: inline-block;
-     vertical-align:middle;
-     text-align: left;
-}
-#result .love .item:first-of-type{
-    text-align: right;
-}
-#result .love .pairing{
-    width: 20%;
-    padding: 4% 1% 9%;
-    display: inline-block;
-    vertical-align: top;
-    background:url('../img/index/love.png');
-    background-size:100% auto;
-    background-repeat: no-repeat;
-    text-align: center;
-    font-weight:700;
-    font-size: 10%;
-    font-size: 3em;
-}
-#result .result .love h3{
-    text-align: center;
-}
 #result .result h1{
     text-align: center;
     line-height: 3em;
 }
+    #result .result h2,#result .result h3 {
+    text-align: center;
+}
 #result .result .chart{
     padding: 1em;
     margin-top: 5%;
-    border:1px #ddd double;
 }
 #result .result .chart .topic{
     margin: 2em 0;
-    line-height: 6em;
     background:linear-gradient(to top,rgba(0,0,100,1) 0%,rgba(0,100,200,1) 100%);
     text-align: center;
 }
+#result .result .chart .topic h2{
+    line-height: 4em;
+}
 #result .result .chart .content.blur{
     width: 100%;
-    height: 20em;
-    background-color: rgba(255,255,255,0.7);
+    height: 10em;
     filter:blur(3px);
 }
 #result  .other h2{
@@ -535,40 +537,46 @@ p{
     display: inline-block;
     vertical-align: top;
     margin: 0 auto;
-   
+    padding: 1em 0em 3em 4%;
+
 }
 #result .other .item img{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     width: 40%;
-    margin-top: 10%;
 }
 #result .other .item .right{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     width: 50%;
-    padding: 3%;
+    padding: 1%;
 }
 #result .other .item h2{
     margin: 0;
     line-height: 2em;
+    text-align: left;
   background:linear-gradient(to bottom, rgb(243, 233, 138), rgb(168, 127, 14) 50%, rgb(83, 63, 6) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #result .other .right h3{
-    padding-top: 2em;
     line-height: 3em;
 }
 #result .other .right p{
     margin-top: 1em;
 }
+#result .other .right p:nth-last-of-type(2){
+    text-decoration: line-through;
+}
+#result .other .right .discount{
+    color: #ff0000;
+    font-weight: 900;
+    font-size: 1.7em;
+    line-height: 0;
+}
 @media all and (min-width: 960px){
-    #result .other .item:last-of-type {
-        border-left: #ddd 1px solid;
-    }
-    #result .other .item{
-         padding: 1em;
+    #result .other .item:first-of-type {
+        border-right: #ddd 1px solid;
     }
     #result .chart{
         padding: 2em;
@@ -578,27 +586,22 @@ p{
    #result .other .item{
         width: 100%;
    }
-    #result .love .pairing {
-        font-size: 2em;
-    }
 }
 
 @media all and (min-width: 480px) and (max-width: 759px) {
    #result .other .item{
         width: 100%;
    }
-    #result .love .pairing {
-        font-size: 1.5em;
-    }
 }
 
 @media all and (max-width: 479px) {
    #result .other .item{
         width: 100%;
    }
-    #result .love .pairing {
-        font-size: 1.5em;
-    }
+   #result .other .item img,#result .other .item .right{
+       width: 90%;
+       margin: 0 auto;
+   }
 }
 /* footer */
 #footer{
