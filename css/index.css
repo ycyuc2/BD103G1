@@ -150,12 +150,6 @@ p{
 
 /* 燈箱 */
 
-/* .login{
-    z-index:1000;
-    position: absolute;
-    left: 100px;
-    top: 20px;
-} */
 .wrapper {
     width: 100%;
     height: 100%;
@@ -251,10 +245,6 @@ p{
 
 #lightbox table tr input:focus {
     outline: none;
-}
-
-#lightbox table tr input:hover {
-    cursor: pointer;
 }
 
 #lightbox table tr #btn {
