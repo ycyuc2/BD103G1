@@ -3,11 +3,6 @@
 	padding: 0;
 }
 
-body{
-	background-image: url(img/nav_bg.jpg);
-	background-size: 100%;
-}
-
 .header{
 	width: 100vw;
 	height: 150px;
