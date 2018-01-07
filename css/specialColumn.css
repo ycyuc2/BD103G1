@@ -323,9 +323,14 @@ h1 {
       @media all and (max-width: 479px) {
         .teacher .teacherBorder .articleList {
           padding: 0px; } }
+      .teacher .teacherBorder .articleList .first {
+        border-bottom: 1px solid #ddd; }
+      .teacher .teacherBorder .articleList .second {
+        border-bottom: 1px solid #ddd; }
       .teacher .teacherBorder .articleList .article {
         width: 100%;
-        margin-top: 30px; }
+        margin-top: 30px;
+        margin-bottom: 30px; }
         .teacher .teacherBorder .articleList .article .pic {
           width: 25%;
           box-sizing: border-box;
@@ -337,7 +342,8 @@ h1 {
               float: none; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .articleList .article .pic {
-              width: 100%;
+              width: 60%;
+              margin: auto;
               float: none; } }
           .teacher .teacherBorder .articleList .article .pic img {
             width: 100%; }
@@ -407,13 +413,13 @@ h1 {
               float: none;
               width: 90%;
               text-align: right;
-              margin: 10px auto 0px auto; } }
+              margin: 10px auto 10px auto; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .articleList .article .edit {
               float: none;
               width: 100%;
               text-align: right;
-              margin: 10px auto 0px auto; } }
+              margin: 10px auto 10px auto; } }
           .teacher .teacherBorder .articleList .article .edit a {
             margin: auto;
             display: block;
@@ -446,6 +452,7 @@ h1 {
           clear: both;
           display: block; }
     .teacher .teacherBorder .merchandise {
+      margin-top: 20px;
       padding: 30px; }
       @media all and (min-width: 760px) and (max-width: 959px) {
         .teacher .teacherBorder .merchandise {
@@ -457,6 +464,7 @@ h1 {
         .teacher .teacherBorder .merchandise {
           padding: 10px; } }
       .teacher .teacherBorder .merchandise h2 {
+        margin-bottom: 30px;
         font-size: 30px;
         text-align: center;
         color: #ddd; }
@@ -468,8 +476,7 @@ h1 {
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .merchandise .content {
             width: 100%;
-            float: none;
-            margin-top: 50px; } }
+            margin: auto; } }
         .teacher .teacherBorder .merchandise .content .merchandiseIntro a {
           margin-top: 10px;
           text-decoration: none;
@@ -512,7 +519,7 @@ h1 {
               margin: 0 auto; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .merchandise .content .merchandisePhoto {
-              width: 100%;
+              width: 60%;
               margin: 0 auto; } }
           .teacher .teacherBorder .merchandise .content .merchandisePhoto img {
             width: 100%; }
@@ -565,12 +572,9 @@ h1 {
         content: '';
         clear: both;
         display: block; }
-    @media all and (min-width: 480px) and (max-width: 759px) {
-      .teacher .teacherBorder .content.rear {
-        margin-top: 10px; } }
     @media all and (max-width: 479px) {
       .teacher .teacherBorder .content.rear {
-        margin-top: 10px; } }
+        margin-top: 30px; } }
     .teacher .teacherBorder .productsSelect {
       width: 100%;
       height: 300px;
