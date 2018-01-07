@@ -1,0 +1,91 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.footer{
+	width: 100vw;
+	height: 70px;
+	background-color: #333;
+}
+
+/*左邊icon*/
+.footer .icon ul li{
+	display: inline-block;
+}
+
+.footer .icon ul li i{
+	width: 40px;
+	height: 40px;
+	color: #ddd;
+	padding: 20px 0 0 20px;
+}
+
+.footer .icon ul li i:hover{
+	color: #0ee7d5;
+	transition: 1s;
+	cursor: url(../img/dozen_storedetail/cursor.png)20 15,auto;
+}
+
+.footer .icon ul li i:active{
+	cursor: url(../img/dozen_storedetail/cursor2.png)20 15,auto;
+}
+
+.footer .icon ul li:nth-child(1){
+	padding-left: 35px;
+}
+
+/*右邊copyright*/
+.copyright{
+	text-align: right;	
+}
+
+
+.copyright p{
+	font-size: 14px;
+	color: #ddd;
+	letter-spacing: 1px;	
+	margin-right: 35px;
+	margin-top: -35px;
+}
+
+/*RWD開始*/
+@media screen and (max-width: 480px){
+	.footer{
+		height: 120px;
+	}
+	
+	/*左邊icon*/
+	.footer .icon{
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.footer .icon ul{
+		text-align: center;
+	}
+
+	.footer .icon ul li:nth-child(1){
+		padding-left: 0;
+	}
+
+	.footer .icon ul li:nth-child(2),
+	.footer .icon ul li:nth-child(3){
+		padding-left: 20px;
+	}
+
+	.footer .icon ul li i{
+		padding: 20px 0 0 0;
+	}
+	
+	/*右邊copyright*/
+	.footer .copyright{
+		display: block;
+		text-align: center;
+	}
+
+	.footer .copyright p{
+		margin: 10px 0 0 0;
+	}
+}

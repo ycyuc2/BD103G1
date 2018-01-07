@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 </head>
 <body>
+	<!-- hambuerger -->
 	<!-- nav -->
 	<input type="checkbox" name="" id="menuControl">
 	<label for="menuControl" class="hamburger">
@@ -16,7 +17,6 @@
 		<div></div>
 		<div></div>
 	</label for="menuControl">
-
 
 	<!-- menu -->
 	<div class="menu">
@@ -31,55 +31,57 @@
 			<span class="member"></span>
 		</a>
 	</div>
-	<!--
-	申請老師頁(YenYen)
-	行程頁(YenYen)
-	-->
-	<img src="../img/member/LOGO.png" id="logo">
-	<div class="blank"></div>
+	<!-- hambuerger end-->
+
+
 	<div class="wrapper">
 		
-		<ol class="breadcrumb">
-			<li>
-				<a href="#">首頁</a>
-			</li>
-			<li>
-				<a href="member.html">會員專區</a>
-			</li>
-			<li class="active">修改會員資料</li>
-		</ol>
+		
 
-
-		<ol class="nav">
-			<li><a href="infoAlter.html">修改會員資料</a></li>
-			<li><a href="replyVIew.html">檢視留言</a></li>
-			<li><a href="tradeView.html">檢視交易紀錄</a></li>
-			<li><a href="teacherApllication.html">申請老師資格</a></li>
-		</ol>
-
-
-		<div class="content info">
+		<div class="left"><!-- 一般會員 -->
+			<ol class="nav">
+				<li><a href="infoAlter.html">修改資料</a></li>
+				<li><a href="replyVIew.html">檢視留言</a></li>
+				<li><a href="tradeView.html">檢視交易</a></li>
+				<li><a href="tradeView.html">收藏文章</a></li>
+				<li><a href="teacherApllication.html">成為老師</a></li>
+			</ol>
 			
-			<h2>個人資料</h2>
-			<form action="member.html" method="post">
-				<p>
-					<span>會員帳號</span><span class="input"><input type="text" name="name"></span>
-				</p>
-				<p>
-					<span>會員密碼</span><span class="psw"><a href="#">修改密碼</a></span>
-				</p>
-				<p>
-					<span>會員暱稱</span><span class="input"><input type="text" name="nickname"></span>
-				</p>
-				<p>
-					<span>會員電話</span><span class="input"><input type="text" name="tel"></span>
-				</p>
-				<p>
-					<span class="btn"><input type="submit" value="提交">	</span>
-					<span class="btn"><input type="reset" value="重設"></span>
-				</p>
-			</form>
+			<!-- 老師 -->
+			<!-- <ol class="nav navTeacher">
+				<li><a href="infoAlter.html">修改資料</a></li>
+				<li><a href="replyVIew.html">檢視留言</a></li>
+				<li><a href="tradeView.html">檢視交易</a></li>
+				<li><a href="teacherApllication.html">成為老師</a></li>
+			</ol> -->
 		</div>
+
+
+		<div class="right">
+			<div class="content info">
+				
+				<h2>個人資料</h2>
+				<form action="member.html" method="post">
+					<p>
+						<span>會員帳號</span><span class="input"><input type="text" name="name"></span>
+					</p>
+					<p>
+						<span>會員密碼</span><span class="psw"><a href="#">修改密碼</a></span>
+					</p>
+					<p>
+						<span>會員暱稱</span><span class="input"><input type="text" name="nickname"></span>
+					</p>
+					<p>
+						<span>會員電話</span><span class="input"><input type="text" name="tel"></span>
+					</p>
+					<p>
+						<span class="btn"><input type="submit" value="提交">	</span>
+						<span class="btn"><input type="reset" value="重設"></span>
+					</p>
+				</form>
+			</div>
+		</div>
+		<div class="blank"></div>
 	</div>
 </body>
 </html>

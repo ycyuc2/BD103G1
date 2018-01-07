@@ -13,7 +13,7 @@ body {
 .menu {
   height: 100vh;
   width: 100vw;
-  background-image: url(../img/nav_bg.jpg);
+  background-image: url(../img/share/nav_bg.jpg);
   background-size: cover;
   background-position: center center;
   position: fixed;
@@ -21,7 +21,7 @@ body {
   z-index: 10;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: all 0.5s;
   content: '';
   display: block;
   clear: both; }
@@ -108,7 +108,7 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/store.png);
+  background-image: url(../img/share/store.png);
   background-size: cover;
   margin: 0 auto;
   transition: 0.5s all ease-in-out; }
@@ -117,14 +117,14 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/storeLight.png);
+  background-image: url(../img/share/storeLight.png);
   background-size: cover; }
 
 .menu .findTeacher {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/findTeacher.png);
+  background-image: url(../img/share/findTeacher.png);
   background-size: cover;
   margin: 0 auto;
   transition: 0.5s all ease-in-out; }
@@ -133,14 +133,14 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/findTeacherLight.png);
+  background-image: url(../img/share/findTeacherLight.png);
   background-size: cover; }
 
 .menu .member {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/member.png);
+  background-image: url(../img/share/member.png);
   background-size: cover;
   margin: 0 auto;
   transition: 0.5s all ease-in-out; }
@@ -149,7 +149,7 @@ body {
   height: 50px;
   width: 150px;
   display: block;
-  background-image: url(../img/hamburger/memberLight.png);
+  background-image: url(../img/share/memberLight.png);
   background-size: cover; }
 
 .menu a {
@@ -172,76 +172,73 @@ body {
 
 .hamburger {
   position: fixed;
-  top: 10%;
-  left: 5%;
-  width: 30px;
-  height: 30px;
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
   transition: all 300ms cubic-bezier(0.61, 0.01, 0.42, 1);
   cursor: pointer;
   background: transparent;
   border: 0px;
   z-index: 20; }
+  @media all and (max-width: 479px) {
+        .hamburger {
+          top: 20px;
+          left: 20px;
+          width: 60px;
+          height: 60px;
+           } 
+         }
 
 .hamburger div {
-  height: 0px;
-  border: 2px solid #fff;
-  width: 22px;
+  height: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 4px solid #000;
+  width: 100px;
   display: block;
   position: absolute;
   transition: all 300ms cubic-bezier(0.61, 0.01, 0.42, 1);
-  background: #fff; }
+  background-image: url(../img/share/hb.png);
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-color: transparent;
+    }
+
+@media all and (max-width: 479px) {
+        .hamburger div {
+          height: 12px;
+          border: 2.4px solid #000;
+          width: 60px;
+           } 
+         }
 
 .hamburger:hover {
   transition-delay: 100ms;
   transform: scale(1.1); }
 
-.hamburger:hover div:nth-child(3):before {
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background: #F26451; }
-
 .hamburger div:nth-child(1) {
   top: 0px; }
 
 .hamburger div:nth-child(2) {
-  top: 10px; }
+  top: 40px; }
 
 .hamburger div:nth-child(3) {
-  top: 20px; }
+  top: 80px; }
 
-.hamburger:hover div {
-  border: 0.5px solid #fff;
-  height: 9px;
-  border-radius: 50%;
-  margin-left: -1px;
-  margin-top: 2px;
-  animation: atom 300ms linear 1;
-  width: 25px;
-  top: 0px;
-  background: transparent; }
+  @media all and (max-width: 479px) {
+      .hamburger div:nth-child(1) {
+          top: 0px; }
 
-.hamburger div:nth-child(3):before {
-  opacity: 0;
-  animation: ball 1.5s linear infinite;
-  content: '';
-  border: 1px solid #fff;
-  display: block;
-  position: relative;
-  top: 0.25px; }
+      .hamburger div:nth-child(2) {
+          top: 24px; }
 
-.hamburger:hover div:nth-child(1) {
-  transform: rotate(-33deg); }
+      .hamburger div:nth-child(3) {
+          top: 48px; }
+         }
 
-.hamburger:hover div:nth-child(2) {
-  transform: rotate(90deg); }
-
-.hamburger:hover div:nth-child(3) {
-  transform: rotate(33deg); }
-
-.hamburger:hover div:nth-child(3):before {
-  opacity: 1;
-  transition: opacity 600ms cubic-bezier(0.61, 0.01, 0.42, 1); }
 
 #menuControl:checked:hover + .hamburger div:nth-child(3):before,
 #menuControl:checked + .hamburger div:nth-child(3):before,
@@ -249,58 +246,27 @@ body {
   opacity: 0;
   transition: all 200ms; }
 
-#menuControl:checked + .hamburger div {
-  border: 0.5px solid #fff;
-  height: 0px;
-  border-radius: 0%;
-  margin-left: -1px;
-  margin-top: 6px;
-  animation: division 300ms linear 1;
-  width: 25px;
-  top: 0px; }
 
 #menuControl:checked + .hamburger div:nth-child(2) {
   width: 0px; }
 
 #menuControl:checked + .hamburger div:nth-child(3) {
-  transform: rotate(45deg); }
+  transform: translate(0px, -40px) rotate(45deg) ;
+   }
 
 #menuControl:checked + .hamburger div:nth-child(1) {
-  transform: rotate(-45deg); }
+  transform: translate(0px, 40px) rotate(-45deg) ;
+   }
 
-@keyframes atom {
-  0% {
-    transform: rotate(180deg); } }
+  @media all and (max-width: 479px) {
+      #menuControl:checked + .hamburger div:nth-child(2) {
+          width: 0px; }
 
-@keyframes division {
-  0% {
-    transform: rotate(180deg); } }
+      #menuControl:checked + .hamburger div:nth-child(3) {
+          transform: translate(0px, -24px) rotate(45deg) ;
+           }
 
-@keyframes ball {
-  0% {
-    left: -20%;
-    top: 10%; }
-  10% {
-    left: 10%;
-    top: -35%; }
-  25% {
-    left: 45%;
-    top: -50%; }
-  40% {
-    left: 80%;
-    top: -20%; }
-  50% {
-    left: 98%;
-    top: 18%; }
-  60% {
-    left: 80%;
-    top: 50%; }
-  75% {
-    left: 45%;
-    top: 80%; }
-  90% {
-    left: 0%;
-    top: 60%; }
-  100% {
-    left: -20%;
-    top: 10%; } }
+      #menuControl:checked + .hamburger div:nth-child(1) {
+          transform: translate(0px, 24px) rotate(-45deg) ;
+           }
+         }

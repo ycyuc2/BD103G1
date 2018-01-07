@@ -10,25 +10,81 @@
 </head>
 <body>
 
-	<input type="checkbox" name="" id="menuControl">
-	<label for="menuControl" class="hamburger">
-		<div></div>
-		<div></div>
-		<div></div>
-	</label for="menuControl">
+	<!-- 漢堡選單 -->
+		<input type="checkbox" name="" id="menuControl">
+
+		<label for="menuControl" class="hamburger">
+				<div></div>
+				<div></div>
+				<div></div>
+		</label for="menuControl">
 
 	<div class="menu">
-		<a  href="index.html"><img  class="logo" src="../img/hamburger/LOGO-08.png" ></a>
-		<a class="title" href="findTeacher.html">
-			<span class="findTeacher"></span>
-		</a>
-		<a class="title" href="dozen_store.html">
-			<span class="store"></span>
-		</a>
-		<a class="title" href="#">
-			<span class="member"></span>
-		</a>
+		<!-- logo -->
+		<a  href="#"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
+
+		<!-- 右邊的title區塊 -->
+
+			<div class="left">
+				<p>距離下次水星逆行還有</p>
+				<table class="countdownContainer">
+						<tr class="info">
+							<td id="days">120</td><td>天</td>
+							<td id="hours">4</td><td>時</td>
+							<td id="minutes">12</td><td>分</td>
+							<td id="seconds">22</td><td>秒</td>
+						</tr>
+						
+					</table>
+			</div>
+		<!-- 中間的line -->
+			<div class="line"></div>
+			<!-- 右邊的time區塊 -->
+			<div class="right">
+				<a class="title" href="#">
+					<span class="findTeacher"></span>
+				</a>
+				<a class="title" href="#">
+					<span class="store"></span>
+				</a>
+				<a class="title" href="#">
+					<span class="member"></span>
+				</a>
+			</div>	
 	</div>
+
+<!-- 水星逆行的ＪＳ程式 -->
+	<script type="text/javascript">
+		window.onload=countdown;
+		function countdown(){
+			var now = new Date();
+			var eventDate = new Date(2018, 3, 23);
+			var currentTime = now.getTime();
+			var eventTime = eventDate.getTime();
+			var remTime = eventTime - currentTime;
+
+			var s = Math.floor(remTime / 1000);
+			var m = Math.floor(s / 60);
+			var h = Math.floor(m / 60);
+			var d = Math.floor(h / 24);
+
+			h %= 24;
+			m %= 60;
+			s %= 60;
+
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			s = (s < 10) ? "0" + s : s;
+
+			document.getElementById("days").textContent = d;
+			document.getElementById("days").innerText = d;
+			document.getElementById("hours").textContent = h;
+			document.getElementById("minutes").textContent = m;
+			document.getElementById("seconds").textContent = s;
+
+			setTimeout(countdown, 1000);
+		}
+	</script>
 	
 
 
@@ -64,7 +120,7 @@
 					</div>
 				</div>
 				<div class="links">
-					<a href="#">商品推薦</a>
+					<a href="recommendProducts.html">商品推薦</a>
 					<a href="#">老師行程</a>
 					<a href="#">老師專欄</a>
 				</div>
@@ -73,7 +129,7 @@
 
 				<!-- 發文按鈕 -->
 				<div class="newArticle">
-					<a href="#">發文</a>
+					<a href="articlePost.html">發文</a>
 				</div>
 
 
@@ -87,7 +143,7 @@
 						</div>
 						<div class="content">
 							<div class="topic">
-								<h3><a href="">搞定水逆，讓你全家不再水逆</a></h3>
+								<h3><a href="article1.html">搞定水逆，讓你全家不再水逆</a></h3>
 								<div class="detail">
 									<span>2017/12/2</span>
 								</div>
@@ -96,6 +152,10 @@
 								<p>　　最近正逢水星逆行，到底水逆有多可怕呢？一般來說，運勢變差、身體狀況不好都是常見的現象，其實3C產品也是會受到影響的，就以本月初的iPhone6系列更新完轉圈圈的狀況來說好了，雖然官方說法是系統更新的衝突，但明眼人都知道那只是'官方說法'，事實上很明顯的是受到今年最嚴重水逆的影響...</p>
 							</div>
 							<a href="#" class="more">more</a>
+						</div>
+						<div class="edit">
+							<a href=""><i class="fa fa-pencil-square-o"></i></a>
+							<a href=""><i class="fa fa-trash-o"></i></a>
 						</div>
 
 
@@ -118,6 +178,10 @@
 							</div>
 							<a href="#" class="more">more</a>
 						</div>
+						<div class="edit">
+							<a href=""><i class="fa fa-pencil-square-o"></i></a>
+							<a href=""><i class="fa fa-trash-o"></i></a>
+						</div>
 
 
 					</div>
@@ -136,6 +200,10 @@
 								<p>　　最近正逢水星逆行，到底水逆有多可怕呢？一般來說，運勢變差、身體狀況不好都是常見的現象，其實3C產品也是會受到影響的，就以本月初的iPhone6系列更新完轉圈圈的狀況來說好了，雖然官方說法是系統更新的衝突，但明眼人都知道那只是'官方說法'，事實上很明顯的是受到今年最嚴重水逆的影響...</p>
 							</div>
 							<a href="#" class="more">more</a>
+						</div>
+						<div class="edit">
+							<a href=""><i class="fa fa-pencil-square-o"></i></a>
+							<a href=""><i class="fa fa-trash-o"></i></a>
 						</div>
 
 

@@ -1,0 +1,86 @@
+.btnText{
+	color: #FFC600;
+	text-decoration: none;
+	font-family: "微軟正黑體";
+}
+.btnText:hover{
+	color: #FFFF00;
+}
+.btnL{
+	display: inline-block;
+	width: 200px;
+	height: 75px;
+	background: url(../img/btn/btn.png) center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	font-weight: bold;
+}
+.btnL .btnText{
+	font-size: 24px;
+	line-height: 75px;
+}
+.btnL .btnText2{
+	padding-left: 20px;
+	letter-spacing: 20px;
+}
+.btnL .btnText4{
+	padding-left: 15px;
+	letter-spacing: 5px;
+}
+.btnL .btnText6{
+	padding-left: 10px;
+	letter-spacing: 2px;
+}
+.btnM{
+	display: inline-block;
+	width: 150px;
+	height: 56.25px;
+	background: url(../img/btn/btn.png) center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	font-weight: bold;
+}
+.btnM .btnText{
+	font-size: 20px;
+	line-height: 56.25px;
+}
+.btnM .btnText2{
+	padding-left: 15px;
+	letter-spacing: 15px;
+}
+.btnM .btnText4{
+	padding-left: 15px;
+	letter-spacing: 5px;
+}
+.btnM .btnText6{
+	padding-left: 5px;
+	letter-spacing: 1px;
+}
+.btnS{
+	display: inline-block;
+	width: 100px;
+	height: 37.5px;
+	background: url(../img/btn/btn.png) center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	font-weight: bold;
+}
+.btnS .btnText{
+	font-size: 14px;
+	line-height: 37.5px;
+}
+.btnS .btnText2{
+	padding-left: 12px;
+	letter-spacing: 12px;
+}
+.btnS .btnText4{
+	padding-left: 9px;
+	letter-spacing: 3px;
+}
+.btnS .btnText6{
+	padding-left: 2.5px;
+	letter-spacing: 0.5px;
+}

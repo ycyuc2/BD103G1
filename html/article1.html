@@ -10,56 +10,101 @@
 	
 </head>
 <body>
-	<!-- background with lightening -->
-	<div class="background">
-		<img src="../img/flash/flash1.png" alt="" class="flash lt1">
-		<img src="../img/flash/flash2.png" alt="" class="flash lt2">
-		<img src="../img/flash/flash3.png" alt="" class="flash lt3">
-		<img src="../img/flash/flash4.png" alt="" class="flash lt4">
-	</div>
+	<!-- 漢堡選單 -->
+		<input type="checkbox" name="" id="menuControl">
 
+		<label for="menuControl" class="hamburger">
+				<div></div>
+				<div></div>
+				<div></div>
+		</label for="menuControl">
 
-	<!-- nav -->
-	<input type="checkbox" name="" id="menuControl">
-	<label for="menuControl" class="hamburger">
-		<div></div>
-		<div></div>
-		<div></div>
-	</label for="menuControl">
-
-
-	<!-- menu -->
 	<div class="menu">
-		<a  href="index.html"><img  class="logo" src="../img/hamburger/LOGO-08.png" ></a>
-		<a class="title" href="findTeacher.html">
-			<span class="findTeacher"></span>
-		</a>
-		<a class="title" href="dozen_store.html">
-			<span class="store"></span>
-		</a>
-		<a class="title" href="member.html">
-			<span class="member"></span>
-		</a>
+		<!-- logo -->
+		<a  href="#"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
+
+		<!-- 右邊的title區塊 -->
+
+			<div class="left">
+				<p>距離下次水星逆行還有</p>
+				<table class="countdownContainer">
+						<tr class="info">
+							<td id="days">120</td><td>天</td>
+							<td id="hours">4</td><td>時</td>
+							<td id="minutes">12</td><td>分</td>
+							<td id="seconds">22</td><td>秒</td>
+						</tr>
+						
+					</table>
+			</div>
+		<!-- 中間的line -->
+			<div class="line"></div>
+			<!-- 右邊的time區塊 -->
+			<div class="right">
+				<a class="title" href="#">
+					<span class="findTeacher"></span>
+				</a>
+				<a class="title" href="#">
+					<span class="store"></span>
+				</a>
+				<a class="title" href="#">
+					<span class="member"></span>
+				</a>
+			</div>	
 	</div>
 
+<!-- 水星逆行的ＪＳ程式 -->
+	<script type="text/javascript">
+		window.onload=countdown;
+		function countdown(){
+			var now = new Date();
+			var eventDate = new Date(2018, 3, 23);
+			var currentTime = now.getTime();
+			var eventTime = eventDate.getTime();
+			var remTime = eventTime - currentTime;
 
+			var s = Math.floor(remTime / 1000);
+			var m = Math.floor(s / 60);
+			var h = Math.floor(m / 60);
+			var d = Math.floor(h / 24);
 
+			h %= 24;
+			m %= 60;
+			s %= 60;
 
-<<<<<<< HEAD
-	<h2>我是蓬蓬幹改屁改</h2>
-=======
-	<h2>我是蓬蓬</h2>
->>>>>>> 0c560d192c8306af4e5799604149d8ac7d166da6
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			s = (s < 10) ? "0" + s : s;
 
+			document.getElementById("days").textContent = d;
+			document.getElementById("days").innerText = d;
+			document.getElementById("hours").textContent = h;
+			document.getElementById("minutes").textContent = m;
+			document.getElementById("seconds").textContent = s;
 
+			setTimeout(countdown, 1000);
+		}
+	</script>
+
+	<div class="background">
+		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
+		<img src="../img/lightening/flash2.png" alt="" class="flash lt2">
+		<img src="../img/lightening/flash3.png" alt="" class="flash rt1">
+		<img src="../img/lightening/flash4.png" alt="" class="flash rt2">
+		
+	</div>
+
+<!-- 標題 -->
+	<h2>搞定水逆，讓你全家不再水逆</h2>
 
 	<div class="specialColumn">
-		
+<!-- 外框專用 -->
 		<div class="columnBorder">
 			<div class="authorIntro">
 				<div class="authorPhoto">
 					<img src="../img/findTeacher/horseman.jpg">
 				</div>
+<!-- 作者區 -->
 				<div class="author">
 					<div class="intro">
 						<a href="">馬男波傑克</a>
@@ -79,7 +124,7 @@
 					</ul>
 				</div>
 			</div>
-			
+<!-- 文章區 -->
 			<article>
 				<p>
 					　　最近正逢水星逆行，到底水逆有多可怕呢？一般來說，運勢變差、身體狀況不好都是常見的現象，其實3C產品也是會受到影響的，就以本月初的iPhone6系列更新完轉圈圈的狀況來說好了，雖然官方說法是系統更新的衝突，但明眼人都知道那只是'官方說法'，事實上很明顯的是受到今年最嚴重水逆的影響，如果不是的話，畫面又怎麼會如同行星自轉般旋轉呢？
@@ -111,7 +156,7 @@
 						<p>2017/12/2 04:37:10</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
@@ -142,7 +187,7 @@
 						<p>2017/12/2 19:07:42</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -159,7 +204,7 @@
 					　　老師現在在點算啊？我是小陳啦！你最忠實的學生，我下個月要結婚了，不知道老師願不願意參加我的婚禮，方便的話希望您能上台講幾句話！
 				</p>
 				<p>
-					　　真的很謝謝老師，我老婆也常說當初不知道為什麼突然喜歡上我，嘿嘿，我們都知道為什麼啦～
+					　　真的很謝謝老師，我老婆也常說當初不知道為什麼突然喜歡上我，我到現在還沒告訴她水晶的事情！總之真的很謝謝老師！
 				</p>
 			</article>
 		</div>
@@ -176,7 +221,7 @@
 						<p>2017/12/3 06:55:08</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
@@ -213,7 +258,7 @@
 						<p>2017/12/3 11:42:17</p>
 					</div>
 					<ul class="links">
-						<li><a href="#">檢舉</a></li>
+						<li><div class="report">檢舉</div></li>
 						<li class="stars">
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
@@ -232,5 +277,71 @@
 			</article>
 		</div>
 	</div>
+
+<!-- 會員回復 -->
+	<div class="memberReply">
+		<div class="columnBorder">
+			<h3>留言</h3>
+			<form>
+				<textarea></textarea>
+				<input type="submit" value="回覆">
+			</form>
+		</div>
+	</div>
+
+<!-- 檢舉燈箱 -->
+	<div class="reportLightBox">
+		<div class="content">
+			<div class="cancelBtn">
+				<i class="fa fa-times"></i>
+			</div>
+			<p>請輸入檢舉原因</p>
+			<form>
+				<textarea></textarea>
+				<input class="reportSubmit" type="submit" value="送出">
+			</form>
+		</div>
+	</div>
+	<script>
+			//宣告一堆變數
+			var reportBtn, lightBox, cancelBtn, reportSubmit;
+			//這是檢舉按鈕
+			reportBtn = document.getElementsByClassName('report');
+			//這是檢舉燈箱
+			lightBox = document.getElementsByClassName('reportLightBox')[0];
+			//這是燈箱關閉按鈕
+			cancelBtn = document.getElementsByClassName('cancelBtn')[0];
+			//這是燈箱送出按鈕
+			reportSubmit = document.getElementsByClassName('reportSubmit')[0];
+			//燈箱關閉按鈕按了關閉燈箱
+			cancelBtn.addEventListener('click', function(){
+					closeReport();
+			}, false);
+
+			//送出按鈕按了會顯示送出訊息，然後關閉燈箱
+			reportSubmit.addEventListener('click', function(){
+					alert('已送出檢舉');
+					closeReport();
+			}, false);
+
+			//將所有檢舉按鈕建立click事件
+			for (var i = 0; i < reportBtn.length; i++) {
+				reportBtn[i].addEventListener('click', showReport, false);
+			};
+			//關閉燈箱的function
+			function closeReport(){
+				lightBox.style.visibility = 'hidden';
+				lightBox.style.opacity = 0;
+
+			}
+			//打開燈箱的function
+			function showReport(){
+				lightBox.style.visibility = 'visible';
+				lightBox.style.opacity = 1;
+			}
+
+
+		
+	</script>
 </body>
 </html>
