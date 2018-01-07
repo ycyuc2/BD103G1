@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/dozen_nav.css">
     <link rel="stylesheet" href="../css/index.css">
-   
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+
     <!-- <link rel="stylesheet" href="../css/lightening.css"> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    
     <script src="../js/index.js"></script>
 
     <title>Dozen</title>
@@ -22,7 +25,6 @@
         </div>
     </div>
     <!-- 業力球 -->
-    <div id="top"></div>
     <div id="ball" onclick="location.href= '#';">業力</div>
     <!-- header -->
     <!-- 漢堡選單 -->
@@ -254,7 +256,7 @@
             </label>
         </div>
     </div>
-    <div class="container">
+    
         <div id="start">
             <div class="push">
                 <div id="test">
@@ -360,7 +362,7 @@
                         </select>日
                         <br>
                 
-                        <br>
+                        
                         <div class="btn out submit">
                             <input type="submit" value="點算">
                         </div>
@@ -468,7 +470,7 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>日
-                            <h3> 請輸入對方的生日：</h3>
+                            <h4> 請輸入對方的生日：</h4>
                         
                             <select name="year">
                                 <option value="1970">1970</option>
@@ -578,12 +580,13 @@
                 </div>
             </div>
         </div>
+    <div class="container">
         <div id="result">
             <div id="star">星座圖</div>
             <div class="result double">
                 <h1>單人結果</h1>
                 <h2>天秤座</h2>
-                <p>生日:1995年10月12日</p>
+                <h2>生日:1995年10月12日</h2>
                 <div class="chart">
                     <h3>整體：吉</h3>
                     <div class="topic tp1">
@@ -600,7 +603,11 @@
                     <div class="topic tp2">
                         <h2>你的致命致命弱點與優勢！</h2>
                     </div>
-                    <div class="content blur"></div>
+                    <div class="content blur">
+                        <p>天秤座並不受這次水星逆行的影響，最近的工作應該可以得心 應手！但光是靠近期的好運勢不夠的，如果同儕間有競爭關 係，須提防最近突然跟你親近的同事，尤其是身旁的天蠍與巨 蟹，他們很有可能在最後一刻才露出真面目，把你苦心經營 的功勞一口氣搶走！身邊有礦石類的飾品的話，趕快戴起來，
+                            別讓最近的好運功虧一簣！
+                        </p>
+                    </div>
                     <div class="other">
                         <h2>你會需要的</h2>
                         <div class="item">
@@ -652,7 +659,11 @@
                     <div class="topic tp2">
                         <h2>你的致命致命弱點與優勢！</h2>
                     </div>
-                    <div class="content blur"></div>
+                    <div class="content blur">
+                        <p>牡羊座是受到水星逆行干擾最嚴重的星座之一 ，主管、同事、甚至下屬都有可能突然桶一刀 ，但無論怎麼做，好像都是無謂的掙扎。這樣 的情況似乎尚未到達顛峰，甚至還有惡化的可 能。周圍的天秤、牡羊都算是可以信賴的朋友 ，對牡羊的運勢有好的影響，別離他們太遠！
+                            近期多接觸與海洋有關的事物可以有效減緩這樣 的情形。
+                        </p>
+                    </div>
                     <div class="other">
                         <h2>你會需要的</h2>
                         <div class="item">
@@ -704,7 +715,9 @@
                     <div class="topic tp2">
                         <h2>你的致命致命弱點與優勢！</h2>
                     </div>
-                    <div class="content blur"></div>
+                    <div class="content blur">
+                        <p>天秤是好的開創者，但不能有始有終，牡羊正好可以彌補這個缺點，若雙方都能展現自己的長才，當天秤與牡羊一同處理危機時，可以說是無往不利。在交往後，就算兩個人只是做自己，都能成為相當登對的情人。但如果是在交往前，事情可就沒有那麼簡單了！ 由於天秤跟牡羊是對立的兩個星座，在還未了解對方以前，就算有一方偷偷暗戀對方，另外一方肯定因為習慣及個性的差距對這個人敬而遠之，很容易因為雙方在個性上沒有交集而不了了之。</p>
+                    </div>
                     <div class="other">
                         <h2>你會需要的</h2>
                         <div class="item">
@@ -732,8 +745,42 @@
         </div>
         
     </div>
-    <div id="footer">
-        我是footer
+    <div class="footer">
+    
+        <!-- 左邊icon -->
+        <div class="icon">
+            <ul>
+                <!-- facebook icon -->
+                <li class="facebook">
+                    <a href="#">
+                        <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>
+    
+                <!-- instagram icon -->
+                <li class="instagram">
+                    </i>
+                    <a href="#">
+                        <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>
+    
+                <!-- twitter icon -->
+                <li class="twitter">
+                    <a href="#">
+                        <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- 右邊copyright -->
+        <div class="copyright">
+            <p>
+                點算©Copyright DOZEN, 2018.
+            </p>
+        </div>
+    
     </div>
 </body>
 </html>
