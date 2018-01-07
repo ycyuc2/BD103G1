@@ -109,19 +109,21 @@
 					<div class="intro">
 						<a href="">馬男波傑克</a>
 						<p>文章人氣:2565</p>
-						<p>2017/12/2</p>
+						<p>2017/12/2 00:17:31</p>
 					</div>
-					<ul class="links">
-						<li><a href="#">回文</a></li>
-						<li><a href="#">收藏</a></li>
-						<li class="stars">
+					<div class="links">
+						<div class="btns">
+							<a href="#">回文</a>
+							<a href="#">收藏</a>
+						</div>
+						<div class="stars">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
-						</li>
-					</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 <!-- 文章區 -->
@@ -144,6 +146,22 @@
 			</article>
 		</div>
 	</div>
+
+<!-- 會員回復 -->
+	<div class="memberReply">
+		<div class="columnBorder">
+			<h3>撰寫留言</h3>
+			<form>
+				<textarea id="replyArea"></textarea>
+				<input type="submit" value="回覆">
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<!-- 留言區 -->
 	<div class="replys">
 		<div class="columnBorder">
 			<div class="authorIntro">
@@ -155,16 +173,16 @@
 						<a href="">森寶</a>
 						<p>2017/12/2 04:37:10</p>
 					</div>
-					<ul class="links">
-						<li><div class="report">檢舉</div></li>
-						<li class="stars">
+					<div class="links">
+						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="stars">
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
-						</li>
-					</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -186,16 +204,16 @@
 						<a href="">小陳</a>
 						<p>2017/12/2 19:07:42</p>
 					</div>
-					<ul class="links">
-						<li><div class="report">檢舉</div></li>
-						<li class="stars">
+					<div class="links">
+						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="stars">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
-						</li>
-					</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -220,16 +238,16 @@
 						<a href="">Allen</a>
 						<p>2017/12/3 06:55:08</p>
 					</div>
-					<ul class="links">
-						<li><div class="report">檢舉</div></li>
-						<li class="stars">
+					<div class="links">
+						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="stars">
 							<i class="fa fa-star-half-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
-						</li>
-					</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -257,16 +275,16 @@
 						<a href="">樹懶叫聲</a>
 						<p>2017/12/3 11:42:17</p>
 					</div>
-					<ul class="links">
-						<li><div class="report">檢舉</div></li>
-						<li class="stars">
+					<div class="links">
+						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="stars">
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
 							<i class="fa fa-star-o"></i>
-						</li>
-					</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -278,16 +296,7 @@
 		</div>
 	</div>
 
-<!-- 會員回復 -->
-	<div class="memberReply">
-		<div class="columnBorder">
-			<h3>留言</h3>
-			<form>
-				<textarea></textarea>
-				<input type="submit" value="回覆">
-			</form>
-		</div>
-	</div>
+
 
 <!-- 檢舉燈箱 -->
 	<div class="reportLightBox">
@@ -340,7 +349,11 @@
 				lightBox.style.opacity = 1;
 			}
 
+			var reply = document.getElementById('replyArea');
 
+			reply.onclick = function(){
+				this.style.height = '300px';
+			}
 		
 	</script>
 </body>
