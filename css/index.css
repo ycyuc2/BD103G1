@@ -44,15 +44,8 @@
         background-size: auto 100%;
     }
 }
- 
-@font-face {
-    font-family: "王漢宗中明體繁- 細";
-    src: url("../font/王漢宗中明體繁- 細.ttf");
-}
-h1,h2,h3,h4,h5{
-    font-family: "王漢宗中明體繁- 細";
-}
-p{
+
+*{
     font-family: "微軟正黑體";
 }
 #ball{
@@ -66,17 +59,6 @@ p{
     line-height: 70px;
     z-index:20;
     background-image: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #000 100%);
-}
-#top{
-    text-align: center;
-    position: fixed;
-    bottom: 5%;
-    left: 1%;
-    width: 50px;
-    height: 50px;
-    background: url('../img/index/scrolltotop.png');
-    background-size: 100% 100%;
-    z-index:20;
 }
 #top:hover{
     cursor:pointer;
@@ -207,18 +189,22 @@ p{
     color: #fff;
     border-bottom: 0.7em transparent solid;
 }
-
+#lightbox table caption{
+    margin: 1em 0;
+}
 #lightbox table tr {
     padding-bottom: 0.3em;
     border-bottom: 0.7em transparent solid;
 }
 
 #lightbox table tr th {
-    width: 100px;
+    width: 50px;
     text-align: left;
     border-bottom: 0.7em transparent solid;
 }
-
+#lightbox #add table tr th{
+    width:75px;
+}
 #lightbox table tr td {
     width: 200px;
     text-align: right;
@@ -307,7 +293,7 @@ p{
 
 .container{
     width: 960px;
-    margin: 0 auto;
+    margin: 0 auto ;
 }
 @media all and (min-width: 760px) and (max-width: 959px) {
     .container {
@@ -345,18 +331,18 @@ p{
 }
 @media all and (min-width: 480px) and (max-width: 759px) {
     #choose p {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
     #choose h2 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 }
 @media all and (max-width: 479px) {
     #choose p {
-        font-size: 2.5em;
+        font-size: 2.3em;
     }
     #choose h2 {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 }
 #choose #btn .btn{
@@ -371,14 +357,16 @@ p{
 /* 輸入生日 */
 #start{
     position: relative;
-    width: 100%;
+    max-width:450px;
+    width: 90%;
+    margin: 0 auto;
 }
 #start .push{
     padding: 30vh 0;
 }
 #start #test {
     display: block;
-    margin: 0 auto 20%;
+    margin:0  auto 20%;
     clear: both;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
@@ -387,17 +375,21 @@ p{
     text-align: center;
     transition: 1s all ease;
 }
-
+#start form {
+    display: block;
+    padding: 1em 0;
+}
 #start #double {
     display: none;
 }
 
 #start #test select {
     font-size: 1em;
-    width: 120px;
+    width: 75px;
     height: 2em;
     cursor: pointer;
     color: #000000;
+    margin: 0 0.3em;
 }
 
 #start #test .radio {
@@ -442,15 +434,13 @@ p{
     border: 0px;
     color: #fff;
 }
+#start .btn.out{
+    margin: 1em 0 0;
+}
 
 #start input:focus {
     outline: none;
 }
-
-#start input:hover {
-    cursor: pointer;
-}
-
 #start h1 {
     margin: 2em 0 1em;
 }
@@ -506,10 +496,12 @@ p{
     text-align: center;
     line-height: 3em;
 }
+#result .result h2{
+    text-align: center;
+}
 #result .result .chart{
     padding: 1em;
     margin-top: 5%;
-    border:1px #ddd double;
 }
 #result .result .chart .topic{
     margin: 2em 0;
@@ -520,7 +512,6 @@ p{
 #result .result .chart .content.blur{
     width: 100%;
     height: 20em;
-    background-color: rgba(255,255,255,0.7);
     filter:blur(3px);
 }
 #result  .other h2{
