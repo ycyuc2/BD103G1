@@ -16,6 +16,11 @@ $('document').ready(function(){
         $('html,body').animate({ scrollTop: $('#choose').offset().top }, 1000);
 
     });
+    $('#login .btn.add').click(function(){
+        $('#add').css('display','inline');
+        $('#login').css('display','none');
+    });
+    
 });
     
 
