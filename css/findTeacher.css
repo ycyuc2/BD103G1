@@ -315,21 +315,18 @@
     cursor: url(../img/findTeacher/cursor2.png) 25 0, auto; }
 
 #search {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 50px;
   position: fixed;
   right: 20px;
   top: 20px;
   z-index: 30; }
-  #search i {
-    font-size: 30px;
-    color: #fff;
-    transition: color .2s; }
-    #search i:hover {
+  #search img {
+    width: 100%;
+    transition: .2s; }
+    #search img:hover {
       cursor: url(../img/findTeacher/cursor.png) 25 0, auto;
       color: #333;
-      text-shadow: 0px 0px 10px white; }
+      filter: drop-shadow(0px 0px 10px white); }
 
 #inp {
   width: auto;
