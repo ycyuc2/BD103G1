@@ -216,15 +216,6 @@
   100% {
     left: 0; } }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url(../img/background_ground.jpg);
-  height: 100vh;
-  overflow: hidden; }
-
 .logo {
   width: 100px;
   position: fixed;
@@ -238,6 +229,172 @@ body {
   border: 50px solid transparent;
   border-image: url(../img/frame_960x960.png) 90 90 repeat;
   box-sizing: border-box; }
+  .frame .search {
+    width: 100%; }
+    .frame .search:after {
+      content: '';
+      display: block;
+      clear: both; }
+    .frame .search .filter {
+      float: left;
+      text-align: center; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .frame .search .filter {
+          float: none; } }
+      @media all and (max-width: 479px) {
+        .frame .search .filter {
+          float: none; } }
+      .frame .search .filter select {
+        width: 200px;
+        height: 30px; }
+        @media all and (min-width: 480px) and (max-width: 759px) {
+          .frame .search .filter select {
+            width: 90%; } }
+        @media all and (max-width: 479px) {
+          .frame .search .filter select {
+            width: 90%; } }
+    .frame .search .searchBox {
+      float: right;
+      text-align: center; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .frame .search .searchBox {
+          margin-top: 10px;
+          float: none; } }
+      @media all and (max-width: 479px) {
+        .frame .search .searchBox {
+          margin-top: 10px;
+          float: none; } }
+      .frame .search .searchBox input {
+        width: 200px;
+        height: 28px; }
+        @media all and (min-width: 480px) and (max-width: 759px) {
+          .frame .search .searchBox input {
+            width: 90%; } }
+        @media all and (max-width: 479px) {
+          .frame .search .searchBox input {
+            width: 90%; } }
+  .frame .content {
+    margin-top: 20px; }
+    .frame .content:after {
+      content: '';
+      display: block;
+      clear: both; }
+    .frame .content .pic {
+      width: 40%;
+      float: left;
+      text-align: center; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .frame .content .pic {
+          width: 100%;
+          float: none; } }
+      @media all and (max-width: 479px) {
+        .frame .content .pic {
+          width: 100%;
+          float: none; } }
+      .frame .content .pic img {
+        width: 100%; }
+        @media all and (min-width: 480px) and (max-width: 759px) {
+          .frame .content .pic img {
+            width: 60%; } }
+        @media all and (max-width: 479px) {
+          .frame .content .pic img {
+            width: 60%; } }
+    .frame .content .intro {
+      width: 60%;
+      float: left;
+      box-sizing: border-box;
+      padding: 10px; }
+      @media all and (min-width: 480px) and (max-width: 759px) {
+        .frame .content .intro {
+          width: 100%;
+          float: none; } }
+      @media all and (max-width: 479px) {
+        .frame .content .intro {
+          width: 100%;
+          float: none; } }
+      .frame .content .intro h2 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 35px; }
+      .frame .content .intro p {
+        margin-top: 20px; }
+      .frame .content .intro .options {
+        margin-top: 20px;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 0; }
+        .frame .content .intro .options:after {
+          content: '';
+          display: block;
+          clear: both; }
+        .frame .content .intro .options .price {
+          float: left;
+          width: 30%; }
+          @media all and (min-width: 480px) and (max-width: 759px) {
+            .frame .content .intro .options .price {
+              display: inline-block;
+              vertical-align: middle;
+              float: none; } }
+          @media all and (max-width: 479px) {
+            .frame .content .intro .options .price {
+              display: inline-block;
+              vertical-align: middle;
+              float: none; } }
+          .frame .content .intro .options .price p {
+            margin-top: 0;
+            font-size: 25px;
+            font-weight: bold; }
+            @media all and (min-width: 480px) and (max-width: 759px) {
+              .frame .content .intro .options .price p {
+                font-size: 20px; } }
+            @media all and (max-width: 479px) {
+              .frame .content .intro .options .price p {
+                font-size: 20px; } }
+        .frame .content .intro .options .purchase {
+          float: left;
+          text-align: right;
+          width: 70%; }
+          @media all and (min-width: 480px) and (max-width: 759px) {
+            .frame .content .intro .options .purchase {
+              display: inline-block;
+              vertical-align: middle;
+              float: none; } }
+          @media all and (max-width: 479px) {
+            .frame .content .intro .options .purchase {
+              display: inline-block;
+              vertical-align: middle;
+              float: none; } }
+          .frame .content .intro .options .purchase a {
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #850; }
+            @media all and (min-width: 480px) and (max-width: 759px) {
+              .frame .content .intro .options .purchase a {
+                font-size: 16px;
+                width: 100px; } }
+            @media all and (max-width: 479px) {
+              .frame .content .intro .options .purchase a {
+                font-size: 16px;
+                width: 100px; } }
+            .frame .content .intro .options .purchase a + a {
+              margin-left: 10px; }
+              @media all and (min-width: 480px) and (max-width: 759px) {
+                .frame .content .intro .options .purchase a + a {
+                  margin-top: 10px;
+                  font-size: 16px;
+                  width: 100px; } }
+              @media all and (max-width: 479px) {
+                .frame .content .intro .options .purchase a + a {
+                  margin-left: 0;
+                  margin-top: 10px;
+                  font-size: 16px;
+                  width: 100px; } }
 
 .header {
   position: fixed;
@@ -259,153 +416,3 @@ body {
 
 #person {
   color: red; }
-
-.frame .banner {
-  width: 100%;
-  height: 400px;
-  background-color: #60859e;
-  margin: 0 auto; }
-
-.frame .dot {
-  width: 100%;
-  height: 70px;
-  background-color: #c4b46f;
-  margin: 0 auto; }
-
-.frame h1 {
-  text-align: center;
-  color: white;
-  font-family: "王漢宗中明體繁- 細";
-  font-size: 28px;
-  letter-spacing: 5px; }
-
-.frame .product {
-  width: 100%; }
-  .frame .product .pdList {
-    width: 92%;
-    background-color: #222;
-    height: 100px;
-    padding-left: 20%;
-    box-sizing: border-box;
-    margin: 0 auto; }
-    .frame .product .pdList a {
-      font-family: "王漢宗粗明體繁-中";
-      color: #fff;
-      font-size: 28px;
-      text-align: center;
-      text-decoration: none;
-      line-height: 100px;
-      padding-right: 12%; }
-  .frame .product .filter {
-    width: 92%;
-    height: 50px;
-    margin: 0 auto;
-    padding-top: 2%;
-    box-sizing: border-box; }
-    .frame .product .filter form {
-      float: left; }
-      .frame .product .filter form select {
-        background-position: center center;
-        background-size: 100% 100%;
-        box-sizing: border-box;
-        padding: 0 5%;
-        width: 150px;
-        height: 35px; }
-        .frame .product .filter form select:focus {
-          outline: none; }
-    .frame .product .filter .search {
-      float: right;
-      background-position: center center;
-      background-size: 100% 100%;
-      box-sizing: border-box;
-      padding-left: 5%;
-      width: 300px;
-      height: 35px; }
-      .frame .product .filter .search:focus {
-        outline: none; }
-  .frame .product .productContent {
-    padding-top: 2%; }
-    .frame .product .productContent .one {
-      background-color: #fff;
-      background-size: cover;
-      width: 92%;
-      height: 300px;
-      margin: 0 auto;
-      margin-bottom: 10px;
-      text-align: center; }
-      .frame .product .productContent .one .left {
-        float: left;
-        width: 50%;
-        height: 100%;
-        background-color: green; }
-        .frame .product .productContent .one .left img {
-          height: 100%; }
-      .frame .product .productContent .one .right {
-        float: left;
-        width: 50%;
-        height: 100%;
-        background-color: red; }
-        .frame .product .productContent .one .right .title {
-          width: 100%;
-          height: 20%;
-          background-color: purple; }
-          .frame .product .productContent .one .right .title h2 {
-            color: #fff;
-            line-height: 60px;
-            letter-spacing: 5px; }
-        .frame .product .productContent .one .right .info {
-          width: 100%;
-          height: 60%;
-          color: #fff;
-          background-color: black; }
-          .frame .product .productContent .one .right .info p {
-            line-height: 35px;
-            text-align: justify; }
-        .frame .product .productContent .one .right .btn {
-          width: 100%;
-          height: 20%;
-          background-color: orange; }
-          .frame .product .productContent .one .right .btn .price {
-            float: left;
-            height: 100%;
-            width: 30%;
-            background-color: blue; }
-            .frame .product .productContent .one .right .btn .price p {
-              color: #fff;
-              line-height: 60px;
-              letter-spacing: 2px; }
-          .frame .product .productContent .one .right .btn .buy {
-            float: right;
-            height: 100%;
-            width: 30%;
-            background-color: pink;
-            line-height: 60px; }
-            .frame .product .productContent .one .right .btn .buy #bg {
-              width: 100px;
-              height: 50px;
-              display: block;
-              background-color: orange;
-              margin: auto auto; }
-          .frame .product .productContent .one .right .btn .cart {
-            float: right;
-            height: 100%;
-            width: 30%;
-            line-height: 60px;
-            background-color: red; }
-            .frame .product .productContent .one .right .btn .cart #bg {
-              width: 100px;
-              height: 50px;
-              display: block;
-              background-color: orange;
-              margin: auto auto; }
-          .frame .product .productContent .one .right .btn:after {
-            content: '';
-            display: block;
-            clear: both; }
-      .frame .product .productContent .one:after {
-        content: '';
-        display: block;
-        clear: both; }
-      @media all and (max-width: 479px) {
-        .frame .product .productContent .one {
-          width: 100%; } }
