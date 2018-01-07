@@ -199,13 +199,18 @@ h1 {
             float: none;
             padding-left: 0; } }
         .teacher .teacherBorder .intro .introContent p {
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 1px;
           margin-top: 10px; }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .intro .introContent p {
-              font-size: 14px; } }
+              font-size: 14px;
+              line-height: 22px; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .intro .introContent p {
-              font-size: 12px; } }
+              font-size: 12px;
+              line-height: 20px; } }
           .teacher .teacherBorder .intro .introContent p:nth-child(1):before {
             content: '暱稱：';
             display: block;
@@ -404,8 +409,9 @@ h1 {
             margin-top: 20px; }
             .teacher .teacherBorder .articleList .article .content .preview p {
               color: #ddd;
-              line-height: 22px;
-              text-indent: 2px; }
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: 1px; }
           .teacher .teacherBorder .articleList .article .content .more {
             text-decoration: none;
             position: absolute;
@@ -501,14 +507,19 @@ h1 {
         .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
           color: #fff;
           margin-top: 10px;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 1px;
           text-align: center;
           font-weight: 100; }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
-              font-size: 14px; } }
+              font-size: 14px;
+              line-height: 22px; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
-              font-size: 14px; } }
+              font-size: 14px;
+              line-height: 22px; } }
           .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
             text-decoration: line-through; }
           .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
