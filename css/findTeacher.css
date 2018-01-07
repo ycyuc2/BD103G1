@@ -319,7 +319,7 @@
   position: fixed;
   right: 20px;
   top: 20px;
-  z-index: 30; }
+  z-index: 8; }
   #search img {
     width: 100%;
     transition: .2s; }
