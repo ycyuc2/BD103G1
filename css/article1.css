@@ -269,16 +269,21 @@ h2 {
       padding-bottom: 30px; }
       .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
         color: #ddd;
-        font-size: 20px; }
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 1px; }
         @media all and (min-width: 760px) and (max-width: 959px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 16px; } }
+            font-size: 16px;
+            line-height: 24px; } }
         @media all and (min-width: 480px) and (max-width: 759px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 14px; } }
+            font-size: 14px;
+            line-height: 22px; } }
         @media all and (max-width: 479px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 14px; } }
+            font-size: 14px;
+            line-height: 22px; } }
         .specialColumn .columnBorder article p + p, .replys .columnBorder article p + p, .memberReply .columnBorder article p + p {
           margin-top: 20px; }
 
