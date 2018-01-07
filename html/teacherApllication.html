@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 </head>
 <body>
+	<!-- hambuerger -->
 	<!-- nav -->
 	<input type="checkbox" name="" id="menuControl">
 	<label for="menuControl" class="hamburger">
@@ -30,58 +31,56 @@
 			<span class="member"></span>
 		</a>
 	</div>
+	<!-- hambuerger end-->
 
-	
-	<!--
-	申請老師頁(YenYen)
-	行程頁(YenYen)
-	-->
-	
-	<img src="../img/member/LOGO.png" id="logo">
-	<div class="blank"></div>
+
 	<div class="wrapper">
 		
-		<ol class="breadcrumb">
-			<li>
-				<a href="#">首頁</a>
-			</li>
-			<li>
-				<a href="member.html">會員專區</a>
-			</li>
-			<li class="active">申請老師資格</li>
-		</ol>
 
+		<div class="left"><!-- 一般會員 -->
+			<ol class="nav">
+				<li><a href="infoAlter.html">修改資料</a></li>
+				<li><a href="replyVIew.html">檢視留言</a></li>
+				<li><a href="tradeView.html">檢視交易</a></li>
+				<li><a href="tradeView.html">收藏文章</a></li>
+				<li><a href="teacherApllication.html">成為老師</a></li>
+			</ol>
+			
+			<!-- 老師 -->
+			<!-- <ol class="nav navTeacher">
+				<li><a href="infoAlter.html">修改資料</a></li>
+				<li><a href="replyVIew.html">檢視留言</a></li>
+				<li><a href="tradeView.html">檢視交易</a></li>
+				<li><a href="teacherApllication.html">成為老師</a></li>
+			</ol> -->
+		</div>
 
-		<ol class="nav">
-			<li><a href="infoAlter.html">修改會員資料</a></li>
-			<li><a href="replyVIew.html">檢視留言</a></li>
-			<li><a href="tradeView.html">檢視交易紀錄</a></li>
-			<li><a href="teacherApllication.html">申請老師資格</a></li>
-		</ol>
-		<div class="content teacher">
-
-			<h2 >申請老師資格</h2>
-			<form action="member.html" method="post">
-				<p>
-					<span>姓名</span><span class="input"><input type="text" name="name"></span>
-				</p>
-				<p>
-					<span>暱稱</span><span class="input"><input type="text" name="nickname"></span>
-				</p>
-				<p>
-					<span>電話</span><span class="input"><input type="text" name="tel"></span>
-				</p>
-				<p>
-					<span>專長</span><span class="skill"><input type="checkbox" name="skill1">愛情<input type="checkbox" name="skill2">健康<input type="checkbox" name="skill3">財運<input type="checkbox" name="skill4">事業</span>
-				</p>
-				<p>
-					<span>簡介</span><span class="textarea"><textarea rows="5" cols="24"></textarea></span>
-				</p>
-				<p>
-					<span class="btn"><input type="submit" name="申請"></span>
-					<span class="btn"><input type="reset" name="重填"></span>
-				</p>
-			</form>
+		<div class="right">
+			<div class="content teacher">
+			
+				<h2 >申請老師資格</h2>
+				<form action="member.html" method="post">
+					<p>
+						<span>姓名</span><span class="input"><input type="text" name="name"></span>
+					</p>
+					<p>
+						<span>暱稱</span><span class="input"><input type="text" name="nickname"></span>
+					</p>
+					<p>
+						<span>電話</span><span class="input"><input type="text" name="tel"></span>
+					</p>
+					<p>
+						<span>專長</span><span class="skill"><input type="checkbox" name="skill1">愛情<input type="checkbox" name="skill2">健康<input type="checkbox" name="skill3">財運<input type="checkbox" name="skill4">事業</span>
+					</p>
+					<p>
+						<span>簡介</span><span class="textarea"><textarea rows="5" cols="24"></textarea></span>
+					</p>
+					<p>
+						<span class="btn"><input type="submit" name="申請"></span>
+						<span class="btn"><input type="reset" name="重填"></span>
+					</p>
+				</form>
+			</div>
 		</div>
 	</div>
 	
