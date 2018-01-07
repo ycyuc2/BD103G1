@@ -4,6 +4,24 @@
     color: #dddddd;
     letter-spacing: 1px;
 }
+h1{
+line-height: 40px;
+}
+h2{
+line-height: 32px;
+}
+h3{
+line-height: 26.72px;
+}
+h4{
+line-height: 24px;
+}
+h5{
+line-height: 21.28px;
+}
+p{
+  line-height: 24px;  
+}
 .background {
     width: 100vw;
     height: 100vh;
@@ -58,7 +76,7 @@
     border-radius: 35px;
     text-align: center;
     line-height: 70px;
-    z-index:20;
+    z-index:5;
     background-image: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #000 100%);
 }
 #top:hover{
@@ -68,38 +86,8 @@
     cursor: pointer;
     background-color: #aa0000;
 }
-/* header */
-
-.logo {
-    width: 100px;
-    position: fixed;
-    left: calc(50% - 50px);
-    top: 3%;
-}
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 150px;
-    background-color: rgba(0,0,0,0.2);
-}
-
-.header p { 
-    font-family: "王漢宗中明體繁- 細"; /*不知道為什麼裝不上去？*/
-    display: inline-block;
-    margin-right: 2%;
-    margin-top: 5%;
-    position: fixed;
-    right: 2%;
-}
-
-.header p a {
-    text-decoration: none;
-    color: red;
-}
-
 /* 按鈕 */
-.btn {
+.btn{
     line-height: 2em;
     width: 120px;
     height: 2em;
@@ -109,7 +97,7 @@
     vertical-align: top;
 }
 
-.btn:hover {
+.btnM:hover {
     cursor: pointer;
 }
 .btn1 {
@@ -132,14 +120,43 @@
 
 
 /* 燈箱 */
+.login{
+    position: fixed;
+    top: 50px;
+    left: 200px;
+    z-index:9;
+}
+@media all and (min-width: 760px) and (max-width: 959px) {
+    .login {
+        left: 200px;
+    }
+}
+@media all and (min-width: 480px) and (max-width: 759px) {
+    .login{
+        left: 170px;
+    }
+}
 
+@media all and (max-width: 479px) {
+    .login{
+        left: 100px;
+    }
+}
+.login:hover{
+    cursor:pointer;
+}
+#box-control{
+    position: absolute;
+    top: 0;
+    left: -100%;
+}
 .wrapper {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
-    right: -95%;
+    right: -100%;
     z-index: 100;
     opacity: 0.1;
     transition: opacity 0.2s 0s,right 0s 0.2s;
@@ -150,7 +167,7 @@
     transition:opacity 0.2s;
 }
 #lightbox {
-    width: 500px;
+    width: 400px;
     height: 500px;
     position: absolute;
     left: 0;
@@ -159,10 +176,27 @@
     bottom: 0;
     margin: auto;
     background-color: #000000;
+    padding-top: 10%;
 }
-
+@media all and (max-width: 479px) {
+    #lightbox{
+        width:100%;
+        height: 80%;
+        padding-top: 30%;
+    }
+}
 .box-close {
     display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.box-close i{
+    display:block;
+}
+.box-close i:hover{
+    color: rgb(248, 42, 162);
+    cursor: pointer;
 }
 #lightbox #logo {
     padding: 3% 0;
@@ -250,7 +284,6 @@
     background-repeat: no-repeat;
     display: inline-block;
     vertical-align: middle;
-    font-family: "王漢宗粗明體繁-中";
 }
 
 #lightbox table tr #btn .btn p {
@@ -368,6 +401,7 @@
 #start #test {
     display: block;
     margin:0  auto 20%;
+    padding: 1em 0;
     clear: both;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
@@ -376,9 +410,11 @@
     text-align: center;
     transition: 0.2s all ease;
 }
-#start form {
-    display: block;
-    padding: 1em 0;
+#start #test form{
+    padding: 1em;
+}
+#start #test form p{
+    padding-bottom: 0.5em;
 }
 #start #double {
     display: none;
@@ -390,9 +426,11 @@
     height: 2em;
     cursor: pointer;
     color: #000000;
-    margin: 0 0.3em;
+    margin: 0.2em 0.3em 0.5em;
 }
-
+#start #test select:nth-of-type(1){
+    width: 100px;
+}
 #start #test .radio {
     position: absolute;
     left: -1000px;
@@ -476,9 +514,11 @@
 }
 #result .result .chart .topic{
     margin: 2em 0;
-    line-height: 6em;
     background:linear-gradient(to top,rgba(0,0,100,1) 0%,rgba(0,100,200,1) 100%);
     text-align: center;
+}
+#result .result .chart .topic h2{
+    line-height: 4em;
 }
 #result .result .chart .content.blur{
     width: 100%;
@@ -497,19 +537,19 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 auto;
-    padding: 1em 1em 3em 0em;
+    padding: 1em 0em 3em 4%;
 
 }
 #result .other .item img{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     width: 40%;
 }
 #result .other .item .right{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     width: 50%;
-    padding: 3%;
+    padding: 1%;
 }
 #result .other .item h2{
     margin: 0;
@@ -535,8 +575,8 @@
     line-height: 0;
 }
 @media all and (min-width: 960px){
-    #result .other .item:last-of-type {
-        border-left: #ddd 1px solid;
+    #result .other .item:first-of-type {
+        border-right: #ddd 1px solid;
     }
     #result .chart{
         padding: 2em;
