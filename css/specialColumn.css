@@ -569,12 +569,16 @@ h1 {
       background-position: center center;
       background-size: 100% 100%; }
 
+.teacher .teacherBorder h1 {
+  color: #533e2f; }
+
 .teacher .teacherBorder .line {
   border-top: 1px solid #fff; }
 
 .teacher .teacherBorder .intro {
   font-size: 20px;
-  color: #ddd;
+  color: #533e2f;
+  font-weight: 600;
   padding: 0;
   margin-top: 30px; }
 
