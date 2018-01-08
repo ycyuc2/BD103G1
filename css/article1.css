@@ -5,108 +5,6 @@
   list-style: none;
   font-family: 'Arial',"微軟正黑體"; }
 
-.background {
-  background-image: url(../img/share/background_pure.jpg);
-  width: 100vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  position: fixed;
-  z-index: -5; }
-  .background .flash {
-    position: fixed;
-    width: 700px;
-    opacity: 0; }
-  .background .lt1 {
-    left: -150px;
-    top: 30px;
-    animation: flashing1 10s;
-    animation-iteration-count: infinite; }
-  .background .lt2 {
-    left: 0px;
-    top: 70px;
-    animation: flashing2 10s;
-    animation-iteration-count: infinite; }
-  .background .lt3 {
-    right: 90px;
-    top: 50px;
-    animation: flashing3 10s;
-    animation-iteration-count: infinite; }
-  .background .lt4 {
-    right: 130px;
-    top: 20px;
-    animation: flashing4 10s;
-    animation-iteration-count: infinite; }
-
-@keyframes flashing1 {
-  24% {
-    opacity: 0; }
-  25% {
-    opacity: 1; }
-  35% {
-    opacity: 0; }
-  70% {
-    opacity: 0; }
-  71% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@keyframes flashing2 {
-  5% {
-    opacity: 0; }
-  6% {
-    opacity: 1; }
-  20% {
-    opacity: 0; }
-  50% {
-    opacity: 0; }
-  51% {
-    opacity: 1; }
-  60% {
-    opacity: 0; }
-  89% {
-    opacity: 0; }
-  90% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@keyframes flashing3 {
-  34% {
-    opacity: 0; }
-  35% {
-    opacity: 1; }
-  60% {
-    opacity: 0; }
-  61% {
-    opacity: 1; }
-  70% {
-    opacity: 0; }
-  100% {
-    opacity: 0; } }
-
-@keyframes flashing4 {
-  18% {
-    opacity: 0; }
-  19% {
-    opacity: 1; }
-  25% {
-    opacity: 0; }
-  38% {
-    opacity: 0; }
-  39% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  84% {
-    opacity: 0; }
-  85% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
 h2 {
   padding-top: 30px;
   font-size: 45px;
@@ -123,14 +21,42 @@ h2 {
       font-size: 25px; } }
 
 .specialColumn, .replys, .memberReply {
+  position: relative;
   max-width: 960px;
   margin: 30px auto;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.8); }
-  .specialColumn .columnBorder, .replys .columnBorder, .memberReply .columnBorder {
+  background-image: url(../img/share/texture.png);
+  background-position: center center;
+  background-size: 100% 100%; }
+  .specialColumn .border, .replys .border, .memberReply .border {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     border: 50px solid transparent;
-    border-image: url(../img/specialColumn/frame_960x960.png) 90 90 repeat;
-    padding: 20px; }
+    border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+    filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
+    box-sizing: border-box; }
+    @media all and (min-width: 760px) and (max-width: 959px) {
+      .specialColumn .border, .replys .border, .memberReply .border {
+        border: 40px solid transparent;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+        padding: 20px; } }
+    @media all and (min-width: 480px) and (max-width: 759px) {
+      .specialColumn .border, .replys .border, .memberReply .border {
+        border: 30px solid transparent;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+        padding: 10px; } }
+    @media all and (max-width: 479px) {
+      .specialColumn .border, .replys .border, .memberReply .border {
+        border: 30px solid transparent;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+        padding: 0; } }
+  .specialColumn .columnBorder, .replys .columnBorder, .memberReply .columnBorder {
+    position: relative;
+    padding: 70px; }
     .specialColumn .columnBorder:after, .replys .columnBorder:after, .memberReply .columnBorder:after {
       content: '';
       display: block;
@@ -138,17 +64,17 @@ h2 {
     @media all and (min-width: 760px) and (max-width: 959px) {
       .specialColumn .columnBorder, .replys .columnBorder, .memberReply .columnBorder {
         border: 40px solid transparent;
-        border-image: url(../img/specialColumn/frame_960x960.png) 90 90 repeat;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
         padding: 20px; } }
     @media all and (min-width: 480px) and (max-width: 759px) {
       .specialColumn .columnBorder, .replys .columnBorder, .memberReply .columnBorder {
         border: 30px solid transparent;
-        border-image: url(../img/specialColumn/frame_960x960.png) 90 90 repeat;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
         padding: 10px; } }
     @media all and (max-width: 479px) {
       .specialColumn .columnBorder, .replys .columnBorder, .memberReply .columnBorder {
         border: 30px solid transparent;
-        border-image: url(../img/specialColumn/frame_960x960.png) 90 90 repeat;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
         padding: 0; } }
     .specialColumn .columnBorder .authorIntro, .replys .columnBorder .authorIntro, .memberReply .columnBorder .authorIntro {
       width: 100%; }
@@ -163,7 +89,7 @@ h2 {
         .specialColumn .columnBorder .authorIntro .authorPhoto img, .replys .columnBorder .authorIntro .authorPhoto img, .memberReply .columnBorder .authorIntro .authorPhoto img {
           width: 100%;
           box-sizing: border-box;
-          border: 3px solid #fff; }
+          border: 6px solid #643; }
         @media all and (min-width: 760px) and (max-width: 959px) {
           .specialColumn .columnBorder .authorIntro .authorPhoto, .replys .columnBorder .authorIntro .authorPhoto, .memberReply .columnBorder .authorIntro .authorPhoto {
             width: 50%;
@@ -181,7 +107,7 @@ h2 {
             float: none; } }
       .specialColumn .columnBorder .authorIntro .author, .replys .columnBorder .authorIntro .author, .memberReply .columnBorder .authorIntro .author {
         width: 80%;
-        background-color: #ccc;
+        background-color: #333;
         float: right;
         margin-top: 5%;
         box-sizing: border-box;
@@ -214,10 +140,11 @@ h2 {
           .specialColumn .columnBorder .authorIntro .author .intro a, .replys .columnBorder .authorIntro .author .intro a, .memberReply .columnBorder .authorIntro .author .intro a, .specialColumn .columnBorder .authorIntro .author .intro .links .btns .report, .specialColumn .columnBorder .authorIntro .author .links .btns .intro .report, .replys .columnBorder .authorIntro .author .intro .links .btns .report, .replys .columnBorder .authorIntro .author .links .btns .intro .report, .memberReply .columnBorder .authorIntro .author .intro .links .btns .report, .memberReply .columnBorder .authorIntro .author .links .btns .intro .report {
             font-size: 20px;
             text-decoration: none;
-            color: #333;
+            color: #ddd;
             font-weight: bold; }
           .specialColumn .columnBorder .authorIntro .author .intro p, .replys .columnBorder .authorIntro .author .intro p, .memberReply .columnBorder .authorIntro .author .intro p {
-            margin-top: 5px; }
+            margin-top: 5px;
+            color: #ddd; }
         .specialColumn .columnBorder .authorIntro .author .links, .replys .columnBorder .authorIntro .author .links, .memberReply .columnBorder .authorIntro .author .links {
           float: right;
           box-sizing: border-box; }
@@ -268,7 +195,7 @@ h2 {
       padding-top: 30px;
       padding-bottom: 30px; }
       .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-        color: #ddd;
+        color: #333;
         font-size: 20px;
         line-height: 28px;
         letter-spacing: 1px; }
