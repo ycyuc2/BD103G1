@@ -1,15 +1,19 @@
+.info p{
+	width: 60%;
+	margin: 3% -0px;
+}
 .info p .input{
 	position: relative;
 	display: inline-block;
 	background: url(../img/member/input.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	width: 250px;
+	width: 200px;
 	height: 30px;
 }
 .info p .psw{
 	display: inline-block;
-	width: 250px;
+	width: 200px;
 	height: 30px;
 }
 .info p .psw a{
@@ -42,7 +46,6 @@
 	background: none;
 }
 .info p:last-child{
-	width: 50%;
 	text-align: center;
 }
 .info p .btn{
@@ -69,9 +72,12 @@
 	outline:0;
 }
 @media all and (max-width: 479px) {
-	
+	.info p{
+		width: 80%;
+		margin: 3% -0px;
+	}
 	.info p .input{
-		width: 150px;
+		width: 120px;
 	}
 	.info p:last-child{
 		width: 80%;
@@ -79,9 +85,9 @@
 	.info p .input input{
 		font-size: 13px;
 		top: 5%;
-		width: 100px;
+		width: 80px;
 	}
 	.info p .psw {
-		width: 150px;
+		width: 120px;
 	}
 }
