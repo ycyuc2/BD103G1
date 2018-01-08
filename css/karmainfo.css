@@ -1,20 +1,22 @@
-@font-face {
-    font-family: "王漢宗粗明體繁-中";
-    src: url(../font/王漢宗粗明體繁-中.ttf);
-}
-
-body{
-	background-color: #000;
+*{
+	margin: 0;
+	padding: 0;
 	color: #fff;
-	font-family: "王漢宗粗明體繁-中";
-	margin:0;
-	cursor: url(../img/mercury/cursor.png),pointer;
+	outline: 1px solid red;
 }
 
-.background img{
-	width: 100vw;
-	position: fixed;
-	z-index: -999999;
+.background {
+	width: 100%;
+	height: 100vh;
+    background: url("../img/share/bg.jpg");
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
 }
 
 .header{
@@ -24,19 +26,19 @@ body{
 
 .header img{
 	width: 40%;
-	margin-top: 30px;
+	margin-top: 200px;
 }
 
 .text{
-	width: 960px;
+	width: 70%;
 	margin: 0 auto;
 	text-align: center;
 }
 
 .text p{
 	font-size: 20px;
-	line-height: 40px;
-	letter-spacing: .15em;
+	line-height: 38px;
+	letter-spacing: 1px;
 }
 
 .text p span{
@@ -44,7 +46,7 @@ body{
 }
 
 .table .wrapper{
-	width: 960px;
+	width: 40%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -154,6 +156,7 @@ table th{
 
 .effects .wrapper .pics p span{
 	font-size: 30px;
+	color: #f00;
 }
 
 .effects .wrapper .pics p:hover,
@@ -168,4 +171,152 @@ table th{
 .effects .wrapper .pics .five:hover,
 .effects .wrapper .pics .six:hover{
 	opacity: 1;
+}
+/*RWD開始*/
+/*平板*/
+@media screen and (min-width:760px) and (max-width: 959px){
+	.header img{
+		width: 60%;
+	}
+
+	.table .wrapper{
+		width: 80%;
+	}
+
+	table th,td{
+		padding: 20px 60px;
+	}
+}
+
+/*小平板*/
+@media screen and (min-width: 480px) and (max-width:759px){
+	.header img{
+		width: 80%;
+	}
+
+	.text p{
+		font-size: 18px;
+	}
+
+	.text p span{
+		font-size: 30px;
+	}
+
+	.table .wrapper{
+		width: 80%;
+		font-size: 18px;
+	}
+}
+
+/*手機*/
+@media screen and (max-width: 480px){
+	.header img{
+		width: 80%;
+	}
+
+	.text p{
+		font-size: 16px;
+	}
+
+	.text p span{
+		font-size: 24px;
+	}
+
+	.table .wrapper{
+		width: 80%;
+		font-size: 16px;
+	}
+}
+
+/*footer*/
+.footer{
+	width: 100%;
+	height: 70px;
+	margin-top: 50px;
+	border-top: 1px #fff solid;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*左邊icon*/
+.footer .icon ul li{
+	display: inline-block;
+}
+
+.footer .icon ul li i{
+	width: 40px;
+	height: 40px;
+	color: #ddd;
+	padding: 20px 0 0 20px;
+}
+
+.footer .icon ul li i:hover{
+	color: #0ee7d5;
+	transition: 1s;
+	cursor: url(../img/dozen_storedetail/cursor.png)20 15,auto;
+}
+
+.footer .icon ul li i:active{
+	cursor: url(../img/dozen_storedetail/cursor2.png)20 15,auto;
+}
+
+.footer .icon ul li:nth-child(1){
+	padding-left: 35px;
+}
+
+/*右邊copyright*/
+.copyright{
+	text-align: right;	
+}
+
+
+.copyright p{
+	font-size: 14px;
+	color: #ddd;
+	letter-spacing: 1px;	
+	padding-right: 35px;
+	margin-top: -35px;
+}
+
+/*RWD開始*/
+/*手機*/
+@media screen and (max-width: 480px){
+	.footer{
+		height: 120px;
+	}
+	
+	/*左邊icon*/
+	.footer .icon{
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.footer .icon ul{
+		text-align: center;
+	}
+
+	.footer .icon ul li:nth-child(1){
+		padding-left: 0;
+	}
+
+	.footer .icon ul li:nth-child(2),
+	.footer .icon ul li:nth-child(3){
+		padding-left: 20px;
+	}
+
+	.footer .icon ul li i{
+		padding: 20px 0 0 0;
+	}
+	
+	/*右邊copyright*/
+	.footer .copyright{
+		display: block;
+		text-align: center;
+	}
+
+	.footer .copyright p{
+		margin: 10px 0 0 0;
+	}
 }

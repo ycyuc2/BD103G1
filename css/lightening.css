@@ -3,7 +3,7 @@
   margin: 0; }
 
 .background {
-  background-image: url(../img/lightening/background_pure.jpg);
+  background-image: url(../img/share/bg.jpg);
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
@@ -12,29 +12,29 @@
   position: fixed;
   z-index: -5; }
   .background .flash {
-    position: fixed;
+    position: absolute;
     width: 700px;
     opacity: 0; }
   .background .lt1 {
     left: -150px;
     top: 30px;
     animation: flashing1 10s;
-    animation-iteration-count: infinite; }
+    animation-iteration-count: 2; }
   .background .lt2 {
     left: 0px;
     top: 70px;
     animation: flashing2 10s;
-    animation-iteration-count: infinite; }
+    animation-iteration-count: 2; }
   .background .lt3 {
     right: 90px;
     top: 50px;
     animation: flashing3 10s;
-    animation-iteration-count: infinite; }
+    animation-iteration-count: 2; }
   .background .lt4 {
     right: 130px;
     top: 0px;
     animation: flashing4 10s;
-    animation-iteration-count: infinite; }
+    animation-iteration-count: 2; }
 
 @keyframes flashing1 {
   24% {
