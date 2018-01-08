@@ -63,10 +63,10 @@
 }
 
 /*RWD開始*/
-@media screen and (max-width: 480px){
+/*右邊會員專區消失*/
+@media screen and (max-width: 760px){
 	.header .memArea ul li{
-		display: block;
-		text-align: right;
+		display: none;
 	}
 }
 
