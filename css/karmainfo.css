@@ -4,10 +4,18 @@
 	color: #fff;
 }
 
-.background img{
+.background {
 	width: 100vw;
-	position: fixed;
-	z-index: -999999;
+	height: 100vh;
+    background: url("../img/share/bg.jpg");
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
 }
 
 .header{
@@ -21,15 +29,15 @@
 }
 
 .text{
-	width: 960px;
+	width: 70%;
 	margin: 0 auto;
 	text-align: center;
 }
 
 .text p{
 	font-size: 20px;
-	line-height: 40px;
-	letter-spacing: .15em;
+	line-height: 38px;
+	letter-spacing: 1px;
 }
 
 .text p span{
@@ -37,7 +45,7 @@
 }
 
 .table .wrapper{
-	width: 960px;
+	width: 40%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -147,6 +155,7 @@ table th{
 
 .effects .wrapper .pics p span{
 	font-size: 30px;
+	color: #f00;
 }
 
 .effects .wrapper .pics p:hover,
@@ -161,6 +170,43 @@ table th{
 .effects .wrapper .pics .five:hover,
 .effects .wrapper .pics .six:hover{
 	opacity: 1;
+}
+/*RWD開始*/
+/*平板*/
+@media screen and (min-width:760px) and (max-width: 959px){
+	.header img{
+		width: 60%;
+	}
+}
+
+/*小平板*/
+@media screen and (min-width: 480px) and (max-width:759px){
+	.header img{
+		width: 80%;
+	}
+
+	.text p{
+		font-size: 18px;
+	}
+
+	.text p span{
+		font-size: 30px;
+	}
+}
+
+/*手機*/
+@media screen and (max-width: 480px){
+	.header img{
+		width: 80%;
+	}
+
+	.text p{
+		font-size: 16px;
+	}
+
+	.text p span{
+		font-size: 24px;
+	}
 }
 
 /*footer*/
@@ -215,6 +261,7 @@ table th{
 }
 
 /*RWD開始*/
+/*手機*/
 @media screen and (max-width: 480px){
 	.footer{
 		height: 120px;
