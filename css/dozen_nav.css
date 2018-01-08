@@ -233,8 +233,12 @@
   
   .hamburger:hover {
     transition-delay: 100ms;
-    transform: scale(1.1); }
-  
+    transform: scale(1.1);
+    cursor: url(../img/share/cursor.png) 12 5, auto;
+     }
+  .hamburger:active {
+    cursor: url(../img/share/cursor2.png) 12 5, auto;
+  }
   .hamburger div:nth-child(1) {
     top: 0px; }
   
