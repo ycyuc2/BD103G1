@@ -1,0 +1,63 @@
+	/*內頁導覽列*/
+
+.rightNav{
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 0;
+}
+.rightNav3 li{
+	display: inline-block;
+	width: 20%;
+	margin:0 6.6%;
+	font-size: 16px;
+	text-align: center;
+	background: #999;
+}
+
+	/*表單*/
+.tr{
+	margin-top: 1%;
+	margin-left: 10%;
+	width: 80%;
+	font-size: 0;
+	text-align: center;
+}
+.tr:first-of-type{
+	font-weight: bold;
+}
+.tr .col{
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.tr .no{
+	width: 6%;
+}
+.tr .account{
+	width: 12%;
+}
+.tr .psw{
+	width: 12%;
+}
+.tr .nickname{
+	width: 12%;
+}
+.tr .tel{
+	width: 12%;
+}
+.tr .karma{
+	width: 8%;
+}
+.tr .result{
+	width: 8%;
+}
+.tr .time{
+	width: 10%;
+}
+.tr .alter{
+	width: 20%;
+}
+.tr .alter a{
+	margin-left: 10%;
+}
+
