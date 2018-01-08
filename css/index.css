@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color: #dddddd;
+    /* outline:rgba(200,0,0,0.5) 1px solid; */
     letter-spacing: 1px;
 }
 h1{
@@ -94,19 +95,11 @@ input{
 .btn{
     line-height: 2em;
     width: 120px;
-    height: 2em;
     padding: 0.5em 0;
     margin: 1em 0 0;
     text-align: center;
     display: inline-block;
     vertical-align: top;
-}
-.btn.index {
-    background: url('../img/index/index_btn.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    margin: 5vh 2em 0;
-    width: 150px;
 }
 .btn.out{
     background: url('../img/index/btn.png');
@@ -317,6 +310,14 @@ input{
 
 /* 選擇算命方式與banner */
 
+header{
+    width: 100vw;
+    height: 150px;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 .container{
     width: 960px;
     margin: 0 auto ;
@@ -339,72 +340,138 @@ input{
 #choose{
     width: 100vw;
     text-align: center;
-    height: 80vh;
+    height: 100vh;
     position: relative;
-    
 }
 .index_impulse{
-    widows: 35%;
     position: absolute;
-    right: 10%;
-    top: 5%;
+    right: 0%;
+    top: calc( -5% + 150px);
+    filter:hue-rotate(10deg);
+    transform:rotate(5deg);
 }
 .index_title{
-    width:28%;
     position: absolute;
-    top: 25%;
-    left: 36%;
+    top: calc(6% + 150px);
+    left: 50%;
+    margin-left: -160px;
 }
 .index_subtitle{
     position: absolute;
-    top: 35%;
+    top: calc(32% + 150px);
     left: 50%;
+    margin-left: -290.5px;
 }
 .index_correct{
     position: absolute;
-    top: 40%;
+    top: calc(43% + 150px);
     left: 50%;
+    margin-left: -127.5px;
 }
 #choose #btn{
     position: absolute;
-    top: 60%;
+    top: calc(58% + 150px);
     left: 50%;
+    margin-left: -262.5px;
 }
+.index_starfield{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -285px;
+    filter:scale(1.1);
+}
+.btn.index {
+    background: url('../img/index/index_btn.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 40px;
+    font-weight: 700;
+    transition: 0.2s all linear;
+    margin: 0 30px;
+}
+.btn.index p {
+    font-size: 30px;
+    line-height: 40px;
+    color: rgb(53, 228, 184);
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5), 0px 0px 16px rgba(255, 255, 255, 0.5);
+}
+.btn.index:hover {
+    filter: drop-shadow( 0px 0px 8px rgba(255, 255, 255, 0.7));
+}
+
 .index_impulse img,
 .index_title img,
 index_subtitle img,
-.index_correct img{
+.index_correct img,
+    .index_starfield img{
     width: 100%;
 }
 @media all and (min-width: 760px) and (max-width: 959px){
-    #choose p{
-        font-size: 3em;
-    }
+ 
     #choose h2{
         font-size: 1.5em;
     }
+    .btn.index p{
+        font-size: 30px;
+    }
 }
 @media all and (min-width: 480px) and (max-width: 759px) {
-    #choose p {
-        font-size: 2.3em;
-    }
+ 
     #choose h2 {
         font-size: 1.3em;
     }
+    #choose #btn {
+        margin-left: -187.5px;
+    }
+    .btn.index {
+        width: 155px;
+        margin: 0 15px;
+    }
+    .btn.index p {
+        font-size: 25px;
+    }
 }
 @media all and (max-width: 479px) {
-    #choose p {
-        font-size: 2.3em;
-    }
+
     #choose h2 {
         font-size: 1em;
     }
+
+    .btn.index {
+        width: 145px;
+       margin: 0 15px;
+    }
+    .index_subtitle {
+        width: 90%;
+        left: 5%;
+        margin-left: 0;
+     }
+    /* .index_starfield {
+        left: 40%;
+        margin-left: 0;
+        filter:scale(1.1);
+    }  */
+    #choose #btn {
+        margin-left: -177.5px;
+        }
+    .btn.index p {
+        font-size: 25px;
+    }
+    .index_impulse img,
+    .index_title img,
+    .index_subtitle img,
+    .index_correct img {
+        width: 100%;
+    }
+    
 }
 
 #choose .radio{
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -1000%;
 }
 /* 輸入生日 */
 #start{
@@ -506,7 +573,6 @@ index_subtitle img,
 }
 #result .result .chart .content.blur{
     width: 100%;
-    height: 10em;
     filter:blur(3px);
 }
 #result  .other h2{
@@ -581,8 +647,13 @@ index_subtitle img,
    #result .other .item{
         width: 100%;
    }
-   #result .other .item img,#result .other .item .right{
+   #result .other .item .right{
        width: 90%;
+       margin: 0 auto;
+   }
+   #result .other .item img{
+       display: block;
+       width: 60%;
        margin: 0 auto;
    }
 }
