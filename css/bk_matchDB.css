@@ -1,0 +1,116 @@
+	/*內頁導覽列*/
+
+.rightNav{
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 0;
+}
+.rightNav3 li{
+	display: inline-block;
+	width: 20%;
+	margin:0 6.6%;
+	font-size: 16px;
+	text-align: center;
+	background: #999;
+}
+
+	/*表單*/
+.tr{
+	margin-top: 1%;
+	margin-left: 10%;
+	width: 80%;
+	font-size: 0;
+	text-align: center;
+}
+.tr:first-of-type{
+	font-weight: bold;
+}
+.tr .col{
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.tr .no{
+	width: 10%;
+}
+.tr .constel{
+	width: 15%;
+}
+.tr .constel2{
+	width: 15%;
+}
+.tr .title{
+	width: 45%;
+}
+.tr .alter{
+	width: 15%;
+}
+.tr .alter a{
+	margin-left: 10%;
+}
+
+	/*lightBox*/
+
+#lightBoxControl{
+	position: fixed;
+	left: -20px;
+	top: 0;
+}
+.lightBox{
+	position: fixed;
+	top: 0;
+	left: -100%;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	transition: opacity 1s, left 0s 1s;
+}
+#lightBoxControl:checked~.lightBox{
+	left: 0;
+	opacity: 1;
+	transition: opacity 1s;
+}
+.boxContent{
+	position: absolute;
+	top: 0;right: 0;bottom: 0;left: 0;
+	width: 400px;
+	height: 400px;
+	margin: auto auto;
+	background: #ccc;
+	box-sizing: border-box;
+	padding: 40px;
+}
+.lightBox .boxContent p{
+	margin-bottom: 10px;
+}
+.lightBox .boxContent .exit{
+	position: absolute;
+	top: 0px;
+	right: 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.lightBox .boxContent p span{
+	font-size: 16px;
+}
+.lightBox .boxContent .input span:first-of-type{
+	display: inline-block;
+	width: 64px;
+	text-align: right;
+}
+.lightBox .boxContent p span+span{
+	margin-left: 10%;
+}
+.lightBox .boxContent .input span+span *{
+	box-sizing: border-box;
+	width: 150px;
+}
+.lightBox .boxContent .center{
+	text-align: center;
+}
+.lightBox .boxContent p textarea{
+	display: inline-block;
+	width: 80%;
+	box-sizing: border-box;
+}

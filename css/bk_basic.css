@@ -1,0 +1,60 @@
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.left{
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+ol{
+	list-style: none;
+	margin: 0;padding: 0;font-size: 0;
+	font-family: "微軟正黑體";
+	background: #ccc;
+}
+.fstNav{
+	font-size: 24px;
+	letter-spacing: 1px;
+	line-height: 32px;
+	margin-left: 10%;
+}
+.innerNav{
+	margin-left: 25px;
+	font-size: 20px;
+	line-height: 28px;
+	display: none;
+}
+.maintain:hover .maintain{
+	display: block;
+}
+.trade:hover .trade{
+	display: block;
+}
+.member:hover .member{
+	display: block;
+}
+
+/*right*/
+
+.right{
+	display: inline-block;
+	width: 80%;
+	font-size: 16px;
+}
+
+	/*麵包屑*/
+
+.breadcrumb li{
+	display: inline-block;
+	font-size: 16px;
+}
+.breadcrumb li+li:before{
+	content: '>';
+	margin: 0 8px;
+}

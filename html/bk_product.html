@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>商城維護</title>
+	<link rel="stylesheet" type="text/css" href="../css/bk_basic.css">
+	<link rel="stylesheet" type="text/css" href="../css/bk_product.css">
+	<link rel="stylesheet" type="text/css" href="../css/btn.css">
+</head>
+<body>
+<!--
+	1後端首頁
+	2網頁維護
+	2-1 前端首頁維護
+	2-1-1 線上算命資料庫
+	2-1-2 配對資料庫			新增
+	2-1-3 業力更新排程		未完成
+	2-2 老師專區維護
+	2-2-1 專欄管理			刪除
+	2-2-1 發文檢舉管理		未完成
+	2-2-2 留言檢舉管理		未完成
+	2-3 商城維護
+	2-3-1 商品管理
+	2-4 推薦管理				刪除
+	3 交易管理
+	3-1 檢視交易紀錄
+	3-2 訂單管理
+	4 會員管理
+	4-1 檢視會員資料
+	4-2 老師資格審核
+-->
+	
+	<!-- header -->
+
+	<!-- header end -->
+	<div class="wrapper">
+		<div class="left">
+			<ol class="sideNav">
+				<li class="fstNav maintain">網頁維護
+					<ol class="innerNav maintain">
+						<li><a href="bk_fortuneDB.html">前端首頁維護</a></li>
+						<li><a href="bk_essayReview.html">老師專區維護</a></li>
+						<li><a href="bk_product.html">商城維護</a></li>
+					</ol>
+				</li>
+				<li class="fstNav trade">交易管理
+					<ol class="innerNav trade">
+						<li><a href="bk_trade.html">檢視交易紀錄</a></li>
+						<li><a href="bk_pdList.html">訂單管理</a></li>
+					</ol>
+				</li>
+				<li class="fstNav member">會員管理
+					<ol class="innerNav member">
+						<li><a href="bk_member.html">檢視會員資料</a></li>
+						<li><a href="bk_teacherApplication.html">老師資格審核</a></li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+
+		<!-- end left -->
+
+		<div class="right">
+			<ol class="breadcrumb">
+				<li>
+					<a href="bk_index.html">首頁</a>
+				</li>
+				<li class="active">商城維護</li>
+			</ol>
+
+			<div class="tr">
+				<span class="col no">編號</span>
+				<span class="col category">種類</span>
+				<span class="col name">名稱</span>
+				<span class="col price">價格</span>
+				<span class="col stock">庫存</span>
+				<span class="col decrement">減少值</span>
+				<span class="col stat">狀態</span>
+				<span class="col alter">修改/刪除</span>
+			</div>
+			<div class="tr">
+				<span class="col no">1</span>
+				<span class="col category">2</span>
+				<span class="col name">左右左右ABAB</span>
+				<span class="col price">9487</span>
+				<span class="col stock">87</span>
+				<span class="col decrement">100</span>
+				<span class="col stat">上架</span>
+				<span class="col alter"><a href="#">A</a><a href="#">X</a></span>
+			</div>
+			<div class="tr">
+				<label for="lightBoxControl"><span class="btnS"><p class="btnText btnText2">新增</p></span></label>
+			</div>
+		</div>
+
+		<!-- end right -->
+		
+		<input type="checkbox" id="lightBoxControl">
+		<div class="lightBox">
+			
+			<div class="boxContent">
+				<label for="lightBoxControl"><p class="exit">X</p></label>
+				<form>
+					<p class="input">
+						<span>種類</span>
+						<span>
+							<select name="category">
+								<option value="0">請選擇種類</option>
+								<option value="1">巨型種</option>
+								<option value="2">奇形種</option>
+								<option value="3">好多種</option>
+							</select>
+						</span>
+					</p>
+					<p class="input">
+						<span>名稱</span>
+						<span><input type="text" name="name"></span>
+					</p>
+					<p class="input">
+						<span>價格</span>
+						<span><input type="text" name="price"></span>
+					</p>
+					<p class="input">
+						<span>庫存</span>
+						<span><input type="text" name="stock"></span>
+					</p>
+					<p class="input">
+						<span>減少值</span>
+						<span><input type="text" name="decrement"></span>
+					</p>
+					<p class="input">
+						<span>狀態</span>
+						<span>
+							<input type="radio" name="stat" value="0">下架
+							<input type="radio" name="stat" value="1">上架
+						</span>
+					</p>
+					<p class="center">
+						<span class="btnS"><input type="submit" value="新增" class="btnText btnText2"></span>
+						<span class="btnS"><input type="reset" value="重填" class="btnText btnText2"></span></p>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+    
+</body>
+</html>

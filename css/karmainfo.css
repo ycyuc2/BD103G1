@@ -19,12 +19,12 @@
     z-index: -5;
 }
 
-.header{
+.headerTitle{
 	width: 100%;
 	text-align: center;
 }
 
-.header img{
+.headerTitle img{
 	width: 40%;
 	margin-top: 200px;
 }
@@ -175,7 +175,7 @@ table th{
 /*RWD開始*/
 /*平板*/
 @media screen and (min-width:760px) and (max-width: 959px){
-	.header img{
+	.headerTitle img{
 		width: 60%;
 	}
 
@@ -194,7 +194,7 @@ table th{
 
 /*小平板*/
 @media screen and (min-width: 480px) and (max-width:759px){
-	.header img{
+	.headerTitle img{
 		width: 80%;
 	}
 
@@ -218,7 +218,7 @@ table th{
 
 /*手機*/
 @media screen and (max-width: 480px){
-	.header img{
+	.headerTitle img{
 		width: 80%;
 	}
 
