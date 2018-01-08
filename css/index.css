@@ -352,7 +352,7 @@ header{
 }
 .index_title{
     position: absolute;
-    top: calc(6% + 150px);
+    top: calc(3% + 150px);
     left: 50%;
     margin-left: -160px;
 }
@@ -379,7 +379,6 @@ header{
     top: 20%;
     left: 50%;
     margin-left: -285px;
-    filter:scale(1.1);
 }
 .btn.index {
     background: url('../img/index/index_btn.png');
@@ -438,7 +437,9 @@ index_subtitle img,
     #choose h2 {
         font-size: 1em;
     }
-
+    .index_impulse {
+        display:none;
+    }
     .btn.index {
         width: 145px;
        margin: 0 15px;
