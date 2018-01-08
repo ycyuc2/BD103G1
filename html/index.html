@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/dozen_nav.css">
+    <link rel="stylesheet" href="../css/backBtn.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
@@ -19,11 +20,7 @@
 </head>
 <body>
     <!-- 底圖 -->
-    <div class="background">
-        <div class="ground">
-            <img src="../img/index/ground_only.png" alt="">
-        </div>
-    </div>
+    <div class="background"></div>
     <!-- 業力球 -->
     <div id="ball" onclick="location.href= '#';">業力</div>
     <!-- header -->
@@ -109,41 +106,21 @@
             setTimeout(countdown, 1000);
         }
     </script>
-<!--     
-    <i class="fa fa-address-book" aria-hidden="true"></i>
-    <div class="header">
-        <input type="checkbox" name="" id="menuControl">
-        <label for="menuControl" class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </label for="menuControl">
-        <a href="#">
-            <img class="logo" src="../img/index/logo.png">
-            
-        </a>
-       
-            <label for="box-control" class="login"> 登入</label>
-            
-            <p><span id="person">
-                
-                <a href="#" class="name">王小姐</a>
-            </span> 您好 購物車(
-            <a href="#">0</a>)  
-            
-        </p>
-    
-    </div> -->
-
 <!-- header結束 -->
+
 <!-- 登入燈箱 -->
     <input type="checkbox" name="" id="box-control">
     <div class="wrapper">
         <div id="lightbox">
+            <a href="#">
+                <div class="backBtn">
+                    <p>返回</p>
+                </div>
+            </a>
             <label for="box-control" class="box-close"><i class="fa fa-times fa-2x"></i></label>
             <div id="logo">
                 
-                <img src="../img/index/logo.png" alt="">
+                <img src="../img/share/LOGO-08.png" alt="">
             </div>
             <form action="" id="login">
                 <table>
@@ -152,7 +129,7 @@
                         <th>
                             <p>帳號：</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="memId" maxlength="12">
                         </td>
                     </tr>
@@ -160,16 +137,16 @@
                         <th>
                             <p>密碼：</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="memPsw" maxlength="12">
                         </td>
                     </tr>
                     <tr>
-                        <td id="btnM" colspan="2">
-                            <div class="btn">
+                        <td id="btn" colspan="2">
+                            <div class="btn out">
                                 <input type="submit" value="確認">
                             </div>
-                            <div class="btn add">註冊</div>
+                            <div class="btn out add">註冊</div>
                         </td>
             
                     </tr>
@@ -182,7 +159,7 @@
                         <th>
                             <p>新增帳號：</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="memId" maxlength="12" required>
                         </td>
                     </tr>
@@ -190,7 +167,7 @@
                         <th>
                             <p>新增密碼：</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="memPsw" maxlength="12" required>
                         </td>
                     </tr>
@@ -198,7 +175,7 @@
                         <th>
                             <p>確認密碼:</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="memPsw" maxlength="12" required>
                         </td>
                     </tr>
@@ -206,7 +183,7 @@
                         <th>
                             <p>暱稱:</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="name" maxlength="12">
                         </td>
                     </tr>
@@ -214,7 +191,7 @@
                         <th>
                             <p>電話:</p>
                         </th>
-                        <td id="inp">
+                        <td class="inp">
                             <input type="text" name="tel" maxlength="12">
                         </td>
                     </tr>
@@ -237,21 +214,22 @@
 
 
     <div id="choose">
-        <p>點算</p>
-        <h2>解析過去，引領未來，算與被算，都來點算</h2>
-
+        <div class="index_impulse"><img src="../img/index/index_impulse.png" alt="" ></div>
+        <div class="index_title"><img src="../img/index/index_title.png" alt="" ></div>
+        <div class="index_subtitle"><img src="../img/index/index_subtitle.png" alt="" ></div>
+        <div class="index_correct"><img src="../img/index/index_correct.png" alt="" ></div>
         <div id="btn">
             <div class="radio">
                 <input type="radio" name="main" id="main1" value="single">
                 <input type="radio" name="main" id="main2" value="double">
             </div>
             <label for="main1">
-                <div class="btn btn1">
+                <div class="btn index btn1">
                     <h5>單人</h5>
                 </div>
             </label>
             <label for="main2">
-                <div class="btn btn2">
+                <div class="btn index btn2">
                     <h5>配對</h5>
                 </div>
             </label>
@@ -582,7 +560,7 @@
         </div>
     <div class="container">
         <div id="result">
-            <div id="star">星座圖</div>
+            <div id="star"><img src="../img/index/libra.jpg" alt=""></div>
             <div class="result double">
                 <h1>單人結果</h1>
                 <h2>天秤座</h2>
@@ -612,7 +590,7 @@
                         <h2>你會需要的</h2>
                         <div class="item">
                             <h2>助你人生順利的算命老師</h2>
-                            <img src="../img/index/teacher1.png" alt="">
+                            <img src="../img/index/horseman.jpg" alt="">
                             <div class="right">
                                 <h3>ＸＸＸ老師</h3>
                                 <p>距離現在的你：5km</p>

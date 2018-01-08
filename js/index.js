@@ -20,6 +20,10 @@ $('document').ready(function(){
         $('#add').css('display','inline');
         $('#login').css('display','none');
     });
+    $('.backBtn').click(function () {
+        $('#add').css('display', 'none');
+        $('#login').css('display', 'inline');
+    });
     
 });
     

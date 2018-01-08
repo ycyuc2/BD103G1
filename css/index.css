@@ -22,11 +22,15 @@ line-height: 21.28px;
 p{
   line-height: 24px;  
 }
+input{
+    line-height: 32px;
+    font-size: 16px;
+}
 .background {
     width: 100vw;
     height: 100vh;
     /* overflow: hidden; */
-    background: url("../img/index/background.png");
+    background: url("../img/share/bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     position: fixed;
@@ -92,32 +96,26 @@ p{
     width: 120px;
     height: 2em;
     padding: 0.5em 0;
+    margin: 1em 0 0;
     text-align: center;
     display: inline-block;
     vertical-align: top;
 }
-
-.btnM:hover {
-    cursor: pointer;
-}
-.btn1 {
-    background: url('../img/index/btn_love.png');
+.btn.index {
+    background: url('../img/index/index_btn.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    margin: 5vh 2em 0;
+    width: 150px;
 }
-
-.btn2 {
-    background: url('../img/index/btn_money.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.btn.out {
+.btn.out{
     background: url('../img/index/btn.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-
+.btn input:hover,.btn:hover{
+    cursor: pointer;
+}
 
 /* 燈箱 */
 .login{
@@ -176,13 +174,11 @@ p{
     bottom: 0;
     margin: auto;
     background-color: #000000;
-    padding-top: 10%;
 }
 @media all and (max-width: 479px) {
     #lightbox{
         width:100%;
         height: 80%;
-        padding-top: 30%;
     }
 }
 .box-close {
@@ -244,14 +240,12 @@ p{
     width: 200px;
     text-align: right;
 }
-
-#lightbox table tr #inp {
+#lightbox table tr .inp {
     background: url("../img/index/input.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-bottom: 0.7em transparent solid;
 }
-
 #lightbox table tr input {
     width: 100%;
     height: 2em;
@@ -263,13 +257,10 @@ p{
     color: #fff;
     text-align: center;
 }
-
 #lightbox table tr input:focus {
     outline: none;
 }
-
 #lightbox table tr #btn {
-    width: 400px;
     text-align: center;
     border-bottom: 0.7em transparent solid;
 }
@@ -277,7 +268,6 @@ p{
 #lightbox table tr #btn .btn {
     width: 120px;
     height: 2em;
-    line-height: 2em;
     padding: 0.3em 0;
     background: url("../img/index/btn.png");
     background-size: 100% 100%;
@@ -290,10 +280,6 @@ p{
     margin: 0.5em auto;
 }
 
-#lightbox table tr #btn .btn p:hover {
-    cursor: pointer;
-}
-
 #lightbox #login {
     transition: 0.2s all ease;
     height: auto;
@@ -304,19 +290,25 @@ p{
     height: 0;
     display: none;
 }
-
 #lightbox #add {
     transition: 0.2s all ease 2s;
     height: 0;
-    line-height: 2em;
-    display: none;
+    display:none;
 }
-
 #lightbox #add.click {
     height: auto;
     display: '';
 }
-
+#lightbox .backBtn{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#lightbox .backBtn p{
+    position: absolute;
+    left: 25%;
+    top: 35%;
+}
 
 
 
@@ -345,15 +337,44 @@ p{
     }
 }
 #choose{
+    width: 100vw;
     text-align: center;
     height: 80vh;
     position: relative;
-    padding-top: 25vh;
+    
 }
-#choose p{
-    display: block;
-    font-size: 4em;
-    margin:15vh 0.5em 5vh;
+.index_impulse{
+    widows: 35%;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+}
+.index_title{
+    width:28%;
+    position: absolute;
+    top: 25%;
+    left: 36%;
+}
+.index_subtitle{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+}
+.index_correct{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+#choose #btn{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+}
+.index_impulse img,
+.index_title img,
+index_subtitle img,
+.index_correct img{
+    width: 100%;
 }
 @media all and (min-width: 760px) and (max-width: 959px){
     #choose p{
@@ -379,10 +400,7 @@ p{
         font-size: 1em;
     }
 }
-#choose #btn .btn{
-    margin:5vh 2em 0;
-    width: 150px;
-}
+
 #choose .radio{
     position: absolute;
     top: 0;
@@ -405,7 +423,6 @@ p{
     clear: both;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
-    line-height: 2em;
     font: 1em;
     text-align: center;
     transition: 0.2s all ease;
@@ -431,52 +448,14 @@ p{
 #start #test select:nth-of-type(1){
     width: 90px;
 }
-#start #test .radio {
-    position: absolute;
-    left: -1000px;
-}
-
-#start #test h5 {
-    line-height: 2em;
-}
-
-#start #test .btn1 {
-    background: url('../img/index/btn_love.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-#start #test .btn2 {
-    background: url('../img/index/btn_money.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-#start #test .btn3 {
-    background: url('../img/index/btn_health.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-#start #test .btn4 {
-    background: url('../img/index/btn_work.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
 #start #test input {
-    line-height: 2em;
-    ;
+    line-height: 32px;
     width: 100%;
     height: 100%;
     background: transparent;
     border: 0px;
     color: #fff;
 }
-#start .btn.out{
-    margin: 1em 0 0;
-}
-
 #start input:focus {
     outline: none;
 }
@@ -491,10 +470,16 @@ p{
 }
 #result #star{
     width: 100%;
-    height: 80vh; 
-    background-color: rgba(0,0,100,0.5);
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
+#result #star img{
+    width: 100%;
+}
+
+
+
 #result .result{
     margin-top: 150px;
     background-color: rgba(0,0,0,0.7);
@@ -503,7 +488,6 @@ p{
 }
 #result .result h1{
     text-align: center;
-    line-height: 3em;
 }
     #result .result h2,#result .result h3 {
     text-align: center;
@@ -518,7 +502,7 @@ p{
     text-align: center;
 }
 #result .result .chart .topic h2{
-    line-height: 4em;
+    padding: 16px 0;
 }
 #result .result .chart .content.blur{
     width: 100%;
@@ -528,7 +512,7 @@ p{
 #result  .other h2{
     display: block;
     margin: 2em 0;
-    line-height: 4em;
+    padding: 16px 0;
     background:linear-gradient(to top, rgba(100, 0, 0, 1) 0%, rgba(200, 100, 0, 1) 100%);
     text-align: center;
 }
@@ -560,7 +544,7 @@ p{
   -webkit-text-fill-color: transparent;
 }
 #result .other .right h3{
-    line-height: 3em;
+    padding: 0em 0;
 }
 #result .other .right p{
     margin-top: 1em;
@@ -572,7 +556,6 @@ p{
     color: #ff0000;
     font-weight: 900;
     font-size: 1.7em;
-    line-height: 0;
 }
 @media all and (min-width: 960px){
     #result .other .item:first-of-type {
