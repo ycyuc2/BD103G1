@@ -3,15 +3,13 @@
 	padding: 0;
 }
 
-body{
-	background-color: #333;
-	font-size: 14px;
-}
-
 .header{
 	width: 100vw;
 	height: 150px;
 	position: fixed;
+	z-index: 8;
+	top: 0;
+	left: 0;
 	transition: all .5s ease-in-out;
 }
 
@@ -52,18 +50,14 @@ body{
 	transition: .2s;
 }
 
-.header .active{
-	background: #333;
-}
-
 /*右邊水逆倒數*/
-.countdown{
+.header .countdown{
 	width: 250px;
 	margin: 20px 0 0 0;
 	float: right;
 }
 
-.countdownContainer{
+.header .countdown .countdownContainer{
 	border:1px solid #ddd;
 	color: #ddd;
 	padding: 5px;
