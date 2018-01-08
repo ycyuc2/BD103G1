@@ -2,10 +2,11 @@
 	margin: 0;
 	padding: 0;
 	color: #fff;
+	outline: 1px solid red;
 }
 
 .background {
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
     background: url("../img/share/bg.jpg");
     background-position: center center;
@@ -177,6 +178,14 @@ table th{
 	.header img{
 		width: 60%;
 	}
+
+	.table .wrapper{
+		width: 80%;
+	}
+
+	table th,td{
+		padding: 20px 60px;
+	}
 }
 
 /*小平板*/
@@ -192,6 +201,11 @@ table th{
 	.text p span{
 		font-size: 30px;
 	}
+
+	.table .wrapper{
+		width: 80%;
+		font-size: 18px;
+	}
 }
 
 /*手機*/
@@ -206,6 +220,11 @@ table th{
 
 	.text p span{
 		font-size: 24px;
+	}
+
+	.table .wrapper{
+		width: 80%;
+		font-size: 16px;
 	}
 }
 
