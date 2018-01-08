@@ -4,14 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 	<title>Document</title>
+	<script src="../js/countDown.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/specialColumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRating.css">
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
-
+	
 	<!-- 漢堡選單 -->
 		<input type="checkbox" name="" id="menuControl">
 
@@ -31,10 +33,10 @@
 				<p>距離下次水星逆行還有</p>
 				<table class="countdownContainer">
 						<tr class="info">
-							<td id="days">120</td><td>天</td>
-							<td id="hours">4</td><td>時</td>
-							<td id="minutes">12</td><td>分</td>
-							<td id="seconds">22</td><td>秒</td>
+							<td class="days">120</td><td>天</td>
+							<td class="hours">4</td><td>時</td>
+							<td class="minutes">12</td><td>分</td>
+							<td class="seconds">22</td><td>秒</td>
 						</tr>
 						
 					</table>
@@ -55,38 +57,7 @@
 			</div>	
 	</div>
 
-<!-- 水星逆行的ＪＳ程式 -->
-	<script type="text/javascript">
-		window.onload=countdown;
-		function countdown(){
-			var now = new Date();
-			var eventDate = new Date(2018, 3, 23);
-			var currentTime = now.getTime();
-			var eventTime = eventDate.getTime();
-			var remTime = eventTime - currentTime;
 
-			var s = Math.floor(remTime / 1000);
-			var m = Math.floor(s / 60);
-			var h = Math.floor(m / 60);
-			var d = Math.floor(h / 24);
-
-			h %= 24;
-			m %= 60;
-			s %= 60;
-
-			h = (h < 10) ? "0" + h : h;
-			m = (m < 10) ? "0" + m : m;
-			s = (s < 10) ? "0" + s : s;
-
-			document.getElementById("days").textContent = d;
-			document.getElementById("days").innerText = d;
-			document.getElementById("hours").textContent = h;
-			document.getElementById("minutes").textContent = m;
-			document.getElementById("seconds").textContent = s;
-
-			setTimeout(countdown, 1000);
-		}
-	</script>
 	
 
 
@@ -98,6 +69,43 @@
 		<img src="../img/lightening/flash4.png" alt="" class="flash lt4">
 		
 	</div>
+<!-- header -->
+	<div class="header">
+
+		<!-- 中間logo -->
+		<div class="logo">
+			<a href="#">
+				<img src="../img/share/LOGO-08.png">
+			</a>
+		</div>
+		
+		<!-- 右邊會員專區 -->
+		<div class="memArea">
+			<ul>
+				<li><a href="#">註冊</a></li>
+				<li><a href="#">登入</a></li>
+				<li><a href="#">購物車(<span class="cartNo">0</span>)</a></li>
+			</ul>
+		</div>
+
+		<!-- 右邊水逆倒數 -->
+		<div class="countdown">
+			<table class="countdownContainer">
+					<tr class="info">
+						<td>水星逆行倒數 :</td>
+						<td class="days">120</td><td>天</td>
+						<td class="hours">4</td><td>時</td>
+						<td class="minutes">12</td><td>分</td>
+					</tr>
+					
+			</table>
+		</div>
+	</div>
+
+
+	<div class="headerBlank"></div>
+
+
 		<h1>馬男波傑克 X 運勢解析</h1>
 		<div class="teacher">
 			<div class="border"></div>

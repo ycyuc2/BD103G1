@@ -1,0 +1,48 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+fieldset, label{
+    margin: 0; padding: 0; 
+}
+
+.rating{ 
+    border: none;
+    float: none;
+}
+
+.rating > input{
+    display: none; 
+} 
+.rating > label:before{ 
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > .half:before{ 
+    content: "\f089";
+    position: absolute;
+}
+
+.rating > label{ 
+    color: rgba(183,162,147, 0.8); 
+    float: right; 
+    text-shadow: 1px 4px 6px #333, 0 0 0 #000, 1px 4px 6px #333;
+    transition: .2s;
+}
+
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label{ 
+    color: rgba(80,0,0,0.9);  
+    text-shadow: 1px -4px 6px #333, 0 0 0 #000, 1px -4px 6px #333;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label{ 
+    color: rgba(180,0,0,0.9);  
+} 
