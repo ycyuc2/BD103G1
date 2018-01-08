@@ -11,7 +11,7 @@ $(document).ready(function(){
 	});
 
 	$('.dislike').click(function(){
-	  $dislikeCount--;
+	  $dislikeCount++;
 	  $('#dislike-num').html($dislikeCount);
 	});
 });
