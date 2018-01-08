@@ -192,6 +192,48 @@ ol li{
 	text-align: left;
 	width: 55%;
 }
+
+
+/*essay td width*/
+
+.essay .table{
+	width: 90%;
+	text-align: center;
+}
+.essay .table .tr{
+	font-size: 0;
+	margin-top: 20px;
+}
+.essay .table .tr .th{
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: 20px;
+}
+.essay .table .tr .td{
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: middle;
+	font-size: 16px;
+	padding: 5px;
+}
+.essay .table .tr .tdWidth:nth-child(1){
+	width: 15%;
+}
+.essay .table .tr .tdWidth:nth-child(2){
+	width: 65%;
+}
+.essay .table .tr .tdWidth:nth-child(3){
+	width: 20%;
+}
+
+	/*essay text adjustment*/
+.essay .table .tr .essayNo{
+	font-size: 20px;	
+}
+.essay .table .tr .essayContent{
+	text-align: left;
+	font-size: 18px;
+}
 @media all and (min-width: 760px) and (max-width: 959px) {
 
 }
@@ -270,6 +312,21 @@ ol li{
 		width: 100%;
 		font-size: 14px;
 		margin: 5px 0;
+	}
+	
+	.essay .table .tr .th{
+		display: none;
+	}
+	.essay .table .tr .tdWidth:nth-child(1){
+		width: 10%;
+	}
+	.essay .table .tr .tdWidth:nth-child(2){
+		text-align: center;
+		width: 60%;
+	}
+	.essay .table .tr .tdWidth:nth-child(3){
+		width: 30%;
+		font-size: 14px;
 	}
 	.blank{
 		display: block;
