@@ -211,69 +211,79 @@ h2 {
               float: none;
               text-align: center;
               margin-left: 0; } }
-          .specialColumn .columnBorder .authorIntro .author .intro a, .replys .columnBorder .authorIntro .author .intro a, .memberReply .columnBorder .authorIntro .author .intro a, .specialColumn .columnBorder .authorIntro .author .intro .links li .report, .specialColumn .columnBorder .authorIntro .author .links li .intro .report, .replys .columnBorder .authorIntro .author .intro .links li .report, .replys .columnBorder .authorIntro .author .links li .intro .report, .memberReply .columnBorder .authorIntro .author .intro .links li .report, .memberReply .columnBorder .authorIntro .author .links li .intro .report {
+          .specialColumn .columnBorder .authorIntro .author .intro a, .replys .columnBorder .authorIntro .author .intro a, .memberReply .columnBorder .authorIntro .author .intro a, .specialColumn .columnBorder .authorIntro .author .intro .links .btns .report, .specialColumn .columnBorder .authorIntro .author .links .btns .intro .report, .replys .columnBorder .authorIntro .author .intro .links .btns .report, .replys .columnBorder .authorIntro .author .links .btns .intro .report, .memberReply .columnBorder .authorIntro .author .intro .links .btns .report, .memberReply .columnBorder .authorIntro .author .links .btns .intro .report {
             font-size: 20px;
             text-decoration: none;
             color: #333;
             font-weight: bold; }
+          .specialColumn .columnBorder .authorIntro .author .intro p, .replys .columnBorder .authorIntro .author .intro p, .memberReply .columnBorder .authorIntro .author .intro p {
+            margin-top: 5px; }
         .specialColumn .columnBorder .authorIntro .author .links, .replys .columnBorder .authorIntro .author .links, .memberReply .columnBorder .authorIntro .author .links {
-          list-style-type: none;
-          float: right; }
+          float: right;
+          box-sizing: border-box; }
           @media all and (max-width: 479px) {
             .specialColumn .columnBorder .authorIntro .author .links, .replys .columnBorder .authorIntro .author .links, .memberReply .columnBorder .authorIntro .author .links {
-              display: block;
               float: none;
               text-align: center; } }
-          @media all and (min-width: 480px) and (max-width: 759px) {
-            .specialColumn .columnBorder .authorIntro .author .links .stars, .replys .columnBorder .authorIntro .author .links .stars, .memberReply .columnBorder .authorIntro .author .links .stars {
-              margin-top: 10px;
-              display: block; } }
-          @media all and (max-width: 479px) {
-            .specialColumn .columnBorder .authorIntro .author .links .stars, .replys .columnBorder .authorIntro .author .links .stars, .memberReply .columnBorder .authorIntro .author .links .stars {
-              margin-top: 10px;
-              display: block; } }
-          .specialColumn .columnBorder .authorIntro .author .links li, .replys .columnBorder .authorIntro .author .links li, .memberReply .columnBorder .authorIntro .author .links li {
-            display: inline-block; }
-            @media all and (max-width: 479px) {
-              .specialColumn .columnBorder .authorIntro .author .links li, .replys .columnBorder .authorIntro .author .links li, .memberReply .columnBorder .authorIntro .author .links li {
-                margin-top: 10px; } }
-            .specialColumn .columnBorder .authorIntro .author .links li i, .replys .columnBorder .authorIntro .author .links li i, .memberReply .columnBorder .authorIntro .author .links li i {
+          .specialColumn .columnBorder .authorIntro .author .links .stars, .replys .columnBorder .authorIntro .author .links .stars, .memberReply .columnBorder .authorIntro .author .links .stars {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 16px; }
+            .specialColumn .columnBorder .authorIntro .author .links .stars i, .replys .columnBorder .authorIntro .author .links .stars i, .memberReply .columnBorder .authorIntro .author .links .stars i {
               color: #ff0; }
-            .specialColumn .columnBorder .authorIntro .author .links li a, .replys .columnBorder .authorIntro .author .links li a, .memberReply .columnBorder .authorIntro .author .links li a, .specialColumn .columnBorder .authorIntro .author .links li .report, .replys .columnBorder .authorIntro .author .links li .report, .memberReply .columnBorder .authorIntro .author .links li .report {
-              text-decoration: none;
-              color: #000;
-              text-shadow: 0px 0px 5px #0ff;
-              display: inline-block;
-              width: 50px;
-              height: 30px;
-              line-height: 26px;
-              text-align: center;
-              background-color: transparent;
-              box-sizing: border-box;
-              border: 2px solid #000;
-              box-shadow: 0px 0px 5px #0ff;
-              transition: all 0.3s; }
-              .specialColumn .columnBorder .authorIntro .author .links li a:hover, .replys .columnBorder .authorIntro .author .links li a:hover, .memberReply .columnBorder .authorIntro .author .links li a:hover, .specialColumn .columnBorder .authorIntro .author .links li .report:hover, .replys .columnBorder .authorIntro .author .links li .report:hover, .memberReply .columnBorder .authorIntro .author .links li .report:hover {
-                background-color: #333;
-                color: #0ff;
-                cursor: url(../img/cursor.png), pointer; }
-            .specialColumn .columnBorder .authorIntro .author .links li + li, .replys .columnBorder .authorIntro .author .links li + li, .memberReply .columnBorder .authorIntro .author .links li + li {
-              margin-left: 10px; }
+            @media all and (min-width: 480px) and (max-width: 759px) {
+              .specialColumn .columnBorder .authorIntro .author .links .stars, .replys .columnBorder .authorIntro .author .links .stars, .memberReply .columnBorder .authorIntro .author .links .stars {
+                margin-top: 10px;
+                display: block; } }
+            @media all and (max-width: 479px) {
+              .specialColumn .columnBorder .authorIntro .author .links .stars, .replys .columnBorder .authorIntro .author .links .stars, .memberReply .columnBorder .authorIntro .author .links .stars {
+                margin-top: 10px;
+                display: block; } }
+          @media all and (max-width: 479px) {
+            .specialColumn .columnBorder .authorIntro .author .links .btns, .replys .columnBorder .authorIntro .author .links .btns, .memberReply .columnBorder .authorIntro .author .links .btns {
+              margin-top: 10px; } }
+          .specialColumn .columnBorder .authorIntro .author .links .btns a, .replys .columnBorder .authorIntro .author .links .btns a, .memberReply .columnBorder .authorIntro .author .links .btns a, .specialColumn .columnBorder .authorIntro .author .links .btns .report, .replys .columnBorder .authorIntro .author .links .btns .report, .memberReply .columnBorder .authorIntro .author .links .btns .report {
+            display: inline-block;
+            line-height: 26px;
+            transition: all 0.3s;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-image: url(../img/findTeacher/btn.png);
+            background-position: center center;
+            background-size: 100% 100%; }
+            .specialColumn .columnBorder .authorIntro .author .links .btns a:hover, .replys .columnBorder .authorIntro .author .links .btns a:hover, .memberReply .columnBorder .authorIntro .author .links .btns a:hover, .specialColumn .columnBorder .authorIntro .author .links .btns .report:hover, .replys .columnBorder .authorIntro .author .links .btns .report:hover, .memberReply .columnBorder .authorIntro .author .links .btns .report:hover {
+              color: #0ff;
+              cursor: url(../img/cursor.png), pointer; }
+          .specialColumn .columnBorder .authorIntro .author .links .btns + li, .replys .columnBorder .authorIntro .author .links .btns + li, .memberReply .columnBorder .authorIntro .author .links .btns + li {
+            margin-left: 10px; }
+            @media all and (max-width: 479px) {
+              .specialColumn .columnBorder .authorIntro .author .links .btns + li, .replys .columnBorder .authorIntro .author .links .btns + li, .memberReply .columnBorder .authorIntro .author .links .btns + li {
+                margin-left: 0; } }
     .specialColumn .columnBorder article, .replys .columnBorder article, .memberReply .columnBorder article {
       padding-top: 30px;
       padding-bottom: 30px; }
       .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
         color: #ddd;
-        font-size: 20px; }
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 1px; }
         @media all and (min-width: 760px) and (max-width: 959px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 16px; } }
+            font-size: 16px;
+            line-height: 24px; } }
         @media all and (min-width: 480px) and (max-width: 759px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 14px; } }
+            font-size: 14px;
+            line-height: 22px; } }
         @media all and (max-width: 479px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 14px; } }
+            font-size: 14px;
+            line-height: 22px; } }
         .specialColumn .columnBorder article p + p, .replys .columnBorder article p + p, .memberReply .columnBorder article p + p {
           margin-top: 20px; }
 
@@ -287,10 +297,13 @@ h2 {
   display: block;
   margin: 20px auto 0px auto;
   width: 90%;
-  height: 300px;
+  height: 42px;
   font-size: 22px;
   box-sizing: border-box;
-  padding: 10px; }
+  padding: 10px;
+  resize: none;
+  overflow: hidden;
+  transition: height .2s; }
 
 .memberReply input {
   display: block;

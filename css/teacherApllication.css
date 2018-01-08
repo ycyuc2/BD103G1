@@ -1,5 +1,8 @@
+.teacher form{
+	padding-right: 50%;
+}
 .teacher p{
-	margin: 1% 0px;
+	margin: 5% 0px;
 }
 .teacher p span{
 	margin-left: 5%;
@@ -11,7 +14,7 @@
 	background: url(../img/member/input.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	width: 250px;
+	width: 200px;
 	height: 30px;
 }
 .teacher p input:focus{
@@ -25,25 +28,25 @@
 	border: none;
 	background: none;
 }
-.teacher p .skill input{
-	margin-left: 1%;
-	vertical-align: middle;
-}
 .teacher p .textarea textarea{
 	vertical-align: middle;
 	color: #000;
-	margin-left: 1%;
+	margin-left: 5%;
 	overflow-x: hidden;
 	resize: none;
 }
 .teacher p:last-child{
-	width: 50%;
+	width: 100%;
 	text-align: center;
 }
 .teacher p .btn{
 	display: inline-block;
+	margin: 0;
 	width: 80px;
 	height: 30px;
+}
+.teacher p .btn+.btn{
+	margin-left: 5%;
 }
 .teacher p .btn input{
 	cursor: pointer;
@@ -57,17 +60,15 @@
 	border: none;
 }
 @media all and (max-width: 479px) {
-	
-	.teacher p .input{
-		width: 150px;
-		
+	.teacher form{
+		padding-right: 30%;
 	}
-	.teacher p:last-child{
-		width: 80%;
+	.teacher p .input{
+		width: 120px;
 	}
 	.teacher p .input input{
 		font-size: 14px;
 		top: 5%;
-		width: 105px;
+		width: 80px;
 	}
 }

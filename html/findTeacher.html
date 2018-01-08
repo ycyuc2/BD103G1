@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 	<script src="../js/iscroll.js"></script>
-	<script src="../js/particles.min.js"></script>
+	<!-- <script src="../js/particles.min.js"></script> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/findTeacher.css">
 	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
@@ -106,11 +106,11 @@
 		<button id="addTeacher" class="btn"><img src="../img/findTeacher/btnframe2.png">AddTeacher</button>
 	</div>
 
+
 	<!-- 說明頁燈箱 -->
 	<div class="directions">
 		<div class="content">
-			<p>點擊搜尋按鈕可依關鍵字搜尋老師</p>
-			<p>或按住滑鼠拖曳在茫茫星空中找尋與你有緣的老師</p>
+			<p>點擊搜尋按鈕可依關鍵字搜尋老師，或按住滑鼠拖曳在茫茫星空中找尋與你有緣的老師。</p>
 			<div class="btnarea"><button id="clickCloseDirection">我知道了</button></div>
 		</div>
 		
@@ -120,7 +120,7 @@
 	<!-- 說明頁js -->
 	<script>
 		// 10秒後關閉說明頁燈箱
-		window.onload = function(){
+		document.onload = function(){
 			setTimeout(closeDirections, 5000);
 
 		}
@@ -312,7 +312,7 @@
 		</div>
 		
 	</div>
-	<script src="../js/particlesValue.js"></script>
+	<!-- <script src="../js/particlesValue.js"></script> -->
 	<script src="../js/findTeacher2.js"></script>
 	<script>
 		//找到老師
@@ -330,14 +330,26 @@
 		//找到搜尋按鈕
 		var search = document.getElementById('search');
 
+		//找到搜尋div
+		var searchBox = document.getElementById('inp');
+
 		//建立事件聆聽功能，點擊使用searchTeacher這個function
 		search.addEventListener('click', searchTeacher, false);
 
+		var moveArea = document.getElementById('moveArea');
+
+		//若搜尋開著進行滑動則關閉搜尋
+		moveArea.addEventListener('click', clearInp, false);
+
+		function clearInp(){
+			searchBox.style.transform = 'scale(0,0)';
+			searchBox.style.opacity = 0;
+			searchBox.style.top = '20px';
+			searchBox.style.right = '20px';
+		}
 
 		function searchTeacher(){
 
-			//找到搜尋div
-			var searchBox = document.getElementById('inp');
 
 			//如果搜尋欄是顯示的，就關閉；如果是隱藏的就顯示，並配合transition效果
 			if (searchBox.style.opacity == 0) {
@@ -355,9 +367,6 @@
 
 		//顯示老師細節
 		function showTeacher(){
-
-			//找到放大鏡
-			var search = document.getElementById('search');
 
 			//找到老師細節的div
 			var teacherInfo = document.getElementById('teacherInfo');

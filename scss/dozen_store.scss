@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import "../sass/mixins/mdqMixin.scss";
+@import "../mixin/mdqMixin.scss";
 
 @font-face {
   font-family: "王漢宗中明體繁- 細";
@@ -260,245 +260,10 @@
   //     outline: #F26451 solid 1px;
   // }
 
-body{
-    margin: 0;padding: 0;
-    background-attachment: fixed;
-    background-size: cover;
-    background-image: url(../img/background_ground.jpg);
-    height: 100vh;
-    overflow: hidden;
-}
 
 
 
-#menuControl{
-    position: fixed;
-    left: -100px;
-  }
-  #menuControl:checked ~ .menu{
-    /*left: 0;*/
-    visibility: visible;
-    opacity: 1;
-  }
-
-    .menu{
-    height: 100vh;
-    width: 100vw;
-    background-image: url(../img/hamburger/bright-galaxy-space-plain.jpg);
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s;
-    padding-top: 10%;
-        
-    }
-
-    .menu .logo{
-      width: 100px;
-      left:calc(50% - 50px);
-    }
-
-    .menu .title {
-        color: white;
-        display: block;
-        margin: 0 auto;
-        text-decoration: none;
-        margin-top: 7%;
-        letter-spacing: 5px;
-        text-align: center;
-        font-family: "王漢宗粗明體繁-中"; }
-      
-      .menu .store {
-        height: 50px;
-        width: 150px;
-        display: block;
-        background-image: url(../img/hamburger/store.png);
-        background-size: cover;
-        margin: 0 auto;
-        transition: 0.5s all ease-in-out; }
-      
-      .menu .store:hover {
-        height: 50px;
-        width: 150px;
-        display: block;
-        background-image: url(../img/hamburger/storeLight.png);
-        background-size: cover; }
-      
-      .menu .findTeacher {
-        height: 50px;
-        width: 150px;
-        display: block;
-        background-image: url(../img/hamburger/findTeacher.png);
-        background-size: cover;
-        margin: 0 auto;
-        transition: 0.5s all ease-in-out; }
-      
-      .menu .findTeacher:hover {
-        height: 50px;
-        width: 150px;
-        display: block;
-        background-image: url(../img/hamburger/findTeacherLight.png);
-        background-size: cover; }
-      
-      .menu .member {
-        height: 50px;
-        width: 150px;
-        display: block;
-        background-image: url(../img/hamburger/member.png);
-        background-size: cover;
-        margin: 0 auto;
-        transition: 0.5s all ease-in-out; }
-      
-      .menu .member:hover {
-        height: 50px;
-        width: 150px;
-        display: block;
-        background-image: url(../img/hamburger/memberLight.png);
-        background-size: cover; }
-      
-      .menu a {
-        display: block;
-        margin: 0 auto;
-        }
-  .hamburger {
-    position: fixed;
-    top: 10%;
-    left: 5%;
-    width: 30px;
-    height: 30px;
-    transition: all 300ms cubic-bezier(0.61, 0.01, 0.42, 1);
-    cursor: pointer;
-    background: transparent;
-    border: 0px;
-    z-index: 20; }
   
-  .hamburger div {
-    height: 0px;
-    border: 0.5px solid #fff;
-    width: 22px;
-    display: block;
-    position: absolute;
-    transition: all 300ms cubic-bezier(0.61, 0.01, 0.42, 1);
-    background: #fff; }
-  
-  .hamburger:hover {
-    transition-delay: 100ms;
-    transform: scale(1.1); }
-  
-  .hamburger:hover div:nth-child(3):before {
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    background: #F26451; }
-  
-  
-  
-  .hamburger div:nth-child(1) {
-    top: 0px; }
-  
-  .hamburger div:nth-child(2) {
-    top: 8px; }
-  
-  .hamburger div:nth-child(3) {
-    top: 16px; }
-  .hamburger:hover div {
-    border: 0.5px solid #fff;
-    height: 9px;
-    border-radius: 50%;
-    margin-left: -1px;
-    margin-top: 2px;
-    animation: atom 300ms linear 1;
-    width: 25px;
-    top: 0px;
-    background: transparent; }
-  .hamburger div:nth-child(3):before {
-    opacity: 0;
-    animation: ball 1.5s linear infinite;
-    content: '';
-    border: 1px solid #fff;
-    display: block;
-    position: relative;
-    top: 0.25px; }
-  
-  .hamburger:hover div:nth-child(1) {
-    transform: rotate(-33deg); }
-  
-  .hamburger:hover div:nth-child(2) {
-    transform: rotate(90deg); }
-  
-  .hamburger:hover div:nth-child(3) {
-    transform: rotate(33deg); }
-  
-  .hamburger:hover div:nth-child(3):before {
-    opacity: 1;
-    transition: opacity 600ms cubic-bezier(0.61, 0.01, 0.42, 1); }
-  
-  #menuControl:checked:hover + .hamburger div:nth-child(3):before,
-  #menuControl:checked + .hamburger div:nth-child(3):before,
-  #menuControl:checked + .hamburger div:nth-child(2) {
-    opacity: 0;
-    transition: all 200ms; }
-  
-  #menuControl:checked + .hamburger div {
-    border: 0.5px solid #fff;
-    height: 0px;
-    border-radius: 0%;
-    margin-left: -1px;
-    margin-top: 6px;
-    animation: division 300ms linear 1;
-    width: 25px;
-    top: 0px; }
-  
-  #menuControl:checked + .hamburger div:nth-child(2) {
-    width: 0px; }
-  
-  #menuControl:checked + .hamburger div:nth-child(3) {
-    transform: rotate(45deg); }
-  
-  #menuControl:checked + .hamburger div:nth-child(1) {
-    transform: rotate(-45deg); }
-  
-  @keyframes atom {
-    0% {
-      transform: rotate(180deg); } }
-  
-  @keyframes division {
-    0% {
-      transform: rotate(180deg); } }
-  
-  @keyframes ball {
-    0% {
-      left: -20%;
-      top: 10%; }
-    10% {
-      left: 10%;
-      top: -35%; }
-    25% {
-      left: 45%;
-      top: -50%; }
-    40% {
-      left: 80%;
-      top: -20%; }
-    50% {
-      left: 98%;
-      top: 18%; }
-    60% {
-      left: 80%;
-      top: 50%; }
-    75% {
-      left: 45%;
-      top: 80%; }
-    90% {
-      left: 0%;
-      top: 60%; }
-    100% {
-      left: -20%;
-      top: 10%; } }
 
 .logo{
     width: 100px;
@@ -513,10 +278,232 @@ body{
     margin: 0 auto;
     margin-top: 13%;
     max-width: 960px;
-    
     border: 50px solid transparent;
     border-image: url(../img/frame_960x960.png)90 90 repeat;
     box-sizing: border-box;
+    .search{
+      width: 100%;
+      &:after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .filter{
+        float: left;
+        text-align: center;
+        @include pad-width{
+
+        }
+        @include small-pad-width{
+            float: none;
+        }
+        @include phone-width{
+            float: none;
+        }
+        select{
+          width: 200px;
+          height: 30px;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 90%;
+            }
+            @include phone-width{
+                width: 90%;
+            }
+        }
+      }
+      .searchBox{
+        float: right;
+        text-align: center;
+        @include pad-width{
+            
+        }
+        @include small-pad-width{
+            margin-top: 10px;
+            float: none;
+        }
+        @include phone-width{
+            margin-top: 10px;
+            float: none;
+            
+        }
+        input{
+            width: 200px;
+            height: 28px;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 90%;
+            }
+            @include phone-width{
+                width: 90%;
+            }
+        }
+      }
+    }
+    .content{
+        margin-top: 20px;
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .pic{
+            width: 40%;
+            float: left;
+            text-align: center;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 100%;
+                float: none;
+            }
+            @include phone-width{
+                width: 100%;
+                float: none;
+            }
+            img{
+                width: 100%;
+                @include pad-width{
+                
+                }
+                @include small-pad-width{
+                    width: 60%;
+                }
+                @include phone-width{
+                    width: 60%;
+                }
+            }
+        }
+        .intro{
+            width: 60%;
+            float: left;
+            box-sizing: border-box;
+            padding: 10px;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 100%;
+                float: none;
+                
+            }
+            @include phone-width{
+                width: 100%;
+                float: none;
+                
+            }
+            h2{
+                text-align: center;
+                font-weight: bold;
+                font-size: 35px;
+            }
+            p{
+                margin-top: 20px;
+            }
+            .options{
+                margin-top: 20px;
+                box-sizing: border-box;
+                padding: 10px;
+                font-size: 0;
+                &:after{
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+                .price{
+                    float: left;
+                    width: 30%;
+                    @include pad-width{
+                    
+                    }
+                    @include small-pad-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    @include phone-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    p{
+                        margin-top: 0;
+                        font-size: 25px;
+                        font-weight: bold;
+                        @include pad-width{
+                        
+                        }
+                        @include small-pad-width{
+                            font-size: 20px;
+                        }
+                        @include phone-width{
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .purchase{
+                    float: left;
+                    text-align: right;
+                    width: 70%;
+                    @include pad-width{
+                    
+                    }
+                    @include small-pad-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    @include phone-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    a{
+                        display: inline-block;
+                        text-decoration: none;
+                        text-align: center;
+                        width: 120px;
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        background-color: #850;
+                        @include pad-width{
+                        
+                        }
+                        @include small-pad-width{
+                            font-size: 16px;
+                            width: 100px;
+                        }
+                        @include phone-width{
+                            font-size: 16px;
+                            width: 100px;
+                        }
+                        & + a{
+                            margin-left: 10px;
+                            @include small-pad-width{
+                                margin-top: 10px;
+                                font-size: 16px;
+                                width: 100px;
+                            }
+                            @include phone-width{
+                                margin-left: 0;
+                                margin-top: 10px;
+                                font-size: 16px;
+                                width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 .header{
@@ -546,270 +533,3 @@ body{
 #person{
     color: red;
 }
-.frame{
-
-
-    .banner{
-        width: 100%;
-        height: 400px;
-        background-color: rgb(96, 133, 158);
-        margin: 0 auto;
-        
-        
-    }
-
-    .dot{
-        width: 100%;
-        height: 70px;
-        background-color: rgb(196, 180, 111);
-        margin: 0 auto;
-
-        
-        
-    }
-
-    h1{
-        text-align: center;
-        color: white;
-        font-family: "王漢宗中明體繁- 細";
-        font-size: 28px;
-        letter-spacing: 5px;
-    }
-
-    .product{
-        width: 100%;
-        
-       
-
-        .pdList{
-            width: 92%;
-            background-color:#222;
-            height: 100px;
-            padding-left: 20%;
-            box-sizing: border-box;
-            margin: 0 auto;
-
-            a{
-                font-family: "王漢宗粗明體繁-中";
-                color: #fff;
-                font-size: 28px;
-                text-align: center;
-                text-decoration: none;
-                line-height: 100px;
-                padding-right: 12%;
-                
-                
-            }
-
-        }
-
-        .filter{
-            width: 92%;
-            height: 50px;
-            margin: 0 auto;
-            //  background-color:red;
-            padding-top: 2%;
-            box-sizing: border-box;
-            form{
-                float: left;
-                select{
-                    //@extend .search;
-                    
-                
-                background-position: center center;
-                background-size: 100% 100%;
-                
-                box-sizing: border-box;
-                padding:0 5%;
-                width: 150px;
-                height: 35px; 
-               &:focus{
-                 outline: none;
-               }
-                }
-            }
-             .search{
-                float: right;
-          
-                
-                background-position: center center;
-                background-size: 100% 100%;
-                
-                box-sizing: border-box;
-                padding-left: 5%;
-                width: 300px;
-                height: 35px; 
-               &:focus{
-                 outline: none;
-               }
-              }
-
-        }
-
-        .productContent{
-            padding-top: 2%;
-            .one{
-              background-color: #fff;
-              background-size: cover;
-              width: 92%;
-              height: 300px;
-              margin:0 auto;
-              margin-bottom: 10px;
-              text-align: center;
-              
-                
-              
-               .left{
-                 float: left;
-                 width: 50%;
-                 height: 100%;
-                 background-color: green;
-                  img{
-                    height: 100%;
-                  }
-               } 
-
-               .right{
-                float: left;
-                width: 50%;
-                height: 100%;
-                background-color: red; 
-
-                  .title{
-                    width: 100%;
-                    height: 20%;
-                    background-color: purple;
-
-                      h2{
-                        color: #fff;
-                        line-height: 60px;
-                        letter-spacing: 5px;
-                      }
-                  }
-
-                  .info{
-                    width: 100%;
-                    height: 60%;
-                    color: #fff;
-                    background-color: black;
-
-                      p{
-                        line-height: 35px;
-                        text-align: justify;
-                      }
-                  }
-
-                  .btn{
-                    width: 100%;
-                    height: 20%;
-                    background-color: orange;
-
-                      
-
-                      .price{
-                        float: left;
-                        height: 100%;
-                        width: 30%;
-                        background-color: blue;
-
-                          p{
-                            color: #fff;
-                            line-height: 60px;
-                            letter-spacing: 2px;
-                          }
-
-                      }
-
-                      .buy{
-                        float:right;
-                        height: 100%;
-                        width: 30%;
-                        background-color: pink;
-                        line-height: 60px;
-
-                          #bg{
-                            width: 100px;
-                            height: 50px;
-                            display: block;
-                            background-color: orange;
-                            margin: auto auto;
-                            
-                          }
-                      }
-
-                      .cart{
-                        float: right;
-                        height: 100%;
-                        width: 30%;
-                        line-height: 60px;
-                        background-color: red;
-
-                        #bg{
-                          width: 100px;
-                          height: 50px;
-                          display: block;
-                          background-color: orange;
-                          margin: auto auto;
-                          
-                        }
-                      }
-                  
-                    &:after{
-                      content: '';
-                      display: block;
-                      clear: both; 
-                    }
-                  }
-              }
-
-            &:after{
-              content: '';
-              display: block;
-              clear: both; 
-            }
-
-            @include phone-width{
-              width: 100%;
-             
-        
-            
-              }
-
-                
-
-               
-               
-
-            }
-        }
-
-
-
-    }
-
-
-}
-
-
-
-.footer{
-    width: 100%;
-    height: 200px;
-    border: 100px solid ;
-    border-image: url(../img/dozen_store/footer_frame.png)90 90 repeat;
-    box-sizing: border-box;
-    text-align: center;
-    margin-top: 5%;
-   
-    
-    h4{
-        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
-        margin: 0;
-        padding: 0;
-        
-        color: rgb(155, 155, 155);
-    }
-}
-
-
-

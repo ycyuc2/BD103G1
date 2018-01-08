@@ -411,7 +411,7 @@ p{
     transition: 0.2s all ease;
 }
 #start #test form{
-    padding: 1em;
+    padding: 0.8em;
 }
 #start #test form p{
     padding-bottom: 0.5em;
@@ -422,14 +422,14 @@ p{
 
 #start #test select {
     font-size: 1em;
-    width: 75px;
+    width: 60px;
     height: 2em;
     cursor: pointer;
     color: #000000;
-    margin: 0.2em 0.3em 0.5em;
+    margin: 0.2em 0.2em 0.5em;
 }
 #start #test select:nth-of-type(1){
-    width: 100px;
+    width: 90px;
 }
 #start #test .radio {
     position: absolute;

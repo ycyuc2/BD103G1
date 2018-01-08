@@ -8,40 +8,99 @@
     <link rel="stylesheet" type="text/css" href="../css/dozen_storedetail.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css ">
     <link rel="stylesheet" href="../css/dozen_nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <script src="../js/jquery-3.2.1.min.js"></script>
-    <!-- <script src="../js/33_new.js"></script> -->
+    <script src="../js/33_new.js"></script>
     <script src="../js/count.js"></script>
 </head>
 
 <body>
-    <!-- 漢堡 -->
-    <input type="checkbox" name="" id="menuControl">
+   <!-- 漢堡選單 -->
+		<input type="checkbox" name="" id="menuControl">
 
-	<label for="menuControl" class="hamburger">
+		<label for="menuControl" class="hamburger">
 				<div></div>
 				<div></div>
 				<div></div>
-    </label for="menuControl">
-    
-    <!-- menu -->
-    <div class="menu">
-        <a  href="index.html"><img  class="logo" src="../img/hamburger/LOGO-08.png" ></a>
-        <a class="title" href="findTeacher.html">
-            <span class="findTeacher"></span>
-        </a>
-        <a class="title" href="dozen_store.html">
-            <span class="store"></span>
-        </a>
-        <a class="title" href="member.html">
-            <span class="member"></span>
-        </a>
-    </div>
+		</label for="menuControl">
+
+	<div class="menu">
+        <!-- logo -->
+        <div class="navlogo">
+            <a  href="#">
+                <img src="../img/share/LOGO-08.png">
+            </a>
+        </div>
+		
+
+		<!-- 右邊的title區塊 -->
+
+			<div class="left">
+				<p>距離下次水星逆行還有</p>
+				<table class="countdownContainer">
+						<tr class="info">
+							<td id="days">120</td><td>天</td>
+							<td id="hours">4</td><td>時</td>
+							<td id="minutes">12</td><td>分</td>
+							<td id="seconds">22</td><td>秒</td>
+						</tr>
+						
+					</table>
+			</div>
+		<!-- 中間的line -->
+			<div class="line"></div>
+			<!-- 右邊的time區塊 -->
+			<div class="right">
+				<a class="title" href="#">
+					<span class="findTeacher"></span>
+				</a>
+				<a class="title" href="../html/dozen_store.html">
+					<span class="store"></span>
+				</a>
+				<a class="title" href="#">
+					<span class="member"></span>
+				</a>
+			</div>	
+	</div>
+
+<!-- 水星逆行的ＪＳ程式 -->
+	<script type="text/javascript">
+		window.onload=countdown;
+		function countdown(){
+			var now = new Date();
+			var eventDate = new Date(2018, 3, 23);
+			var currentTime = now.getTime();
+			var eventTime = eventDate.getTime();
+			var remTime = eventTime - currentTime;
+
+			var s = Math.floor(remTime / 1000);
+			var m = Math.floor(s / 60);
+			var h = Math.floor(m / 60);
+			var d = Math.floor(h / 24);
+
+			h %= 24;
+			m %= 60;
+			s %= 60;
+
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			s = (s < 10) ? "0" + s : s;
+
+			document.getElementById("days").textContent = d;
+			document.getElementById("days").innerText = d;
+			document.getElementById("hours").textContent = h;
+			document.getElementById("minutes").textContent = m;
+			document.getElementById("seconds").textContent = s;
+
+			setTimeout(countdown, 1000);
+		}
+	</script>
 
     <i class="fa fa-address-book" aria-hidden="true"></i>
     <div class="header">
         <a href="#">
-            <img class="logo" src="../img/hamburger/LOGO-08.png">
+            <img class="logo" src="../img/share/LOGO-08.png">
         </a>
 
 
@@ -61,9 +120,9 @@
             
             
             <div class="productContent">
-                <div class="one">
-                   <img src="../img/dozen_storedetail/lion.jpg" alt=""> 
-                </div>
+                    <div class="one">
+                        <img src="../img/dozen_storedetail/lion.jpg" alt=""> 
+                    </div>
 
                 
 
@@ -71,7 +130,7 @@
 
 
                     <div class="text">
-                        <h2>開運石獅子</h2> <h2 id="price">999999$</h2>
+                        <h2 id="textTitle">開運石獅子</h2> <h2 id="price">999999$</h2>
                         <br>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -80,28 +139,35 @@
                         <i class="fa fa-star-half-o" aria-hidden="true"></i>
                         
                           <p class="rate">4.5/5</p>
-                        <hr>
-                        <p>獅子：古人視獅子為百獸之王，比虎豹更凶猛，也比虎豹更具驅邪除煞的效力。每逢年節慶典必有祥獅獻瑞的表演活動，有驅吉避凶的作用。俗語說：「厝內擺對獅，攢錢無人知。」中國原不產獅子，東漢時期西域送來第一頭獅子，獅子外型威猛，令人望而生畏。相傳佛祖誕生時，一手指天，一手指地，並作獅吼云：「天上天下唯我獨尊」，從此獅子逐漸被神化，成為佛法威力的象徵。
-
-                        </p>
-                        <div>
-                            <form id='myform' method='POST' action='#'>
-                                    <label for="">數量</label>
-                                    <br>
-                                    <input  type='button' value='-' class='qtyminus' field='quantity' />
-                                    <input  type='text' name='quantity' value='0' class='qty' />
-                                    <input  type='button' value='+' class='qtyplus' field='quantity' />
-                            </form>
-                        </div>    
-                        <div class="buy">
-                            <div><a href="#">加入購物車</a></div>
-                            <br>
-                            <div><a href="#">立即購買</a></div>
+                        <hr> 
+                        <div class="innerText">
+                            <p>獅子：古人視獅子為百獸之王，比虎豹更凶猛，也比虎豹更具驅邪除煞的效力。每逢年節慶典必有祥獅獻瑞的表演活動，有驅吉避凶的作用。俗語說：「厝內擺對獅，攢錢無人知。」中國原不產獅子，東漢時期西域送來第一頭獅子，獅子外型威猛，令人望而生畏。相傳佛祖誕生時，一手指天，一手指地，並作獅吼云：「天上天下唯我獨尊」，從此獅子逐漸被神化，成為佛法威力的象徵。
+                              
+                            </p>
                         </div>
-                       
+
+                        <div class="btn">
+                            <div class="amount">
+                                <form id='myform' method='POST' action='#'>
+                                        <label for="">數量</label>
+                                        <br>
+                                        <input  type='button' value='-' class='qtyminus' field='quantity' />
+                                        <input  type='text' name='quantity' value='0' class='qty' />
+                                        <input  type='button' value='+' class='qtyplus' field='quantity' />
+                                </form>
+                            </div>    
+                            <div class="buy">
+                                <div><a href="#">加入購物車</a></div>
+                                <br>
+                                <div><a href="#">立即購買</a></div>
+                            </div>
+                         </div> 
                     </div>
                 </div>
             </div>
+
+
+            
 
         </div>
 
@@ -114,8 +180,41 @@
     </div>
 
     <div class="footer">
-    <h4>© 2018 Dozen點算 - All rights reserved.</h4>
-    </div>
+
+            <!-- 左邊icon -->
+            <div class="icon">
+                <ul>
+                    <!-- facebook icon -->
+                    <li class="facebook">
+                        <a href="#">
+                            <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+                        </a>				
+                    </li>
+    
+                    <!-- instagram icon -->
+                    <li class="instagram"></i>
+                        <a href="#">
+                            <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                        </a>					
+                    </li>
+    
+                    <!-- twitter icon -->
+                    <li class="twitter">
+                        <a href="#">
+                            <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
+                        </a>			
+                    </li>
+                </ul>
+            </div>
+    
+            <!-- 右邊copyright -->
+            <div class="copyright">
+                <p>
+                點算©Copyright DOZEN, 2018.
+                </p>
+            </div>
+            
+        </div>
 
 
 
