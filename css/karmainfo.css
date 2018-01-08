@@ -2,7 +2,7 @@
 	margin: 0;
 	padding: 0;
 	color: #fff;
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
 }
 
 .background {
@@ -186,6 +186,10 @@ table th{
 	table th,td{
 		padding: 20px 60px;
 	}
+
+	.effects .wrapper{
+		background-image: none;
+	}
 }
 
 /*小平板*/
@@ -206,6 +210,10 @@ table th{
 		width: 80%;
 		font-size: 18px;
 	}
+
+	.effects .wrapper{
+		background-image: none;
+	}
 }
 
 /*手機*/
@@ -225,6 +233,10 @@ table th{
 	.table .wrapper{
 		width: 80%;
 		font-size: 16px;
+	}
+
+	.effects .wrapper{
+		background-image: none;
 	}
 }
 
