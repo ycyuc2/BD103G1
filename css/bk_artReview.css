@@ -5,10 +5,10 @@
 	box-sizing: border-box;
 	font-size: 0;
 }
-.rightNav2 li{
+.rightNav3 li{
 	display: inline-block;
-	width: 25%;
-	margin:0 10%;
+	width: 20%;
+	margin:0 6.6%;
 	font-size: 16px;
 	text-align: center;
 	background: #999;
@@ -29,24 +29,23 @@
 	display: inline-block;
 	font-size: 16px;
 	vertical-align: middle;
+}.tr .artNo{
+	width: 12%;
 }
-.tr .no{
-	width: 10%;
+.tr .memNO{
+	width: 12%;
 }
-.tr .constel{
-	width: 15%;
+.tr .reason{
+	width: 36%;
 }
-.tr .constel2{
-	width: 15%;
-}
-.tr .title{
-	width: 45%;
+.tr .link{
+	width: 20%;
 }
 .tr .alter{
-	width: 15%;
+	width: 20%;
 }
-.tr .alter a{
-	margin-left: 10%;
+.tr .alter p{
+	margin: 5px 0;
 }
 
 	/*lightBox*/
@@ -74,15 +73,30 @@
 .boxContent{
 	position: absolute;
 	top: 0;right: 0;bottom: 0;left: 0;
-	width: 400px;
-	height: 400px;
+	width: 60%;
+	height: 80%;
 	margin: auto auto;
 	background: #ccc;
 	box-sizing: border-box;
 	padding: 40px;
+	text-align: center;
 }
-.lightBox .boxContent p{
-	margin-bottom: 10px;
+.lightBox .boxContent .reason{
+	width: 80%;
+	height: 20%;
+	padding: 0 10%;
+	overflow-y: auto;
+	text-align: left;
+	margin-bottom: 5%;
+}
+.lightBox .boxContent .reason p{
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+}
+.lightBox .boxContent .reason p+p{
+	font-size: 16px;
+	padding: 0 20px;
 }
 .lightBox .boxContent .exit{
 	position: absolute;
@@ -91,26 +105,8 @@
 	font-size: 16px;
 	cursor: pointer;
 }
-.lightBox .boxContent p span{
-	font-size: 16px;
-}
-.lightBox .boxContent .input span:first-of-type{
-	display: inline-block;
-	width: 64px;
-	text-align: right;
-}
-.lightBox .boxContent p span+span{
-	margin-left: 10%;
-}
-.lightBox .boxContent .input span+span *{
-	box-sizing: border-box;
-	width: 150px;
-}
-.lightBox .boxContent .center{
-	text-align: center;
-}
-.lightBox .boxContent p textarea{
-	display: inline-block;
-	width: 80%;
-	box-sizing: border-box;
+.lightBox .boxContent iframe{
+	width: 100%;
+	height: 75%;
+	border: none;
 }
