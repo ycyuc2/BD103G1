@@ -63,8 +63,8 @@ table{
 	margin: 0 auto;
 }
 
-table th,td{
-	padding: 10px 40px;
+.countdown table th,td{
+	font-size: 14px;
 }
 
 table th{
