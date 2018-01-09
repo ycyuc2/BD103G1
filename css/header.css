@@ -4,7 +4,7 @@
 }
 
 .header{
-	width: 100vw;
+	width: 100%;
 	height: 150px;
 	position: fixed;
 	z-index: 8;
@@ -14,16 +14,24 @@
 }
 
 /*中間logo*/
-.header .logo img{
+.header .logo a{
+	display: block;
 	width: 90px;
-	margin: 0 auto;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	left: calc(50% - 45px);
+	top: 10px;
+}
+.header .logo img{
+	width: 100%;
 }
 
 /*右邊會員專區*/
+
+.header .memArea{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
 .header .memArea ul{
 	float: right;
 }
@@ -52,9 +60,11 @@
 
 /*右邊水逆倒數*/
 .header .countdown{
+	position: absolute;
 	width: 250px;
 	margin: 20px 0 0 0;
-	float: right;
+	right: 20px;
+	top: 50px;
 }
 
 .header .countdown .countdownContainer{
