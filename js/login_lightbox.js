@@ -25,7 +25,7 @@ $('document').ready(function(){
             'right': '-100%'
         });
     });
-    $('.btnM.add').click(function () {
+    $('.btn.add').click(function () {
         $('.register_wrapper').css({
             'opacity': '1',
             'right': '0',
