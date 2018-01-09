@@ -30,20 +30,20 @@
 	font-size: 16px;
 	vertical-align: middle;
 }
-.tr .no{
-	width: 10%;
-}
-.tr .constel{
+.tr .artNo{
 	width: 15%;
 }
-.tr .constel2{
+.tr .teacherNo{
 	width: 15%;
 }
-.tr .title{
-	width: 45%;
+.tr .artTitle{
+	width: 25%;
+}
+.tr .link{
+	width: 25%;
 }
 .tr .alter{
-	width: 15%;
+	width: 20%;
 }
 .tr .alter a{
 	margin-left: 10%;
@@ -74,15 +74,12 @@
 .boxContent{
 	position: absolute;
 	top: 0;right: 0;bottom: 0;left: 0;
-	width: 400px;
-	height: 400px;
+	width: 60%;
+	height: 80%;
 	margin: auto auto;
 	background: #ccc;
 	box-sizing: border-box;
 	padding: 40px;
-}
-.lightBox .boxContent p{
-	margin-bottom: 10px;
 }
 .lightBox .boxContent .exit{
 	position: absolute;
@@ -91,26 +88,8 @@
 	font-size: 16px;
 	cursor: pointer;
 }
-.lightBox .boxContent p span{
-	font-size: 16px;
-}
-.lightBox .boxContent .input span:first-of-type{
-	display: inline-block;
-	width: 64px;
-	text-align: right;
-}
-.lightBox .boxContent p span+span{
-	margin-left: 10%;
-}
-.lightBox .boxContent .input span+span *{
-	box-sizing: border-box;
-	width: 150px;
-}
-.lightBox .boxContent .center{
-	text-align: center;
-}
-.lightBox .boxContent p textarea{
-	display: inline-block;
-	width: 80%;
-	box-sizing: border-box;
+.lightBox .boxContent iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
 }
