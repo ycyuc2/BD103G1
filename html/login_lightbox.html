@@ -4,110 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="../css/btn.css">
+    <link rel="stylesheet" href="../css/login_lightbox.css">
+    <link rel="stylesheet" href="../css/backBtn.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <title>login</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../js/login_lightbox.js"></script>
 </head>
 <body>
-    <label for="box-control" class="login"> 登入</label>
 
-    <input type="checkbox" name="" id="box-control">
-    <div class="wrapper">
-        <div id="lightbox">
-            <label for="box-control" class="box-close">X</label>
-            <div id="logo">
+    <div class="header">
     
-                <img src="../img/index/logo.png" alt="">
-            </div>
-            <form action="" id="login">
-                <table>
-                    <caption>
-                        <h2>登入會員</h2>
-                    </caption>
-                    <tr>
-                        <th>
-                            <p>帳號：</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="memId" maxlength="12">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>密碼：</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="memPsw" maxlength="12">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="btn" colspan="2">
-                            <div class="btn">
-                                <input type="submit" value="確認">
-                            </div>
-                            <div class="btn add">註冊</div>
-                        </td>
+        <!-- 中間logo -->
+        <div class="logo">
+            <a href="#">
+                <img src="../img/share/LOGO-08.png">
+            </a>
+        </div>
     
-                    </tr>
-                </table>
-            </form>
-            <form action="#" id="add">
-                <table>
-                    <caption>
-                        <h2>註冊會員</h2>
-                    </caption>
-                    <tr>
-                        <th>
-                            <p>新增帳號：</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="memId" maxlength="12" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>新增密碼：</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="memPsw" maxlength="12" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>確認密碼:</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="memPsw" maxlength="12" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>暱稱:</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="name" maxlength="12">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>電話:</p>
-                        </th>
-                        <td id="inp">
-                            <input type="text" name="tel" maxlength="12">
-                        </td>
-                    </tr>
-                    <tr>
+        <!-- 右邊會員專區 -->
+        <div class="memArea">
+            <ul>
+                <li class="register-control">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>註冊
+                </li>
+                <li class="login-control">
+                    <i class="fa fa-user" aria-hidden="true"></i>登入
+                </li>
+                <li>
+                    <a href="#">購物車(
+                        <span class="cartNo">0</span>)</a>
+                </li>
+            </ul>
+        </div>
     
-                        <td id="btn" colspan="2">
-                            <div class="btn">
-                                <input type="submit" value="確認">
-                            </div>
-                            <div class="btn">
-                                <input type="reset" value="重填">
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+        <!-- 右邊水逆倒數 -->
+        <div class="countdown">
+            <table class="countdownContainer">
+                <tr class="info">
+                    <td>水星逆行倒數 :</td>
+                    <td class="days">120</td>
+                    <td>天</td>
+                    <td class="hours">4</td>
+                    <td>時</td>
+                    <td class="minutes">12</td>
+                    <td>分</td>
+                </tr>
+    
+            </table>
         </div>
     </div>
+<div class="login_wrapper">
+    <div class="loginbox">
+        <div class="login-close">
+            <i class="fa fa-times fa-2x"></i>
+        </div>
+        <form action="" id="form_login">
+            <table>
+                <caption>
+                    <h2>登入會員</h2>
+                </caption>
+                <tr>
+                    <th>
+                        <p>帳號：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memId" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>密碼：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memPsw" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="btn" colspan="2">
+                        <span class="btnM">
+                            <p class="btnText btnText2">
+                                <input type="submit">
+                            </p>
+                        </span>
+                        <span class="btnM add">
+                            <p class="btnText btnText2">
+                                註冊
+                            </p>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+<div class="register_wrapper">
+    <div class="loginbox">
+        <a href="#">
+            <div class="backBtn">
+                <p>返回</p>
+            </div>
+        </a>
+        <div class="register-close">
+            <i class="fa fa-times fa-2x"></i>
+        </div>
+        <form action="#" id="add">
+            <table>
+                <caption>
+                    <h2>註冊會員</h2>
+                </caption>
+                <tr>
+                    <th>
+                        <p>新增帳號：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memId" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>新增密碼：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memPsw" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>確認密碼:</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memPsw" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>暱稱:</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="name" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>電話:</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="tel" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="btn" colspan="2">
+                        <span class="btnM">
+                            <p class="btnText btnText2"><input type="submit">確認</p>
+                        </span>
+                        <span class="btnM">
+                            <p class="btnText btnText2"><input type="reset"></p>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
