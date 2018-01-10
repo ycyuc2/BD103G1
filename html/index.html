@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="../css/dozen_nav.css">
     <link rel="stylesheet" href="../css/backBtn.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/login_lightbox.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/btn.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
 
     <!-- <link rel="stylesheet" href="../css/lightening.css"> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    
+    <script src="../js/countDown.js"></script>
+    <script src="../js/login_lightbox.js"></script>
     <script src="../js/index.js"></script>
 
     <title>Dozen</title>
@@ -23,26 +27,22 @@
     <!-- 底圖 -->
     <div class="background"></div>
     <!-- 業力球 -->
-    <div id="ball" onclick="location.href= '#';">業力</div>
+    <div class="karmainfo_ball" onclick="location.href= '#';">業力</div>
     <!-- header -->
     <!-- 漢堡選單 -->
     <input type="checkbox" name="" id="menuControl">
-    
     <label for="menuControl" class="hamburger">
         <div></div>
         <div></div>
         <div></div>
     </label for="menuControl">
-    <label for="box-control" class="login"><i class="fa fa-user fa-2x" aria-hidden="true"></i></label>
 
     <div class="menu">
         <!-- logo -->
         <a href="#">
             <img class="logo" src="../img/share/LOGO-08.png">
         </a>
-    
         <!-- 右邊的title區塊 -->
-    
         <div class="left">
             <p>距離下次水星逆行還有</p>
             <table class="countdownContainer">
@@ -74,106 +74,66 @@
             </a>
         </div>
     </div>
+    <div class="header">
     
-    <!-- 水星逆行的ＪＳ程式 -->
-    <script type="text/javascript">
-        window.onload = countdown;
-        function countdown() {
-            var now = new Date();
-            var eventDate = new Date(2018, 3, 23);
-            var currentTime = now.getTime();
-            var eventTime = eventDate.getTime();
-            var remTime = eventTime - currentTime;
-
-            var s = Math.floor(remTime / 1000);
-            var m = Math.floor(s / 60);
-            var h = Math.floor(m / 60);
-            var d = Math.floor(h / 24);
-
-            h %= 24;
-            m %= 60;
-            s %= 60;
-
-            h = (h < 10) ? "0" + h : h;
-            m = (m < 10) ? "0" + m : m;
-            s = (s < 10) ? "0" + s : s;
-
-            document.getElementById("days").textContent = d;
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").textContent = h;
-            document.getElementById("minutes").textContent = m;
-            document.getElementById("seconds").textContent = s;
-
-            setTimeout(countdown, 1000);
-        }
-    </script>
-    <header>
-        <div class="header">
-        
-            <!-- 中間logo -->
-            <div class="logo">
-                <a href="#">
-                    <img src="../img/share/LOGO-08.png">
-                </a>
-            </div>
-        
-            <!-- 右邊會員專區 -->
-            <div class="memArea">
-                <ul>
-                    <li>
-                        <a href="#">註冊</a>
-                    </li>
-                    <li>
-                        <a href="#">登入</a>
-                    </li>
-                    <li>
-                        <a href="#">購物車(
-                            <span class="cartNo">0</span>)</a>
-                    </li>
-                </ul>
-            </div>
-        
-            <!-- 右邊水逆倒數 -->
-            <div class="countdown">
-                <table class="countdownContainer">
-                    <tr class="info">
-                        <td>水星逆行倒數 :</td>
-                        <td class="days">120</td>
-                        <td>天</td>
-                        <td class="hours">4</td>
-                        <td>時</td>
-                        <td class="minutes">12</td>
-                        <td>分</td>
-                    </tr>
-        
-                </table>
-            </div>
-        </div>
-    </header>
-<!-- header結束 -->
-
-<!-- 登入燈箱 -->
-    <input type="checkbox" name="" id="box-control">
-    <div class="wrapper">
-        <div id="lightbox">
+        <!-- 中間logo -->
+        <div class="logo">
             <a href="#">
-                <div class="backBtn">
-                    <p>返回</p>
-                </div>
+                <img src="../img/share/LOGO-08.png">
             </a>
-            <label for="box-control" class="box-close"><i class="fa fa-times fa-2x"></i></label>
-            <div id="logo">
-                
-                <img src="../img/share/LOGO-08.png" alt="">
+        </div>
+    
+        <!-- 右邊會員專區 -->
+        <div class="memArea">
+            <ul>
+                <li class="register-control">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>註冊
+                </li>
+                <li class="login-control">
+                    <i class="fa fa-user" aria-hidden="true"></i>登入
+                </li>
+                <li>
+                    <a href="#">購物車(
+                        <span class="cartNo">0</span>)</a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- 右邊水逆倒數 -->
+        <div class="countdown">
+            <table class="countdownContainer">
+                <tr class="info">
+                    <td>水星逆行倒數 :</td>
+                    <td class="days">120</td>
+                    <td>天</td>
+                    <td class="hours">4</td>
+                    <td>時</td>
+                    <td class="minutes">12</td>
+                    <td>分</td>
+                </tr>
+    
+            </table>
+        </div>
+    </div>
+
+
+<!-- 燈箱開始 -->
+
+    <div class="login_wrapper">
+        <div class="loginbox">
+            <div class="login-close">
+                <i class="fa fa-times fa-2x"></i>
             </div>
-            <form action="" id="login">
+            <form action="" id="form_login">
                 <table>
-                    <caption><h2>登入會員</h2></caption>
+                    <caption>
+                        <h2>登入會員</h2>
+                    </caption>
                     <tr>
                         <th>
                             <p>帳號：</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="memId" maxlength="12">
                         </td>
                     </tr>
@@ -181,29 +141,49 @@
                         <th>
                             <p>密碼：</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="memPsw" maxlength="12">
                         </td>
                     </tr>
                     <tr>
                         <td id="btn" colspan="2">
-                            <div class="btn out">
-                                <input type="submit" value="確認">
-                            </div>
-                            <div class="btn out add">註冊</div>
+                            <span class="btnM">
+                                <p class="btnText btnText2">
+                                    <input type="submit" value="">登入
+                                </p>
+                            </span>
+                            <span class="btnM add">
+                                <p class="btnText btnText2">
+                                    註冊
+                                </p>
+                            </span>
                         </td>
-            
                     </tr>
                 </table>
             </form>
+        </div>
+    </div>
+    
+    <div class="register_wrapper">
+        <div class="loginbox">
+            <a href="#">
+                <div class="backBtn">
+                    <p>返回</p>
+                </div>
+            </a>
+            <div class="register-close">
+                <i class="fa fa-times fa-2x"></i>
+            </div>
             <form action="#" id="add">
                 <table>
-                    <caption><h2>註冊會員</h2></caption>
+                    <caption>
+                        <h2>註冊會員</h2>
+                    </caption>
                     <tr>
                         <th>
                             <p>新增帳號：</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="memId" maxlength="12" required>
                         </td>
                     </tr>
@@ -211,7 +191,7 @@
                         <th>
                             <p>新增密碼：</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="memPsw" maxlength="12" required>
                         </td>
                     </tr>
@@ -219,7 +199,7 @@
                         <th>
                             <p>確認密碼:</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="memPsw" maxlength="12" required>
                         </td>
                     </tr>
@@ -227,7 +207,7 @@
                         <th>
                             <p>暱稱:</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="name" maxlength="12">
                         </td>
                     </tr>
@@ -235,19 +215,20 @@
                         <th>
                             <p>電話:</p>
                         </th>
-                        <td class="inp">
+                        <td class="input">
                             <input type="text" name="tel" maxlength="12">
                         </td>
                     </tr>
                     <tr>
-            
                         <td id="btn" colspan="2">
-                            <div class="btn">
-                                <input type="submit" value="確認">
-                            </div>
-                            <div class="btn">
-                                <input type="reset" value="重填">
-                            </div>
+                            <span class="btn">
+                                <p class="btnText btnText2">
+                                    <input type="submit" value="">提交</p>
+                            </span>
+                            <span class="btn">
+                                <p class="btnText btnText2">
+                                    <input type="reset" value="">重新填寫</p>
+                            </span>
                         </td>
                     </tr>
                 </table>
@@ -257,7 +238,7 @@
 
 
 
-    <div id="choose">
+    <div class="index_choose">
         <div class="index_starfield">
             <img src="../img/index/starfield.png" alt="">
         </div>
@@ -285,9 +266,11 @@
         </div>
     </div>
     
-        <div id="start">
+        <div class="index_birth">
+            
             <div class="push">
                 <div id="test">
+                    <div class="border"></div>
                     <form action="#result" id="single">
                         <p> 請輸入您的生日：</p>
                         <select name="year">
@@ -390,12 +373,16 @@
                         <br>
                 
                         
-                        <div class="btn out submit">
-                            <input type="submit" value="點算">
-                        </div>
-                        <div class="btn out reset">
-                            <input type="reset" value="重填">
-                        </div>
+                        <span class="btnM submit">
+                            <p>
+                            <input type="submit" class="btnText btnText2" value="點算">
+                            </p>
+                        </span>
+                        <span class="btnM reset">
+                            <p>
+                            <input type="reset" class="btnText btnText2" value="重填">
+                            </p>
+                        </span>
                     </form>
                     <form action="#result" id="double">
                         <h4> 請輸入您的生日：</h4>
@@ -597,22 +584,22 @@
                                 <option value="31">31</option>
                             </select>日
                         </p>
-                        <div class="btn out submit">
-                            <input type="submit" value="點算">
-                        </div>
-                        <div class="btn out reset">
-                            <input type="reset" value="重填">
-                        </div>
+                        <span class="btnM submit">
+                            <input type="submit" class="btnText btnText2" value="點算">
+                        </span>
+                        <span class="btnM reset">
+                            <input type="reset" class="btnText btnText2" value="重填">
+                        </span>
                     </form>
                 </div>
             </div>
         </div>
     <div class="container">
         <div id="result">
-            <div id="star"><img src="../img/index/libra.jpg" alt=""></div>
+            <div class="index_star"><img src="../img/index/constellation.png" alt=""></div>
             <div class="result double">
                 <div class="cont0">
-                <h1>單人結果</h1>
+                <h1>我的結果</h1>
                 <h2>天秤座</h2>
                 <h2>生日:1995年10月12日</h2>
                 <h3>整體：吉</h3>
@@ -642,7 +629,7 @@
                                 別讓最近的好運功虧一簣！
                             </p>
                         </div>
-                        <label for="box-control"></label><div class="btn out">請登入會員</div></label>
+                        <label for="box-control"></label><div class="btn out">登入瀏覽結果</div></label>
                     </div>
                     <div class="other cont">
                         <h2>你會需要的</h2>
@@ -674,7 +661,7 @@
 
             <div class="result double">
                 <div class="cont0">
-                <h1>對象結果</h1>
+                <h1>我的對象</h1>
                 <h2>牡羊座</h2>
                 <h2>生日:1995年4月7日</h2>
                 <h3>整體：吉</h3>
@@ -705,7 +692,7 @@
                             近期多接觸與海洋有關的事物可以有效減緩這樣 的情形。
                         </p>
                     </div>
-                    <label for="box-control"></label><div class="btn out">請登入會員</div></label>
+                    <label for="box-control"></label><div class="btn out">登入瀏覽結果</div></label>
                     </div>
 
                     <div class="other cont">
@@ -758,7 +745,7 @@
                     <div class="content blur">
                         <p>天秤是好的開創者，但不能有始有終，牡羊正好可以彌補這個缺點，若雙方都能展現自己的長才，當天秤與牡羊一同處理危機時，可以說是無往不利。在交往後，就算兩個人只是做自己，都能成為相當登對的情人。但如果是在交往前，事情可就沒有那麼簡單了！ 由於天秤跟牡羊是對立的兩個星座，在還未了解對方以前，就算有一方偷偷暗戀對方，另外一方肯定因為習慣及個性的差距對這個人敬而遠之，很容易因為雙方在個性上沒有交集而不了了之。</p>
                     </div>
-                    <label for="box-control"></label><div class="btn out">請登入會員</div></label>
+                    <label for="box-control"></label><div class="btn out">登入瀏覽結果</div></label>
 
                     </div>
                     <div class="other cont">

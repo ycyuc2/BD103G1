@@ -1,3 +1,4 @@
+/* header點選的登入或註冊按鈕設定 */
 .memArea .register-control,
 .memArea .login-control{    
     transition:.2s ;
@@ -78,6 +79,7 @@
     background: url('../img/index/hint.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    z-index:9;
 }
 
 @media all and (max-width: 479px) {
@@ -159,8 +161,8 @@
 }
 .loginbox table tr #btn .btn{
      width: 150px;
-     height: 90px;
-     line-height: 90px;
+     height: 70px;
+     line-height: 70px;
      font-size: 16px;
      font-weight: bold;
      display: inline-block;
@@ -174,15 +176,18 @@
      transition: all .2s;
      margin: auto;
 }
+.loginbox table tr #btn .btn p {
+    color: #210;
+} 
+.loginbox table tr #btn .btn p:hover{
+    color : #fc9;
+}
 .loginbox table tr #btn .btn:hover{
-    filter: drop-shadow(0px 0px 2px #fc9) drop-shadow(0px 0px 5px #fec16a);
+    filter: drop-shadow(0px 0px 3px #fc9) drop-shadow(0px 0px 5px #fec16a);
     color: #fc9;
 }
 loginbox table tr #btn .btn:focus{
     outline: 0;
-}
-*{
-    outline: #f00 1px solid;
 }
 /* 燈箱＿設定燈箱開關而裝置的css */
 .loginbox #form_login {
