@@ -4,22 +4,14 @@
 }
 
 .backBtn{
-	width: 70px;
-	height: 70px;
-	background-image: url(../img/backBtn/crystalball.png);
-	background-size: 100%;
+	color: #333;
 }
 
-.backBtn:hover{
-	background-image: url(../img/backBtn/crystalball_hover.png);
-	background-size: 100%;
-	transition: .2s;
+.backBtn i:hover{
+	color: #533e2f;
+	cursor: url(../img/share/cursor.png)20 15, auto;
 }
 
-.backBtn p{
-	text-decoration: none;
-	color: #ddd;
-	position: absolute;
-	top: 3%;
-	left: 1.1%;
+.backBtn i:active{
+	cursor: url(../img/share/cursor2.png)20 15, auto;
 }

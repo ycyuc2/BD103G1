@@ -1,23 +1,74 @@
-.wrapper {
+/* header點選的登入或註冊按鈕設定 */
+.memArea .register-control,
+.memArea .login-control{    
+    transition:.2s ;
+}
+.memArea .register-control:hover,.memArea .login-control:hover{
+    cursor:url('../img/share/cursor.png') 12 5, auto;
+    text-shadow: 0px 0px 5px #e9b060;
+}
+.memArea .register-control:active,
+.memArea .login-control:active {
+    cursor: url('../img/share/cursor2.png') 12 5, auto;
+}
+/* 關閉按鈕調整 */
+
+.login-close,.register-close {
+    display: block;
+    position: absolute;
+    top: 69px;
+    right: 30px;
+}
+.login-close i, .register-close i{
+    display: block;
+    color:#533e2f;
+    filter:drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
+    transition:0.2s filter;
+}
+.login-close i:hover, .register-close i:hover {
+    color:#e9b060;
+    cursor:url('../img/share/cursor.png') 12 5 ,auto;
+    filter:drop-shadow(0px 0px 10px #533e2f) drop-shadow(0px 0px 5px #533e2f);
+}
+.login-close i:active,.register-close i:active{
+    cursor:url('../img/share/cursor2.png') 12 5 ,auto;
+}
+/* 關閉按鈕結束 */
+
+/* 返回鍵（暫時） */
+
+.loginbox .backBtn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.loginbox .backBtn p {
+    position: absolute;
+    left: 25%;
+    top: 35%;
+}
+
+
+
+
+/* 燈箱半透明底層 */
+.login_wrapper,
+.register_wrapper {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
-    right: -95%;
+    right: -100%;
     z-index: 100;
     opacity: 0.1;
     transition: opacity 0.2s 0s, right 0s 0.2s;
 }
 
-#box-control:checked~.wrapper {
-    opacity: 1;
-    right: 0;
-    transition: opacity 0.2s;
-}
-
-#lightbox {
-    width: 500px;
+/* 燈箱開始 */
+.loginbox {
+    width: 360px;
     height: 500px;
     position: absolute;
     left: 0;
@@ -25,72 +76,65 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    background-color: #000000;
+    background: url('../img/index/hint.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index:9;
 }
 
-.box-close {
-    display: block;
+@media all and (max-width: 479px) {
+    .loginbox {
+        width: 100%;
+    }
 }
 
-#lightbox #logo {
-    padding: 3% 0;
-    width: 100px;
-    margin: 0 auto;
-}
+    /* 燈箱＿內table的排列 */
 
-#lightbox #logo img {
-    transition: 0.2s all ease;
-    transform: scale(1);
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-#lightbox #logo img.smaller {
-    transform: scale(0.7);
-}
-
-#lightbox table {
+.loginbox table {
     width: 350px;
     height: auto;
     margin: 0 auto;
     font-size: 1em;
+    padding-left: 3px;
     color: #fff;
     border-bottom: 0.7em transparent solid;
 }
-
-#lightbox table caption {
+.loginbox table caption {
+    padding-top: 100px;
     margin: 1em 0;
 }
-
-#lightbox table tr {
+.loginbox table tr {
     padding-bottom: 0.3em;
     border-bottom: 0.7em transparent solid;
 }
-
-#lightbox table tr th {
+.loginbox table tr th {
     width: 50px;
     text-align: left;
     border-bottom: 0.7em transparent solid;
 }
+    /*燈箱＿註冊燈箱特別調整 */
+    .loginbox #add table tr th {
+        width: 70px;
+        padding: 8px;
+    }
+    /* 燈箱＿註冊燈箱特別調整結束 */
 
-#lightbox #add table tr th {
-    width: 75px;
-}
-
-#lightbox table tr td {
+.loginbox table tr td {
     width: 200px;
     text-align: right;
 }
-
-#lightbox table tr #inp {
+.loginbox table tr .btnM{
+    position: relative;
+}
+    /* 燈箱＿input */
+.loginbox table tr .input {
+    position: relative;
     background: url("../img/index/input.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-bottom: 0.7em transparent solid;
 }
-
-#lightbox table tr input {
+.loginbox table tr input {
     width: 100%;
     height: 2em;
     display: block;
@@ -98,60 +142,60 @@
     background-color: transparent;
     border: transparent;
     font-size: 1em;
+    line-height: 2em;
     color: #fff;
     text-align: center;
 }
-
-#lightbox table tr input:focus {
+.loginbox table tr input:focus {
     outline: none;
 }
-
-#lightbox table tr #btn {
-    width: 400px;
+    /* 燈箱＿按鈕設定 */
+.loginbox table tr #btn {
     text-align: center;
     border-bottom: 0.7em transparent solid;
+} 
+.loginbox table tr #btn .btn input{
+        position: absolute;
+        top: 0;
+        left: 0;
 }
-
-#lightbox table tr #btn .btn {
-    width: 120px;
-    height: 2em;
-    line-height: 2em;
-    padding: 0.3em 0;
-    background: url("../img/index/btn.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    font-family: "王漢宗粗明體繁-中";
+.loginbox table tr #btn .btn{
+     width: 150px;
+     height: 70px;
+     line-height: 70px;
+     font-size: 16px;
+     font-weight: bold;
+     display: inline-block;
+     vertical-align: top;
+     background-color: transparent;
+     background-image: url(../img/findTeacher/hint_btn.png);
+     background-position: center center;
+     background-size: 100% 100%;
+     border: 0px;
+     color: #210;
+     transition: all .2s;
+     margin: auto;
 }
-
-#lightbox table tr #btn .btn p {
-    margin: 0.5em auto;
+.loginbox table tr #btn .btn p {
+    color: #210;
+} 
+.loginbox table tr #btn .btn p:hover{
+    color : #fc9;
 }
-
-#lightbox table tr #btn .btn p:hover {
-    cursor: pointer;
+.loginbox table tr #btn .btn:hover{
+    filter: drop-shadow(0px 0px 3px #fc9) drop-shadow(0px 0px 5px #fec16a);
+    color: #fc9;
 }
-
-#lightbox #login {
+loginbox table tr #btn .btn:focus{
+    outline: 0;
+}
+/* 燈箱＿設定燈箱開關而裝置的css */
+.loginbox #form_login {
     transition: 0.2s all ease;
     height: auto;
     display: '';
 }
-
-#lightbox #login.click {
-    height: 0;
-    display: none;
-}
-
-#lightbox #add {
+.loginbox #add {
     transition: 0.2s all ease 2s;
     height: 0;
-    line-height: 2em;
-    display: none;
-}
-
-#lightbox #add.click {
-    height: auto;
-    display: '';
 }

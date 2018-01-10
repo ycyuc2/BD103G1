@@ -2,18 +2,18 @@ $('document').ready(function(){
     $('.btn1').click(function(){
         $('#single').css('display', 'inline');
         $('#double').css('display', 'none');
-        $('html,body').delay(1000).animate({ scrollTop: $('#start').offset().top }, 1000);
+        $('html,body').delay(1000).animate({ scrollTop: $('.index_birth').offset().top }, 1000);
     });
     $('.btn2').click(function () {
         $('#single').css('display', 'none');
         $('#double').css('display', 'inline');
-        $('html,body').delay(1000).animate({ scrollTop: $('#start').offset().top }, 1000);
+        $('html,body').delay(1000).animate({ scrollTop: $('.index_birth').offset().top }, 1000);
     });
-    $('.btn.out.submit').click(function () {
-        $('#result').css('display', 'inline');
+    $('.btnM.submit').click(function () {
+        $('.index_result').css('display', 'inline');
     });
     $('#top').click(function(){
-        $('html,body').animate({ scrollTop: $('#choose').offset().top }, 1000);
+        $('html,body').animate({ scrollTop: $('.index_choose').offset().top }, 1000);
 
     });
     $('#login .btn.add').click(function(){
