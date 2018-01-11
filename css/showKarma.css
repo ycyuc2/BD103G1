@@ -9,7 +9,7 @@ a.showKarma{
 }
 
 .face{
-	background-image: url(img/karma_frame.png);
+	background-image: url(../img/showKarma/karma_frame.png);
 	background-size: 100%;
 	text-align: center;
 	width: 200px;
