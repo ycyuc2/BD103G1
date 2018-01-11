@@ -69,6 +69,9 @@
 .btn{
     display: inline-block;
 }
+.btnM:focus,.btnS:focuse{
+    outline:none;
+}
 .btn input:hover,.btn:hover{
     cursor: url(../img/share/cursor.png) 12 5,auto;
 }
@@ -302,6 +305,7 @@ index_subtitle img,
  @media all and (min-width: 760px) and (max-width: 959px) {
      .border {
          border: 40px solid transparent;
+         border-image: url(../img/index/frame2.png) 90 90 repeat;
          padding: 20px;
      }
  }
@@ -309,6 +313,7 @@ index_subtitle img,
  @media all and (min-width: 480px) and (max-width: 759px) {
      .border {
          border: 30px solid transparent;
+         border-image: url(../img/index/frame2.png) 90 90 repeat;
          padding: 10px;
      }
  }
@@ -316,6 +321,7 @@ index_subtitle img,
  @media all and (max-width: 479px) {
      .border {
          border: 30px solid transparent;
+         border-image: url(../img/index/frame2.png) 90 90 repeat;
          padding: 0;
      }
      .index_birth{
@@ -448,7 +454,7 @@ index_subtitle img,
     position: relative;
     width: 100%;
     padding-top:150px; /* 看header到時候設計的高*/
-    display:none;
+    /* display:none; */
 }
 .index_result .index_star{
     width: 100%;
@@ -485,22 +491,28 @@ index_subtitle img,
     box-sizing: border-box;
 }
  @media all and (min-width: 760px) and (max-width: 959px) {
-     .border {
-         border: 40px solid transparent;
+     .result.double .border {
+        border: 40px solid transparent;
+        border-image: url(../img/index/frame2.png) 90 90 repeat;
+
          padding: 20px;
      }
  }
 
  @media all and (min-width: 480px) and (max-width: 759px) {
-     .border {
+     .result.double .border {
          border: 30px solid transparent;
+            border-image: url(../img/index/frame2.png) 90 90 repeat;
+
          padding: 10px;
      }
  }
 
  @media all and (max-width: 479px) {
-     .border {
+     .result.double .border {
          border: 30px solid transparent;
+        border-image: url(../img/index/frame2.png) 90 90 repeat;
+
          padding: 0;
      }
  }
@@ -527,8 +539,6 @@ index_subtitle img,
     text-align: center;
 }
 
-
-
 .index_result .result .chart{
     padding: 1em 0;
     margin-top: 5%;
@@ -542,13 +552,9 @@ index_subtitle img,
 .index_result .result .chart .topic{
     color:#210;
     text-shadow:0px 0px 5px rgb(245, 187, 100) ,0px 0px 7px rgba(255, 183, 76, 1);
-    /* background:linear-gradient(to bottom, rgb(243, 233, 138), rgb(168, 127, 14) 50%, rgb(83, 63, 6) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     text-align: center;
     margin-bottom: 1em;
 }
-
 .index_result .result .chart .topic h2{
     line-height: 50px;
 }
@@ -558,11 +564,31 @@ index_subtitle img,
 .index_result .result .chart .log{
     position: relative;
 }
+
 .log .btnM{
+    width: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -100px;
+    background:url('../img/share/btn_01.png');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    transition:.2s linear;
+}.log .btnM:hover{
+    background:url('../img/share/btn_02.png');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    transition:.2s linear;
+}
+.log .btnM:focus{
+    outline:none;
+}
+.log .btnM p{
+    font-family:'王漢宗粗明體繁-中.ttf';
+    color:rgba(235,215,160, 0.5);
+    font-weight: 900;
+    ;
 }
 .content{
     padding: 0.5em ;
@@ -622,6 +648,15 @@ index_subtitle img,
 .other .btnS {
     position: relative;
     margin-top: 16px;
+    background:url('../img/share/btn_01.png');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    transition:.2s linear;
+}
+.other .btnS:hover{
+    background:url('../img/share/btn_02.png');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
 }
 @media all and (min-width: 760px) and (max-width: 959px) {
     .other .item{
