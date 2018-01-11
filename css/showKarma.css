@@ -1,0 +1,42 @@
+*{
+	margin: 0px;
+	padding: 0;	
+}
+
+a.showKarma{
+	text-decoration: none;
+	display: inline-block;
+}
+
+.face{
+	background-image: url(img/karma_frame.png);
+	background-size: 100%;
+	text-align: center;
+	width: 200px;
+	height: 265px;
+	position: relative;
+}
+
+.face img{
+	width: 120px;
+	position: absolute;
+	top: 30%;
+	left: 20%;
+}
+
+.face h3{
+	position: absolute;
+	color: #b19b42;
+	top: 20%;
+	left: 25%;
+	letter-spacing: 1px;
+}
+
+.face span{
+	position: absolute;
+	color:#d61616;
+	bottom: 15%;
+	left: 40%;
+	letter-spacing: 1px;
+
+}
