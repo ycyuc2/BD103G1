@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../css/member.css">
 <link rel="stylesheet" type="text/css" href="../css/teacherApllication.css">
 <link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
+<link rel="stylesheet" type="text/css" href="../css/btn.css">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 </head>
 <body>
@@ -35,16 +36,16 @@
 
 
 	<div class="wrapper">
+		<div class="borderFrame"></div>
 		
 
 		<div class="left"><!-- 一般會員 -->
 			<ol class="nav">
-				<li><a href="infoAlter.html">修改資料</a></li>
-				<li><a href="replyVIew.html">檢視留言</a></li>
-				<li><a href="tradeView.html">檢視交易</a></li>
-				<li><a href="essayCollect.html
-					">收藏文章</a></li>
-				<li><a href="teacherApllication.html">成為老師</a></li>
+				<li><span class="btnM"><a href="infoAlter.html" class="btnText btnText4">修改資料</a></span></li>
+				<li><span class="btnM"><a href="replyVIew.html" class="btnText btnText4">檢視留言</a></span></li>
+				<li><span class="btnM"><a href="tradeView.html" class="btnText btnText4">檢視交易</a></span></li>
+				<li><span class="btnM"><a href="essayCollect.html" class="btnText btnText4">收藏文章</a></span></li>
+				<li><span class="btnM"><a href="teacherApllication.html" class="btnText btnText4">成為老師</a></span></li>
 			</ol>
 			
 			<!-- 老師 -->
@@ -62,20 +63,23 @@
 				<h2 >申請老師資格</h2>
 				<form action="member.html" method="post">
 					<p>
-						<span>姓名</span><span class="input"><input type="text" name="name"></span>
+						<span>姓名</span>
+						<span class="btnS"><input type="text" name="name" class="btnText btnText2"></span>
 					</p>
 					<p>
-						<span>暱稱</span><span class="input"><input type="text" name="nickname"></span>
+						<span>暱稱</span>
+						<span class="btnS"><input type="text" name="nickname" class="btnText btnText2"></span>
 					</p>
 					<p>
-						<span>電話</span><span class="input"><input type="text" name="tel"></span>
+						<span>電話</span>
+						<span class="btnS"><input type="text" name="tel" class="btnText btnText2"></span>
 					</p>
 					<p>
 						<span>簡介</span><span class="textarea"><textarea rows="5" cols="24"></textarea></span>
 					</p>
 					<p>
-						<span class="btn"><input type="submit" name="申請"></span>
-						<span class="btn"><input type="reset" name="重填"></span>
+						<span class="btnS"><input type="submit" name="申請" class="btnText btnText2"></span>
+						<span class="btnS"><input type="reset" name="重填" class="btnText btnText2"></span>
 					</p>
 				</form>
 			</div>
