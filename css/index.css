@@ -150,11 +150,11 @@ header{
     margin: 0 30px;
 }
 @font-face {
-    font-family:'王漢宗粗明體繁-中.ttf';
-    src: url('../font/王漢宗粗明體繁-中.ttf');
+    font-family:'漢宗特明體 – 標準';
+    src: url('../font/王漢宗特明體 – 標準.ttf');
 }
 .btn.index p {
-    font-family:'王漢宗粗明體繁-中.ttf';
+    font-family:'漢宗特明體 – 標準';
     font-size: 30px;
     line-height: 60px;
     color: #20aba3;
@@ -454,7 +454,7 @@ index_subtitle img,
     position: relative;
     width: 100%;
     padding-top:150px; /* 看header到時候設計的高*/
-    /* display:none; */
+    display:none;
 }
 .index_result .index_star{
     width: 100%;
@@ -565,18 +565,19 @@ index_subtitle img,
     position: relative;
 }
 
-.log .btnM{
-    width: 204px;
-    height: 53px;
+.log .btnM.show{
+    width: 285px;
+    height: 74px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -102px;
+    margin-left: -142.5px;
+    margin-top: -37px;
     background:url('../img/index/paylogin.png');
     background-repeat: no-repeat;
     background-size:100% 100%;
     transition:.2s linear;
-}.log .btnM:hover{
+}.log .btnM.show:hover{
     background:url('../img/index/paylogin2.png');
     background-repeat: no-repeat;
     background-size:100% 100%;
@@ -586,7 +587,7 @@ index_subtitle img,
     outline:none;
 }
 .log .btnM p{
-    font-family:'王漢宗粗明體繁-中.ttf';
+    font-family:'漢宗特明體 – 標準';
     font-weight: 900;
     ;
 }
@@ -597,8 +598,25 @@ index_subtitle img,
 }
 .index_result .result .chart .content.blur{
     width: 100%;
-    filter:blur(3px);
 }
+.content.blur {
+    width: 100%;
+    height: 200px;
+    background: url('../img/index/blur_words_666H200.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+    @media all and (max-width: 479px) {
+        .content.blur{
+            background: url('../img/index/blur_words_235H390.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .log .btnM.show{
+            top: 60%;
+        }
+        
+    }
 /* 結果的商品與老師欄 */
 .other {
     width:100%;
