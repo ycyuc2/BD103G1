@@ -362,10 +362,13 @@ index_subtitle img,
     cursor: pointer;
     color: #eee;
     margin: 0.2em 0.2em 0.5em;
-    background: #210;
+    background: #111;
 }
 .index_birth #test select:nth-of-type(1){
     width: 75px;
+ }
+ .index_birth #test select option{
+    
  }
 .index_birth h1 {
     margin: 5em 0 1em;
