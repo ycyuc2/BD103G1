@@ -48,6 +48,7 @@
 #moveArea {
   width: 5000px;
   height: 3000px;
+  padding-bottom: 200px;
   position: relative;
   background-image: url(../img/findTeacher/bg.jpg);
   background-position: center center;
@@ -57,7 +58,13 @@
   @media all and (max-width: 479px) {
     #moveArea {
       width: 100%;
-      overflow: visible; } }
+      height: auto;
+      overflow: visible;
+      position: static;
+      background-image: url(../img/findTeacher/bg.jpg);
+      background-position: center center;
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #teacherInfo {
   position: fixed;
@@ -94,13 +101,13 @@
   #teacherInfo #closeBtn {
     z-index: 30;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 30px;
     width: 30px;
     height: 30px;
     line-height: 30px; }
     #teacherInfo #closeBtn i {
-      color: #FFF;
+      color: #333;
       font-size: 30px;
       text-align: center;
       transition: 0.2s; }
@@ -114,23 +121,37 @@
       #teacherInfo .columnBorder {
         padding-top: 20%; } }
     #teacherInfo .columnBorder .authorInfo {
-      width: 100%; }
+      width: 100%;
+      box-sizing: border-box; }
       #teacherInfo .columnBorder .authorInfo .authorPhoto {
         width: 50%;
         float: left;
-        border-right: 1px solid #333;
         text-align: center;
+        border-right: 1px solid #333;
         box-sizing: border-box; }
-        #teacherInfo .columnBorder .authorInfo .authorPhoto img {
-          width: 90%; }
-          @media all and (max-width: 479px) {
-            #teacherInfo .columnBorder .authorInfo .authorPhoto img {
-              width: 50%; } }
-        @media all and (max-width: 479px) {
-          #teacherInfo .columnBorder .authorInfo .authorPhoto {
+        #teacherInfo .columnBorder .authorInfo .authorPhoto .pic {
+          position: relative;
+          width: 90%;
+          margin: auto; }
+          #teacherInfo .columnBorder .authorInfo .authorPhoto .pic .frameBorder {
+            border: 30px solid transparent;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
             width: 100%;
-            float: none;
-            border: 0; } }
+            height: 100%;
+            border-image: url(../img/share/picframe.png) 30 30 repeat; }
+          #teacherInfo .columnBorder .authorInfo .authorPhoto .pic img {
+            width: 100%; }
+            @media all and (max-width: 479px) {
+              #teacherInfo .columnBorder .authorInfo .authorPhoto .pic img {
+                width: 100%; } }
+          @media all and (max-width: 479px) {
+            #teacherInfo .columnBorder .authorInfo .authorPhoto .pic {
+              width: 100%;
+              float: none;
+              border: 0; } }
       #teacherInfo .columnBorder .authorInfo .authorIntro {
         width: 50%;
         float: left;
@@ -139,16 +160,12 @@
         padding-left: 5%; }
         #teacherInfo .columnBorder .authorInfo .authorIntro h2 {
           font-size: 20px;
-          color: #333;
+          color: #533e2f;
           text-align: center; }
         #teacherInfo .columnBorder .authorInfo .authorIntro p {
-          color: #333; }
-          #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(2):before {
-            content: '專長：';
-            color: #555;
-            display: block;
-            font-size: 16px;
-            margin-top: 20px; }
+          color: #533e2f; }
+          #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(2) {
+            margin-top: 10px; }
           #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) {
             margin-top: 20px; }
             @media all and (min-width: 760px) and (max-width: 959px) {
@@ -162,7 +179,7 @@
                 margin-top: 10px; } }
             #teacherInfo .columnBorder .authorInfo .authorIntro p:nth-child(3) i {
               font-size: 20px;
-              color: #333; }
+              color: #533e2f; }
         @media all and (max-width: 479px) {
           #teacherInfo .columnBorder .authorInfo .authorIntro {
             width: 100%;
@@ -201,7 +218,7 @@
       box-sizing: border-box; }
       #teacherInfo .teacherColumn .column a {
         text-decoration: none;
-        color: #333;
+        color: #533e2f;
         font-weight: bold; }
         #teacherInfo .teacherColumn .column a h3 {
           font-size: 20px;
@@ -212,13 +229,13 @@
       #teacherInfo .teacherColumn .column p {
         text-align: left;
         margin-top: 10px;
-        font-size: 16px; }
+        font-size: 16px;
+        color: #533e2f; }
         @media all and (max-width: 479px) {
           #teacherInfo .teacherColumn .column p {
             font-size: 12px; } }
     #teacherInfo .teacherColumn .teacherInfoBtn {
-      width: 70%;
-      margin: 0 auto; }
+      width: 100%; }
       @media all and (min-width: 760px) and (max-width: 959px) {
         #teacherInfo .teacherColumn .teacherInfoBtn {
           width: 70%; } }
@@ -232,21 +249,24 @@
         content: '';
         clear: both;
         display: block; }
-      #teacherInfo .teacherColumn .teacherInfoBtn .btnGoToColumn {
-        display: block;
+      #teacherInfo .teacherColumn .teacherInfoBtn .left {
+        width: 50%;
         float: left;
-        font-size: 18px;
-        width: 100px;
-        height: 50px;
-        line-height: 50px;
         text-align: center;
-        text-decoration: none;
-        color: #fff;
-        background-image: url(../img/findTeacher/btn.png);
-        background-position: center center;
-        background-size: 100% 100%; }
-      #teacherInfo .teacherColumn .teacherInfoBtn .btn2 {
-        float: right; }
+        margin-top: 20px; }
+        @media all and (max-width: 479px) {
+          #teacherInfo .teacherColumn .teacherInfoBtn .left {
+            width: 100%;
+            float: none; } }
+      #teacherInfo .teacherColumn .teacherInfoBtn .right {
+        width: 50%;
+        float: left;
+        text-align: center;
+        margin-top: 20px; }
+        @media all and (max-width: 479px) {
+          #teacherInfo .teacherColumn .teacherInfoBtn .right {
+            width: 100%;
+            float: none; } }
 
 .directions {
   width: 100vw;
@@ -313,6 +333,9 @@
   width: 100%;
   height: 100%;
   position: absolute; }
+  @media all and (max-width: 479px) {
+    .qqArea {
+      position: static; } }
   .qqArea li {
     width: calc(100% / 14);
     height: calc(100% / 8);
@@ -321,30 +344,44 @@
     user-select: none; }
     @media all and (max-width: 479px) {
       .qqArea li {
-        width: 100%; } }
+        width: 100%;
+        height: auto; } }
 
 .box {
   width: 200px;
   position: absolute;
   color: #000;
+  box-sizing: border-box;
   transition: 0.2s linear; }
   @media all and (min-width: 760px) and (max-width: 959px) {
     .box {
-      width: 100%;
-      position: static; } }
+      width: 90%;
+      position: relative;
+      margin: 10px auto 0px auto; } }
   @media all and (min-width: 480px) and (max-width: 759px) {
     .box {
-      width: 100%;
-      position: static; } }
+      width: 90%;
+      position: relative;
+      margin: 10px auto 0px auto; } }
   @media all and (max-width: 479px) {
     .box {
-      width: 100%;
-      position: static; } }
+      width: 90%;
+      position: relative;
+      margin: 10px auto 0px auto; } }
   .box:hover {
     filter: drop-shadow(0px 0px 5px #fc9) drop-shadow(0px 0px 10px #fec16a);
     cursor: url(../img/findTeacher/cursor.png) 25 0, auto; }
   .box:active {
     cursor: url(../img/findTeacher/cursor2.png) 25 0, auto; }
+  .box .frameBorder {
+    border: 30px solid transparent;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-image: url(../img/share/picframe.png) 30 30 repeat; }
 
 #search {
   width: 50px;
@@ -364,13 +401,17 @@
   width: auto;
   text-align: center;
   position: fixed;
-  top: 20px;
-  right: 20px;
   z-index: 5;
   opacity: 0;
+  top: 20px;
+  right: 20px;
   transition: all .4s ease-In-Out;
-  transform: scale(0, 0); }
+  transform: scale(0, 0);
+  text-align: center; }
+  #inp .topic {
+    width: 70%; }
   #inp .findTeacher {
+    margin-top: 10px;
     position: relative; }
     #inp .findTeacher .teacherFinder {
       background-image: url(../img/findTeacher/input.png);

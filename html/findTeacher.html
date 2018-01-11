@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/findTeacher.css">
 	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
+	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 	<title>Document</title>
 </head>
 <body id="body">
@@ -46,10 +47,10 @@
 				<a class="title" href="findTeacher.html">
 					<span class="findTeacher"></span>
 				</a>
-				<a class="title" href="#">
+				<a class="title" href="dozen_store.html">
 					<span class="store"></span>
 				</a>
-				<a class="title" href="#">
+				<a class="title" href="member.html">
 					<span class="member"></span>
 				</a>
 			</div>	
@@ -65,8 +66,7 @@
 
 	<!-- 搜尋按鈕 -->
 	<div id="inp">
-		<h2>請選擇您要找的老師</h2>
-		<!-- <img src="../img/findTeacher/topic.png"> -->
+		<img class="topic" src="../img/findTeacher/tilte.png">
 		<div class="findTeacher">
 			<input class="teacherFinder" type="text">
 			<input type="submit" name="" value="找老師">
@@ -104,11 +104,14 @@
 			
 			<div class="authorInfo">
 				<div class="authorPhoto">
-					<img src="../img/findTeacher/horseman.jpg" alt="">
+					<div class="pic">
+						<div class="frameBorder"></div>
+						<img src="../img/findTeacher/horseman.jpg" alt="">
+					</div>
 				</div>
 				<div class="authorIntro">
 					<h2>馬男波傑克</h2>
-					<p>愛情、事業</p>
+					<p>　　前中原大學占星社社長，因其對星座算命有著獨到的見解，且本身有著可以預測未來的天命...</p>
 					<p>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -121,7 +124,7 @@
 			</div>
 
 			<div class="teacherMaps">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.7591798476183!2d121.21762541488746!3d24.940272548196493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682254583cc8a3%3A0x75626fd1a8bef7a8!2zMzI05qGD5ZyS5biC5bmz6Y6u5Y2A55Kw5Y2X6Lev5LiJ5q61MTIz6Jmf!5e0!3m2!1szh-TW!2stw!4v1514826750576" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.7591798476183!2d121.21762541488746!3d24.940272548196493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682254583cc8a3%3A0x75626fd1a8bef7a8!2zMzI05qGD5ZyS5biC5bmz6Y6u5Y2A55Kw5Y2X6Lev5LiJ5q61MTIz6Jmf!5e0!3m2!1szh-TW!2stw!4v1514826750576" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 			</div>
 			<div class="teacherColumn">
 				<p>最新命運解析</p>
@@ -132,8 +135,21 @@
 					</p>
 				</div>
 				<div class="teacherInfoBtn">
-					<a class="btnGoToColumn btn1" href="specialColumn.html">進入專欄</a>
-					<a class="btnGoToColumn btn2" href="#">進入行程</a>
+					<div class="left">
+						<span class="btnM">
+							<a href="schedule.html" class="btnText btnText4">
+								進入行程
+							</a>
+						</span>
+					</div>
+					<div class="right">
+						<span class="btnM">
+							<a href="specialColumn.html" class="btnText btnText4">
+								進入專欄
+							</a>
+						</span>
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -197,6 +213,7 @@
 					<li></li>
 					<li>
 						<div id="defaultTeacher" class="box">
+							<div class="frameBorder"></div>
 							<img src="../img/findTeacher/horseman.jpg" style="width: 100%;">
 						</div>
 					</li>
@@ -361,7 +378,7 @@
 			//如果搜尋欄是顯示的，就關閉；如果是隱藏的就顯示，並配合transition效果
 			if (searchBox.style.opacity == 0) {
 				searchBox.style.opacity = 1;
-				searchBox.style.right = 'calc(50% - 183px)';
+				searchBox.style.right = 'calc(50% - 271px)';
 				searchBox.style.transform = 'scale(1,1)';
 				searchBox.style.top = '50%';
 			}else{

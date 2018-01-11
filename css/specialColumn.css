@@ -31,7 +31,6 @@ h1 {
   background-size: 100% 100%; }
   .teacher .border {
     position: absolute;
-    z-index: 0;
     width: 100%;
     height: 100%;
     top: 0;
@@ -95,8 +94,8 @@ h1 {
         width: 40%;
         float: left;
         box-sizing: border-box;
-        border: 3px solid #fff;
-        overflow: hidden; }
+        overflow: hidden;
+        position: relative; }
         .teacher .teacherBorder .intro .teacherPhoto img {
           width: 100%;
           transition: transform 10s; }
@@ -129,7 +128,7 @@ h1 {
           .teacher .teacherBorder .intro .introContent {
             width: 100%;
             float: none;
-            padding-left: 0; } }
+            padding: 10px; } }
         .teacher .teacherBorder .intro .introContent p {
           font-size: 16px;
           line-height: 24px;
@@ -141,8 +140,8 @@ h1 {
               line-height: 22px; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .intro .introContent p {
-              font-size: 12px;
-              line-height: 20px; } }
+              font-size: 14px;
+              line-height: 22px; } }
           .teacher .teacherBorder .intro .introContent p:nth-child(1):before {
             content: '暱稱：';
             display: block;
@@ -179,70 +178,41 @@ h1 {
       width: 100%;
       font-size: 0;
       margin-bottom: 30px;
-      margin-top: 20px; }
-      .teacher .teacherBorder .links a {
-        display: inline-block;
-        width: 20%;
-        height: 50px;
-        line-height: 50px;
-        font-size: 16px;
-        margin-left: 6.666%;
-        margin-right: 6.666%;
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-        background-image: url(../img/findTeacher/btn.png);
-        background-position: center center;
-        background-size: 100% 100%; }
-        @media all and (min-width: 480px) and (max-width: 759px) {
-          .teacher .teacherBorder .links a {
-            font-size: 14px;
-            width: 30%;
-            margin-left: 1.666%;
-            margin-right: 1.666%;
-            height: 40px;
-            line-height: 40px; } }
+      margin-top: 20px;
+      box-sizing: border-box; }
+      .teacher .teacherBorder .links:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .teacher .teacherBorder .links .left {
+        float: left;
+        width: 33.333%;
+        text-align: center; }
         @media all and (max-width: 479px) {
-          .teacher .teacherBorder .links a {
-            font-size: 12px;
-            width: 30%;
-            margin-left: 1.666%;
-            margin-right: 1.666%;
-            height: 30px;
-            line-height: 30px; } }
+          .teacher .teacherBorder .links .left {
+            width: 100%;
+            float: none; } }
+      .teacher .teacherBorder .links .mid {
+        float: left;
+        width: 33.333%;
+        text-align: center; }
+        @media all and (max-width: 479px) {
+          .teacher .teacherBorder .links .mid {
+            width: 100%;
+            float: none;
+            margin-top: 20px; } }
+      .teacher .teacherBorder .links .right {
+        float: left;
+        width: 33.333%;
+        text-align: center; }
+        @media all and (max-width: 479px) {
+          .teacher .teacherBorder .links .right {
+            width: 100%;
+            float: none;
+            margin-top: 20px; } }
     .teacher .teacherBorder .newArticle {
-      margin-top: 30px; }
-      .teacher .teacherBorder .newArticle a {
-        float: right;
-        display: inline-block;
-        width: 20%;
-        height: 50px;
-        line-height: 50px;
-        font-size: 16px;
-        margin-left: 6.666%;
-        margin-right: 6.666%;
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-        background-image: url(../img/findTeacher/btn.png);
-        background-position: center center;
-        background-size: 100% 100%; }
-        @media all and (min-width: 480px) and (max-width: 759px) {
-          .teacher .teacherBorder .newArticle a {
-            font-size: 14px;
-            width: 30%;
-            margin-left: 1.666%;
-            margin-right: 1.666%;
-            height: 40px;
-            line-height: 40px; } }
-        @media all and (max-width: 479px) {
-          .teacher .teacherBorder .newArticle a {
-            font-size: 12px;
-            width: 30%;
-            margin-left: 1.666%;
-            margin-right: 1.666%;
-            height: 30px;
-            line-height: 30px; } }
+      margin-top: 30px;
+      text-align: center; }
       .teacher .teacherBorder .newArticle:after {
         content: '';
         display: block;
@@ -279,7 +249,8 @@ h1 {
         .teacher .teacherBorder .articleList .article .pic {
           width: 25%;
           box-sizing: border-box;
-          float: left; }
+          float: left;
+          position: relative; }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .articleList .article .pic {
               width: 70%;
@@ -290,6 +261,10 @@ h1 {
               width: 60%;
               margin: auto;
               float: none; } }
+          .teacher .teacherBorder .articleList .article .pic .picContainer .picBorder {
+            border: 30px solid transparent;
+            position: absolute;
+            border-image: url(../img/share/picframe.png) 30 30 repeat; }
           .teacher .teacherBorder .articleList .article .pic img {
             width: 100%; }
         .teacher .teacherBorder .articleList .article .content {
@@ -393,7 +368,7 @@ h1 {
                   margin-left: 20px; } }
             .teacher .teacherBorder .articleList .article .edit a i {
               font-size: 30px;
-              color: #fff; }
+              color: #533e2f; }
         .teacher .teacherBorder .articleList .article:after {
           content: '';
           clear: both;
@@ -458,10 +433,12 @@ h1 {
             text-decoration: line-through; }
           .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
             font-size: 40px;
-            color: #ff0;
+            color: #800;
             font-weight: bold; }
         .teacher .teacherBorder .merchandise .content .merchandisePhoto {
-          width: 100%; }
+          width: 100%;
+          position: relative;
+          box-sizing: border-box; }
           @media all and (min-width: 760px) and (max-width: 959px) {
             .teacher .teacherBorder .merchandise .content .merchandisePhoto {
               width: 70%;
@@ -480,48 +457,48 @@ h1 {
         display: block;
         content: '';
         clear: both; }
-    .teacher .teacherBorder .recommend .content {
+    .teacher .teacherBorder .merchandise.recommend .content {
       width: 25%;
       margin: 0 4.16666%;
       border: 2px solid #fff;
       padding: 10px; }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .teacher .teacherBorder .recommend .content {
+        .teacher .teacherBorder .merchandise.recommend .content {
           float: none;
           width: 100%;
           margin: 0 auto; } }
       @media all and (max-width: 479px) {
-        .teacher .teacherBorder .recommend .content {
+        .teacher .teacherBorder .merchandise.recommend .content {
           width: 100%;
           margin: 0 auto; } }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .teacher .teacherBorder .recommend .content .merchandisePhoto {
+        .teacher .teacherBorder .merchandise.recommend .content .merchandisePhoto {
           width: 25%;
           float: left; } }
       @media all and (max-width: 479px) {
-        .teacher .teacherBorder .recommend .content .merchandisePhoto {
+        .teacher .teacherBorder .merchandise.recommend .content .merchandisePhoto {
           width: 30%;
           float: left; } }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .teacher .teacherBorder .recommend .content .merchandiseIntro {
+        .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro {
           margin-left: 5%;
           width: 70%;
           float: left; } }
       @media all and (max-width: 479px) {
-        .teacher .teacherBorder .recommend .content .merchandiseIntro {
+        .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro {
           margin-left: 5%;
           width: 65%;
           float: left; } }
       @media all and (max-width: 479px) {
-        .teacher .teacherBorder .recommend .content .merchandiseIntro p:nth-child(2) {
+        .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(2) {
           display: none; } }
-      .teacher .teacherBorder .recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
+      .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
         display: none; }
-      .teacher .teacherBorder .recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
+      .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
         font-size: 20px;
-        color: #ff0;
+        color: #900;
         font-weight: bold; }
-      .teacher .teacherBorder .recommend .content:after {
+      .teacher .teacherBorder .merchandise.recommend .content:after {
         content: '';
         clear: both;
         display: block; }
@@ -554,20 +531,17 @@ h1 {
         right: 0;
         top: 0;
         margin: auto; }
-    .teacher .teacherBorder .submit a {
-      display: block;
-      width: 200px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 16px;
-      margin: auto;
+    .teacher .teacherBorder .submit {
       margin-top: 20px;
-      text-align: center;
-      text-decoration: none;
-      color: #fff;
-      background-image: url(../img/findTeacher/btn.png);
-      background-position: center center;
-      background-size: 100% 100%; }
+      text-align: center; }
+
+.picBorder {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 50px solid transparent;
+  position: absolute;
+  border-image: url(../img/share/picframe.png) 30 30 repeat; }
 
 .teacher .teacherBorder h1 {
   color: #533e2f; }
@@ -617,24 +591,82 @@ h1 {
   .teacher .teacherBorder .inputContent:focus {
     outline: none; }
 
-.teacher .teacherBorder .submit {
-  display: block;
-  width: 200px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 16px;
-  margin: auto;
-  margin-top: 20px;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  border: 0;
-  background-color: transparent;
-  background-image: url(../img/findTeacher/btn.png);
-  background-position: center center;
-  background-size: 100% 100%; }
-  .teacher .teacherBorder .submit:focus {
-    outline: none; }
-
 .hr {
   border-color: #533e2f; }
+
+.teacher .teacherBorder .schedule {
+  margin-top: 20px;
+  padding: 30px; }
+  @media all and (min-width: 760px) and (max-width: 959px) {
+    .teacher .teacherBorder .schedule {
+      padding: 10px; } }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    .teacher .teacherBorder .schedule {
+      padding: 10px; } }
+  @media all and (max-width: 479px) {
+    .teacher .teacherBorder .schedule {
+      padding: 10px; } }
+  .teacher .teacherBorder .schedule h2 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-align: center;
+    color: #533e2f; }
+  .teacher .teacherBorder .schedule .scheduleContent .content {
+    box-sizing: border-box; }
+    .teacher .teacherBorder .schedule .scheduleContent .content .left {
+      float: left;
+      width: 20%;
+      box-sizing: border-box;
+      padding-top: 5%; }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .schedule .scheduleContent .content .left {
+          width: 100%;
+          float: none;
+          padding: 0; } }
+      .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
+        text-align: center;
+        font-size: 20px; }
+        @media all and (max-width: 479px) {
+          .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
+            text-align: left; } }
+    .teacher .teacherBorder .schedule .scheduleContent .content .mid {
+      float: left;
+      width: 60%;
+      box-sizing: border-box;
+      padding: 20px; }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .schedule .scheduleContent .content .mid {
+          width: 60%; } }
+    .teacher .teacherBorder .schedule .scheduleContent .content .right {
+      float: left;
+      width: 20%;
+      box-sizing: border-box;
+      font-size: 0;
+      padding: 5%; }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .schedule .scheduleContent .content .right {
+          width: 40%;
+          padding: 10% 5% 0 5%; } }
+      .teacher .teacherBorder .schedule .scheduleContent .content .right a {
+        display: inline-block; }
+        .teacher .teacherBorder .schedule .scheduleContent .content .right a + a {
+          margin-left: 20px; }
+        .teacher .teacherBorder .schedule .scheduleContent .content .right a i {
+          font-size: 30px;
+          color: #533e2f; }
+    .teacher .teacherBorder .schedule .scheduleContent .content:after {
+      content: '';
+      display: block;
+      clear: both; }
+  .teacher .teacherBorder .schedule .scheduleContent .other {
+    border-top: 2px solid #533e2f; }
+    .teacher .teacherBorder .schedule .scheduleContent .other span {
+      display: block;
+      margin: 30px auto; }
+  .teacher .teacherBorder .schedule .maps {
+    position: relative;
+    width: 100%; }
+    .teacher .teacherBorder .schedule .maps iframe {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px; }
