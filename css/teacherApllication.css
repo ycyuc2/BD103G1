@@ -9,25 +9,11 @@
 }
 .teacher p .input{
 	vertical-align: middle;
-	position: relative;
-	display: inline-block;
-	background: url(../img/member/input.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	width: 200px;
-	height: 30px;
 }
 .teacher p input:focus{
 	outline:0;
 }
 
-.teacher p .input input{
-	position: absolute;
-	left: 15%;
-	top: 25%;
-	border: none;
-	background: none;
-}
 .teacher p .textarea textarea{
 	vertical-align: middle;
 	color: #000;
@@ -38,26 +24,6 @@
 .teacher p:last-child{
 	width: 100%;
 	text-align: center;
-}
-.teacher p .btn{
-	display: inline-block;
-	margin: 0;
-	width: 80px;
-	height: 30px;
-}
-.teacher p .btn+.btn{
-	margin-left: 5%;
-}
-.teacher p .btn input{
-	cursor: pointer;
-	width: 100%;
-	height: 100%;
-	background: url(../img/member/btn.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	font-weight: bold;
-	color: #FFC600;
-	border: none;
 }
 @media all and (max-width: 479px) {
 	.teacher form{
