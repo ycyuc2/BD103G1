@@ -75,12 +75,12 @@
 
 .header .countdownAlert{
 	position: absolute;
-	width: 236px;
-	height: 37px;
+	width: 209px;
+	height: 35px;
 	margin: 20px 0 0 0;
-	right: 12px;
+	right: 20px;
 	top: -20px;
-	border: 1px solid #f00; 
+	background: #f00;
 	box-shadow: 0 0 15px #ff0d0d;
 	z-index: -1;
 	animation: countdownAlert 30s;
