@@ -75,10 +75,10 @@
 
 .header .countdownAlert{
 	position: absolute;
-	width: 238px;
+	width: 236px;
 	height: 37px;
 	margin: 20px 0 0 0;
-	right: 10px;
+	right: 12px;
 	top: -20px;
 	border: 1px solid #f00; 
 	box-shadow: 0 0 15px #ff0d0d;
