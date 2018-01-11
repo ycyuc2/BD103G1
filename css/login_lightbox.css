@@ -16,10 +16,12 @@
 .login-close,.register-close {
     display: block;
     position: absolute;
-    top: 69px;
+    top: 67px;
     right: 30px;
 }
 .login-close i, .register-close i{
+    width: 29px;
+    height: 29px;
     display: block;
     color:#533e2f;
     filter:drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
