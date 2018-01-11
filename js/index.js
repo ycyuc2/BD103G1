@@ -12,14 +12,6 @@ $('document').ready(function(){
     $('.btnM.submit').click(function () {
         $('.index_result').css('display', 'inline');
     });
-    $('#login .btn.add').click(function(){
-        $('#add').css('display','inline');
-        $('#login').css('display','none');
-    });
-    $('.backBtn').click(function () {
-        $('#add').css('display', 'none');
-        $('#login').css('display', 'inline');
-    });
     
 });
     

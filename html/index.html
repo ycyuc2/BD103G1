@@ -11,15 +11,13 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/btn.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
     <!-- <link rel="stylesheet" href="../css/lightening.css"> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script src="../js/countDown.js"></script>
     <script src="../js/login_lightbox.js"></script>
-    <!-- <script src="../js/index.js"></script> -->
+    <script src="../js/index.js"></script>
 
     <title>Dozen</title>
 </head>
@@ -74,53 +72,52 @@
             </a>
         </div>
     </div>
-    <div class="header">
-    
-        <!-- 中間logo -->
-        <div class="logo">
-            <a href="#">
-                <img src="../img/share/LOGO-08.png">
-            </a>
+        <!-- ====================header              ==================== -->
+        <div class="header">
+        
+            <!-- 中間logo -->
+            <div class="logo">
+                <a href="#">
+                    <img src="../img/share/LOGO-08.png">
+                </a>
+            </div>
+        
+            <!-- 右邊會員專區 -->
+            <div class="memArea">
+                <ul>
+                    <li class="login-control">
+                        <a href="#">註冊/登入</a>
+                    </li>
+                    <li>
+                        <a href="#">購物車(
+                            <span class="cartNo">0</span>)</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- 右邊水逆倒數 -->
+            <div class="countdown">
+                <div class="countdownAlert"></div>
+                <table class="countdownContainer">
+                    <tr class="info">
+                        <td>水星逆行倒數 :</td>
+                        <td class="days">120</td>
+                        <td>天</td>
+                        <td class="hours">4</td>
+                        <td>時</td>
+                        <td class="minutes">12</td>
+                        <td>分</td>
+                    </tr>
+        
+                </table>
+            </div>
         </div>
-    
-        <!-- 右邊會員專區 -->
-        <div class="memArea">
-            <ul>
-                <li class="register-control">
-                    <i class="fa fa-user-plus" aria-hidden="true"></i>註冊
-                </li>
-                <li class="login-control">
-                    <i class="fa fa-user" aria-hidden="true"></i>登入
-                </li>
-                <li>
-                    <a href="#">購物車(
-                        <span class="cartNo">0</span>)</a>
-                </li>
-            </ul>
-        </div>
-    
-        <!-- 右邊水逆倒數 -->
-        <div class="countdown">
-            <table class="countdownContainer">
-                <tr class="info">
-                    <td>水星逆行倒數 :</td>
-                    <td class="days">120</td>
-                    <td>天</td>
-                    <td class="hours">4</td>
-                    <td>時</td>
-                    <td class="minutes">12</td>
-                    <td>分</td>
-                </tr>
-    
-            </table>
-        </div>
-    </div>
 
 
 <!-- 燈箱開始 -->
 
     <div class="login_wrapper">
-        <div class="loginbox">
+        <div class="loginbox login">
             <div class="login-close">
                 <i class="fa fa-times fa-2x"></i>
             </div>
@@ -165,10 +162,10 @@
     </div>
     
     <div class="register_wrapper">
-        <div class="loginbox">
+        <div class="loginbox register">
             <a href="#">
                 <div class="backBtn">
-                    <p>返回</p>
+                    <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
                 </div>
             </a>
             <div class="register-close">
@@ -271,7 +268,7 @@
                 <div id="test">
                     <div class="border"></div>
                     <form action="#result" id="single">
-                        <p> 請輸入您的生日：</p>
+                        <h4> 請輸入您的生日</h4>
                         <select name="year">
                             <option value="1970" style="color:white;">1970</option>
                             <option value="1971">1971</option>
@@ -379,7 +376,7 @@
                         </span>
                     </form>
                     <form action="#result" id="double">
-                        <h4> 請輸入您的生日：</h4>
+                        <h4> 請輸入您的生日</h4>
                         <p>
                             <select name="year">
                                 <option value="1970">1970</option>
@@ -478,7 +475,7 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>日
-                            <h4> 請輸入對方的生日：</h4>
+                            <h4> 請輸入對方的生日</h4>
                         
                             <select name="year">
                                 <option value="1970">1970</option>
@@ -617,8 +614,8 @@
                                 <p>天秤是好的開創者，但不能有始有終，牡羊正好可以彌補這個缺點，若雙方都能展現自己的長才，當天秤與牡羊一同處理危機時，可以說是無往不利。在交往後，就算兩個人只是做自己，都能成為相當登對的情人。但如果是在交往前，事情可就沒有那麼簡單了！ 由於天秤跟牡羊是對立的兩個星座，在還未了解對方以前，就算有一方偷偷暗戀對方，另外一方肯定因為習慣及個性的差距對這個人敬而遠之，很容易因為雙方在個性上沒有交集而不了了之。</p>
                             </div>
 
-                            <span class="btnM">
-                                <p class="btnText btnText6">登入瀏覽結果</p>
+                            <span class="btnM show">
+                                <p class="btnText btnText6"></p>
                             </span>
                         </div>
                         
@@ -664,8 +661,8 @@
                                 別讓最近的好運功虧一簣！
                             </p>
                         </div>
-                        <span class="btnM">
-                            <p class="btnText btnText6">登入瀏覽結果</p>
+                        <span class="btnM show">
+                            <p class="btnText btnText6"></p>
                         </span>
                     </div>
                     <div class="other">
@@ -742,8 +739,8 @@
                             近期多接觸與海洋有關的事物可以有效減緩這樣 的情形。
                         </p>
                     </div>
-                    <span class="btnM">
-                        <p class="btnText btnText6">登入瀏覽結果</p>
+                    <span class="btnM show">
+                        <p class="btnText btnText6"></p>
                     </span>
                     </div>
 
