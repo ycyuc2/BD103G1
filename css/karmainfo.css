@@ -45,29 +45,28 @@
 	font-size: 34px;
 }
 
-.table .wrapper{
+.karmatable .wrapper{
 	width: 40%;
 	margin: 0 auto;
 	text-align: center;
 }
 
-.table .wrapper h3{
+.karmatable .wrapper h3{
 	color: #f00;
 	font-size: 30px;
 	margin-top: 100px;
 	text-decoration: underline;
 }
 
-table{
+.karmatable .wrapper table{
 	font-size: 20px;
+	width: 80%;
 	margin: 0 auto;
+	background-color: #000;
+	margin-top: 20px;
 }
 
-.countdown table th,td{
-	font-size: 14px;
-}
-
-table th{
+.karmatable .wrapper table th{
 	color: #f00;
 }
 
@@ -243,58 +242,6 @@ table th{
 		background-image: none;
 	}
 }
-
-/*footer*/
-.footer{
-	width: 100%;
-	height: 70px;
-	margin-top: 50px;
-	border-top: 1px #fff solid;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-/*左邊icon*/
-.footer .icon ul li{
-	display: inline-block;
-}
-
-.footer .icon ul li i{
-	width: 40px;
-	height: 40px;
-	color: #ddd;
-	padding: 20px 0 0 20px;
-}
-
-.footer .icon ul li i:hover{
-	color: #0ee7d5;
-	transition: 1s;
-	cursor: url(../img/dozen_storedetail/cursor.png)20 15,auto;
-}
-
-.footer .icon ul li i:active{
-	cursor: url(../img/dozen_storedetail/cursor2.png)20 15,auto;
-}
-
-.footer .icon ul li:nth-child(1){
-	padding-left: 35px;
-}
-
-/*右邊copyright*/
-.copyright{
-	text-align: right;	
-}
-
-
-.copyright p{
-	font-size: 14px;
-	color: #ddd;
-	letter-spacing: 1px;	
-	padding-right: 35px;
-	margin-top: -35px;
-}
-
 /*RWD開始*/
 /*手機*/
 @media screen and (max-width: 480px){

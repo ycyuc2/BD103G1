@@ -21,6 +21,12 @@
 	left: calc(50% - 45px);
 	top: 10px;
 }
+.header .logo a:hover{
+	cursor: url(../img/share/cursor.png)20 15,auto;
+}
+.header .logo a:active{
+	cursor: url(../img/share/cursor2.png)20 15,auto;
+}
 .header .logo img{
 	width: 100%;
 }
@@ -56,6 +62,11 @@
 .header .memArea a:hover{
 	color: #f5da95;
 	transition: .2s;
+	cursor: url(../img/share/cursor.png)20 15,auto;
+}
+
+.header .memArea a:active{
+	cursor: url(../img/share/cursor2.png)20 15,auto;
 }
 
 /*右邊水逆倒數*/

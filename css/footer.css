@@ -6,7 +6,7 @@
 /*copyright*/
 .copyright{
 	text-align: center;	
-	width: 90%;
+	width: 95%;
 	height: 70px;
 	margin: 0 auto;
 	-webkit-box-sizing: border-box;
@@ -19,5 +19,5 @@
 	font-size: 14px;
 	color: #ddd;
 	letter-spacing: 1px;	
-	margin-top: 35px;
+	margin: 25px 0 25px 0;
 }
