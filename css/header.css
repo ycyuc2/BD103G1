@@ -10,7 +10,7 @@
 	z-index: 8;
 	top: 0;
 	left: 0;
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#000), to(transparent)); 
+	background: linear-gradient(#000, #000, #000, transparent);
 }
 
 /*中間logo*/
