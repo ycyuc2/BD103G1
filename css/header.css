@@ -10,7 +10,7 @@
 	z-index: 8;
 	top: 0;
 	left: 0;
-	transition: all .5s ease-in-out;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#000), to(transparent)); 
 }
 
 /*中間logo*/
@@ -54,7 +54,7 @@
 }
 
 .header .memArea a:hover{
-	color: #0ee7d5;
+	color: #f5da95;
 	transition: .2s;
 }
 
@@ -62,7 +62,7 @@
 .header .countdown{
 	position: absolute;
 	width: 250px;
-	margin: 20px 0 0 0;
+	margin: 10px 0 0 0;
 	right: 20px;
 	top: 50px;
 }
@@ -73,15 +73,55 @@
 	padding: 5px;
 }
 
+.header .countdownAlert{
+	position: absolute;
+	width: 235px;
+	height: 37px;
+	margin: 20px 0 0 0;
+	right: 13px;
+	top: -20px;
+	border: 1px solid #f00; 
+	box-shadow: 0 0 15px #ff0d0d;
+	z-index: -1;
+	animation: countdownAlert 30s;
+	animation-iteration-count: 30;
+}
 
-
-
+@keyframes countdownAlert {
+	0% {
+	  opacity: 0; }
+	10% {
+	  opacity: 0; }
+	20% {
+	  opacity: 0; }
+	30% {
+	  opacity: 0; }
+	40% {
+	  opacity: 0; }
+	50% {
+	  opacity: 1; }
+	60% {
+	  opacity: 0; }
+	70% {
+	  opacity: 0; }
+	80% {
+	  opacity: 0; }
+	90% {
+	  opacity: 0; }
+	100% {
+	  opacity: 0; } 
+}
 
 
 /*RWD開始*/
-/*右邊會員專區消失*/
 @media screen and (max-width: 760px){
+	/*右邊會員專區消失*/
 	.header .memArea ul li{
+		display: none;
+	}
+
+	/*右邊水逆倒數消失*/
+	.header .countdown{
 		display: none;
 	}
 }
