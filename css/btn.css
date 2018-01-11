@@ -1,5 +1,6 @@
 .btnText{
-	color: #FFC600;
+	display: inline-block;
+	color:rgba(238, 217, 145, 1);
 	text-decoration: none;
 	font-family: "微軟正黑體";
 	margin: 0;padding: 0;
@@ -16,79 +17,75 @@
 .btnL{
 	display: inline-block;
 	width: 200px;
-	height: 75px;
-	background: url(../img/btn/btn.png) center;
+	height: 50px;
+	background: url(../img/btn/01.png) center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
 	font-weight: bold;
 }
 .btnL .btnText{
-	display: inline-block;
-	font-size: 24px;
-	line-height: 75px;
+	font-size: 20px;
+	line-height: 50px;
 }
 .btnL .btnText2{
 	padding-left: 20px;
 	letter-spacing: 20px;
 }
 .btnL .btnText4{
-	padding-left: 15px;
-	letter-spacing: 5px;
+	padding-left: 10px;
+	letter-spacing: 10px;
 }
 .btnL .btnText6{
-	padding-left: 10px;
+	padding-left: 3px;
 	letter-spacing: 2px;
 }
 .btnM{
 	display: inline-block;
 	width: 150px;
-	height: 56.25px;
-	background: url(../img/btn/btn.png) center;
+	height: 37.5px;
+	background: url(../img/btn/01.png) center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
 	font-weight: bold;
 }
 .btnM .btnText{
-	display: inline-block;
-	font-size: 20px;
-	line-height: 56.25px;
+	font-size: 16px;
+	line-height: 37.5px;
 }
 .btnM .btnText2{
 	padding-left: 15px;
 	letter-spacing: 15px;
 }
 .btnM .btnText4{
-	padding-left: 15px;
+	padding-left: 3px;
 	letter-spacing: 5px;
 }
 .btnM .btnText6{
-	padding-left: 5px;
 	letter-spacing: 1px;
 }
 .btnS{
 	display: inline-block;
 	width: 100px;
-	height: 37.5px;
-	background: url(../img/btn/btn.png) center;
+	height: 25px;
+	background: url(../img/btn/01.png) center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
 	font-weight: bold;
 }
 .btnS .btnText{
-	display: inline-block;
 	font-size: 14px;
-	line-height: 37.5px;
+	line-height: 25px;
 }
 .btnS .btnText2{
 	padding-left: 12px;
 	letter-spacing: 12px;
 }
 .btnS .btnText4{
-	padding-left: 9px;
-	letter-spacing: 3px;
+	padding-left: 3px;
+	letter-spacing: 1px;
 }
 .btnS .btnText6{
 	padding-left: 2.5px;
