@@ -1,3 +1,6 @@
+.info h2:before{
+	content: '';
+}
 .info p{
 	width: 60%;
 	margin: 3% -0px;
@@ -9,7 +12,7 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	width: 156px;
-	height: 25px;
+	height: 17px;
 }
 
 .info p .input input{
