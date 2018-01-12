@@ -48,7 +48,7 @@
     line-height: 70px;
     z-index:5;
     background-image:url('../img/karmaInfo/500.png');
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
@@ -89,16 +89,8 @@
 
 /* 選擇算命方式與banner */
 
-header{
-    width: 100vw;
-    height: 150px;
-    background: rgba(0,0,0,0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-}
 .index_choose{
-    width: 100vw;
+    width: 100%;
     text-align: center;
     height: 120vh;
     position: relative;
@@ -122,14 +114,14 @@ header{
     position: absolute;
     top: calc(26.5% + 150px);
     left: 50%;
-    margin-left: -412px;
+    margin-left: -420px;
     filter: drop-shadow( 0px 0px 3px rgb(245, 187, 100) )  drop-shadow( 0px 0px 2px rgb(253, 188, 89));
 
 }
 .index_impulse {
     position: absolute;
     left: 27%;
-    top: calc( 38% + 150px);
+    top: calc( 33% + 150px);
     z-index: 0;
 }
 .index_correct{
@@ -184,7 +176,6 @@ header{
     font-size: 19px;
     line-height: 44px;
     color: rgba(231,206,139,1);
-    font-weight:1000;
     text-shadow: 0px -4px 1px rgba(2,76,79,0.5),
     0px 0px 0px #000;
     transition: 0.2s all linear;
@@ -201,8 +192,7 @@ header{
 }
 
 .index_title img,
-index_subtitle img,
-
+.index_subtitle img,
     .index_small_text img{
     width: 100%;
 }
@@ -248,7 +238,12 @@ index_subtitle img,
     }
 }
 @media all and (min-width: 480px) and (max-width: 759px) {
- 
+        .index_subtitle,
+        .index_small_text {
+            width: 90%;
+            left: 5%;
+            margin-left: 0;
+        }
     .index_choose h2 {
         font-size: 1.3em;
     }
@@ -256,7 +251,8 @@ index_subtitle img,
         margin-left: -187.5px;
     }
     .btn.index {
-        width: 155px;
+        width: 170px;
+        height: 37.5px;
         margin: 0 15px;
     }
     .btn.index p {
@@ -271,15 +267,23 @@ index_subtitle img,
         font-size: 1em;
     }
     .btnM.index {
+        width: 120px;
+        height: 30px;
        margin: 0 15px;
     }
     .btnM.index p {
-        font-size: 25px;
+        font-size: 14px;
+        line-height: 29px;
     }
     .index_subtitle {
         width: 90%;
         left: 5%;
         margin-left: 0;
+     }
+     .index_small_text {
+         left:5% ;
+         width: 90%;
+         margin-left: 0;
      }
     .index_starfield{
         left: 50%;
@@ -287,11 +291,6 @@ index_subtitle img,
     }
     .index_title img{
         width:85%;
-    }
-    .index_impulse img,
-    .index_subtitle img,
-    .index_correct img {
-        width: 100%;
     }
     .index_choose #btn {
         margin-left: -152px;
