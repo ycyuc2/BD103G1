@@ -49,11 +49,17 @@
     z-index:5;
     background-image: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #000 100%);
 }
+
 .karmainfo_ball:hover {
     cursor: pointer;
     background-color: #aa0000;
-}
+    cursor: url(../img/share/cursor.png) 12 5,
+        auto;
 
+}
+.karmainfo_ball:active {
+    cursor: url(../img/share/cursor2.png) 12 5, auto;
+}
 @media all and (min-width: 480px) and (max-width: 759px) {
     .karmainfo_ball{
         display: none;
@@ -97,33 +103,39 @@ header{
     z-index:0;
     overflow: hidden;
 }
-.index_impulse{
+.index_starfield {
     position: absolute;
-    left: 10%;
-    top: calc( -3% + 150px);
-        z-index:0;
-
+    top: 13%;
+    left: 50%;
+    margin-left: -301.5px;
 }
 .index_title{
     position: absolute;
-    top: calc(9% + 150px);
+    top: calc(3% + 150px);
     left: 50%;
     margin-left: -160px;
     filter: drop-shadow( 0px 0px 17px rgba(255, 183, 76, 1));
 }
 .index_subtitle{
     position: absolute;
-    top: calc(34% + 150px);
+    top: calc(26.5% + 150px);
     left: 50%;
-    margin-left: -290.5px;
+    margin-left: -412px;
     filter: drop-shadow( 0px 0px 3px rgb(245, 187, 100) )  drop-shadow( 0px 0px 2px rgb(253, 188, 89));
 
 }
-.index_correct{
+.index_impulse {
     position: absolute;
-    top: calc(45% + 150px);
-    left: 50%;
-    margin-left: -127.5px;
+    left: 27%;
+    top: calc( 38% + 150px);
+    z-index: 0;
+}
+.index_correct{
+    width: 226px;
+    position: absolute;
+    top: calc(36% + 150px);
+    left: 64%;
+    margin-left: -113px;
     filter: drop-shadow( 0px 0px 7px rgba(255, 255, 255, 0.85)) drop-shadow( 0px 0px 2px rgba(255, 255, 255, 1)) drop-shadow( 0px 0px 2px rgba(255, 255, 255, 1));
 
 }
@@ -131,48 +143,74 @@ header{
     position: absolute;
     top: calc(55% + 150px);
     left: 50%;
-    margin-left: -262.5px;
+    margin-left: -232px;
 }
-.index_starfield{
+.index_small_text {
     position: absolute;
-    top: 20%;
-    left: 50%;
+    top: 63%;
+    left: 76%;
     margin-left: -285px;
 }
-.btn.index {
-    background: url('../img/index/index_btn.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 200px;
-    height: 60px;
+.btnM.index {
+    width: 170px;
+    height: 42.5px;  /*btn 比例150:3.5*/
     font-weight: 700;
     transition: 0.2s all linear;
     margin: 0 30px;
+}
+
+
+.btnM.index:hover{
+    background: url('../img/share/btn_02.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: url('../img/share/cursor1.png') 12 5,auto;
+}
+.btnM.index:active{
+    cursor: url(../img/share/cursor2.png) 12 5, auto;
 }
 @font-face {
     font-family:'漢宗特明體 – 標準';
     src: url('../font/王漢宗特明體 – 標準.ttf');
 }
-.btn.index p {
-    font-family:'漢宗特明體 – 標準';
-    font-size: 30px;
-    line-height: 60px;
-    color: #20aba3;
+@font-face {
+    font-family: '王漢宗粗明體繁-中';
+    src: url('../font/王漢宗粗明體繁-中.ttf');
+}
+.btnM.index p {
+    font-family:'王漢宗粗明體繁-中';
+    font-size: 19px;
+    line-height: 44px;
+    color: rgba(231,206,139,1);
     font-weight:1000;
-    text-shadow: 0px -3px 5px rgba(255, 255, 255, 0.9),
-    0px 3px 5px rgba(255, 255, 255, 0.9) ,3px 0px 5px rgba(255, 255, 255, 0.9), -3px 0px 5px rgba(255, 255, 255, 0.9);
+    text-shadow: 0px -4px 1px rgba(2,76,79,0.5),
+    0px 0px 0px #000;
+    transition: 0.2s all linear;
 }
-.btn.index:hover {
-    filter: drop-shadow( 0px 0px 8px rgb(255, 255, 255)) drop-shadow( 0px 0px 4px rgb(255, 255, 255)) ;
+.btnM.index:hover {
+    background: url('../img/share/btn_02.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter:drop-shadow(0px 0px 1px #eee);
 }
-.btn.index p:hover{
-    color:#2cc9c1;
+.btnM.index p:hover{
+    transform: translateY(1px) rotateX(10deg);
+    color:rgb(206, 179, 104);
 }
-.index_impulse img,
+
 .index_title img,
 index_subtitle img,
-.index_correct img,{
+
+    .index_small_text img{
     width: 100%;
+}
+.index_impulse img:first-of-type{
+    width: 50%;
+    display: inline-block;
+}
+.index_impulse img:nth-of-type(2){
+    width: 48%;
+    display: inline-block;
 }
 .index_starfield{
     animation:5s starfield_scale 1 linear;
@@ -231,16 +269,11 @@ index_subtitle img,
     .index_choose h2 {
         font-size: 1em;
     }
-    .btn.index {
-        width: 145px;
+    .btnM.index {
        margin: 0 15px;
     }
-    .btn.index p {
+    .btnM.index p {
         font-size: 25px;
-    }
-
-    .index_impulse {
-        display: none;
     }
     .index_subtitle {
         width: 90%;
@@ -454,7 +487,7 @@ index_subtitle img,
     position: relative;
     width: 100%;
     padding-top:150px; /* 看header到時候設計的高*/
-    display:none;
+    /* display:none; */
 }
 .index_result .index_star{
     width: 100%;
