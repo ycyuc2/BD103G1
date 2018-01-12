@@ -1,6 +1,6 @@
 @font-face {
-    font-family: '王漢宗中明體繁- 細';
-    src: url('../font/王漢宗中明體繁- 細.ttf');
+    font-family: '王漢宗粗明體繁-中';
+    src: url('../font/王漢宗粗明體繁-中.ttf');
 }
 
 
@@ -98,6 +98,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
+
 }
 .loginbox.login{
     background: url('../img/index/hint.png');
@@ -121,19 +122,19 @@
 .loginbox table {
     width: 290px;
     height: auto;
-    margin: 0 auto;
+    margin: 0 27px;
     font-size: 1em;
     padding-left: 3px;
     color: #fff;
     border-bottom: 0.7em transparent solid;
+
 }
 .loginbox table caption {
     padding-top: 100px;
-    margin: 0.5em 0 16px;
-    font-family: '王漢宗中明體繁- 細';
+    margin: 0.8em 0 16px;
 }
 .loginbox.login table caption{
-    margin: 0.8em 0;
+    margin: 1.8em 0;
 }
 .loginbox table tr {
     padding-bottom: 0.3em;
@@ -141,7 +142,7 @@
 }
 .loginbox table tr th {
     width: 50px;
-    text-align: left;
+    text-align: right;
     border-bottom: 0.7em transparent solid;
 }
     /*燈箱＿註冊燈箱特別調整 */
@@ -149,11 +150,17 @@
         width: 70px;
     }
     /* 燈箱＿註冊燈箱特別調整結束 */
-.loginbox h2, .loginbox p{
-        color: rgb(236, 215, 174);
-    font-family: '王漢宗中明體繁- 細';
 
 
+.loginbox h2{
+    color: #d7bda5;
+    font-family: '王漢宗粗明體繁-中';
+    letter-spacing: 6px;
+    margin-left: 30px;
+}
+.loginbox p{
+    color: #645448;
+    font-family: '王漢宗粗明體繁-中';
 }
 .loginbox table tr td {
     width: 145px;
@@ -184,10 +191,15 @@
 .loginbox table tr input:focus {
     outline: none;
 }
+
+
+
     /* 燈箱＿按鈕設定 */
 .loginbox table tr #btn {
     text-align: center;
     border-bottom: 0.7em transparent solid;
+    padding-left:12px;
+    padding-top: 6px;
 } 
 .loginbox table tr #btn .btn input{
         position: absolute;
@@ -213,7 +225,9 @@
 }
 .loginbox table tr #btn .btn p {
     color: rgb(236, 215, 174);
-    font-family: '王漢宗中明體繁- 細';
+    font-family: '王漢宗粗明體繁-中';
+    letter-spacing: 6px;
+    padding-left: 6px;
 
 } 
 /* .loginbox table tr #btn .btn p:hover{
