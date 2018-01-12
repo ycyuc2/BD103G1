@@ -50,7 +50,7 @@
   height: 3000px;
   padding-bottom: 200px;
   position: relative;
-  background-image: url(../img/findTeacher/bg.jpg);
+  background-image: url(../img/findTeacher/findTeacher_bg.png);
   background-position: center center;
   -webkit-background-size: cover;
   background-size: cover;
@@ -61,10 +61,7 @@
       height: auto;
       overflow: visible;
       position: static;
-      background-image: url(../img/findTeacher/bg.jpg);
-      background-position: center center;
-      -webkit-background-size: cover;
-      background-size: cover; } }
+      background-color: #333; } }
 
 #teacherInfo {
   position: fixed;
