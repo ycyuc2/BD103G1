@@ -42,16 +42,6 @@ body {
     .cart {
       display: none; } }
 
-.frame {
-  margin: 0 auto;
-  margin-top: 13%;
-  max-width: 960px;
-  border: 50px solid transparent;
-  border-image: url(../img/frame_960x960.png) 90 90 repeat;
-  background-image: url(../img/dozen_storedetail/texture.png);
-  background-size: cover;
-  box-sizing: border-box; }
-
 .header {
   position: fixed;
   top: 0;
@@ -69,129 +59,166 @@ body {
 #person {
   color: red; }
 
-.frame .product .productContent:after {
-  content: '';
-  display: block;
-  clear: both; }
-
-.frame .product .productContent .one {
+.frame {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 13%;
+  max-width: 960px;
+  background-image: url(../img/dozen_storedetail/texture.png);
+  background-position: center center;
+  background-size: cover;
   box-sizing: border-box;
-  width: 50%;
-  float: left;
-  border: 100px solid transparent;
-  border-image: url(../img/dozen_storedetail/frame3.png) 90 90 repeat;
-  background-size: cover; }
-  @media all and (max-width: 479px) {
-    .frame .product .productContent .one {
-      float: none;
-      width: 100%; } }
-  .frame .product .productContent .one img {
-    width: 100%; }
-
-.frame .product .productContent .text {
-  width: 50%;
-  float: left;
-  padding: 10%;
-  box-sizing: border-box;
-  padding: 5%; }
-  .frame .product .productContent .text #textTitle {
-    font-family: "王漢宗特明體 – 標準";
-    font-size: 25px;
-    letter-spacing: 5px;
-    color: #533e2f;
-    display: inline-block; }
-  .frame .product .productContent .text #price {
-    letter-spacing: 5px;
-    color: #533e2f;
-    display: inline-block;
-    margin-bottom: 2%; }
-  .frame .product .productContent .text i {
-    color: yellow; }
-  .frame .product .productContent .text .rate {
-    display: inline;
-    color: #533e2f; }
-  .frame .product .productContent .text hr {
-    margin: 5% auto; }
-  @media all and (max-width: 479px) {
-    .frame .product .productContent .text {
-      float: none;
-      width: 100%; } }
-
-.frame .product .productContent hr {
-  height: 1px;
-  border: none;
-  background-color: #533e2f; }
-
-.frame .product .productContent .innerText {
-  color: #533e2f; }
-  .frame .product .productContent .innerText p {
-    letter-spacing: 1px;
-    font-size: 16px;
-    line-height: 24px; }
-
-.frame .product .productContent .btn {
-  margin-top: 10%; }
-  .frame .product .productContent .btn:after {
-    content: '';
-    display: block;
-    clear: both; }
-  .frame .product .productContent .btn .amount {
-    float: left;
-    color: #fff; }
-    @media all and (max-width: 479px) {
-      .frame .product .productContent .btn .amount {
-        float: none;
-        width: 100%;
-        margin-bottom: 50px; } }
-    .frame .product .productContent .btn .amount label {
-      display: inline-block;
-      margin-bottom: 2%;
-      color: #533e2f;
-      letter-spacing: 5px;
-      font-size: 14px; }
-    .frame .product .productContent .btn .amount .qtyminus, .frame .product .productContent .btn .amount .qtyplus {
-      width: 30px;
-      height: 30px;
-      border: 0;
-      color: white;
-      background-color: transparent;
-      background-image: url(../img/dozen_storedetail/btn1.png);
-      background-size: cover;
-      background-position: center center; }
-      .frame .product .productContent .btn .amount .qtyminus:hover, .frame .product .productContent .btn .amount .qtyplus:hover {
-        cursor: url(../img/dozen_storedetail/cursor.png) 20 15, auto; }
-      .frame .product .productContent .btn .amount .qtyminus:focus, .frame .product .productContent .btn .amount .qtyplus:focus {
-        outline: none; }
-      .frame .product .productContent .btn .amount .qtyminus:active, .frame .product .productContent .btn .amount .qtyplus:active {
-        box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
-        cursor: url(../img/dozen_storedetail/cursor2.png) 20 15, auto; }
-    .frame .product .productContent .btn .amount .qty {
-      background-image: url(../img/dozen_storedetail/input.png);
-      background-size: cover;
-      width: 70px;
-      height: 30px;
-      border: none;
-      outline: none;
-      color: #fff;
-      text-align: center; }
-  .frame .product .productContent .btn .buy {
-    float: right; }
-    @media all and (max-width: 479px) {
-      .frame .product .productContent .btn .buy {
-        float: none;
-        width: 100%; } }
-    .frame .product .productContent .btn .buy a {
-      color: #fff;
-      font-size: 12px;
-      letter-spacing: 4px;
+  padding: 70px; }
+  .frame .frameFrame {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 50px solid transparent;
+    border-image: url(../img/frame_960x960.png) 90 90 repeat;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 0px 5px #000) drop-shadow(2px 2px 5px #000); }
+  .frame .product {
+    position: relative;
+    z-index: 4; }
+    .frame .product .productContent:after {
+      content: '';
       display: block;
-      width: 150px;
-      height: 40px;
-      line-height: 37px;
-      text-align: center;
-      text-decoration: none;
-      background-image: url(../img/dozen_storedetail/btn.png);
-      background-size: contain; }
+      clear: both; }
+    .frame .product .productContent .one {
+      position: relative;
+      box-sizing: border-box;
+      width: 50%;
+      float: left;
+      background-size: cover;
+      text-align: center; }
+      .frame .product .productContent .one .picFrame {
+        position: absolute;
+        box-sizing: border-box;
+        margin: 0;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        border: 40px solid transparent;
+        border-image: url(../img/dozen_storedetail/frame3.png) 20 20 repeat; }
       @media all and (max-width: 479px) {
+        .frame .product .productContent .one {
+          float: none;
+          width: 100%; } }
+      .frame .product .productContent .one img {
+        padding: 10% 0;
+        width: 80%; }
+    .frame .product .productContent .text {
+      width: 50%;
+      float: left;
+      padding: 10%;
+      box-sizing: border-box;
+      padding: 5%; }
+      .frame .product .productContent .text #textTitle {
+        font-family: "王漢宗特明體 – 標準";
+        font-size: 25px;
+        letter-spacing: 5px;
+        color: #533e2f;
+        display: inline-block; }
+      .frame .product .productContent .text #price {
+        letter-spacing: 5px;
+        color: #533e2f;
+        display: inline-block;
+        margin-bottom: 2%; }
+      .frame .product .productContent .text i {
+        color: yellow; }
+      .frame .product .productContent .text .rate {
+        display: inline;
+        color: #533e2f; }
+      .frame .product .productContent .text hr {
+        margin: 5% auto; }
+      @media all and (max-width: 479px) {
+        .frame .product .productContent .text {
+          float: none;
+          width: 100%; } }
+    .frame .product .productContent hr {
+      height: 1px;
+      border: none;
+      background-color: #533e2f; }
+    .frame .product .productContent .innerText {
+      color: #533e2f; }
+      .frame .product .productContent .innerText p {
+        letter-spacing: 1px;
+        font-size: 16px;
+        line-height: 24px; }
+    .frame .product .productContent .btn {
+      margin-top: 10%; }
+      .frame .product .productContent .btn:after {
+        content: '';
+        display: block;
+        clear: both; }
+      .frame .product .productContent .btn .amount {
+        float: left;
+        color: #fff; }
+        @media all and (max-width: 479px) {
+          .frame .product .productContent .btn .amount {
+            float: none;
+            width: 100%;
+            margin-bottom: 50px; } }
+        .frame .product .productContent .btn .amount label {
+          display: inline-block;
+          margin-bottom: 2%;
+          color: #533e2f;
+          letter-spacing: 5px;
+          font-size: 14px; }
+        .frame .product .productContent .btn .amount .qtyminus, .frame .product .productContent .btn .amount .qtyplus {
+          width: 30px;
+          height: 30px;
+          border: 0;
+          color: white;
+          background-color: transparent;
+          background-image: url(../img/dozen_storedetail/btn1.png);
+          background-size: cover;
+          background-position: center center; }
+          .frame .product .productContent .btn .amount .qtyminus:hover, .frame .product .productContent .btn .amount .qtyplus:hover {
+            cursor: url(../img/share/cursor.png) 20 15, auto; }
+          .frame .product .productContent .btn .amount .qtyminus:focus, .frame .product .productContent .btn .amount .qtyplus:focus {
+            outline: none; }
+          .frame .product .productContent .btn .amount .qtyminus:active, .frame .product .productContent .btn .amount .qtyplus:active {
+            box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
+            cursor: url(../img/share/cursor2.png) 20 15, auto; }
+        .frame .product .productContent .btn .amount .qty {
+          background-image: url(../img/dozen_storedetail/input.png);
+          background-size: cover;
+          width: 70px;
+          height: 30px;
+          border: none;
+          outline: none;
+          color: #fff;
+          text-align: center; }
+      .frame .product .productContent .btn .buy {
+        float: right; }
+        @media all and (max-width: 479px) {
+          .frame .product .productContent .btn .buy {
+            float: none;
+            width: 100%; } }
         .frame .product .productContent .btn .buy a {
-          margin: 0 auto; } }
+          color: #fff;
+          font-size: 12px;
+          letter-spacing: 4px;
+          display: block;
+          width: 150px;
+          height: 40px;
+          line-height: 37px;
+          text-align: center;
+          text-decoration: none;
+          background-image: url(../img/dozen_storedetail/btn.png);
+          background-size: contain; }
+          .frame .product .productContent .btn .buy a:hover {
+            cursor: url(../img/share/cursor.png) 20 15, auto; }
+          .frame .product .productContent .btn .buy a:focus {
+            outline: none; }
+          .frame .product .productContent .btn .buy a:active {
+            box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
+            cursor: url(../img/share/cursor2.png) 20 15, auto; }
+          @media all and (max-width: 479px) {
+            .frame .product .productContent .btn .buy a {
+              margin: 0 auto; } }
