@@ -5,13 +5,14 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 	<title>Document</title>
 	<script src="../js/countDown.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/article1.css">
 	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRatingForArticle.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 	
 </head>
 <body>
@@ -46,16 +47,16 @@
 			<div class="line"></div>
 			<!-- 右邊的time區塊 -->
 			<div class="right">
-				<a class="title" href="#">
+				<a class="title" href="findTeacher.html">
 					<span class="findTeacher"></span>
 				</a>
-				<a class="title" href="#">
+				<a class="title" href="dozen_store.html">
 					<span class="store"></span>
 				</a>
-				<a class="title" href="#">
+				<a class="title" href="member.html">
 					<span class="member"></span>
 				</a>
-			</div>	
+			</div>		
 	</div>
 
 
@@ -128,8 +129,9 @@
 					</div>
 					<div class="links">
 						<div class="btns">
-							<a href="#">回文</a>
-							<a href="#">收藏</a>
+							<span class="btnM">
+								<a href="" class="btnText btnText2">收藏</a>
+							</span>
 						</div>
 						<div class="stars">
 	<!-- 評價星等 -->
@@ -177,7 +179,7 @@
 			<h3>撰寫留言</h3>
 			<form>
 				<textarea id="replyArea"></textarea>
-				<input type="submit" value="回覆">
+				<input class="btnM btnText btnText2" type="submit" value="回　覆">
 			</form>
 		</div>
 	</div>
@@ -199,7 +201,9 @@
 						<p>2017/12/2 04:37:10</p>
 					</div>
 					<div class="links">
-						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="btns"><span class="btnM report">
+								<p class="btnText btnText2">檢舉</p>
+							</span></div>
 						<div class="stars">
 	<!-- 評價星等 -->
 	<fieldset class="rating">
@@ -239,7 +243,9 @@
 						<p>2017/12/2 19:07:42</p>
 					</div>
 					<div class="links">
-						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="btns"><span class="btnM report">
+								<p class="btnText btnText2">檢舉</p>
+							</span></div>
 						<div class="stars">
 	<!-- 評價星等 -->
 	<fieldset class="rating">
@@ -282,7 +288,9 @@
 						<p>2017/12/3 06:55:08</p>
 					</div>
 					<div class="links">
-						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="btns"><span class="btnM report">
+								<p class="btnText btnText2">檢舉</p>
+							</span></div>
 						<div class="stars">
 	<!-- 評價星等 -->
 	<fieldset class="rating">
@@ -328,7 +336,9 @@
 						<p>2017/12/3 11:42:17</p>
 					</div>
 					<div class="links">
-						<div class="btns"><div class="report">檢舉</div></div>
+						<div class="btns"><span class="btnM report">
+								<p class="btnText btnText2">檢舉</p>
+							</span></div>
 						<div class="stars">
 	<!-- 評價星等 -->
 	<fieldset class="rating">
@@ -375,33 +385,6 @@
 	<!-- ====================footer==================== -->
 	<div class="footer">
 
-		<!-- 左邊icon -->
-		<div class="icon">
-			<ul>
-				<!-- facebook icon -->
-				<li class="facebook">
-					<a href="#">
-						<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-					</a>				
-				</li>
-
-				<!-- instagram icon -->
-				<li class="instagram"></i>
-					<a href="#">
-						<i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
-					</a>					
-				</li>
-
-				<!-- twitter icon -->
-				<li class="twitter">
-					<a href="#">
-						<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
-					</a>			
-				</li>
-			</ul>
-		</div>
-
-		<!-- 右邊copyright -->
 		<div class="copyright">
 			<p>
 			點算©Copyright DOZEN, 2018.
@@ -416,6 +399,7 @@
 			var reportBtn, lightBox, cancelBtn, reportSubmit;
 			//這是檢舉按鈕
 			reportBtn = document.getElementsByClassName('report');
+			console.log(reportBtn);
 			//這是檢舉燈箱
 			lightBox = document.getElementsByClassName('reportLightBox')[0];
 			//這是燈箱關閉按鈕
