@@ -17,6 +17,9 @@ a{
 	width: 5%;
 	min-width: 100px;
 }
+.topBlank{
+	height: 200px;
+}
 .wrapper{
 	position: relative;
 	background: url(../img/share/texture.png);
