@@ -245,10 +245,14 @@ ol li{
 }
 @media all and (max-width: 479px) {
 	.wrapper{
-		width: 100%;
-		padding: 0;
+		width: 90%;
+		padding: 25px;
 		border: none;
 		border-image: none;
+	}
+	.wrapper .borderFrame{
+		border: 25px solid transparent;
+		border-image: url(../img/share/frame_960x960_2.png) 45 45 repeat;
 	}
 	.wrapper .left{
 		float: none;
@@ -266,7 +270,20 @@ ol li{
 		box-sizing: border-box;
 		border: 2px solid #FFC600;
 		background-color: #000;
-		z-index: 5;
+		z-index: 10;
+	}
+	.nav li .btnM {
+		background: none;
+		display: block;
+		width: auto;height: auto;
+	}
+	.nav li .btnM .btnText{
+		font-size: 20px;
+		height: auto;
+		padding: 0 5px;
+		letter-spacing: 0;
+		line-height: 28px;
+		color: #FFC600;
 	}
 	.navTeacher li{
 		width: 25%;
@@ -311,6 +328,16 @@ ol li{
 		width: 30%;
 		vertical-align: middle;
 	}
+
+
+	.trade table{
+		width:100%;
+		table-layout: fixed;
+		word-wrap: break-word;
+	}
+
+
+
 	.reply .table .tr .tdRight .tdWidth{
 		width: 100%;
 		font-size: 14px;
