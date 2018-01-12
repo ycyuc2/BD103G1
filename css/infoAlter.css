@@ -1,3 +1,6 @@
+.info h2:before{
+	content: '';
+}
 .info p{
 	width: 60%;
 	margin: 3% -0px;
@@ -5,45 +8,23 @@
 .info p .input{
 	position: relative;
 	display: inline-block;
-	background: url(../img/member/input.png);
+	background: url(../img/share/input.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	width: 200px;
-	height: 30px;
-}
-.info p .psw{
-	display: inline-block;
-	width: 200px;
-	height: 30px;
-}
-.info p .psw a{
-	display: inline-block;
-	margin-left: 5%;	
-	width: 80px;
-	height: 30px;
-	line-height: 30px;
-	text-align: center;
-	font-size: 14px;
-	font-weight: bold;
-	color: #FFC600;
-	background: url(../img/member/btn.png);
-	background-size: contain;
-	background-repeat: no-repeat;
+	width: 156px;
+	height: 17px;
 }
 
-.info p .psw a:hover{
-	color: #FFFF00;
+.info p .input input{
+	position: absolute;
+	top: 5px;left: 11px;
+	width: 135px;
+	border: none;
+	background: none;
+	color: #fff;
 }
 .info p input:focus{
 	outline:0;
-}
-
-.info p input{
-	position: absolute;
-	left: 15%;
-	top: 25%;
-	border: none;
-	background: none;
 }
 .info p:last-child{
 	text-align: center;
@@ -73,21 +54,21 @@
 }
 @media all and (max-width: 479px) {
 	.info p{
-		width: 80%;
-		margin: 3% -0px;
+		width: 90%;
+		margin: 3% auto;
 	}
 	.info p .input{
-		width: 120px;
-	}
-	.info p:last-child{
-		width: 80%;
+		width: 100px;
 	}
 	.info p .input input{
 		font-size: 13px;
-		top: 5%;
-		width: 80px;
+		top: 0px;left: 7px;
+		width: 85px;
 	}
-	.info p .psw {
-		width: 120px;
+	.info .btn .btnS{
+		width: 80px;height: 20px;
+	} 
+	.info .btn .btnS .btnText{
+		line-height: 20px;
 	}
 }

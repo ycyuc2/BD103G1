@@ -8,17 +8,45 @@
 	margin-left: 5%;
 }
 .teacher p .input{
+	position: relative;
 	vertical-align: middle;
+	display: inline-block;
+	background: url(../img/share/input.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 160px; height: 25px;
+}
+.teacher p .input input{
+	position: absolute;
+	background: none; border:none;
+	top: 5px;left: 12.5px;
+	width: 135px;
+	color: #fff;
 }
 .teacher p input:focus{
 	outline:0;
 }
+.teacher p .textarea textarea:focus{
+	outline:0;
+}
 
+.teacher p .textarea{
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	background: url(../img/share/textarea.png);
+	margin-left: 7.5%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: 155px; height: 80px;
+	box-sizing: border-box;
+} 
 .teacher p .textarea textarea{
 	vertical-align: middle;
-	color: #000;
-	margin-left: 5%;
-	overflow-x: hidden;
+	background: none; border:none;
+	color: #fff;
+	margin: 1.5%;
+	overflow: hidden;
 	resize: none;
 }
 .teacher p:last-child{
@@ -27,14 +55,32 @@
 }
 @media all and (max-width: 479px) {
 	.teacher form{
-		padding-right: 30%;
+		padding-right: 0;
+		width: 100%;
+	}
+	.teacher p{
+		display: block;
+		width: 90%;
+		margin: 5% auto;
 	}
 	.teacher p .input{
 		width: 120px;
+		height: 16px;
+	}
+	.teacher p:last-child{
+		width: 90%;
 	}
 	.teacher p .input input{
-		font-size: 14px;
-		top: 5%;
-		width: 80px;
+		font-size: 13px;
+		line-height: 13px;
+		top: 0px;left: 7px;
+		width: 85px;
+	}
+	.teacher .btn .btnS{
+		width: 60px;height: 15px;
+	} 
+	.teacher .btn .btnS .btnText{
+		font-size: 12px;
+		line-height: 15px;
 	}
 }
