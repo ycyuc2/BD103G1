@@ -72,7 +72,7 @@ try {
 
 					<a href="#"><h3><?php echo $articleRow["ART_TITLE"] ?></h3></a>
 					<p>
-						<?php echo mb_substr($articleRow["ART_CONTENT_1"],0,50,"utf-8")."..." ?>
+						<?php echo mb_substr($articleRow["ART_CONTENT_1"],0,100,"utf-8")."..." ?>
 					</p>
 				</div>
 				<div class="teacherInfoBtn">
