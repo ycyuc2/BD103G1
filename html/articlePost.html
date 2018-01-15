@@ -108,27 +108,27 @@
 		<div class="border"></div>
 		<div class="teacherBorder">
 			<h1>發表文章</h1>
-			<form>
+			<form action="addArticle.php" method="get">
 				<p class="intro">請輸入文章標題</p>
-				<input class="inputTopic" type="text" name="" required="">
+				<input class="inputTopic" type="text" name="topic" required="">
 
 				<p class="intro line">請選擇文章圖片1</p>
-				<input class="inputImg first" type="file" name="">
+				<input class="inputImg first" type="file" name="img1">
 
 				<p class="intro">請輸入文章段落1</p>
-				<textarea class="inputContent first"></textarea>
+				<textarea class="inputContent first" name="content1"></textarea>
 
 				<p class="intro line">請選擇文章圖片2</p>
-				<input class="inputImg second" type="file" name="">
+				<input class="inputImg second" type="file" name="img2">
 
 				<p class="intro">請輸入文章段落2</p>
-				<textarea class="inputContent second"></textarea>
+				<textarea class="inputContent second" name="content2"></textarea>
 
 				<p class="intro line">請選擇文章圖片3</p>
-				<input class="inputImg third" type="file" name="">
+				<input class="inputImg third" type="file" name="img3">
 
 				<p class="intro">請輸入文章段落3</p>
-				<textarea class="inputContent third"></textarea>
+				<textarea class="inputContent third" name="content3"></textarea>
 
 				<input class="submit" type="submit" name="" value="發表">
 			</form>
