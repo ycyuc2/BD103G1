@@ -203,28 +203,12 @@
 					<li></li>
 					<li></li>
 					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
 					<li>
 						<div id="defaultTeacher" class="box">
 							<div class="frameBorder"></div>
 							<img src="../img/findTeacher/horseman.jpg" style="width: 100%;">
 						</div>
 					</li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
 					<li></li>
 					<li></li>
 					<li></li>
@@ -310,65 +294,6 @@ try {
 }
 ?> 
 
-
-
-	
-	<script src="../js/findTeacher2.js"></script>
-
-<!-- 水星逆行的ＪＳ程式 含7秒關閉說明 -->
-	<script type="text/javascript">
-		window.onload=countdown;
-		function countdown(){
-
-			//順便在7秒後關閉說明
-			setTimeout(closeDirections, 7000);
-
-
-			var now = new Date();
-			var eventDate = new Date(2018, 3, 23);
-			var currentTime = now.getTime();
-			var eventTime = eventDate.getTime();
-			var remTime = eventTime - currentTime;
-
-			var s = Math.floor(remTime / 1000);
-			var m = Math.floor(s / 60);
-			var h = Math.floor(m / 60);
-			var d = Math.floor(h / 24);
-
-			h %= 24;
-			m %= 60;
-			s %= 60;
-
-			h = (h < 10) ? "0" + h : h;
-			m = (m < 10) ? "0" + m : m;
-			s = (s < 10) ? "0" + s : s;
-
-			document.getElementById("days").textContent = d;
-			document.getElementById("days").innerText = d;
-			document.getElementById("hours").textContent = h;
-			document.getElementById("minutes").textContent = m;
-			document.getElementById("seconds").textContent = s;
-
-			setTimeout(countdown, 1000);
-		}
-
-
-
-		//點擊按鈕亦可關閉說明頁燈箱
-		document.getElementById('clickCloseDirection').onclick = closeDirections;
-		// 關閉的function
-		function closeDirections(){
-			var directionLightBox = document.getElementsByClassName('directions')[0];
-			directionLightBox.style.visibility = 'hidden';
-			directionLightBox.style.opacity = '0';
-		}
-
-	</script>
-
-
-
-
-
 	<script>
 		var boxes = [];
 		//找到所有tag名為li的物件加入陣列
@@ -381,10 +306,20 @@ try {
 		var teachersHiddenInput = document.getElementsByClassName('teachersHiddenInput');
 			for (let i = 0; i < teachersHiddenInput.length; i++) {
 				console.log(teachersHiddenInput[i].value);
-					
+				
+				//建立img
 				var contentImg = document.createElement('img');
 				contentImg.src = '../img/findTeacher/' + teachersHiddenInput[i].value;
 				contentImg.style.width = '100%';
+
+				//建立border
+				var frameBorder = document.createElement('div');
+				frameBorder.className += 'frameBorder';
+
+				//建立隱藏input
+				var hdInput = document.createElement('input');
+				hdInput.setAttribute('type', 'hidden');
+				hdInput.setAttribute('value', i+1);
 				//建立div
 				var contentDiv = document.createElement('div');
 				//給予此div與其他物件之相同class名稱
@@ -393,9 +328,14 @@ try {
 				//隨機產生一個介於0~td數量-1的整數，作為陣列的索引
 				var randomValue = Math.floor(Math.random() * boxes.length - 1);
 
-				//將img放入div
+				//將隱藏欄位及img放入div
+				contentDiv.appendChild(hdInput);
+				contentDiv.appendChild(frameBorder);
 				contentDiv.appendChild(contentImg);
+				
 
+				contentDiv.addEventListener('click', getTeacher, false);
+				contentDiv.addEventListener('click', showTeacher, false);
 				//讓div在li範圍內隨機擺放
 				contentDiv.style.left = Math.floor(Math.random() * 58) + 'px';
 				contentDiv.style.top = Math.floor(Math.random() * 76) + 'px';
@@ -411,95 +351,26 @@ try {
 		}
 
 
+function getTeacher(){
 
-// addBtn.addEventListener('click', addTeacher, false);
-
-
-//22222 iscroll效果
-var container = document.getElementById('moveContainer');
-
-var theScroll;
-
-//iscroll控制
-function scroll() {
-    theScroll = new IScroll(container,{
-    	scrollX : true,
-    	scrollY : true,
-    	freeScroll : true,
-    	bindToWrapper : true,
-    	mouseWheelSpeed : 3,
-    	deceleration : 0.02,
-    	scrollbars : true,
-    	interactiveScrollbars : true
-    });   
+	console.log(this.firstChild.value);
+	var xhr = new XMLHttpRequest();
+	xhr.onload=function (){
+	    if( xhr.status == 200 ){
+	        //alert( xhr.responseText );  
+	        //modify_here
+	        document.getElementsByClassName("columnBorder")[0].innerHTML = xhr.responseText;
+	     }else{
+	        alert( xhr.status );
+	     }
+	  }//xhr.onreadystatechange
+	  
+	  var url = "teacherInfo.php?teacher_no=" + this.firstChild.value;
+	  xhr.open("Get", url, true);
+	  xhr.send( null );
 }
 
 
-
-//判斷瀏覽器寬
-function queryWidth(){
-	var screenWidth = window.innerWidth;
-	//寬度大於480使用iscroll拖曳效果
-	if (screenWidth > 480 ) {
-			scroll();
-			sortLi();
-			theScroll.scrollTo(-1600,-1000);
-	//小於則否，並將空白老師欄位清除
-	}else{
-		sortLi();
-	}
-}
-
-
-//整理空白老師欄位
-function sortLi(){
-	var screenWidth = window.innerWidth;
-	if (screenWidth < 480 ) {
-		//手機板隱藏
-		for (var i = 0; i < boxes.length; i++) {
-			if (boxes[i].childElementCount < 1) {
-				boxes[i].style.display = 'none';
-			}if(boxes[i].childElementCount == 1){
-				//手機板老師位置能夠置中，並且position不能為static否則border會出問題
-				boxes[i].querySelector('.box').style.top = '0px';
-				boxes[i].querySelector('.box').style.left = '0px';
-				boxes[i].querySelector('.box').style.right = '0px';
-				boxes[i].querySelector('.box').style.bottom = '0px';
-				boxes[i].querySelector('.box').style.margin = 'auto';
-				
-			}
-		}
-	}else{
-		//桌機版要恢復
-		for (var i = 0; i < boxes.length; i++) {
-			if (boxes[i].childElementCount < 1) {
-				//使所有沒有小孩的li重新排列為inline-block
-				boxes[i].style.display = 'inline-block';
-			}if(boxes[i].childElementCount == 1){
-				//有小孩的要恢復relative屬性，並在li中再次隨機擺放位置
-				boxes[i].querySelector('.box').style.position = 'relative';
-				boxes[i].querySelector('.box').style.left = Math.floor(Math.random() * 58) + 'px';
-				boxes[i].querySelector('.box').style.top = Math.floor(Math.random() * 76) + 'px';
-				
-			}
-		}
-	}
-
-};
-
-
-//dom完成執行上述瀏覽器寬度查詢function
-document.addEventListener('DOMContentLoaded', queryWidth, false);
-//當瀏覽器resize時，重新查詢寬度
-window.addEventListener('resize', queryWidth, false );
-
-
-
-
-
-	</script>
-	
-	<script>
 		var teachers = document.getElementsByClassName('box');
 
 		for (var i = 0; i < teachers.length; i++) {
@@ -602,6 +473,153 @@ window.addEventListener('resize', queryWidth, false );
 				teacherInfo.style.opacity = 0;
 				search.style.display = 'block';
 		}
+
+
+//22222 iscroll效果
+var container = document.getElementById('moveContainer');
+
+var theScroll;
+
+//iscroll控制
+function scroll() {
+    theScroll = new IScroll(container,{
+    	scrollX : true,
+    	scrollY : true,
+    	freeScroll : true,
+    	bindToWrapper : true,
+    	mouseWheelSpeed : 3,
+    	deceleration : 0.02,
+    	scrollbars : true,
+    	interactiveScrollbars : true
+    });   
+}
+
+
+
+//判斷瀏覽器寬
+function queryWidth(){
+	var screenWidth = window.innerWidth;
+	//寬度大於480使用iscroll拖曳效果
+	if (screenWidth > 480 ) {
+			scroll();
+			sortLi();
+			theScroll.scrollTo(-1600,-1000);
+	//小於則否，並將空白老師欄位清除
+	}else{
+		sortLi();
+	}
+}
+
+
+//整理空白老師欄位
+function sortLi(){
+	var screenWidth = window.innerWidth;
+	if (screenWidth < 480 ) {
+		//手機板隱藏
+		for (var i = 0; i < boxes.length; i++) {
+			if (boxes[i].childElementCount < 1) {
+				boxes[i].style.display = 'none';
+			}if(boxes[i].childElementCount == 1){
+				//手機板老師位置能夠置中，並且position不能為static否則border會出問題
+				boxes[i].querySelector('.box').style.top = '0px';
+				boxes[i].querySelector('.box').style.left = '0px';
+				boxes[i].querySelector('.box').style.right = '0px';
+				boxes[i].querySelector('.box').style.bottom = '0px';
+				boxes[i].querySelector('.box').style.margin = 'auto';
+				
+			}
+		}
+	}else{
+		//桌機版要恢復
+		for (var i = 0; i < boxes.length; i++) {
+			if (boxes[i].childElementCount < 1) {
+				//使所有沒有小孩的li重新排列為inline-block
+				boxes[i].style.display = 'inline-block';
+			}if(boxes[i].childElementCount == 1){
+				//有小孩的要恢復relative屬性，並在li中再次隨機擺放位置
+				boxes[i].querySelector('.box').style.position = 'relative';
+				boxes[i].querySelector('.box').style.left = Math.floor(Math.random() * 58) + 'px';
+				boxes[i].querySelector('.box').style.top = Math.floor(Math.random() * 76) + 'px';
+				
+			}
+		}
+	}
+
+};
+
+
+//dom完成執行上述瀏覽器寬度查詢function
+document.addEventListener('DOMContentLoaded', queryWidth, false);
+//當瀏覽器resize時，重新查詢寬度
+window.addEventListener('resize', queryWidth, false );
+
+
+
+
+
+	</script>
+
+	
+	<!-- <script src="../js/findTeacher2.js"></script> -->
+
+<!-- 水星逆行的ＪＳ程式 含7秒關閉說明 -->
+	<script type="text/javascript">
+		window.onload=countdown;
+		function countdown(){
+
+			//順便在7秒後關閉說明
+			setTimeout(closeDirections, 7000);
+
+
+			var now = new Date();
+			var eventDate = new Date(2018, 3, 23);
+			var currentTime = now.getTime();
+			var eventTime = eventDate.getTime();
+			var remTime = eventTime - currentTime;
+
+			var s = Math.floor(remTime / 1000);
+			var m = Math.floor(s / 60);
+			var h = Math.floor(m / 60);
+			var d = Math.floor(h / 24);
+
+			h %= 24;
+			m %= 60;
+			s %= 60;
+
+			h = (h < 10) ? "0" + h : h;
+			m = (m < 10) ? "0" + m : m;
+			s = (s < 10) ? "0" + s : s;
+
+			document.getElementById("days").textContent = d;
+			document.getElementById("days").innerText = d;
+			document.getElementById("hours").textContent = h;
+			document.getElementById("minutes").textContent = m;
+			document.getElementById("seconds").textContent = s;
+
+			setTimeout(countdown, 1000);
+		}
+
+
+
+		//點擊按鈕亦可關閉說明頁燈箱
+		document.getElementById('clickCloseDirection').onclick = closeDirections;
+		// 關閉的function
+		function closeDirections(){
+			var directionLightBox = document.getElementsByClassName('directions')[0];
+			directionLightBox.style.visibility = 'hidden';
+			directionLightBox.style.opacity = '0';
+		}
+
+	</script>
+
+
+
+
+
+
+	
+	<script>
+
 	</script>
 </body>
 </html>
