@@ -59,6 +59,7 @@
 }
 .loginbox .backBtn i{
     font-size: 25px;
+    color:#533e2f;
 }
 .loginbox.register .backBtn{
     top: 56px;
