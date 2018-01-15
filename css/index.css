@@ -36,57 +36,6 @@
     }
 } 
 
-/* 業力球 */
-.karmainfo_ball{
-    position: fixed;
-    right: 5%;
-    top: 30%;
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
-    text-align: center;
-    line-height: 70px;
-    z-index:5;
-    background-image:url('../img/karmaInfo/500.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
-.karmainfo_ball:hover {
-    cursor: pointer;
-    background-color: #aa0000;
-    cursor: url(../img/share/cursor.png) 12 5,
-        auto;
-
-}
-.karmainfo_ball:active {
-    cursor: url(../img/share/cursor2.png) 12 5, auto;
-}
-@media all and (min-width: 480px) and (max-width: 759px) {
-    .karmainfo_ball{
-        display: none;
-    }
-}
-@media all and (max-width: 479px) {
-    .karmainfo_ball{
-        display:none;
-    }
-}
-
-/* 按鈕 */
-.btn{
-    display: inline-block;
-}
-.btnM:focus,.btnS:focuse{
-    outline:none;
-}
-.btn input:hover,.btn:hover{
-    cursor: url(../img/share/cursor.png) 12 5,auto;
-}
-.btn:active{
-    cursor: url(../img/share/cursor2.png) 12 5,auto;
-}
-
 /* 選擇算命方式與banner */
 
 .index_choose{
@@ -507,7 +456,6 @@
     background-size:100% 100%;
     position: relative;
     padding:66px 65px;
-    
 }
 
 
@@ -530,6 +478,9 @@
 
          padding: 20px;
      }
+     .result.double{
+         padding:56px 55px;
+     }
  }
 
  @media all and (min-width: 480px) and (max-width: 759px) {
@@ -539,6 +490,9 @@
 
          padding: 10px;
      }
+     .result.double{
+         padding:46px 45px;
+     }
  }
 
  @media all and (max-width: 479px) {
@@ -547,6 +501,9 @@
         border-image: url(../img/index/frame2.png) 90 90 repeat;
 
          padding: 0;
+     }
+     .result.double {
+         padding: 46px 45px;
      }
  }
 .index_result .result{
@@ -575,6 +532,7 @@
 .index_result .result .chart{
     padding: 1em 0;
     margin-top: 5%;
+    position: relative;
 }
 .index_result .result .chart .cont{
     box-sizing: border-box;
@@ -591,6 +549,18 @@
 .index_result .result .chart .topic h2{
     line-height: 50px;
 }
+@media all and (max-width: 479px) {
+        .index_result .result .chart .topic h2 {
+            font-size: 20px;
+        }
+        .index_result .result .cont0 h1{
+        font-size: 36px;
+        }
+        .index_result .result .topic h1 {
+            font-size: 29px;
+        }
+}
+
 .index_result .result .chart .content{
     text-indent:32px;
 }
@@ -602,7 +572,7 @@
     width: 285px;
     height: 74px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     margin-left: -142.5px;
     margin-top: -37px;
@@ -644,11 +614,8 @@
             background: url('../img/index/blur_words_235H390.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            height: 329px;
         }
-        .log .btnM.show{
-            top: 60%;
-        }
-        
     }
 /* 結果的商品與老師欄 */
 .other {
@@ -673,6 +640,7 @@
 .other .item {
     float:left;
     width:50%;
+    margin:32px 0;
 }
 .other .item:after{
     content:'';
@@ -696,6 +664,9 @@
     font-weight:900;
     font-size: 30px;
 }
+.other .item h3:first-of-type{
+    font-size: 25px;
+}  
 .other .btnS {
     position: relative;
     margin-top: 16px;
@@ -714,7 +685,7 @@
         width:100%;
     }
     .cont{
-        width:80%;
+        width:90%;
     }
     .index_result .result .chart .cont{
         width:90%;
@@ -725,17 +696,17 @@
         width:100%;
     }
     .index_result .result .chart .cont{
-        width:90%;
+        width:95%;
     }   
 }
 
 @media all and (max-width: 479px) {
     .index_result .result .chart .cont{
-        width:95%;
+        width:100%;
     }   
     .other .item,.other .item .left ,.other .item .right{
         width:90%;
-        margin:0 5%;
+        margin:32px 5% 0;
     }.other .item .left img{
         display: block;
         width: 60%;

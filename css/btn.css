@@ -91,3 +91,17 @@
 	padding-left: 2.5px;
 	letter-spacing: 0.5px;
 }
+.btnM:focus,.bntL:focus, .btnS:focus{
+	outline:none;
+}
+	.btnM:hover,
+.btnL:hover,
+	.btnS:hover {
+	cursor: url(../img/share/cursor.png) 12 5, auto;
+}
+
+.btnM:active,
+	.btnML:active,
+		.btnS:active {
+	cursor: url(../img/share/cursor2.png) 12 5, auto;
+}
