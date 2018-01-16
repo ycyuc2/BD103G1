@@ -1,7 +1,7 @@
 <?php 
 $teacherNo = $_REQUEST["teacher_no"];
 try {
-	require_once("connectBD103G1.php");
+	require_once("connectBD103G1yu.php");
 	$sql = "select * from teacher where teacher_no = :teacher_no";
 	$teachers = $pdo->prepare($sql);
 	$teachers->bindValue(":teacher_no",$teacherNo);
@@ -57,7 +57,7 @@ try {
 <?php 
 
 try {
-	require_once("connectBD103G1.php");
+	require_once("connectBD103G1yu.php");
 	$sql = "select * from article where teacher_no = :teacher_no and ART_POST_TIME = (
 			select max(ART_POST_TIME) from article where teacher_no = :teacher_no
 			)";

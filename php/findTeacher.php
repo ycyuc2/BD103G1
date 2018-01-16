@@ -69,17 +69,11 @@
 		<img class="topic" src="../img/findTeacher/tilte.png">
 		<div class="findTeacher">
 			<input class="teacherFinder" type="text">
-			<ul>
-				<li>aaa</li>
-				<li>bbb</li>
-				<li>ccc</li>
+			<ul id="teacherList">
 			</ul>
 			<input type="submit" name="" value="找老師">
 		</div>
-
-		<button id="addTeacher" class="btn"><img src="../img/findTeacher/btnframe2.png">AddTeacher</button>
 	</div>
-
 
 	<!-- 說明頁燈箱 -->
 	<div class="directions">
@@ -168,107 +162,107 @@
 		<div id="moveArea">
 			<!-- 預設的老師儲存空間 -->
 			<ul class="qqArea">
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer">
 						<div id="defaultTeacher" class="box">
 							<div class="frameBorder"></div>
 							<img src="../img/findTeacher/horseman.jpg" style="width: 100%;">
 						</div>
 					</li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
+					<li class="teacherContainer"></li>
 			</ul>
 			
 		</div>
@@ -277,7 +271,7 @@
 <?php 
 
 try {
-	require_once("connectBD103G1.php");
+	require_once("connectBD103G1yu.php");
 	$sql = "select * from teacher";
 	$teachers = $pdo->query($sql);
 	$teacher_rows = $teachers->fetchAll(PDO::FETCH_ASSOC);
@@ -300,16 +294,34 @@ try {
 ?> 
 
 	<script>
-		var boxes = [];
-		//找到所有tag名為li的物件加入陣列
-		boxes = document.getElementsByTagName('li');
 
-		addTeacher();
-		function addTeacher(){
+		//找到所有tag名為li的物件加入陣列
+		var boxes = document.getElementsByClassName('teacherContainer');
+		
+		//找到php產生的隱藏input
+		var teachersHiddenInput = document.getElementsByClassName('teachersHiddenInput');
+		
+		//設定addTeacher的初始次數為0
+		var addTeacherCount = 0;
+
+		addTeacher(addTeacherCount);
+
+		for (let i = 0 ; i < teachersHiddenInput.length; i++) {
+
+				var teacherListUl = document.getElementById('teacherList');
+				var teacherListLi = document.createElement('li');
+				teacherListLi.innerText = teachersHiddenInput[i].name;
+				teacherListUl.appendChild(teacherListLi);
+		}
+
+
+
+
+
+		function addTeacher(addTeacherCount){
 			//建立img
 
-		var teachersHiddenInput = document.getElementsByClassName('teachersHiddenInput');
-			for (let i = 0; i < teachersHiddenInput.length; i++) {
+			for (let i = addTeacherCount ; i < teachersHiddenInput.length; i++) {
 				console.log(teachersHiddenInput[i].value);
 				
 				//建立img
@@ -338,7 +350,7 @@ try {
 				contentDiv.appendChild(hdInput);
 				contentDiv.appendChild(frameBorder);
 				contentDiv.appendChild(contentImg);
-				
+
 
 				contentDiv.addEventListener('click', getTeacher, false);
 				contentDiv.addEventListener('click', showTeacher, false);
@@ -350,8 +362,8 @@ try {
 					boxes[randomValue].appendChild(contentDiv);
 					boxes[randomValue].style.userSelect = 'auto';
 				}else{
-					//li已經有小孩的話重新執行function
-					addTeacher();
+					//li已經有小孩的話重新執行function，並從第i個開始
+					addTeacher(i);
 				}
 			}
 		}

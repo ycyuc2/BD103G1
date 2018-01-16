@@ -429,20 +429,19 @@
       box-sizing: border-box; }
       #inp .findTeacher .teacherFinder:focus {
         outline: none; }
-    #inp .findTeacher input[type="submit"] {
-      vertical-align: middle;
-      width: 100px;
-      height: 50px;
-      font-size: 18px;
-      background-color: transparent;
-      background-image: url(../img/findTeacher/btn.png);
-      background-position: center center;
-      background-size: 100% 100%;
-      border: none;
-      transition: 0.2s; }
-      #inp .findTeacher input[type="submit"]:hover {
-        cursor: pointer;
-        filter: drop-shadow(0 0 5px #FFF); }
+    #inp .findTeacher ul {
+      list-style-type: none; }
+      #inp .findTeacher ul li {
+        width: 270px;
+        height: 30px;
+        box-sizing: border-box;
+        line-height: 30px;
+        padding-left: 35px;
+        padding-right: 30px;
+        background-color: #333;
+        color: #fff;
+        display: block;
+        margin: 0 auto; }
   @media all and (min-width: 480px) and (max-width: 759px) {
     #inp {
       width: 300px;
