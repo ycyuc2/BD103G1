@@ -1,0 +1,535 @@
+@charset "UTF-8";
+@import "../mixin/mdqMixin.scss";
+
+@font-face {
+  font-family: "王漢宗中明體繁- 細";
+  src: url('../font/王漢宗中明體繁- 細.ttf');
+}
+
+@font-face {
+
+    font-family: "王漢宗粗明體繁-中";
+    src: url('../font/王漢宗粗明體繁-中.ttf');
+ 
+  }
+
+  @font-face {
+    font-family: "王漢宗特明體 – 標準";
+    src: url('../font/王漢宗特明體 – 標準.ttf');  
+  
+  
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  $color-background: #5ccccc;
+  $favorite-color: #fff;
+  $favorited-color: red;
+  
+  .background {
+    background-image: url(../img/lightening/background_pure.jpg);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    z-index: -5; }
+    .background .flash {
+      position: fixed;
+      width: 700px;
+      opacity: 0; }
+    .background .lt1 {
+      left: -150px;
+      top: 30px;
+      animation: flashing1 10s;
+      animation-iteration-count: infinite; }
+    .background .lt2 {
+      left: 0px;
+      top: 70px;
+      animation: flashing2 10s;
+      animation-iteration-count: infinite; }
+    .background .lt3 {
+      right: 90px;
+      top: 50px;
+      animation: flashing3 10s;
+      animation-iteration-count: infinite; }
+    .background .lt4 {
+      right: 130px;
+      top: 0px;
+      animation: flashing4 10s;
+      animation-iteration-count: infinite; }
+  
+  @keyframes flashing1 {
+    24% {
+      opacity: 0; }
+    25% {
+      opacity: 1; }
+    35% {
+      opacity: 0; }
+    70% {
+      opacity: 0; }
+    71% {
+      opacity: 1; }
+    100% {
+      opacity: 0; } }
+  
+  @keyframes flashing2 {
+    5% {
+      opacity: 0; }
+    6% {
+      opacity: 1; }
+    20% {
+      opacity: 0; }
+    50% {
+      opacity: 0; }
+    51% {
+      opacity: 1; }
+    60% {
+      opacity: 0; }
+    89% {
+      opacity: 0; }
+    90% {
+      opacity: 1; }
+    100% {
+      opacity: 0; } }
+  
+  @keyframes flashing3 {
+    34% {
+      opacity: 0; }
+    35% {
+      opacity: 1; }
+    60% {
+      opacity: 0; }
+    61% {
+      opacity: 1; }
+    70% {
+      opacity: 0; }
+    100% {
+      opacity: 0; } }
+  
+  @keyframes flashing4 {
+    18% {
+      opacity: 0; }
+    19% {
+      opacity: 1; }
+    25% {
+      opacity: 0; }
+    38% {
+      opacity: 0; }
+    39% {
+      opacity: 1; }
+    50% {
+      opacity: 0; }
+    84% {
+      opacity: 0; }
+    85% {
+      opacity: 1; }
+    100% {
+      opacity: 0; } }
+  /* loading動畫 */
+
+  .loadBG{
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+
+
+  }
+
+  .loading{
+  border: 1px solid #000;
+	height: 150px;
+	width: 150px;
+  border-radius: 50%;
+  border-right: 2px solid #000;
+  box-shadow:2px 2px 2px rgba(90, 253, 15, 0.6);
+  box-shadow: 0 0 30px #fff, inset 0 0 30px #fff;
+  border-bottom: 2px solid #fff;
+  -webkit-animation: loading 1s infinite linear;
+	-moz-animation: loading 1s infinite linear;
+	-o-animation: loading 1s infinite linear;
+  animation: loading 1s infinite linear;
+  position: fixed;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  }
+
+  
+  @keyframes loading {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes LOGOrotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+ 
+
+  
+  
+  .loadLOGO {
+    img{
+      position: fixed;
+      left: calc(50% - 50px);
+      top: calc(50% - 50px);
+      width: 100px;
+    
+    }
+    
+  }
+
+  .bar {
+    z-index: 100;
+    width: 12vw;
+    height: .25vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 16vw;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    background: #333;
+  }
+  
+  .progress {
+    z-index: 100;
+    width: 12vw;
+    height: .5vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .progress {
+    animation: progress 4s ease;
+    -moz-animation: progress 4s ease;
+    /* Firefox */
+    -webkit-animation: progress 4s ease;
+    /* Safari and Chrome */
+    -o-animation: progress 4s ease;
+    /* Opera */
+  }
+  
+  @keyframes progress {
+    0% {
+      left: -24vw;
+    }
+    10% {
+      left: -20vw;
+    }
+    30% {
+      left: -16vw;
+    }
+    50% {
+      left: -12vw;
+    }
+    65% {
+      left: -10vw;
+    }
+    80% {
+      left: -4vw;
+    }
+    100% {
+      left: 0;
+    }
+  }
+
+  // *{
+  //     outline: #F26451 solid 1px;
+  // }
+
+
+
+
+  
+
+.logo{
+    width: 100px;
+    position: fixed;
+    left:calc(50% - 50px);
+    top: 3%;
+  
+}
+
+
+.frame{
+    margin: 0 auto;
+    margin-top: 13%;
+    max-width: 960px;
+    border: 50px solid transparent;
+    border-image: url(../img/frame_960x960.png)90 90 repeat;
+    box-sizing: border-box;
+    .search{
+      width: 100%;
+      &:after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .filter{
+        float: left;
+        text-align: center;
+        @include pad-width{
+
+        }
+        @include small-pad-width{
+            float: none;
+        }
+        @include phone-width{
+            float: none;
+        }
+        select{
+          width: 200px;
+          height: 30px;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 90%;
+            }
+            @include phone-width{
+                width: 90%;
+            }
+        }
+      }
+      .searchBox{
+        float: right;
+        text-align: center;
+        @include pad-width{
+            
+        }
+        @include small-pad-width{
+            margin-top: 10px;
+            float: none;
+        }
+        @include phone-width{
+            margin-top: 10px;
+            float: none;
+            
+        }
+        input{
+            width: 200px;
+            height: 28px;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 90%;
+            }
+            @include phone-width{
+                width: 90%;
+            }
+        }
+      }
+    }
+    .content{
+        margin-top: 20px;
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .pic{
+            width: 40%;
+            float: left;
+            text-align: center;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 100%;
+                float: none;
+            }
+            @include phone-width{
+                width: 100%;
+                float: none;
+            }
+            img{
+                width: 100%;
+                @include pad-width{
+                
+                }
+                @include small-pad-width{
+                    width: 60%;
+                }
+                @include phone-width{
+                    width: 60%;
+                }
+            }
+        }
+        .intro{
+            width: 60%;
+            float: left;
+            box-sizing: border-box;
+            padding: 10px;
+            @include pad-width{
+            
+            }
+            @include small-pad-width{
+                width: 100%;
+                float: none;
+                
+            }
+            @include phone-width{
+                width: 100%;
+                float: none;
+                
+            }
+            h2{
+                text-align: center;
+                font-weight: bold;
+                font-size: 35px;
+            }
+            p{
+                margin-top: 20px;
+            }
+            .options{
+                margin-top: 20px;
+                box-sizing: border-box;
+                padding: 10px;
+                font-size: 0;
+                &:after{
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+                .price{
+                    float: left;
+                    width: 30%;
+                    @include pad-width{
+                    
+                    }
+                    @include small-pad-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    @include phone-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    p{
+                        margin-top: 0;
+                        font-size: 25px;
+                        font-weight: bold;
+                        @include pad-width{
+                        
+                        }
+                        @include small-pad-width{
+                            font-size: 20px;
+                        }
+                        @include phone-width{
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .purchase{
+                    float: left;
+                    text-align: right;
+                    width: 70%;
+                    @include pad-width{
+                    
+                    }
+                    @include small-pad-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    @include phone-width{
+                        display: inline-block;
+                        vertical-align: middle;
+                        float: none;
+                    }
+                    a{
+                        display: inline-block;
+                        text-decoration: none;
+                        text-align: center;
+                        width: 120px;
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        background-color: #850;
+                        @include pad-width{
+                        
+                        }
+                        @include small-pad-width{
+                            font-size: 16px;
+                            width: 100px;
+                        }
+                        @include phone-width{
+                            font-size: 16px;
+                            width: 100px;
+                        }
+                        & + a{
+                            margin-left: 10px;
+                            @include small-pad-width{
+                                margin-top: 10px;
+                                font-size: 16px;
+                                width: 100px;
+                            }
+                            @include phone-width{
+                                margin-left: 0;
+                                margin-top: 10px;
+                                font-size: 16px;
+                                width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 150px;
+
+    p{
+      color: white;
+      font-family: "王漢宗中明體繁- 細";
+      display: inline-block;
+      margin-right: 2%;
+      margin-top:5%;
+      position: fixed;
+      right: 2%;
+        color: #fff;
+        a{
+            text-decoration: none;
+            color: red;
+        }
+    }
+    
+    
+}
+
+#person{
+    color: red;
+}
