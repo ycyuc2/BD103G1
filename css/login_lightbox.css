@@ -5,48 +5,63 @@
 
 
 /* header點選的登入或註冊按鈕設定 */
+
 .memArea .register-control,
-.memArea .login-control{    
-    transition:.2s ;
+.memArea .login-control {
+    transition: .2s;
 }
-.memArea .register-control:hover,.memArea .login-control:hover, .loginbox .btn.add:hover{
-    cursor:url('../img/share/cursor.png') 12 5, auto;
+
+.memArea .register-control:hover,
+.memArea .login-control:hover,
+.loginbox .btn.add:hover {
+    cursor: url('../img/share/cursor.png') 12 5, auto;
     text-shadow: 0px 0px 5px #e9b060;
 }
+
 .memArea .register-control:active,
-.memArea .login-control:active 
-    .loginbox .btn.add:active {
+.memArea .login-control:active .loginbox .btn.add:active {
     cursor: url('../img/share/cursor2.png') 12 5, auto;
 }
+
+
 /* 關閉按鈕調整 */
 
-.login-close,.register-close {
+.login-close,
+.register-close {
     display: block;
     position: absolute;
     top: 72px;
     right: 30px;
 }
-.register-close{
+
+.register-close {
     top: 55px;
 }
-.login-close i, .register-close i{
+
+.login-close i,
+.register-close i {
     font-size: 25px;
     display: block;
-    color:#533e2f;
-    transition:0.2s filter;
-    filter:drop-shadow(0px 0px 5px #fec16a);
+    color: #533e2f;
+    transition: 0.2s filter;
+    filter: drop-shadow(0px 0px 5px #fec16a);
+}
 
+.login-close i:hover,
+.register-close i:hover {
+    color: #e9b060;
+    cursor: url('../img/share/cursor.png') 12 5, auto;
+    filter: drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
 }
-.login-close i:hover, .register-close i:hover {
-    color:#e9b060;
-    cursor:url('../img/share/cursor.png') 12 5 ,auto;
-    filter:drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
 
+.login-close i:active,
+.register-close i:active {
+    cursor: url('../img/share/cursor2.png') 12 5, auto;
 }
-.login-close i:active,.register-close i:active{
-    cursor:url('../img/share/cursor2.png') 12 5 ,auto;
-}
+
+
 /* 關閉按鈕結束 */
+
 
 /* 返回鍵（暫時） */
 
@@ -54,20 +69,23 @@
     position: absolute;
     top: 67px;
     left: 35px;
-    filter:drop-shadow(0px 0px 5px #fec16a);
-    transition:.2s all;
+    filter: drop-shadow(0px 0px 5px #fec16a);
+    transition: .2s all;
 }
-.loginbox .backBtn i{
+
+.loginbox .backBtn i {
     font-size: 25px;
-    color:#533e2f;
+    color: #533e2f;
 }
-.loginbox.register .backBtn{
+
+.loginbox.register .backBtn {
     top: 56px;
 }
-.loginbox .backBtn:hover{
-    filter:drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
 
+.loginbox .backBtn:hover {
+    filter: drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
 }
+
 .loginbox .backBtn p {
     position: absolute;
     left: 25%;
@@ -76,6 +94,7 @@
 
 
 /* 燈箱半透明底層 */
+
 .login_wrapper,
 .register_wrapper {
     width: 100%;
@@ -89,7 +108,9 @@
     transition: opacity 0.2s 0s, right 0s 0.2s;
 }
 
+
 /* 燈箱開始 */
+
 .loginbox {
     width: 360px;
     height: 500px;
@@ -99,26 +120,29 @@
     top: 0;
     bottom: 0;
     margin: auto;
-
 }
-.loginbox.login{
+
+.loginbox.login {
     background: url('../img/index/hint.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.loginbox.register{
+
+.loginbox.register {
     padding-top: -30px;
-     background: url('../img/index/login.png');
-     background-size: 100% 100%;
-     background-repeat: no-repeat;
+    background: url('../img/index/login.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
+
 @media all and (max-width: 479px) {
     .loginbox {
         width: 100%;
     }
 }
 
-    /* 燈箱＿內table的排列 */
+
+/* 燈箱＿內table的排列 */
 
 .loginbox table {
     width: 290px;
@@ -128,49 +152,62 @@
     padding-left: 3px;
     color: #fff;
     border-bottom: 0.7em transparent solid;
-
 }
+
 .loginbox table caption {
     padding-top: 100px;
     margin: 0.8em 0 16px;
 }
-.loginbox.login table caption{
+
+.loginbox.login table caption {
     margin: 1.8em 0;
 }
+
 .loginbox table tr {
     padding-bottom: 0.3em;
     border-bottom: 0.7em transparent solid;
 }
+
 .loginbox table tr th {
     width: 50px;
     text-align: right;
     border-bottom: 0.7em transparent solid;
 }
-    /*燈箱＿註冊燈箱特別調整 */
-    .loginbox #add table tr th {
-        width: 70px;
-    }
-    /* 燈箱＿註冊燈箱特別調整結束 */
 
 
-.loginbox h2{
+/*燈箱＿註冊燈箱特別調整 */
+
+.loginbox #add table tr th {
+    width: 70px;
+}
+
+
+/* 燈箱＿註冊燈箱特別調整結束 */
+
+.loginbox h2 {
     color: #d7bda5;
     font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     margin-left: 30px;
 }
-.loginbox p{
+
+.loginbox p {
     color: #645448;
     font-family: '王漢宗粗明體繁-中';
 }
+
 .loginbox table tr td {
     width: 145px;
     text-align: right;
 }
-.loginbox table tr .btnM{
+
+.loginbox table tr .btnM {
     position: relative;
 }
-    /* 燈箱＿input */
+
+
+/* 燈箱＿input */
+
 .loginbox table tr .input {
     position: relative;
     background: url("../img/share/input.png");
@@ -178,6 +215,7 @@
     background-repeat: no-repeat;
     border-bottom: 0.4em transparent solid;
 }
+
 .loginbox table tr input {
     width: 100%;
     display: block;
@@ -189,64 +227,75 @@
     color: #fff;
     text-align: center;
 }
+
 .loginbox table tr input:focus {
     outline: none;
 }
 
 
+/* 燈箱＿按鈕設定 */
 
-    /* 燈箱＿按鈕設定 */
 .loginbox table tr #btn {
     text-align: center;
     border-bottom: 0.7em transparent solid;
-    padding-left:12px;
+    padding-left: 12px;
     padding-top: 6px;
-} 
-.loginbox table tr #btn .btn input{
-        position: absolute;
-        top: 0;
-        left: 0;
 }
-.loginbox table tr #btn .btn{
+
+.loginbox table tr #btn .btn input {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.loginbox table tr #btn .btn {
     position: relative;
-     width: 125px;
-     height: 68px;
-     line-height: 68px;
-     font-size: 16px;
-     font-weight: bold;
-     display: inline-block;
-     vertical-align: top;
-     background-color: transparent;
-     background-image: url(../img/findTeacher/hint_btn.png);
-     background-position: center center;
-     background-size: 100% 100%;
-     border: 0px;
-     transition: filter 0.2s;
-     margin: auto;
+    width: 125px;
+    height: 68px;
+    line-height: 68px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+    background-color: transparent;
+    background-image: url(../img/findTeacher/hint_btn.png);
+    background-position: center center;
+    background-size: 100% 100%;
+    border: 0px;
+    transition: filter 0.2s;
+    margin: auto;
 }
+
 .loginbox table tr #btn .btn p {
     color: rgb(236, 215, 174);
     font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     padding-left: 6px;
+}
 
-} 
+
 /* .loginbox table tr #btn .btn p:hover{
     color : #fc9;
 } */
-.loginbox table tr #btn .btn:hover{
+
+.loginbox table tr #btn .btn:hover {
     filter: drop-shadow(0px 0px 3px #fc9) drop-shadow(0px 0px 5px #fec16a);
     color: #fc9;
 }
-loginbox table tr #btn .btn:focus{
+
+loginbox table tr #btn .btn:focus {
     outline: 0;
 }
+
+
 /* 燈箱＿設定燈箱開關而裝置的css */
+
 .loginbox #form_login {
     transition: 0.2s all ease;
     height: auto;
     display: 'none';
 }
+
 .loginbox #add {
     transition: 0.2s all ease 2s;
     height: 0;

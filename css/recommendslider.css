@@ -1,0 +1,98 @@
+.teacher .teacherBorder .merchandise.recommend .content {
+    margin: 0 4.16666% 5%;
+}
+@media all and (max-width: 779px) {
+    .teacher .teacherBorder .merchandise.recommend .content {
+        margin: 0;
+    }
+}
+
+.teacher .teacherBorder .productsSelect {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    clear: both;
+    overflow: scroll;
+    position: relative;
+    box-sizing: border-box;
+}
+@media all  and (max-width: 470px) {
+    .teacher .teacherBorder .productsSelect {
+        height: 300px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    .teacher .teacherBorder .productsSelect .content {
+        width: 300px;
+        margin: 0;
+    }
+}
+
+.teacher .teacherBorder .productsSelect .container {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    transition: 1s left;
+    box-sizing: border-box;
+}
+
+.teacher .teacherBorder .productsSelect .container .content {
+    display:inline-block;
+    vertical-align: center;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    float: none;
+    clear:both;
+}
+
+@media all and (max-width: 779px) {
+    .teacher .teacherBorder .productsSelect .container .content {
+        display: block;
+        float: none;
+        width: 300px;
+    }
+}
+.teacher .teacherBorder .merchandise .content {
+    width: 30%;
+    box-sizing: border-box;
+    float: left;
+    margin: 0 1.66666%;
+}
+.teacher .teacherBorder .search{
+    clear:both;
+    position: relative;
+}
+.teacher .teacherBorder #name {
+    clear:both;
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    width: 300px;
+    height: 0px;
+    margin-left: -150px;
+    transition: 1s height;
+    overflow: scroll;
+    background: url('../img/share/textarea.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    z-index:10;
+    
+}
+
+.teacher .teacherBorder #name::-webkit-scrollbar {
+    display: none
+}
+
+.teacher .teacherBorder #name li {
+    position: relative;
+    left: 50%;
+    margin-left: -150px;
+    text-align: left;
+}
+
+.teacher .teacherBorder #name li.highlight {
+    background: #cff;
+}
