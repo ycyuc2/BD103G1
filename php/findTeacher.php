@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 	<script src="../js/iscroll.js"></script>
-	<!-- <script src="../js/particles.min.js"></script> -->
+	<!-- <script src="../js/iscroll-zoom.js"></script> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/findTeacher.css">
 	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
@@ -68,7 +68,7 @@
 	<div id="inp">
 		<img class="topic" src="../img/findTeacher/tilte.png">
 		<div class="findTeacher">
-			<input class="teacherFinder" type="text">
+			<input class="teacherFinder" type="text" onkeyup="findTeacher()">
 			<ul id="teacherList">
 			</ul>
 			<input type="submit" name="" value="找老師">
@@ -202,12 +202,7 @@
 					<li class="teacherContainer"></li>
 					<li class="teacherContainer"></li>
 					<li class="teacherContainer"></li>
-					<li class="teacherContainer">
-						<div id="defaultTeacher" class="box">
-							<div class="frameBorder"></div>
-							<img src="../img/findTeacher/horseman.jpg" style="width: 100%;">
-						</div>
-					</li>
+					<li class="teacherContainer"></li>
 					<li class="teacherContainer"></li>
 					<li class="teacherContainer"></li>
 					<li class="teacherContainer"></li>
@@ -310,10 +305,13 @@ try {
 
 				var teacherListUl = document.getElementById('teacherList');
 				var teacherListLi = document.createElement('li');
+				
 				teacherListLi.innerText = teachersHiddenInput[i].name;
 				teacherListUl.appendChild(teacherListLi);
+				teacherListLi.addEventListener('click', moveToTeacher, false);
 		}
 
+		
 
 
 
@@ -369,6 +367,27 @@ try {
 		}
 
 
+		function moveToTeacher(){
+			console.log(this.innerText);
+			for (var i = 0; i < boxes.length; i++) {
+				if (boxes[i].childNodes.length>0) {
+					if (this.innerText == boxes[i].firstChild.firstChild.name) {
+						theScroll.scrollToElement('.qqArea > li:nth-child('+i+')',3000,true,true,IScroll.utils.ease.circular);
+						// theScroll.zoom(0.7, 750);
+						// theScroll.zoom(1, 750);
+						// setTimeout(function(){
+						// 	theScroll.zoom(1, 750);
+						// }, 2000);
+						// theScroll.zoom(1, 900);
+						// theScroll.scrollTo(-500,-200);
+					}
+				}
+			}
+
+
+		}
+
+
 function getTeacher(){
 
 	// console.log(this.firstChild.value);
@@ -389,16 +408,41 @@ function getTeacher(){
 }
 
 
+
+
+
+
+		function findTeacher(){
+			var input = document.getElementsByClassName('teacherFinder')[0];
+			var filter = input.value.toUpperCase();
+			var ul = document.getElementById('teacherList');
+			var li = ul.childNodes;
+			// console.log(li[1].innerText);
+			for (var i = 1; i < li.length; i++) {
+				console.log(li[i].innerText);
+		        if (li[i].innerText.toUpperCase().indexOf(filter) > -1) {
+		            li[i].style.display = "";
+		        } else {
+		            li[i].style.display = "none";
+		        }
+			}
+		}
+
+
+
+
+
+
 		var teachers = document.getElementsByClassName('box');
 
 		for (var i = 0; i < teachers.length; i++) {
 			teachers[i].addEventListener('click', showTeacher, false);
 		}
 		//找到老師
-		var horseman = document.getElementById('defaultTeacher');
+		// var horseman = document.getElementById('defaultTeacher');
 
 		//建立事件聆聽功能，點擊使用showTeacher這個function
-		horseman.addEventListener('click', showTeacher, false);
+		// horseman.addEventListener('click', showTeacher, false);
 
 		//找到關閉老師細節的按鈕
 		var closeBtn = document.getElementById('closeBtn');
@@ -509,6 +553,8 @@ function scroll() {
     	deceleration : 0.02,
     	scrollbars : true,
     	interactiveScrollbars : true
+    	// zoom: true,
+    	// zoomMin: 0.7
     });   
 }
 
