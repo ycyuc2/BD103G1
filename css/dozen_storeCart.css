@@ -1,0 +1,210 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Special+Elite");
+@font-face {
+  font-family: "王漢宗中明體繁- 細";
+  src: url("../font/王漢宗中明體繁- 細.ttf"); }
+
+@font-face {
+  font-family: "王漢宗粗明體繁-中";
+  src: url("../font/王漢宗粗明體繁-中.ttf"); }
+
+@font-face {
+  font-family: "王漢宗特明體 – 標準";
+  src: url("../font/王漢宗特明體 – 標準.ttf"); }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(../img/dozen_storedetail/bg.jpg); }
+
+@media all and (max-width: 479px) {
+  background-image: url(../img/hamburger/bright-galaxy-space-plain.jpg);
+  background-position: center center;
+  background-size: cover;
+  padding-top: 10%; }
+
+.header .logo {
+  width: 100px;
+  position: fixed;
+  left: calc(50% - 50px);
+  top: 3%; }
+
+.cart {
+  color: white;
+  font-family: "王漢宗中明體繁- 細";
+  display: inline-block;
+  position: fixed;
+  top: 10%;
+  right: 5%; }
+  @media all and (max-width: 479px) {
+    .cart {
+      display: none; } }
+
+.frame {
+  margin: 0 auto;
+  margin-top: 13%;
+  max-width: 960px;
+  border: 50px solid transparent;
+  border-image: url(../img/frame_960x960.png) 90 90 repeat;
+  box-sizing: border-box;
+  background-image: url(../img/reel2.png);
+  background-size: cover;
+  background-position: center center; }
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px; }
+  @media all and (max-width: 479px) {
+    .header .logo {
+      width: 100px; } }
+  .header p {
+    color: #fff; }
+    .header p a {
+      text-decoration: none;
+      color: red; }
+
+#person {
+  color: red; }
+
+.frame {
+  padding: 0 2%;
+  min-height: 500px; }
+  .frame:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .frame .title {
+    margin-top: 2%;
+    background-color: #564826; }
+    .frame .title:after {
+      content: '';
+      display: block;
+      clear: both; }
+    .frame .title h2 {
+      float: left;
+      margin-left: 15%;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 200;
+      letter-spacing: 2px; }
+      @media all and (max-width: 479px) {
+        .frame .title h2 {
+          font-size: 1px;
+          margin-left: 7%; } }
+  .frame .content {
+    padding-top: 5%;
+    box-sizing: border-box; }
+    .frame .content:after {
+      content: '';
+      display: block;
+      clear: both; }
+    .frame .content img {
+      width: 10%;
+      float: left; }
+      @media all and (max-width: 479px) {
+        .frame .content img {
+          margin-left: 2%;
+          width: 20%; } }
+    .frame .content .name {
+      float: left;
+      width: 10%;
+      margin-left: 5%;
+      padding-top: 3%; }
+      @media all and (max-width: 479px) {
+        .frame .content .name {
+          width: 50%;
+          margin-left: 10%;
+          float: none; } }
+  @media all and (max-width: 479px) and (max-width: 479px) {
+    .frame .content .name p {
+      width: 50%;
+      margin-left: 10%;
+      float: none; } }
+    .frame .content .sum {
+      float: left;
+      margin-left: 10%;
+      padding-top: 3%;
+      letter-spacing: 2px; }
+      @media all and (max-width: 479px) {
+        .frame .content .sum {
+          float: right;
+          margin-bottom: 3%; } }
+    .frame .content .amount {
+      margin-left: 10%;
+      float: left;
+      padding-top: 3%;
+      color: #fff; }
+      @media all and (max-width: 479px) {
+        .frame .content .amount {
+          width: 50%;
+          margin-bottom: 50px; } }
+      .frame .content .amount label {
+        display: inline-block;
+        margin-bottom: 2%;
+        color: #533e2f;
+        letter-spacing: 5px;
+        font-size: 14px; }
+      .frame .content .amount .qtyminus, .frame .content .amount .qtyplus {
+        width: 30px;
+        height: 30px;
+        border: 0;
+        color: white;
+        background-color: transparent;
+        background-image: url(../img/dozen_storedetail/btn1.png);
+        background-size: cover;
+        background-position: center center; }
+        .frame .content .amount .qtyminus:hover, .frame .content .amount .qtyplus:hover {
+          cursor: url(../img/share/cursor.png) 20 15, auto; }
+        .frame .content .amount .qtyminus:focus, .frame .content .amount .qtyplus:focus {
+          outline: none; }
+        .frame .content .amount .qtyminus:active, .frame .content .amount .qtyplus:active {
+          box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
+          cursor: url(../img/share/cursor2.png) 20 15, auto; }
+      .frame .content .amount .qty {
+        background-image: url(../img/dozen_storedetail/input.png);
+        background-size: cover;
+        width: 70px;
+        height: 30px;
+        border: none;
+        outline: none;
+        color: #fff;
+        text-align: center; }
+    .frame .content .total {
+      margin-left: 5%;
+      float: left;
+      padding-top: 3%;
+      letter-spacing: 2px; }
+      @media all and (max-width: 479px) {
+        .frame .content .total {
+          margin-left: 0%;
+          display: none; } }
+    .frame .content .delete {
+      float: left;
+      margin-left: 11%;
+      padding-top: 3%; }
+      @media all and (max-width: 479px) {
+        .frame .content .delete {
+          margin-left: 0%; } }
+      .frame .content .delete a i {
+        color: #000; }
+
+hr {
+  background-color: #000;
+  margin-top: 2%;
+  height: 1px;
+  border: none; }
+
+.all {
+  float: right;
+  margin: 2% 0;
+  letter-spacing: 3px; }
+  @media all and (max-width: 479px) {
+    .all {
+      font-size: 10px; } }
+  .all span {
+    color: #BA3232;
+    font-size: 20px; }
