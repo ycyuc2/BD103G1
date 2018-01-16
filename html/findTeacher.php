@@ -69,6 +69,11 @@
 		<img class="topic" src="../img/findTeacher/tilte.png">
 		<div class="findTeacher">
 			<input class="teacherFinder" type="text">
+			<ul>
+				<li>aaa</li>
+				<li>bbb</li>
+				<li>ccc</li>
+			</ul>
 			<input type="submit" name="" value="找老師">
 		</div>
 
@@ -279,7 +284,7 @@ try {
 
 	foreach( $teacher_rows as $i=>$teacherRow){
 ?>
-<?php echo '<input type="hidden" class="teachersHiddenInput" value="',$teacherRow["teacher_img"],'">';
+<?php echo '<input type="hidden" class="teachersHiddenInput" value="',$teacherRow["teacher_img"],'" name="',$teacherRow["teacher_nn"],'">';
 
 ?>
 		
@@ -320,6 +325,7 @@ try {
 				var hdInput = document.createElement('input');
 				hdInput.setAttribute('type', 'hidden');
 				hdInput.setAttribute('value', i+1);
+				hdInput.setAttribute('name', teachersHiddenInput[i].name);
 				//建立div
 				var contentDiv = document.createElement('div');
 				//給予此div與其他物件之相同class名稱
@@ -353,7 +359,7 @@ try {
 
 function getTeacher(){
 
-	console.log(this.firstChild.value);
+	// console.log(this.firstChild.value);
 	var xhr = new XMLHttpRequest();
 	xhr.onload=function (){
 	    if( xhr.status == 200 ){
