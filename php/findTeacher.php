@@ -161,103 +161,8 @@
 		<!-- 拖曳效果位置 -->
 		<div id="moveArea">
 			<!-- 預設的老師儲存空間 -->
-			<ul class="qqArea">
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
-					<li class="teacherContainer"></li>
+			<ul class="teacherContainer">
+					
 			</ul>
 			
 		</div>
@@ -290,7 +195,15 @@ try {
 
 <script>
 	//找到所有tag名為li的物件加入陣列
-	var boxes = document.getElementsByClassName('teacherContainer');
+	
+	var teacherContainer = document.getElementsByClassName('teacherContainer')[0];
+	for (var i = 0; i < 96; i++) {
+		var teacherBox = document.createElement('li');
+		teacherBox.className += 'teacherBox';
+		teacherContainer.appendChild(teacherBox);
+
+	}
+	var boxes = document.getElementsByClassName('teacherBox');
 		
 	//找到php產生的隱藏input
 	var teachersHiddenInput = document.getElementsByClassName('teachersHiddenInput');
@@ -373,7 +286,7 @@ try {
 			if (boxes[i].childNodes.length>0) {
 				if (this.innerText == boxes[i].firstChild.firstChild.name) {
 					var childNum = i+1;
-					theScroll.scrollToElement('.qqArea > li:nth-child('+childNum+')',3000,true,true,IScroll.utils.ease.circular);
+					theScroll.scrollToElement('.teacherContainer > li:nth-child('+childNum+')',3000,true,true,IScroll.utils.ease.circular);
 					// theScroll.zoom(0.7, 750);
 					// theScroll.zoom(1, 750);
 					// setTimeout(function(){
