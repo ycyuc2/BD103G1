@@ -170,7 +170,7 @@
 <?
 	 try{
         $_SESSION["teacher"]["teacher_no"]=1;
-        require_once("../practice/connectBooks.php");
+        require_once("../php/connectBooksting.php");
         $sql="select * from pd_recommend where teacher_no =?";
         $recommend=$pdo->prepare($sql);
         $recommend->bindValue(1,1);

@@ -523,15 +523,7 @@ h1 {
       @media all and (max-width: 479px) {
         .teacher .teacherBorder .productsSelect {
           height: 150px; } }
-      .teacher .teacherBorder .productsSelect p {
-        display: block;
-        width: 200px;
-        height: 50px;
-        line-height: 50px;
-        font-size: 40px;
-        color: #fff;
-        text-align: center;  
-      }
+      
     .teacher .teacherBorder .productsSelect .container{
       position: absolute;
       top: 0;
