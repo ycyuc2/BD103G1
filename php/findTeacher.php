@@ -289,7 +289,6 @@ try {
 ?> 
 
 <script>
-
 	//找到所有tag名為li的物件加入陣列
 	var boxes = document.getElementsByClassName('teacherContainer');
 		
@@ -342,7 +341,7 @@ try {
 			contentDiv.className += 'box';
 			// console.log(boxes.length);
 			//隨機產生一個介於0~td數量-1的整數，作為陣列的索引
-			var randomValue = Math.floor(Math.random() * boxes.length - 1);
+			var randomValue = Math.floor(Math.random() * boxes.length);
 
 			//將隱藏欄位及img放入div
 			contentDiv.appendChild(hdInput);
@@ -356,6 +355,7 @@ try {
 			contentDiv.style.left = Math.floor(Math.random() * 58) + 'px';
 			contentDiv.style.top = Math.floor(Math.random() * 76) + 'px';
 			//將div放入陣列中隨機一個li
+			console.log(randomValue);
 			if (boxes[randomValue].childNodes.length < 1) {
 				boxes[randomValue].appendChild(contentDiv);
 				boxes[randomValue].style.userSelect = 'auto';
@@ -372,7 +372,8 @@ try {
 		for (var i = 0; i < boxes.length; i++) {
 			if (boxes[i].childNodes.length>0) {
 				if (this.innerText == boxes[i].firstChild.firstChild.name) {
-					theScroll.scrollToElement('.qqArea > li:nth-child('+i+')',3000,true,true,IScroll.utils.ease.circular);
+					var childNum = i+1;
+					theScroll.scrollToElement('.qqArea > li:nth-child('+childNum+')',3000,true,true,IScroll.utils.ease.circular);
 					// theScroll.zoom(0.7, 750);
 					// theScroll.zoom(1, 750);
 					// setTimeout(function(){
@@ -580,9 +581,10 @@ try {
 				theScroll.scrollTo(-1600,-1000);
 		//小於則否，並將空白老師欄位清除，重新呼theScroll
 		}else{
+			scroll();
 			theScroll.destroy();
 			theScroll = null;
-			scroll();
+			
 			sortLi();
 		}
 	}
@@ -602,7 +604,7 @@ try {
 					boxes[i].querySelector('.box').style.left = '0px';
 					boxes[i].querySelector('.box').style.right = '0px';
 					boxes[i].querySelector('.box').style.bottom = '0px';
-					boxes[i].querySelector('.box').style.margin = 'auto';
+					boxes[i].querySelector('.box').style.margin = '10px auto 0px auto';
 					
 				}
 			}
