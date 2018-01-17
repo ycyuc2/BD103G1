@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Special+Elite");
+@font-face {
+    font-family: "王漢宗中明體繁- 細";
+    src: url("../font/王漢宗中明體繁- 細.ttf");
+}
+
+@font-face {
+    font-family: "王漢宗粗明體繁-中";
+    src: url("../font/王漢宗粗明體繁-中.ttf");
+}
+
+@font-face {
+    font-family: "王漢宗特明體 – 標準";
+    src: url("../font/王漢宗特明體 – 標準.ttf");
+}
+.background {
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
+    background: url("../img/share/bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+}
+
+@media all and (min-width: 960px) {
+    .background {
+        background-size: 100% auto;
+    }
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+    .background {
+        background-size: auto 100%;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+    .background {
+        background-size: auto 100%;
+    }
+}
+
+@media all and (max-width: 479px) {
+    .background {
+        background-size: auto 100%;
+    }
+}
+
+.cart-add-wrapper{
+    width: 100%;
+    position: relative;
+}
+
+
+.frame {
+    margin: 0 auto;
+    margin-top: 13%;
+    max-width: 70%;
+    max-height:70%;
+    border: 50px solid transparent;
+    border-image: url(../img/frame_960x960.png) 90 90 repeat;
+    box-sizing: border-box;
+    background-image: url(../img/dozen_storeCart/reel2.png);
+    background-size: cover;
+    background-position: center center;
+}
+.frame h2{
+    padding: 20px 0;
+}
+.frame ul{
+    display: block;
+    margin: 0 auto;
+    padding: 5%;
+}
+.frame ul li{
+    text-decoration:none;
+    padding: 2% 0;
+}
+.frame ul li span{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20%;
+    box-sizing: border-box;
+
+}
+.frame ul li input{
+    width: 60%;
+    text-align: center;
+    display: inline-block;
+}

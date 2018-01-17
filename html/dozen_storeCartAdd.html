@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dozen_storedetail</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="../css/dozen_nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/login_lightbox.css">
+    <link rel="stylesheet" href="../css/showKarma.css">
+    <link rel="stylesheet" href="../css/dozen_storeCartAdd.css">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/count.js"></script>
+</head>
+
+<body>
+<!-- 底圖 -->
+<div class="background"></div>
+<!-- 業力球 -->
+<a class="showKarma" href="#">
+    <div class="face">
+        <h3>業障干擾值</h3>
+        <img src="../img/showKarma/700.png">
+        <span>1000</span>
+    </div>
+</a>
+<!-- header -->
+<!-- 漢堡選單 -->
+<input type="checkbox" name="" id="menuControl">
+<label for="menuControl" class="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+</label for="menuControl">
+
+<div class="menu">
+    <!-- logo -->
+    <a href="index.html">
+        <img class="logo" src="../img/share/LOGO-08.png">
+    </a>
+    <!-- 右邊的title區塊 -->
+    <div class="left">
+        <p>距離下次水星逆行還有</p>
+        <table class="countdownContainer">
+            <tr class="info">
+                <td id="days">120</td>
+                <td>天</td>
+                <td id="hours">4</td>
+                <td>時</td>
+                <td id="minutes">12</td>
+                <td>分</td>
+                <td id="seconds">22</td>
+                <td>秒</td>
+            </tr>
+
+        </table>
+    </div>
+    <!-- 中間的line -->
+    <div class="line"></div>
+    <!-- 右邊的time區塊 -->
+    <div class="right">
+        <a class="title" href="findTeacher.html">
+            <span class="findTeacher"></span>
+        </a>
+        <a class="title" href="dozen_store.html">
+            <span class="store"></span>
+        </a>
+        <a class="title" href="specialColumn.html">
+            <span class="member"></span>
+        </a>
+    </div>
+</div>
+<!-- ====================header              ==================== -->
+<div class="header">
+
+    <!-- 中間logo -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="../img/share/LOGO-08.png">
+        </a>
+    </div>
+
+    <!-- 右邊會員專區 -->
+    <div class="memArea">
+        <ul>
+            <li class="login-control">
+                <a href="#">註冊/登入</a>
+            </li>
+            <li>
+                <a href="#">購物車(
+                    <span class="cartNo">0</span>)</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 右邊水逆倒數 -->
+    <div class="countdown">
+        <div class="countdownAlert"></div>
+        <table class="countdownContainer">
+            <tr class="info">
+                <td>水星逆行倒數 :</td>
+                <td class="days">120</td>
+                <td>天</td>
+                <td class="hours">4</td>
+                <td>時</td>
+                <td class="minutes">12</td>
+                <td>分</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+
+<!-- 燈箱開始 -->
+
+<div class="login_wrapper">
+    <div class="loginbox login">
+        <div class="login-close">
+            <i class="fa fa-times fa-2x"></i>
+        </div>
+        <form action="" id="form_login">
+            <table>
+                <caption>
+                    <h2>登入會員</h2>
+                </caption>
+                <tr>
+                    <th>
+                        <p>帳號：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memId" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>密碼：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memPsw" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="btn" colspan="2">
+                        <span class="btn">
+                            <p class="btnText btnText2">
+                                <input type="submit" value="">登入
+                            </p>
+                        </span>
+                        <span class="btn add">
+                            <p class="btnText btnText2">
+                                註冊
+                            </p>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<div class="register_wrapper">
+    <div class="loginbox register">
+        <a href="#">
+            <div class="backBtn">
+                <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
+            </div>
+        </a>
+        <div class="register-close">
+            <i class="fa fa-times fa-2x"></i>
+        </div>
+        <form action="#" id="add">
+            <table>
+                <caption>
+                    <h2>註冊會員</h2>
+                </caption>
+                <tr>
+                    <th>
+                        <p>新增帳號：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memId" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>新增密碼：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memPsw" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>確認密碼：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="memPsw" maxlength="12" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>暱稱：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="name" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>電話：</p>
+                    </th>
+                    <td class="input">
+                        <input type="text" name="tel" maxlength="12">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="btn" colspan="2">
+                        <span class="btn">
+                            <p class="btnText btnText2">
+                                <input type="submit" value="">提交</p>
+                        </span>
+                        <span class="btn">
+                            <p class="btnText btnText2">
+                                <input type="reset" value="">重新填寫</p>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class="cart-add-wrapper">
+    <div class="frame">
+        <h2>訂購人資訊</h2>
+        <ul type="none">
+            <li><span>姓名</span><input type="text" class="input input200"></li>
+            <li><span>mail</span><input type="text" class="input input200"></li>
+            <li><span>手機</span><input type="text" class="input input200"></li>
+            <li><span>地址</span><input type="text" class="input input200"></li>
+        </ul>
+        <div class="previous-btn btn">上一頁</div>
+        <div class="next-btn btn">下一頁</div>
+    </div>
+
+<div class="copyright">
+    <p>
+        點算©Copyright DOZEN, 2018.
+    </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
