@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dozen_nav.css">
+    <link rel="stylesheet" href="../css/backBtn.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/loginLightbox.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/btn.css">
+    <link rel="stylesheet" href="../css/showKarma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../js/loginLightbox.js"></script>
+	<title>Dozen</title>
+
+</head>
+<body>
+	<!-- hamburger -->
+	<input type="checkbox" name="" id="menuControl">
+	<label for="menuControl" class="hamburger">
+		<div></div>
+		<div></div>
+		<div></div>
+	</label for="menuControl">
+
+	<div class="menu">
+		<!-- logo -->
+		<a href="index.html">
+			<img class="logo" src="../img/share/LOGO-08.png">
+		</a>
+		<!-- 右邊的title區塊 -->
+		<div class="left">
+			<p>距離下次水星逆行還有</p>
+            <table class="countdownContainer">
+                <tr class="info">
+                    <td id="days">120</td>
+                    <td>天</td>
+                    <td id="hours">4</td>
+                    <td>時</td>
+                    <td id="minutes">12</td>
+                    <td>分</td>
+                    <td id="seconds">22</td>
+                    <td>秒</td>
+                </tr>
+    
+            </table>
+        </div>
+        <!-- 中間的line -->
+        <div class="line"></div>
+        <!-- 右邊的time區塊 -->
+        <div class="right">
+            <a class="title" href="findTeacher.html">
+                <span class="findTeacher"></span>
+            </a>
+            <a class="title" href="dozen_store.html">
+                <span class="store"></span>
+            </a>
+            <a class="title" href="specialColumn.html">
+                <span class="member"></span>
+            </a>
+        </div>
+    </div>
+    <!--  hamburger end  -->
+    <!--  header  -->
+    <div class="header">
+    
+        <!-- 中間logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="../img/share/LOGO-08.png">
+            </a>
+        </div>
+    
+        <!-- 右邊會員專區 -->
+        <div class="memArea">
+            <ul>
+                <li>
+                	<a href="#">註冊/登入</a>
+                </li>
+                <li>
+                    <a href="#">購物車(
+                        <span class="cartNo">0</span>)</a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- 右邊水逆倒數 -->
+        <div class="countdown">
+            <div class="countdownAlert"></div>
+            <table class="countdownContainer">
+                <tr class="info">
+                    <td>水星逆行倒數 :</td>
+                    <td class="days">120</td>
+                    <td>天</td>
+                    <td class="hours">4</td>
+                    <td>時</td>
+                    <td class="minutes">12</td>
+                    <td>分</td>
+                </tr>
+    
+            </table>
+        </div>
+    </div>
+    <!--  header end  -->
+	<div class="wrapper">
+	    <!-- 底圖 --> 
+		<div class="background"></div>
+	    <!-- 業力球 -->
+	    <a class="showKarma" href="#">
+	        <div class="face">
+	            <h3>業障干擾值</h3>
+	            <img src="../img/showKarma/700.png">
+	            <span>1000</span>
+	        </div>
+	    </a>
+
+	    <!-- light box -->
+	    <input type="checkbox" id="loginControl">
+		<div class="loginLightbox">
+			<div class="boxContent">
+                <i class="fa fa-arrow-circle-o-left fa-2x backToLogin cursorHand" aria-hidden="true"></i>
+                <label for="loginControl">
+				    <i class="fa fa-times fa-2x loginClose cursorHand"></i>
+                </label>
+                <form action="" method="post" class="loginForm">
+                    <p>登入會員</p>
+                    <p>
+                        <span>帳號：</span>
+                        <span><input type="text" name="mem_acc" maxlength="12"></span>
+                    </p>
+                    <p>
+                        <span>密碼：</span>
+                        <span><input type="text" name="mem_psw" maxlength="12"></span>
+                    </p>
+                    <p>
+                        <input type="submit" value="登入" class="loginBtn cursorHand">
+                        <button class="loginBtn cursorHand">註冊</button>
+                    </p>
+                </form>
+                <form action="" method="post" class="registerForm">
+                    <p>登入會員</p>
+                    <p>
+                        <span>新增帳號：</span>
+                        <span><input type="text" name="mem_acc" maxlength="12"></span>
+                    </p><p>
+                        <span>新增密碼：</span>
+                        <span><input type="text" name="mem_psw" maxlength="12"></span>
+                    </p><p>
+                        <span>確認密碼：</span>
+                        <span><input type="text" name="mem_psw" maxlength="12"></span>
+                    </p><p>
+                        <span>暱稱：</span>
+                        <span><input type="text" name="mem_nn" maxlength="12"></span>
+                    </p>
+                    <p>
+                        <span>電話：</span>
+                        <span><input type="text" name="mem_tel" maxlength="12"></span>
+                    </p>
+                    <p>
+                        <input type="submit" value="提交" class="loginBtn cursorHand">
+                        <input type="reset" value="重填" class="loginBtn cursorHand">
+                    </p>
+                </form>
+			</div>
+		</div>
+	    <!-- light box end-->
+        
+        <div class="indexPic">
+            <div class="magicRune">
+                <img src="../img/index/index_title.png" alt="點算" class="indexImg indexTitle">
+                <img src="../img/index/index_subtitle.png" alt="解析過去，引領未來，算與被算，都來點算" class="indexImg indexSubtitle">
+                <img src="../img/index/index_impulse.png" alt="衝擊度300%預知預言" class="indexImg indexImpulse">
+                <img src="../img/index/index_correct.png" alt="過度準確
+                ！" class="indexImg indexCorrect">
+                <img src="../img/index/index_small_text.png" alt="深受重要政治家、公司董事、企業泰斗溺愛10萬人驚聲尖叫，傳說級準確率" class="indexImg indexSmallText">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
