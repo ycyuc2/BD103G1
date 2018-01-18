@@ -28,11 +28,26 @@
 }
 .magicRune{
 	position: absolute;
-	left: 0;top: 250px;right: 0;
+	left: 0;top: 200px;right: 0;
 	margin: 0 auto;
-	width: 603px;
-	height: 584px;
+	width: 600px;
+	height: 600px;
+}
+.magicRune .runeImg{
+	font-size: 0;
+	position: absolute;
+	left: 0;	top: 0;
+	width: 100%;	height: 100%;
 	background: url(../img/index/starfield.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	animation: magicRune 200s;
+	filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+}
+@keyframes magicRune{
+	to{
+		transform: rotate(1000deg);
+	}
 }
 .indexImg{
 	position: absolute;
@@ -55,6 +70,7 @@
 .indexCorrect{
 	top: 336px;
 	left: 330px;
+	filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, 0.6) )  drop-shadow( 0px 0px 2px rgb(255, 255, 255));
 }
 .indexSmallText{
 	top: 415px;
@@ -81,18 +97,26 @@
 	clear: both;
 }
 .chooseBirthday{
+	position: relative;
 	box-sizing: border-box;
 	width: 600px;
 	background: url(../img/share/texture.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	border: 25px solid transparent;
-	border-image: url(../img/index/frame2.png) 90 90 repeat;
 	margin: 0 auto;
 	margin-top: 250px;
 	margin-bottom: 350px;
 	text-align: center;
-	padding: 30px;
+	padding: 50px;
+}
+.chooseBirthday .birthdayFrame{
+	position: absolute;
+	box-sizing: border-box;
+	top: 0;left: 0;
+	width: 100%;	height: 100%;
+	border: 45px solid transparent;
+	border-image: url(../img/index/frame2.png) 90 90 repeat;
+	filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
 }
 .birthdayControl{
 	position: fixed;
@@ -101,26 +125,29 @@
 }
 .chooseBirthday p{
 	font-size: 0;
-	margin: 10px 0 30px 0;
+	margin: 20px 0 40px 0;
 }
 .chooseBirthday .text{
-	font-size: 24px;
-	line-height: 32px;
-	letter-spacing: 2px;
+	font-size: 32px;
+	line-height: 40px;
+	letter-spacing: 6px;
+	padding-left: 18px;
 	margin-bottom: 0;
 }
 .chooseBirthday p span select{
+	position: relative;
+	margin-left: 10px;
 	display: inline-block;
-	height: 24px;
+	height: 28px;
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 20px;
 	background-color: #000;
 	color: #fff;
 	outline: 0;
 }
 .chooseBirthday p span:after{
 	display: inline-block;
-	font-size: 20px;
+	font-size: 24px;
 	margin: 0 6px;
 }
 .chooseBirthday p .year:after{
@@ -131,6 +158,9 @@
 }
 .chooseBirthday p .date:after{
 	content: '日';
+}
+.chooseBirthday p .btnM{
+	position: relative;
 }
 
 .resultArea{
