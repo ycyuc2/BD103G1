@@ -174,8 +174,10 @@
         <div class="search">
             <div class="filter">
                 <select>
-                    <option value="">價格從高到低</option>
-                    <option value="">價格從低到高</option>
+                    <option value="">飾品</option>
+                    <option value="">家飾</option>
+                    <option value="">食品</option>
+                    <option value="">文具</option>
                 </select>
             </div>
             <div class="searchBox">
@@ -185,7 +187,7 @@
                 </a>
             </div>
         </div>
-        
+        <div id="pdContent">
         <div class="content">
             <a href="../html/dozen_storedetail.html">
                 <div class="pic">
@@ -328,6 +330,7 @@
                 </div>
                 
         </div>
+    </div>
 
     </div>
 </div>
@@ -377,6 +380,32 @@
 
 
 </div>   
+
+<script>
+
+
+
+   window.onload = function(){
+        
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                //alert( xhr.responseText );  
+                //modify_here
+                document.getElementById('pdContent').innerHTML = xhr.responseText;
+            }else{
+                alert( xhr.status );
+            }
+        }//xhr.onreadystatechange
+        
+        var url = "queryProducts.php?teacher_no=";
+        xhr.open("Get", url, true);
+        xhr.send( null );
+
+
+    }
+
+</script>
 </body>
 
 </html>
