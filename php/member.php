@@ -14,28 +14,12 @@ session_start();
 <link rel="stylesheet" type="text/css" href="../css/btn.css">
 <link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
 <link rel="stylesheet" href="../css/header.css">
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../js/countDown.js"></script>
 
 </head>
 <body>
-	<?php
-	$_SESSION["mem_no"] = 1;
-//=====連資料庫，做測試
-	try{
-		require_once("connectBooks.php");
-		$sql = "select * from member where mem_no = :mem_no";
-		$member = $pdo->prepare($sql);
-		$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
-		$member -> execute();
-
-		$memRow = $member->fetch();
-
-	}catch(PDOException $ex){
-		echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
-		echo "行號：",$ex->getLine(),"<br>";
-	}
-?>	
+	
 
 
 	<!-- hambuerger -->
@@ -140,17 +124,41 @@ session_start();
 
 		<div class="right">
 			<div class="content info">
-			
+					
 				<h2>個人資料</h2>
-				<p>
-					<span>會員帳號</span><span class="name"><?php echo $memRow->mem_acc;?></span>
-				</p>
-				<p>
-					<span>會員暱稱</span><span class="nickname"><?php echo $memRow->mem_nn;?></span>
-				</p>
-				<p>
-					<span>會員電話</span><span class="tel"><?php echo $memRow->mem_tel;?></span>
-				</p>
+				<?php
+					//=====連資料庫，做測試
+					try{
+						$_SESSION["mem_no"] = 1;
+						require_once("connectBooks.php");
+						$sql = "select * from member where mem_no = :mem_no";
+						$member = $pdo->prepare($sql);
+						$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
+						$member -> execute();
+
+						if($memRow = $member->fetchObject()){
+							?>
+							<script type="text/javascript">
+							</script>
+							<p>
+								<span>會員帳號</span><span class="name"><?php echo $memRow->mem_acc;?></span>
+							</p>
+							<p>
+								<span>會員暱稱</span><span class="nickname"><?php echo $memRow->mem_nn;?></span>
+							</p>
+							<p>
+								<span>會員電話</span><span class="tel"><?php echo $memRow->mem_tel;?></span>
+							</p>
+							<?php
+						}
+
+					}catch(PDOException $ex){
+						echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
+						echo "行號：",$ex->getLine(),"<br>";
+					}
+				?>
+				
+				
 			
 			</div>
 			
@@ -167,7 +175,52 @@ session_start();
 							<div class="th tdWidth">最新回復</div>
 						</div>
 					</div>
-					<div class="tr">
+
+					<?php
+					try{
+						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message group by art_no)";
+						$reply = $pdo->prepare($sql);
+						$reply -> bindValue(":mem_no",$_SESSION["mem_no"]);
+						$reply -> execute();
+						while($msgArtRow = $reply->fetchObject()){
+							?>
+							
+							<div class="tr">
+								<div class="td tdWidth replyNo">12</div>
+								<div class="td tdWidth replyContent">
+									<p>
+										<?php echo $msgArtRow->ART_TITLE;?>
+									</p>
+									<p>
+										<?php echo $msgArtRow->msg_content;?>
+									</p>
+								</div>
+								<div class="tdRight">
+									<div class="td tdWidth">
+										<?php
+											$sql = "select * from teacher where teacher_no = :teacher_no";
+											$teacher = $pdo->prepare($sql);
+											$teacher -> bindValue(":teacher_no",$msgArtRow->TEACHER_NO);
+											$teacher -> execute();
+											if($teacherRow = $teacher->fetchObject()){
+										?>
+										<p><?php echo $teacherRow->teacher_nn;}?></p>
+										<p><?php echo $msgArtRow->ART_POST_TIME;?></p>
+									</div>
+									<div class="td tdWidth">
+										<p>回文人名稱</p>
+										<p><?php echo $msgArtRow->ART_UPDATE_TIME;?></p>
+									</div>
+								</div>
+							</div>
+							<?php 
+						}
+					}catch(PDOException $ex){
+						echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
+						echo "行號：",$ex->getLine(),"<br>";
+					}	
+					?>
+					<!-- <div class="tr">
 						<div class="td tdWidth replyNo">12</div>
 						<div class="td tdWidth replyContent">
 							<p>
@@ -187,49 +240,7 @@ session_start();
 								<p>1226 08:00</p>
 							</div>
 						</div>
-					</div>
-					<div class="tr">
-						<div class="td tdWidth replyNo">12</div>
-						<div class="td tdWidth replyContent">
-							<p>
-								[標題]標題標題標題
-							</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sapiente voluptatibus iusto ipsam eaque, dicta culpa distinctio eum, ullam velit.
-							</p>
-						</div>
-						<div class="tdRight">
-							<div class="td tdWidth">
-								<p>老師名稱</p>
-								<p>1226 08:00</p>
-							</div>
-							<div class="td tdWidth">
-								<p>回文人名稱</p>
-								<p>1226 08:00</p>
-							</div>
-						</div>
-					</div>
-					<div class="tr">
-						<div class="td tdWidth replyNo">12</div>
-						<div class="td tdWidth replyContent">
-							<p>
-								[標題]標題標題標題
-							</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sapiente voluptatibus iusto ipsam eaque, dicta culpa distinctio eum, ullam velit.
-							</p>
-						</div>
-						<div class="tdRight">
-							<div class="td tdWidth">
-								<p>老師名稱</p>
-								<p>1226 08:00</p>
-							</div>
-							<div class="td tdWidth">
-								<p>回文人名稱</p>
-								<p>1226 08:00</p>
-							</div>
-						</div>
-					</div>
+					</div> -->
 				</div>
 
 				
@@ -240,20 +251,45 @@ session_start();
 			<div class="content trade">
 			
 				<h2 >交易紀錄</h2>
-				<table>
-					<tr>
-						<th>日期</th>
-						<th>品項</th>
-						<th>數量</th>
-						<th>金額</th>
-					</tr>
-					<tr>
-						<td>2017/11/11</td>
-						<td>單身大禮包</td>
-						<td>1</td>
-						<td>1,111</td>
-					</tr>
-				</table>
+				<div class="table">
+					<div class="table">
+					<div class="tr">
+						<span class="medium">時間</span>
+						<span class="large">品項</span>
+						<span class="small">數量</span>
+						<span class="medium">金額</span>
+						<span class="close"></span>
+					</div>
+					<div class="tr">
+							<span class="medium">2017/11/11</span>
+							<span class="large"></span>
+							<span class="small"></span>
+							<span class="medium"></span>
+							<span class="close">X</span>
+							
+							<div class="detail">
+								<span class="large">開運石獅子</span>
+								<span class="small">6</span>
+								<span class="medium">3333</span>
+							</div>
+							<div class="detail">
+								<span class="large">開運石獅子</span>
+								<span class="small">6</span>
+								<span class="medium">3333</span>
+							</div>
+							<div class="detail">
+								<span class="large">開運石獅子</span>
+								<span class="small">6</span>
+								<span class="medium">3333</span>
+							</div>
+							<div class="detail">
+								<span class="large"></span>
+								<span class="small">總計</span>
+								<span class="medium">9999</span>
+							</div>
+					</div>
+				</div>
+				</div>
 			</div>
 		</div>
 		<div class="blank"></div>

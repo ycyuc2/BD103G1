@@ -327,16 +327,16 @@
     .directions .content #clickCloseDirection {
       margin: auto; }
 
-.qqArea {
+.teacherContainer {
   width: 100%;
   height: 100%;
   position: absolute;
   font-size: 0;
   padding: 0; }
   @media all and (max-width: 479px) {
-    .qqArea {
+    .teacherContainer {
       position: static; } }
-  .qqArea li {
+  .teacherContainer li {
     width: calc(100% / 12);
     height: calc(100% / 8);
     display: inline-block;
@@ -344,7 +344,7 @@
     user-select: none;
     vertical-align: middle; }
     @media all and (max-width: 479px) {
-      .qqArea li {
+      .teacherContainer li {
         width: 100%;
         height: auto;
         padding: 0; } }
