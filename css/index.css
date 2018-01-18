@@ -24,12 +24,12 @@
 
 .indexPic{
 	position: relative;
-	height: 120vh;
+	height: 100vh;
 }
 .magicRune{
 	position: absolute;
-	left: 0;top: 0;right: 0;bottom: 0;
-	margin: auto;
+	left: 0;top: 250px;right: 0;
+	margin: 0 auto;
 	width: 603px;
 	height: 584px;
 	background: url(../img/index/starfield.png);
