@@ -232,3 +232,19 @@ body {
     .frame .agree p {
       margin-left: 10px;
       display: inline; }
+
+    .frame .pay{
+      
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 10px;
+        display: block;
+        margin: 50px auto;
+        width: 150px;
+        height: 40px;
+        line-height: 37px;
+        text-decoration: none;
+        background-image: url(../img/dozen_storedetail/btn.png);
+        background-size: contain;
+      
+    }

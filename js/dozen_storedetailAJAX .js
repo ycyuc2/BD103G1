@@ -6,13 +6,13 @@
             if( xhr.status == 200 ){
                 //alert( xhr.responseText );  
                 //modify_here
-                document.getElementById('pdContent').innerHTML = xhr.responseText;
+                document.getElementById('productContent').innerHTML = xhr.responseText;
             }else{
                 alert( xhr.status );
             }
         }//xhr.onreadystatechange
         
-        var url = "../php/queryProducts.php";
+        var url = "queryProductsDetail.php?";
         xhr.open("Get", url, true);
         xhr.send( null );
 
