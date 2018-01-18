@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <script src="../js/jquery-3.2.1.min.js"></script>
     <!-- <script type="text/javascript" src="../js/header.js"></script> -->
-    <script src="../js/33_new.js"></script>
+    <!-- <script src="../js/addcart.js"></script> -->
     <script src="../js/count.js"></script>
     <script src="../js/countDown.js"></script>
 </head>
@@ -156,7 +156,7 @@
                             <div class="buy">
                                 <div><a href="#">加入購物車</a></div>
                                 <br>
-                                <div><a href="#">立即購買</a></div>
+                                <div class="buyNow"><a href="../html/dozen_storeCart.html">立即購買</a></div>
                             </div>
                          </div> 
                     </div>
@@ -215,7 +215,20 @@
 
 
 
+<script>
 
+var buyNow = document.getElementsByClassName('buyNow')[0];
+
+buyNow.addEventListener('click', function(){
+    var inputValue = document.querySelector('.qty').value;
+    localStorage.setItem('item',inputValue);
+    console.log(inputValue);
+
+});
+
+
+
+</script>
 </body>
 
 </html>
