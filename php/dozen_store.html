@@ -175,6 +175,7 @@
             <div class="filter">
                 <select>
                     <option value="">飾品</option>
+                    <option value="">家飾</option>
                     <option value="">食品</option>
                     <option value="">文具</option>
                 </select>
@@ -383,9 +384,9 @@
 <script>
 
 
-console.log('xmlgogo');
+
    window.onload = function(){
-        console.log('xmlgogo');
+        
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
@@ -400,6 +401,7 @@ console.log('xmlgogo');
         var url = "queryProducts.php?teacher_no=";
         xhr.open("Get", url, true);
         xhr.send( null );
+            
 
 
     }

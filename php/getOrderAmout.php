@@ -10,15 +10,10 @@ try {
 ?>
 
     <div class="content">
-    <?php echo '<a href="../html/dozen_storedetail.php?pd_no=',$productRow["pd_no"],'">' ?>
         <div class="pic">
             <div class="picFrame"></div>
-            
-            
             <?php echo '<img src="../img/products/',$productRow["pd_pic1"],'" alt="">' ?>
-            
         </div>
-        </a>
             
         <div class="intro">
             <h2><?php echo $productRow["pd_name"] ?></h2>
@@ -43,4 +38,5 @@ try {
 	echo "錯誤原因 : " , $e->getMessage() , "<br>";
 	echo "錯誤行號 : " , $e->getLine() , "<br>";
 }
-?> 
+
+?>

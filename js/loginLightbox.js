@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("load", function () {
 	// 初始化
 	backToLogin();
 	// 開燈箱
@@ -24,4 +24,4 @@ window.onload = function () {
 	document.querySelector("#loginControl").addEventListener("change",function(){
 		setTimeout(backToLogin, 200);
 	});
-}
+});

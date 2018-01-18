@@ -13,9 +13,11 @@
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <script src="../js/jquery-3.2.1.min.js"></script>
     <!-- <script type="text/javascript" src="../js/header.js"></script> -->
-    <script src="../js/33_new.js"></script>
+    <!-- <script src="../js/addcart.js"></script> -->
     <script src="../js/count.js"></script>
     <script src="../js/countDown.js"></script>
+    <script src="../js/dozen_storedetailAJAX .js"></script>
+    <script src="../js/dozen_storeCart.js"></script>
 </head>
 
 <body>
@@ -108,66 +110,81 @@
     <div class="frame">
         <div class="frameFrame"></div>
         
-        <div class="product">
-            
-            <span class="btnM">
-                <p class="btnText btnText6"aaaaaa></p>
-            </span>
-            
-            
-            <div class="productContent">
-                    <div class="one">
-                        <div class="picFrame"></div>
-                        <img src="../img/dozen_storedetail/lion.jpg" alt=""> 
-                    </div>
-
-                
+        <div class="productContent">
 
 
+        <?php
+        $pdNo = $_REQUEST["pd_no"];
+        try {
+            require_once("connectBD103G1peng.php");
+            $sql = "select * from products where pd_no = :pdNo";
+            $products = $pdo->prepare($sql);
+            $products->bindValue(":pdNo",$pdNo);
+            $products->execute();
+            $product_rows = $products->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach( $product_rows as $i=>$productRow){
+        ?>
 
 
-                    <div class="text">
-                        <h2 id="textTitle">開運石獅子</h2> <h2 id="price">999999$</h2>
-                        <br>
-                        <img src="../img/dozen_storedetail/star.png" alt="">
-                        <img src="../img/dozen_storedetail/star.png" alt="">
-                        <img src="../img/dozen_storedetail/star.png" alt="">
-                        <img src="../img/dozen_storedetail/star.png" alt="">
-                        <img src="../img/dozen_storedetail/star.png" alt="">
-                        
-                          <p class="rate">4.5/5</p>
-                        <hr > 
-                        <div class="innerText">
-                            <p>獅子：古人視獅子為百獸之王，比虎豹更凶猛，也比虎豹更具驅邪除煞的效力。每逢年節慶典必有祥獅獻瑞的表演活動，有驅吉避凶的作用。俗語說：「厝內擺對獅，攢錢無人知。」中國原不產獅子，東漢時期西域送來第一頭獅子，獅子外型威猛，令人望而生畏。相傳佛祖誕生時，一手指天，一手指地，並作獅吼云：「天上天下唯我獨尊」，從此獅子逐漸被神化，成為佛法威力的象徵。
-                              
-                            </p>
-                        </div>
 
-                        <div class="btn">
-                            <div class="amount">
-                                <form id='myform' method='POST' action='#'>
-                                        <label for="" id="count">數量</label>
-                                        <br>
-                                        <input  type='button' value='-' class='qtyminus' field='quantity' />
-                                        <input  type='text' name='quantity' value='1' class='qty' readonly="value"/>
-                                        <input  type='button' value='+' class='qtyplus' field='quantity' />
-                                </form>
-                            </div>    
-                            <div class="buy">
-                                <div><a href="#">加入購物車</a></div>
-                                <br>
-                                <div><a href="#">立即購買</a></div>
+
+                            <div class="one">
+                                <div class="picFrame"></div>
+                                <?php echo '<img src="../img/products/',$productRow["pd_pic1"],'" alt="">' ?>
                             </div>
-                         </div> 
-                    </div>
-                </div>
-            </div>
+
+                        
 
 
-            
+
+
+                            <div class="text">
+                                <h2 id="textTitle"><?php echo $productRow["pd_name"] ?></h2> <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
+                                <br>
+                                <img src="../img/dozen_storedetail/star.png" alt="">
+                                <img src="../img/dozen_storedetail/star.png" alt="">
+                                <img src="../img/dozen_storedetail/star.png" alt="">
+                                <img src="../img/dozen_storedetail/star.png" alt="">
+                                <img src="../img/dozen_storedetail/star.png" alt="">
+                                
+                                <p class="rate">4.5/5</p>
+                                <hr > 
+                                <div class="innerText">
+                                    <p>
+                                    <?php echo mb_substr($productRow["pd_intro"],0,70,"utf-8")."..." ?>
+                                    </p>
+                                </div>
+
+                                <div class="btn">
+                                    <div class="amount">
+                                        <form id='myform' method='POST' action='#'>
+                                                <label for="" id="count">數量</label>
+                                                <br>
+                                                <input  type='button' value='-' class='qtyminus' field='quantity' />
+                                                <input  type='text' name='quantity' value='1' class='qty' readonly="value"/>
+                                                <input  type='button' value='+' class='qtyplus' field='quantity' />
+                                        </form>
+                                    </div>    
+                                    <div class="buy">
+                                        <div><a href="#">加入購物車</a></div>
+                                        <br>
+                                        <div class="buyNow"><a href="../html/dozen_storeCart.html">立即購買</a></div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+        <?php		
+            }
+
+        } catch (PDOException $e) {
+            echo "錯誤原因 : " , $e->getMessage() , "<br>";
+            echo "錯誤行號 : " , $e->getLine() , "<br>";
+        }
+        ?> 
+        
 
         </div>
-
 
 
 
@@ -215,7 +232,20 @@
 
 
 
+<script>
 
+var buyNow = document.getElementsByClassName('buyNow')[0];
+
+buyNow.addEventListener('click', function(){
+    var inputValue = document.querySelector('.qty').value;
+    localStorage.setItem('item',inputValue);
+    console.log(inputValue);
+
+});
+
+
+
+</script>
 </body>
 
 </html>
