@@ -108,9 +108,9 @@
 		<div class="border"></div>
 		<div class="teacherBorder">
 			<h1>發表文章</h1>
-			<form action="../php/articleInsert.php" method="get" >
+			<form action="articleInsert.php" method="post" enctype="multipart/form-data">
 				<p class="intro">請輸入文章標題</p>
-				<input class="inputTopic" type="text" name="title" required="">
+				<input class="inputTopic" type="text" name="title" required>
 
 				<p class="intro line">請選擇文章圖片1</p>
 				<input class="inputImg first" type="file" name="contentImg1">

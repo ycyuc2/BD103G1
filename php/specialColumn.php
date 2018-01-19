@@ -176,7 +176,7 @@ try {
 				<div class="newArticle">
 					<form action="articlePost.php" method="post">
 					<span class="btnM">
-						<input type="hidden" name="teacherNo">
+						<input type="hidden" name="teacherNo" value=<?php echo '"'.$_REQUEST["teacher_no"].'"' ?>>
 						<input type="submit" class="btnText btnText2" value="發文"></input>
 					</span>
 					</form>
