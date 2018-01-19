@@ -1,13 +1,13 @@
 function doFirst(){
 
-var storage = localStorage;
-var amount = storage.getItem('item');
-console.log(amount);
-document.getElementById('qty').setAttribute('value',amount);
+	var storage = localStorage;
+	var amount = storage.getItem('item');
+	document.getElementsByClassName('qty')[0].setAttribute('value',amount);
 
-document.getElementsByClassName('delete')[0].onclick = function(){
-    alert(1);
-};
+	document.getElementsByClassName('delete')[0].onclick = function(){
+		alert(1);
+		
+	};
 
 
 }

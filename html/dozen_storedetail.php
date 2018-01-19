@@ -16,7 +16,7 @@
     <!-- <script src="../js/addcart.js"></script> -->
     <script src="../js/count.js"></script>
     <script src="../js/countDown.js"></script>
-    <script src="../js/dozen_storedetailAJAX .js"></script>
+    <!-- <script src="../js/dozen_storedetailAJAX .js"></script> -->
     <script src="../js/dozen_storeCart.js"></script>
 </head>
 
@@ -109,7 +109,7 @@
 
     <div class="frame">
         <div class="frameFrame"></div>
-        
+        <div class="product">
         <div class="productContent">
 
 
@@ -152,7 +152,7 @@
                                 <hr > 
                                 <div class="innerText">
                                     <p>
-                                    <?php echo mb_substr($productRow["pd_intro"],0,70,"utf-8")."..." ?>
+                                    <?php echo $productRow["pd_intro"] ?>
                                     </p>
                                 </div>
 
@@ -162,12 +162,12 @@
                                                 <label for="" id="count">數量</label>
                                                 <br>
                                                 <input  type='button' value='-' class='qtyminus' field='quantity' />
-                                                <input  type='text' name='quantity' value='1' class='qty' readonly="value"/>
+                                                <input  type='text' name='quantity' value='1' class='qty' readonly="value" />
                                                 <input  type='button' value='+' class='qtyplus' field='quantity' />
                                         </form>
                                     </div>    
                                     <div class="buy">
-                                        <div><a href="#">加入購物車</a></div>
+                                        <div class="buyNow"><a href="#">加入購物車</a></div>
                                         <br>
                                         <div class="buyNow"><a href="../html/dozen_storeCart.html">立即購買</a></div>
                                     </div>
@@ -185,7 +185,7 @@
         
 
         </div>
-
+        
 
 
 
