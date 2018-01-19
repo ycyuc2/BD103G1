@@ -12,7 +12,7 @@
             }
         }//xhr.onreadystatechange
         
-        var url = "queryProductsDetail.php?";
+        var url = "../php/dozen_storedetail.php";
         xhr.open("Get", url, true);
         xhr.send( null );
 
