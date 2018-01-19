@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 	<link rel="stylesheet" href="../css/input.css">
 	<link rel="stylesheet" href="../css/recommendslider.css">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
 </head>
 <body>
@@ -149,8 +149,17 @@
 				<hr>
 
 				
-                    
+
 <!-- 推薦區域 -->
+<div class="pdRec_wrapper">
+	<div class="pdRec_lightbox">
+		<label for="loginControl">
+			<i class="fa fa-times fa-2x loginClose cursorHand"></i>
+		</label>
+		<p>您重複推薦商品了</p>
+		<div class="btn"> 我知道了</div>
+	</div>
+</div>
 
 <?
 try{
@@ -158,7 +167,7 @@ try{
     require_once("../php/connectBooksting.php");
     $sql="select * from pd_recommend where teacher_no = ?";
     $recommend=$pdo->prepare($sql);
-    $recommend->bindValue(1,1);
+    $recommend->bindValue(1,2);
     $recommend->execute();
     $recRow=$recommend->fetchObject();
     // 提出老師推薦的商品序號
@@ -169,7 +178,9 @@ try{
     $pd=$pdo->prepare($sql);
 ?>
     <div class="merchandise recommend">
-        <h2>推薦商品</h2>
+		<h2>推薦商品</h2>
+		<form action="pdRecInsert.php" method="get">
+			<input type="hidden" value="<?echo $_SESSION["teacher"]["teacher_no"]?>" name="teacher_no">
 <?
     for( $i=1;$i<4;++$i){
         //一個個篩選
@@ -180,11 +191,12 @@ try{
         }else{
              $pd->bindValue(1,$c);
         }
-        $pd->execute();
-        $pdRow = $pd -> fetchObject();
+		$pd->execute();
+		$pdRow = $pd -> fetchObject();
+			
 ?>
         <div class="content drop">
-			<input type="hidden" value="',<?echo $pdRow-> pd_no?>,'">
+			<input type="text" name="r[]" value="<?echo $pdRow-> pd_no?>">
             <div class="merchandisePhoto"><img src="../img/specialColumn/cristal.JPG" alt=""></div>
             <div class="merchandiseIntro">
                 <a href="#"> <? echo $pdRow-> pd_name ?> </a>
@@ -195,16 +207,26 @@ try{
 		<? ;
     }
 ?>
+
+	<input type="submit" id="btnSend">
+	</form>
     </div>     
 		
 
 
-	
+	<div class="recommendSilder">
+		<div class="white"></div>
+		<div class="recContainer">
+			<div class="product_item">
+				<img src="" alt="">
+				<p></p>
+			</div>
+		</div>
+	</div>
 
 
 
 	<div class="merchandise recommend">
-		<h2>請推薦三個商品</h2>
 		
 		<div class="search">
 		<input type="search" id="search" class="input input200">
@@ -230,13 +252,13 @@ try{
 				while($nameRow=$pd->fetchObject()){
 				?>
 				<div class="content drag" draggable="true" id="<?echo $nameRow -> pd_no?>">
-					<input type="hidden" value="',<?echo $pdRow-> pd_no?>,'">
+					<input type="text" name="r[]" value="<?echo $nameRow-> pd_no?>">
 					<div class="merchandisePhoto"><img src="../img/specialColumn/cristal.JPG" alt=""></div>
 					<div class="merchandiseIntro">
 						<a href="#"> <? echo $nameRow-> pd_name ?> </a>
 						<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可...</p>
-						<p><span> <? echo $nameRow-> pd_price ?> </span> <span> <? echo $pdRow-> pd_sale ?> </span>元</p>
-						<p style="display:none;"><? echo $nameRow-> pd_no ?></p>
+						<p><span> <? echo $nameRow-> pd_price ?> </span> <span> <? echo $nameRow-> pd_sale ?> </span>元</p>
+						<!-- <p style="display:none;"><? echo $nameRow-> pd_price ?></p> -->
 
 					</div>
 				</div>  
@@ -247,11 +269,11 @@ try{
 		</div>
 	</div>
 
-			<div class="submit">
+			<label class="submit" for="btnSend">
 				<span class="btnM">
-					<a href="" class="btnText btnText4">完成</a>
+					<p class="btnText btnText4">完成</p>
 				</span>
-			</div>
+			</label>
 			</div>
 		</div>
 <?
@@ -278,39 +300,54 @@ try{
 
 	<script>
 		$(document).ready(function () {
-            var contCount=$('.productsSelect .content').length;
-			var divWidth=$('.content.rear').width();
-			var w=window.innerWidth;
-			// $(window).resize(function(){
-			// 	var divWidth=$('.content.rear').width();
-			// 	var divHeight=$('.content.rear').height();
-			// 	if(w>760){
-			// 		$('.productsSelect').height(divHeight);
-			// 		$('.productsSelect').width(divWidth*3);
-			// 		$('.productsSelect .container').width(divWidth*(contCount+2));
-			// 		$('.productsSelect .container').height(divHeight);
+			
 
-			// 	}else{
-			// 		$('.productsSelect .container').width(divWidth*(contCount+2));
-			// 		$('.productsSelect .container').height(divHeight);
-			// 		$('.productsSelect').height(divHeight*2.5);
+            var contCount=$('.productsSelect .content.drag').length;
+			var divWidth1=$('.content.drop').outerWidth();
+			var divHeight=$('.content.drop').outerHeight();
+			$('.productsSelect').height(divHeight);
+			$('.productsSelect .container').outerWidth(divWidth1*(contCount));
+			$('.productsSelect .container').outerHeight(divHeight);
+			$(window).resize(function(){
+				var contCount=$('.productsSelect .content').length;
+				var divWidth=$('.content.drop').outerWidth();
+				var divHeight=$('.content.drop').outerHeight();
+				var w=window.innerWidth;
+				console.log(divWidth,divHeight,w);
+				if(w>760){
+					$('.productsSelect').height(divHeight);
+					$('.productsSelect .container').outerWidth(divWidth*(contCount));
+					$('.productsSelect .container').outerHeight(divHeight);
+				}else if(w<759){
+					$('.productsSelect').height(divHeight);
+					$('.productsSelect .container').outerWidth(divWidth*(contCount));
+					$('.productsSelect .container').outerHeight(divHeight);
+				}
+			});
 
-			// 	}
-			// 	$('.productsSelect .content').width(divWidth);
-			// 	$('.productsSelect .content').height(divHeight);
-				
-			// });
+			
+			//拖拉功能
 			function dropdown(e){
-					var product1=e.currentTarget.getElementsByTagName('input')[0].value;
-					console.log("product1:",product1);
+					var drop1=document.getElementsByClassName('drop')[0].getElementsByTagName('input')[0].value;
+					var drop2=document.getElementsByClassName('drop')[1].getElementsByTagName('input')[0].value;
+					var drop3=document.getElementsByClassName('drop')[2].getElementsByTagName('input')[0].value;
+					product1=e.currentTarget.getElementsByTagName('input')[0].value;
 					e.preventDefault();
 					var data = e.dataTransfer.getData("text");
 					var nodeCopy = document.getElementById(data).cloneNode(true);
-					// e.currentTarget.appendChild(nodeCopy);
-					e.currentTarget.parentNode.replaceChild(nodeCopy,e.currentTarget);
-					document.getElementById(data).ondrop=dropdown;
-					document.getElementById(data).ondragover=dragover;
-					document.getElementById(data).classList.add("drop");
+					 pd2 = document.getElementById(data).getElementsByTagName('input')[0].value;
+					alert(e.dataTransfer.getData("text"));
+
+					if(pd2 != drop1 && pd2 != drop2 && pd2 != drop3){
+						e.currentTarget.parentNode.replaceChild(nodeCopy,e.currentTarget);
+						document.getElementById(data).ondrop=dropdown;
+						document.getElementById(data).ondragover=dragover;
+						document.getElementById(data).classList.add("drop");
+						document.getElementById(data).classList.remove("drag");
+					}else{
+						$('.pdRec_wrapper').css('display','block');
+					}
+
 					
 			}
 			function  dragover(e){
@@ -319,7 +356,7 @@ try{
 			}
 
 			var drop_objs =document.getElementsByClassName('drop');
-			console.log( "drop_objs.length:" , drop_objs.length)
+			console.log( "drop_objs.length:" , drop_objs.length);
 
 			for (var i = 0; i < drop_objs.length; i++) {
 				drop_objs[i].ondrop = dropdown;
@@ -335,50 +372,49 @@ try{
 			}
 
 
-
+			//搜尋滑動功能
 			$('li').click(function () {
 				index = $(this).index();
 				
 				if(w<760){
 					$('.productsSelect .container').animate({
-						top:(100*0.5*index*-1 )
+						top:(divWidth1*0.5*index*-1 )
 					});
 				}else{
 					$('.productsSelect .container').animate({
-						left:(divWidth*0.5*index*-1 )
+						left:(divWidth1*0.5*index*-1 )
 					});
 				}
 			});
 
             $('#name li').css('display', '');
-                $('#search').keyup(function () {
-                    var get =$(this).val();
-                    $("#name li").hide();
-                    if($.trim(get)!==''){
-                        $('#name li:contains("'+get+'")').show();
-                    }
-                });
-                $('#search').focus(function(){
-					 var get =$(this).val();
-                    $("#name li").hide();
-                    if($.trim(get)!==''){
-                        $('#name li:contains("'+get+'")').show();
-                    }
-					$('#name li').css('display', 'block');
-					$('#name').css('height','100px');
-                }).blur(function(){
-					$('#name').css('height','0px');
-				});
-                $(document).on('mouseenter mouseleave', 'li', function () {
-                    $(this).toggleClass('highlight');
-				});
-				$('.productsSelect .content').click(function(){
-					index = $(this).index()+1;
-					var a=$('.productsSelect .content:nth-child('+index+')  p:last-of-type').text();
-					alert(a);
-				});
-                
-            });	
+			$('#search').keyup(function () {
+				var get =$(this).val();
+				$("#name li").hide();
+				if($.trim(get)!==''){
+					$('#name li:contains("'+get+'")').show();
+				}
+			});
+			$('#search').focus(function(){
+					var get =$(this).val();ａ
+				$("#name li").hide();
+				if($.trim(get)!==''){
+					$('#name li:contains("'+get+'")').show();
+				}
+				$('#name li').css('display', 'block');
+				$('#name').css('height','100px');
+			}).blur(function(){
+				$('#name').css('height','0px');
+			});
+			$(document).on('mouseenter mouseleave', 'li', function () {
+				$(this).toggleClass('highlight');
+			});
+			$('.productsSelect .content').click(function(){
+				index = $(this).index()+1;
+				var a=$('.productsSelect .content:nth-child('+index+')  input').text();
+			});
+       
+		});	
 	
 
 	</script>

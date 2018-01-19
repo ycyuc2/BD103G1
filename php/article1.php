@@ -1,3 +1,7 @@
+<?
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/btn.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 	
 </head>
 <body>
@@ -135,7 +141,10 @@
 						</div>
 						<div class="stars">
 	<!-- 評價星等 -->
-	<fieldset class="rating">
+	
+
+
+	<fieldset class="rating teacherStar">
 	    <input type="radio" id="star5" name="rating" value="5" />
 	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
 	    <input type="radio" id="star4" name="rating" value="4" />
@@ -151,6 +160,60 @@
 					</div>
 				</div>
 			</div>
+<?
+		try{
+			$_SESSION["mem_no"]=1;
+			$_REQUEST["art_no"]=1;
+			require_once("../php/connectBooksting.php");
+			$sql="select * from art_review where MEM_NO =? and ART_NO =?";
+			$check=$pdo->prepare($sql);
+			$check->bindValue(1,1);
+			$check->bindValue(2,1);
+			$check->execute();
+			$checkRow=$check->fetchObject();
+			if($check->rowcount()!=0){
+				?>
+				<script>
+					var star= <?echo  $checkRow->ART_STAR;?>;
+					var inputElems= $('.teacherStar input[type="radio"]');
+					alert(inputElems.length);
+					// alert(inputElems[2].value);
+					inputElems[5-star].checked=true;
+					
+				</script>
+				
+				
+				<?
+			}
+		
+	
+	?>
+
+			<script>
+        
+        var inputElems = document.getElementsByTagName("input");
+        for(var i =0;i<inputElems.length;i++){
+            inputElems[i].addEventListener('change', checkboxes, 'true');
+
+        }
+        function checkboxes(){
+			var star= document.querySelector('input[type="radio"]:checked');
+
+			console.log(star.value);
+			var xhr = new  XMLHttpRequest();
+			xhr.onload=function(){
+				if(xhr.status ==200){
+					alert("win");
+
+				}else{
+					alert(xhr.status);
+				}
+			}
+			var url="starInsert.php?art_no="+<?echo $_REQUEST["art_no"]?>+"&mem_no="+<?echo $_SESSION["mem_no"]?>+"&art_star="+star.value;
+			xhr.open("get",url,true);
+			xhr.send(null);
+        }
+    </script>
 <!-- 文章區 -->
 			<article>
 				<p>
@@ -171,14 +234,16 @@
 			</article>
 		</div>
 	</div>
-
+<?
+	$_SESSION["article"]["art_no"]=1;
+?>
 <!-- 會員回復 -->
 	<div class="memberReply">
 		<div class="border"></div>
 		<div class="columnBorder">
 			<h3>撰寫留言</h3>
-			<form>
-				<textarea id="replyArea"></textarea>
+			<form action="articleMsg.php" method="get">
+				<textarea id="replyArea" name="replyText"></textarea>
 				<input class="btnM btnText btnText2" type="submit" value="回　覆">
 			</form>
 		</div>
@@ -187,19 +252,25 @@
 
 
 
-    <!-- 留言區 -->
+	<!-- 留言區 -->
+	<script>
+	count=0;
+	</script>
 <?
-    $_SESSION["article"]["article_no"]=1;
-    require_once("../php/connectBooksting.php");
-    $sql="select * from message where article_no=?";
+	
+	
+    $sql="select * from message where art_no=?";
     $message=$pdo->prepare($sql);
-    $message->bindValue(1,$_SESSION["article"]["article_no"]);
+    $message->bindValue(1,1);
     $message->execute();
     while($mesRow=$message->fetchObject()){
-
-        $sql1="select mem_nn from member where mem_no="+$mesRow->mem_no+"";
-        $mem=$pdo->query($sql1);
-        $memRow=$mem->fetchObject();
+		$mem_no=$mesRow->mem_no;
+        $sql1="select mem_nn from member where mem_no=?";
+		$mem=$pdo->prepare($sql1);
+		$mem->bindValue(1,$mem_no);
+		$mem->execute();
+		$memRow=$mem->fetchObject();
+		
 
 ?>
         <div class="replys">
@@ -212,7 +283,7 @@
 				<div class="author">
 					<div class="intro">
 						<a href=""><?echo $memRow->mem_nn?></a>
-						<p>2017/12/2 19:07:42</p>
+						<p> <? echo $mesRow->msg_time?> </p>
 					</div>
 					<div class="links">
 						<div class="btns"><span class="btnM report">
@@ -220,7 +291,7 @@
 							</span></div>
 						<div class="stars">
 	<!-- 評價星等 -->
-	<fieldset class="rating">
+	<fieldset class="rating memStar">
 	    <input type="radio" id="star5" name="rating" value="5" />
 	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
 	    <input type="radio" id="star4" name="rating" value="4" />
@@ -238,160 +309,21 @@
 			</div>
 			
 			<article>
-				<p>
-					　　老師現在在點算啊？我是小陳啦！你最忠實的學生，我下個月要結婚了，不知道老師願不願意參加我的婚禮，方便的話希望您能上台講幾句話！
-				</p>
-				<p>
-					　　真的很謝謝老師，我老婆也常說當初不知道為什麼突然喜歡上我，我到現在還沒告訴她水晶的事情！總之真的很謝謝老師！
-				</p>
+				<p><? echo $mesRow->msg_content?></p>
 			</article>
 		</div>
 	</div>
-        
-        
 <?
+
+	}
+}catch(PDOExeption $e){
+        echo "錯誤原因 : " , $e->getMessage() , "<br>";
+        echo "錯誤行號 : " , $e->getLine() , "<br>";
     }
 ?>    
 
 	
     
-
-	<div class="replys">
-		<div class="border"></div>
-		<div class="columnBorder">
-			<div class="authorIntro">
-				<div class="authorPhoto">
-					<img src="../img/specialColumn/jessePinkman.jpg">
-				</div>
-				<div class="author">
-					<div class="intro">
-						<a href="">小陳</a>
-						<p>2017/12/2 19:07:42</p>
-					</div>
-					<div class="links">
-						<div class="btns"><span class="btnM report">
-								<p class="btnText btnText2">檢舉</p>
-							</span></div>
-						<div class="stars">
-	<!-- 評價星等 -->
-	<fieldset class="rating">
-	    <input type="radio" id="star5" name="rating" value="5" />
-	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" />
-	    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" />
-	    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" />
-	    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" />
-	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-	</fieldset>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<article>
-				<p>
-					　　老師現在在點算啊？我是小陳啦！你最忠實的學生，我下個月要結婚了，不知道老師願不願意參加我的婚禮，方便的話希望您能上台講幾句話！
-				</p>
-				<p>
-					　　真的很謝謝老師，我老婆也常說當初不知道為什麼突然喜歡上我，我到現在還沒告訴她水晶的事情！總之真的很謝謝老師！
-				</p>
-			</article>
-		</div>
-	</div>
-	<div class="replys">
-		<div class="border"></div>
-		<div class="columnBorder">
-			<div class="authorIntro">
-				<div class="authorPhoto">
-					<img src="../img/specialColumn/mrPickles.jpg">
-				</div>
-				<div class="author">
-					<div class="intro">
-						<a href="">Allen</a>
-						<p>2017/12/3 06:55:08</p>
-					</div>
-					<div class="links">
-						<div class="btns"><span class="btnM report">
-								<p class="btnText btnText2">檢舉</p>
-							</span></div>
-						<div class="stars">
-	<!-- 評價星等 -->
-	<fieldset class="rating">
-	    <input type="radio" id="star5" name="rating" value="5" />
-	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" />
-	    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" />
-	    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" />
-	    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" />
-	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-	</fieldset>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<article>
-				<p>
-					　　小波，我Allen，看你也越做越大了，給你拍拍手，但我覺得你有些地方寫錯了。
-				</p>
-				<p>
-					　　目前沒有研究證實水逆對3C有影響，再來我那天真的是因為手機這樣故障所以早上才遲到，而且那個旋轉本來就是內建的動畫，跟水逆沒有關係好嗎？
-				</p>
-				<p>
-					　　我跟我女朋友現在很好，請你好好當你的甘霖老師，不要再隨便跑過來鬧好不好？真的很煩！
-				</p>
-			</article>
-		</div>
-	</div>
-	<div class="replys">
-		<div class="border"></div>
-		<div class="columnBorder">
-			<div class="authorIntro">
-				<div class="authorPhoto">
-					<img src="../img/specialColumn/mrPeanutbutter.jpg">
-				</div>
-				<div class="author">
-					<div class="intro">
-						<a href="">樹懶叫聲</a>
-						<p>2017/12/3 11:42:17</p>
-					</div>
-					<div class="links">
-						<div class="btns"><span class="btnM report">
-								<p class="btnText btnText2">檢舉</p>
-							</span></div>
-						<div class="stars">
-	<!-- 評價星等 -->
-	<fieldset class="rating">
-	    <input type="radio" id="star5" name="rating" value="5" />
-	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" />
-	    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" />
-	    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" />
-	    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" />
-	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-	</fieldset>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<article>
-				<p>
-					樓上有掛
-				</p>
-			</article>
-		</div>
-	</div>
-
 
 
 <!-- 檢舉燈箱 -->
