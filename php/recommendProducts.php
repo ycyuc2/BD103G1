@@ -301,7 +301,7 @@ try{
 	<script>
 		$(document).ready(function () {
 			
-
+			console.log("yeah");
             var contCount=$('.productsSelect .content.drag').length;
 			var divWidth1=$('.content.drop').outerWidth();
 			var divHeight=$('.content.drop').outerHeight();
@@ -318,6 +318,9 @@ try{
 					$('.productsSelect').height(divHeight);
 					$('.productsSelect .container').outerWidth(divWidth*(contCount));
 					$('.productsSelect .container').outerHeight(divHeight);
+					$('.content.drag').outerHeight(divHeight);
+					$('.content.drag').outerWidth(divWidth);
+
 				}else if(w<759){
 					$('.productsSelect').height(divHeight);
 					$('.productsSelect .container').outerWidth(divWidth*(contCount));
