@@ -303,13 +303,15 @@ try{
 			
 			console.log("yeah");
             var contCount=$('.productsSelect .content.drag').length;
-			var divWidth1=$('.content.drop').outerWidth();
+			var divWidth=$('.content.drop').outerWidth();
 			var divHeight=$('.content.drop').outerHeight();
 			$('.productsSelect').height(divHeight);
-			$('.productsSelect .container').outerWidth(divWidth1*(contCount));
+			$('.productsSelect .container').outerWidth(divWidth*(contCount));
 			$('.productsSelect .container').outerHeight(divHeight);
+			$('.content.drag').outerHeight(divHeight);
+			$('.content.drag').outerWidth(divWidth);
 			$(window).resize(function(){
-				var contCount=$('.productsSelect .content').length;
+				var contCount=$('.productsSelect .content.drag').length;
 				var divWidth=$('.content.drop').outerWidth();
 				var divHeight=$('.content.drop').outerHeight();
 				var w=window.innerWidth;
@@ -355,7 +357,6 @@ try{
 			}
 			function  dragover(e){
 					e.preventDefault();
-
 			}
 
 			var drop_objs =document.getElementsByClassName('drop');
@@ -399,7 +400,7 @@ try{
 				}
 			});
 			$('#search').focus(function(){
-					var get =$(this).val();ａ
+					var get =$(this).val();
 				$("#name li").hide();
 				if($.trim(get)!==''){
 					$('#name li:contains("'+get+'")').show();
@@ -414,7 +415,6 @@ try{
 			});
 			$('.productsSelect .content').click(function(){
 				index = $(this).index()+1;
-				var a=$('.productsSelect .content:nth-child('+index+')  input').text();
 			});
        
 		});	
