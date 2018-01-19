@@ -268,7 +268,8 @@ try {
 			contentDiv.style.left = Math.floor(Math.random() * 58) + 'px';
 			contentDiv.style.top = Math.floor(Math.random() * 76) + 'px';
 			//將div放入陣列中隨機一個li
-			console.log(randomValue);
+			// console.log(randomValue);
+			// console.log(i);
 			if (boxes[randomValue].childNodes.length < 1) {
 				boxes[randomValue].appendChild(contentDiv);
 				boxes[randomValue].style.userSelect = 'auto';
@@ -281,7 +282,7 @@ try {
 
 
 	function moveToTeacher(){
-		console.log(this.innerText);
+		// console.log(this.innerText);
 		for (var i = 0; i < boxes.length; i++) {
 			if (boxes[i].childNodes.length>0) {
 				if (this.innerText == boxes[i].firstChild.firstChild.name) {
@@ -333,7 +334,7 @@ try {
 		var li = ul.childNodes;
 		// console.log(li[1].innerText);
 		for (var i = 1; i < li.length; i++) {
-			console.log(li[i].innerText);
+			// console.log(li[i].innerText);
 	        if (li[i].innerText.toUpperCase().indexOf(filter) > -1) {
 	            li[i].style.display = "";
 	        } else {
