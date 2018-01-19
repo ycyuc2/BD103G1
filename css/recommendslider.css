@@ -74,6 +74,10 @@
 }
 .teacher .teacherBorder .merchandise.recommend .content {
     margin: 0 4.16666% 5%;
+    font-size: 0;
+}
+.teacher .teacherBorder .merchandise.recommend .content:active{
+    cursor: move;
 }
 @media all and (max-width: 759px) {
     .teacher .teacherBorder .merchandise.recommend .content {
