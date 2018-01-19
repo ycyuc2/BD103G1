@@ -60,8 +60,22 @@ window.addEventListener("load", function () {
 		document.querySelector('.pairResult').style.display = "block";
         $('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
 	});
+	window.addEventListener("resize", blurImgChange());
+	window.addEventListener("load", blurImgChange());
+	function blurImgChange() {
+		var windowWidth = window.innerWidth;
+		var blurImg = document.querySelectorAll('.blurImg');
 
-
+		if( windowWidth > 480){
+			for (var i = 0; i < blurImg.length; i++) {
+				blurImg[i].setAttribute("src", "../img/index/blur_words_666H200.png");
+			}
+		}else{
+			for (var j = 0; j < blurImg.length; j++) {
+				blurImg[j].setAttribute("src", "../img/index/blur_words_235H390.png");
+			}
+		}
+	}
 });
 
     
