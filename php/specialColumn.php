@@ -174,9 +174,12 @@ try {
 
 				<!-- 發文按鈕 -->
 				<div class="newArticle">
+					<form action="articlePost.php" method="post">
 					<span class="btnM">
-						<a href="articlePost.html" class="btnText btnText2">發文</a>
+						<input type="hidden" name="teacherNo">
+						<input type="submit" class="btnText btnText2" value="發文"></input>
 					</span>
+					</form>
 				</div>
 
 
