@@ -3,32 +3,23 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: 'Arial', "微軟正黑體";
-}
+  font-family: 'Arial',"微軟正黑體"; }
 
 .headerBlank {
   width: 100%;
-  height: 150px;
-}
+  height: 150px; }
 
 h1 {
   padding-top: 30px;
   font-size: 45px;
   text-align: center;
-  color: #ddd;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  h1 {
-    font-size: 35px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  h1 {
-    font-size: 30px;
-  }
-}
+  color: #ddd; }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    h1 {
+      font-size: 35px; } }
+  @media all and (max-width: 479px) {
+    h1 {
+      font-size: 30px; } }
 
 .teacher {
   position: relative;
@@ -37,61 +28,33 @@ h1 {
   box-sizing: border-box;
   background-image: url(../img/share/texture.png);
   background-position: center center;
-  background-size: 100% 100%;
-}
-
-.teacher .border {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border: 50px solid transparent;
-  border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-  filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
-  box-sizing: border-box;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
+  background-size: 100% 100%; }
   .teacher .border {
-    border: 40px solid transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 50px solid transparent;
     border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-    padding: 20px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .border {
-    border: 30px solid transparent;
-    border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-    padding: 10px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .border {
-    border: 30px solid transparent;
-    border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-    padding: 0;
-  }
-}
-
-.teacher .teacherBorder {
-  position: relative;
-  padding: 70px;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
+    filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
+    box-sizing: border-box; }
+    @media all and (min-width: 760px) and (max-width: 959px) {
+      .teacher .border {
+        border: 40px solid transparent;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+        padding: 20px; } }
+    @media all and (min-width: 480px) and (max-width: 759px) {
+      .teacher .border {
+        border: 30px solid transparent;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+        padding: 10px; } }
+    @media all and (max-width: 479px) {
+      .teacher .border {
+        border: 30px solid transparent;
+        border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+        padding: 0; } }
   .teacher .teacherBorder {
-    border: 40px solid transparent;
-    border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-    padding: 20px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder {
-<<<<<<< HEAD
     position: relative;
     padding: 70px; }
     @media all and (min-width: 760px) and (max-width: 959px) {
@@ -317,7 +280,9 @@ h1 {
           .teacher .teacherBorder .articleList .article .pic .picContainer .picBorder {
             border: 30px solid transparent;
             position: absolute;
-            border-image: url(../img/share/picframe.png) 30 30 repeat; }
+            border-image: url(../img/share/picframe.png) 30 30 repeat;
+            width: 100%;
+            height: 100%; }
           .teacher .teacherBorder .articleList .article .pic img {
             width: 100%; }
         .teacher .teacherBorder .articleList .article .content {
@@ -584,829 +549,6 @@ h1 {
     .teacher .teacherBorder .submit {
       margin-top: 20px;
       text-align: center; }
-=======
-    border: 30px solid transparent;
-    border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-    padding: 10px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder {
-    border: 30px solid transparent;
-    border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-    padding: 0;
-  }
-}
-
-.teacher .teacherBorder .intro {
-  padding: 30px;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .intro {
-    padding: 0px;
-    padding-bottom: 20px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro {
-    padding: 0px;
-    padding-bottom: 20px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro {
-    padding: 0px;
-    padding-bottom: 20px;
-  }
-}
-
-.teacher .teacherBorder .intro:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.teacher .teacherBorder .intro .teacherPhoto {
-  width: 40%;
-  float: left;
-  box-sizing: border-box;
-  overflow: hidden;
-  position: relative;
-}
-
-.teacher .teacherBorder .intro .teacherPhoto img {
-  width: 100%;
-  transition: transform 10s;
-}
-
-.teacher .teacherBorder .intro .teacherPhoto img:hover {
-  transform: scale(1.2, 1.2);
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .intro .teacherPhoto {
-    width: 50%;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro .teacherPhoto {
-    width: 50%;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro .teacherPhoto {
-    width: 100%;
-    float: none;
-  }
-}
-
-.teacher .teacherBorder .intro .introContent {
-  box-sizing: border-box;
-  width: 60%;
-  padding-left: 30px;
-  float: left;
-  color: #533e2f;
-  font-weight: 600;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .intro .introContent {
-    width: 50%;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro .introContent {
-    width: 50%;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro .introContent {
-    width: 100%;
-    float: none;
-    padding: 10px;
-  }
-}
-
-.teacher .teacherBorder .intro .introContent p {
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 1px;
-  margin-top: 10px;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro .introContent p {
-    font-size: 14px;
-    line-height: 22px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro .introContent p {
-    font-size: 14px;
-    line-height: 22px;
-  }
-}
-
-.teacher .teacherBorder .intro .introContent p:nth-child(1):before {
-  content: '暱稱：';
-  display: block;
-  font-size: 20px;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro .introContent p:nth-child(1):before {
-    font-size: 14px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro .introContent p:nth-child(1):before {
-    font-size: 12px;
-  }
-}
-
-.teacher .teacherBorder .intro .introContent p:nth-child(2):before {
-  content: '簡介：';
-  display: block;
-  font-size: 20px;
-  margin-top: 20px;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro .introContent p:nth-child(2):before {
-    font-size: 14px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro .introContent p:nth-child(2):before {
-    font-size: 12px;
-  }
-}
-
-.teacher .teacherBorder .intro .introContent p:nth-child(3) {
-  margin-top: 20px;
-}
-
-.teacher .teacherBorder .intro .introContent p:nth-child(3) i {
-  font-size: 20px;
-  color: #ff0;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .intro .introContent p:nth-child(3) i {
-    font-size: 14px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .intro .introContent p:nth-child(3) i {
-    font-size: 12px;
-  }
-}
-
-.teacher .teacherBorder .links {
-  width: 100%;
-  font-size: 0;
-  margin-bottom: 30px;
-  margin-top: 20px;
-  box-sizing: border-box;
-}
-
-.teacher .teacherBorder .links:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.teacher .teacherBorder .links .left {
-  float: left;
-  width: 33.333%;
-  text-align: center;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .links .left {
-    width: 100%;
-    float: none;
-  }
-}
-
-.teacher .teacherBorder .links .left a:hover {
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .links .left a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .links .mid {
-  float: left;
-  width: 33.333%;
-  text-align: center;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .links .mid {
-    width: 100%;
-    float: none;
-    margin-top: 20px;
-  }
-}
-
-.teacher .teacherBorder .links .mid a:hover {
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .links .mid a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .links .right {
-  float: left;
-  width: 33.333%;
-  text-align: center;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .links .right {
-    width: 100%;
-    float: none;
-    margin-top: 20px;
-  }
-}
-
-.teacher .teacherBorder .links .right a:hover {
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .links .right a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .newArticle {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.teacher .teacherBorder .newArticle a:hover {
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .newArticle a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .newArticle:after {
-  content: '';
-  display: block;
-  clear: right;
-}
-
-.teacher .teacherBorder .articleList {
-  width: 100%;
-  padding: 30px;
-  box-sizing: border-box;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .articleList {
-    padding: 0px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList {
-    padding: 0px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList {
-    padding: 0px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .first {
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .first {
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .second {
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .second {
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-.teacher .teacherBorder .articleList .article {
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.teacher .teacherBorder .articleList .article .pic {
-  width: 25%;
-  box-sizing: border-box;
-  float: left;
-  position: relative;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .article .pic {
-    width: 70%;
-    margin: auto;
-    float: none;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .article .pic {
-    width: 60%;
-    margin: auto;
-    float: none;
-  }
-}
-
-.teacher .teacherBorder .articleList .article .pic .picContainer .picBorder {
-  border: 30px solid transparent;
-  position: absolute;
-  border-image: url(../img/share/picframe.png) 30 30 repeat;
-}
-
-.teacher .teacherBorder .articleList .article .pic img {
-  width: 100%;
-}
-
-.teacher .teacherBorder .articleList .article .content {
-  width: 65%;
-  box-sizing: border-box;
-  float: left;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .article .content {
-    width: 90%;
-    margin: auto;
-    float: none;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .article .content {
-    width: 100%;
-    float: none;
-  }
-}
-
-.teacher .teacherBorder .articleList .article .content .topic h3 {
-  float: left;
-  color: #533e2f;
-  font-size: 25px;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .articleList .article .content .topic h3 {
-    font-size: 20px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .article .content .topic h3 {
-    font-size: 20px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .article .content .topic h3 {
-    font-size: 18px;
-  }
-}
-
-.teacher .teacherBorder .articleList .article .content .topic h3 a {
-  text-decoration: none;
-  color: #533e2f;
-  transition: .2s;
-}
-
-.teacher .teacherBorder .articleList .article .content .topic h3 a:hover {
-  color: #fff;
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .articleList .article .content .topic h3 a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .articleList .article .content .topic .detail {
-  float: right;
-  margin-top: 5px;
-}
-
-.teacher .teacherBorder .articleList .article .content .topic .detail span {
-  color: #533e2f;
-}
-
-.teacher .teacherBorder .articleList .article .content .topic:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.teacher .teacherBorder .articleList .article .content .preview {
-  margin-top: 20px;
-}
-
-.teacher .teacherBorder .articleList .article .content .preview p {
-  color: #533e2f;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 1px;
-}
-
-.teacher .teacherBorder .articleList .article .content .more {
-  text-decoration: none;
-  position: absolute;
-  display: block;
-  bottom: 0;
-  right: 0;
-}
-
-.teacher .teacherBorder .articleList .article .edit {
-  width: 10%;
-  float: left;
-  margin-top: 5%;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .article .edit {
-    float: none;
-    width: 90%;
-    text-align: right;
-    margin: 10px auto 10px auto;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .article .edit {
-    float: none;
-    width: 100%;
-    text-align: right;
-    margin: 10px auto 10px auto;
-  }
-}
-
-.teacher .teacherBorder .articleList .article .edit a {
-  margin: auto;
-  display: block;
-  width: 30px;
-  height: 30px;
-  text-decoration: none;
-}
-
-.teacher .teacherBorder .articleList .article .edit a:hover {
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .articleList .article .edit a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .article .edit a {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .article .edit a {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-.teacher .teacherBorder .articleList .article .edit a+a {
-  margin-top: 20px;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .articleList .article .edit a+a {
-    margin-top: -3px;
-    margin-left: 20px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .articleList .article .edit a+a {
-    margin-top: -3px;
-    margin-left: 20px;
-  }
-}
-
-.teacher .teacherBorder .articleList .article .edit a i {
-  font-size: 30px;
-  color: #533e2f;
-}
-
-.teacher .teacherBorder .articleList .article:after {
-  content: '';
-  clear: both;
-  display: block;
-}
-
-.teacher .teacherBorder .merchandise {
-  margin-top: 20px;
-  padding: 30px;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .merchandise {
-    padding: 10px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise {
-    padding: 10px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise {
-    padding: 10px;
-  }
-}
-
-.teacher .teacherBorder .merchandise h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
-  text-align: center;
-  color: #533e2f;
-}
-
-.teacher .teacherBorder .merchandise .content {
-  width: 30%;
-  box-sizing: border-box;
-  float: left;
-  margin: 0 1.66666%;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise .content {
-    width: 100%;
-    margin: auto;
-  }
-}
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro a {
-  margin-top: 10px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  font-size: 20px;
-  color: #533e2f;
-  font-weight: 600;
-}
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro a:hover {
-  cursor: url(../img/share/cursor.png) 20 15, auto;
-}
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro a:active {
-  cursor: url(../img/share/cursor2.png) 20 15, auto;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise .content .merchandiseIntro a {
-    font-size: 18px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise .content .merchandiseIntro a {
-    font-size: 16px;
-  }
-}
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro p {
-  color: #533e2f;
-  font-weight: 500;
-  margin-top: 10px;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
-    font-size: 14px;
-    line-height: 22px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
-    font-size: 14px;
-    line-height: 22px;
-  }
-}
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
-  text-decoration: line-through;
-}
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
-  font-size: 40px;
-  color: #800;
-  font-weight: bold;
-}
-
-.teacher .teacherBorder .merchandise .content .merchandisePhoto {
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .merchandise .content .merchandisePhoto {
-    width: 70%;
-    margin: 0 auto;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise .content .merchandisePhoto {
-    width: 70%;
-    margin: 0 auto;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise .content .merchandisePhoto {
-    width: 60%;
-    margin: 0 auto;
-  }
-}
-
-.teacher .teacherBorder .merchandise .content .merchandisePhoto img {
-  width: 100%;
-}
-
-.teacher .teacherBorder .merchandise:after {
-  display: block;
-  content: '';
-  clear: both;
-}
-
-.teacher .teacherBorder .merchandise.recommend .content {
-  width: 25%;
-  margin: 0 4.16666%;
-  border: 2px solid #fff;
-  padding: 10px;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise.recommend .content {
-    float: none;
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise.recommend .content {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise.recommend .content .merchandisePhoto {
-    width: 25%;
-    float: left;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise.recommend .content .merchandisePhoto {
-    width: 30%;
-    float: left;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro {
-    margin-left: 5%;
-    width: 70%;
-    float: left;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro {
-    margin-left: 5%;
-    width: 65%;
-    float: left;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(2) {
-    display: none;
-  }
-}
-
-.teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
-  display: none;
-}
-
-.teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
-  font-size: 20px;
-  color: #900;
-  font-weight: bold;
-}
-
-.teacher .teacherBorder .merchandise.recommend .content:after {
-  content: '';
-  clear: both;
-  display: block;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .content.rear {
-    margin-top: 30px;
-  }
-}
-
-.teacher .teacherBorder .productsSelect {
-  width: 100%;
-  height: 300px;
-  box-sizing: border-box;
-  border: 2px solid #fff;
-  position: relative;
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .productsSelect {
-    height: 200px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .productsSelect {
-    height: 150px;
-  }
-}
-
-.teacher .teacherBorder .productsSelect p {
-  display: block;
-  width: 200px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 40px;
-  color: #fff;
-  text-align: center;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  margin: auto;
-}
-
-.teacher .teacherBorder .submit {
-  margin-top: 20px;
-  text-align: center;
-}
->>>>>>> 2e7632661d2ab81675d35f1f919564c169de30fb
 
 .picBorder {
   width: 100%;
@@ -1414,24 +556,20 @@ h1 {
   box-sizing: border-box;
   border: 50px solid transparent;
   position: absolute;
-  border-image: url(../img/share/picframe.png) 30 30 repeat;
-}
+  border-image: url(../img/share/picframe.png) 30 30 repeat; }
 
 .teacher .teacherBorder h1 {
-  color: #533e2f;
-}
+  color: #533e2f; }
 
 .teacher .teacherBorder .line {
-  border-top: 1px solid #fff;
-}
+  border-top: 1px solid #fff; }
 
 .teacher .teacherBorder .intro {
   font-size: 20px;
   color: #533e2f;
   font-weight: 600;
   padding: 0;
-  margin-top: 30px;
-}
+  margin-top: 30px; }
 
 .teacher .teacherBorder .inputTopic {
   display: block;
@@ -1441,12 +579,9 @@ h1 {
   margin: auto;
   margin-top: 10px;
   box-sizing: border-box;
-  padding: 10px;
-}
-
-.teacher .teacherBorder .inputTopic:focus {
-  outline: none;
-}
+  padding: 10px; }
+  .teacher .teacherBorder .inputTopic:focus {
+    outline: none; }
 
 .teacher .teacherBorder .inputImg {
   display: block;
@@ -1455,12 +590,9 @@ h1 {
   height: 30px;
   margin-top: 10px;
   box-sizing: border-box;
-  padding: 10px;
-}
-
-.teacher .teacherBorder .inputImg:focus {
-  outline: none;
-}
+  padding: 10px; }
+  .teacher .teacherBorder .inputImg:focus {
+    outline: none; }
 
 .teacher .teacherBorder .inputContent {
   width: 90%;
@@ -1470,140 +602,86 @@ h1 {
   margin: auto;
   margin-top: 10px;
   box-sizing: border-box;
-  padding: 10px;
-}
-
-.teacher .teacherBorder .inputContent:focus {
-  outline: none;
-}
+  padding: 10px; }
+  .teacher .teacherBorder .inputContent:focus {
+    outline: none; }
 
 .hr {
-  border-color: #533e2f;
-}
+  border-color: #533e2f; }
 
 .teacher .teacherBorder .schedule {
   margin-top: 20px;
-  padding: 30px;
-}
-
-@media all and (min-width: 760px) and (max-width: 959px) {
-  .teacher .teacherBorder .schedule {
-    padding: 10px;
-  }
-}
-
-@media all and (min-width: 480px) and (max-width: 759px) {
-  .teacher .teacherBorder .schedule {
-    padding: 10px;
-  }
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .schedule {
-    padding: 10px;
-  }
-}
-
-.teacher .teacherBorder .schedule h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
-  text-align: center;
-  color: #533e2f;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content {
-  box-sizing: border-box;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .left {
-  float: left;
-  width: 20%;
-  box-sizing: border-box;
-  padding-top: 5%;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .schedule .scheduleContent .content .left {
-    width: 100%;
-    float: none;
-    padding: 0;
-  }
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
-  text-align: center;
-  font-size: 20px;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
-    text-align: left;
-  }
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .mid {
-  float: left;
-  width: 60%;
-  box-sizing: border-box;
-  padding: 20px;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .schedule .scheduleContent .content .mid {
-    width: 60%;
-  }
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .right {
-  float: left;
-  width: 20%;
-  box-sizing: border-box;
-  font-size: 0;
-  padding: 5%;
-}
-
-@media all and (max-width: 479px) {
-  .teacher .teacherBorder .schedule .scheduleContent .content .right {
-    width: 40%;
-    padding: 10% 5% 0 5%;
-  }
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .right a {
-  display: inline-block;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .right a+a {
-  margin-left: 20px;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content .right a i {
-  font-size: 30px;
-  color: #533e2f;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .content:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .other {
-  border-top: 2px solid #533e2f;
-}
-
-.teacher .teacherBorder .schedule .scheduleContent .other span {
-  display: block;
-  margin: 30px auto;
-}
-
-.teacher .teacherBorder .schedule .maps {
-  position: relative;
-  width: 100%;
-}
-
-.teacher .teacherBorder .schedule .maps iframe {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
-}
+  padding: 30px; }
+  @media all and (min-width: 760px) and (max-width: 959px) {
+    .teacher .teacherBorder .schedule {
+      padding: 10px; } }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    .teacher .teacherBorder .schedule {
+      padding: 10px; } }
+  @media all and (max-width: 479px) {
+    .teacher .teacherBorder .schedule {
+      padding: 10px; } }
+  .teacher .teacherBorder .schedule h2 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-align: center;
+    color: #533e2f; }
+  .teacher .teacherBorder .schedule .scheduleContent .content {
+    box-sizing: border-box; }
+    .teacher .teacherBorder .schedule .scheduleContent .content .left {
+      float: left;
+      width: 20%;
+      box-sizing: border-box;
+      padding-top: 5%; }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .schedule .scheduleContent .content .left {
+          width: 100%;
+          float: none;
+          padding: 0; } }
+      .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
+        text-align: center;
+        font-size: 20px; }
+        @media all and (max-width: 479px) {
+          .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
+            text-align: left; } }
+    .teacher .teacherBorder .schedule .scheduleContent .content .mid {
+      float: left;
+      width: 60%;
+      box-sizing: border-box;
+      padding: 20px; }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .schedule .scheduleContent .content .mid {
+          width: 60%; } }
+    .teacher .teacherBorder .schedule .scheduleContent .content .right {
+      float: left;
+      width: 20%;
+      box-sizing: border-box;
+      font-size: 0;
+      padding: 5%; }
+      @media all and (max-width: 479px) {
+        .teacher .teacherBorder .schedule .scheduleContent .content .right {
+          width: 40%;
+          padding: 10% 5% 0 5%; } }
+      .teacher .teacherBorder .schedule .scheduleContent .content .right a {
+        display: inline-block; }
+        .teacher .teacherBorder .schedule .scheduleContent .content .right a + a {
+          margin-left: 20px; }
+        .teacher .teacherBorder .schedule .scheduleContent .content .right a i {
+          font-size: 30px;
+          color: #533e2f; }
+    .teacher .teacherBorder .schedule .scheduleContent .content:after {
+      content: '';
+      display: block;
+      clear: both; }
+  .teacher .teacherBorder .schedule .scheduleContent .other {
+    border-top: 2px solid #533e2f; }
+    .teacher .teacherBorder .schedule .scheduleContent .other span {
+      display: block;
+      margin: 30px auto; }
+  .teacher .teacherBorder .schedule .maps {
+    position: relative;
+    width: 100%; }
+    .teacher .teacherBorder .schedule .maps iframe {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px; }

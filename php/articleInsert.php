@@ -57,7 +57,7 @@
 				$sql = "insert into article (TEACHER_NO, ART_TITLE, ART_CONTENT_1, ART_CONTENT_2, ART_CONTENT_3, ART_IMG_1, ART_IMG_2, ART_IMG_3) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3)";
 				$article = $pdo->prepare($sql);
 				$article = $pdo->prepare($sql);
-				$article->bindValue(":teacher_no", 1);
+				$article->bindValue(":teacher_no", $_REQUEST["teacherNo"]);
 				$article->bindValue(":art_title", $_REQUEST["title"]);
 				$article->bindValue(":art_content_1", $_REQUEST["content1"]);
 				$article->bindValue(":art_content_2", $_REQUEST["content2"]);

@@ -200,7 +200,7 @@ try {
 
 try {
 	require_once("connectBD103G1yu.php");
-	$sql = "select * from article where teacher_no = :teacher_no";
+	$sql = "select * from article where teacher_no = :teacher_no order by ART_POST_TIME desc";
 	$article = $pdo->prepare($sql);
 	$article->bindValue(":teacher_no",$teacherNo);
 	$article->execute();
@@ -217,7 +217,7 @@ try {
 						<div class="pic">
 							<div class="picContainer">
 								<div class="picBorder"></div>
-								<?php echo '<img src="..img/specialColumn/'.$articleRow["ART_IMG_1"].'">' ?>
+								<?php echo '<img src="../img/article/'.$articleRow["ART_IMG_1"].'">' ?>
 							</div>
 						</div>
 						<div class="content">
