@@ -74,7 +74,6 @@
 }
 .teacher .teacherBorder .merchandise.recommend .content {
     margin: 0 4.16666% 5%;
-    font-size: 0;
 }
 .teacher .teacherBorder .merchandise.recommend .content:active{
     cursor: move;
@@ -135,6 +134,7 @@
 }
 
 .teacher .teacherBorder .productsSelect .container .content {
+    width: 200px;
     display:inline-block;
     vertical-align: center;
     margin: 0;
@@ -143,6 +143,7 @@
     box-sizing: border-box;
     float: none;
     clear:both;
+    font-size: 16px;
 }
 
 @media all and (max-width: 759px) {
@@ -179,6 +180,11 @@
     z-index:10;
     /* margin: 0 auto; */
     
+}
+@media all and (min-width: 480px) {
+    .teacher .teacherBorder .productsSelect .container .content {
+        display: block;
+    }
 }
 
 .teacher .teacherBorder #name::-webkit-scrollbar {
