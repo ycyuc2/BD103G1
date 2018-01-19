@@ -28,8 +28,25 @@ try {
                     <p>$ <?php echo $productRow["pd_price"] ?></p>
                 </div>
                 <div class="purchase">
-                    <a href="#">加入購物車</a>
-                    <a href="#">立即購買</a>
+
+
+                <span id="pd<?php echo $PRODUCT["pd_no"] ?>" class="addButton">
+                    加入購物車
+                <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
+                </span>
+
+
+                
+
+                <span class="addButton">
+
+                <a href="#">立即購買</a>
+
+                <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
+                </span>
+
+                </a>
+
                 </div>
             </div>
         </div>
