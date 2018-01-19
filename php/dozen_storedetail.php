@@ -17,7 +17,7 @@
     <script src="../js/count.js"></script>
     <script src="../js/countDown.js"></script>
     <!-- <script src="../js/dozen_storedetailAJAX .js"></script> -->
-    <script src="../js/dozen_addcart.js"></script>
+    <script src="../js/addcart.js"></script>
 </head>
 
 <body>
