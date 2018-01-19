@@ -53,9 +53,26 @@ try {
                                 </form>
                             </div>    
                             <div class="buy">
-                                <div><a href="#">加入購物車</a></div>
+
+                            
+                                <div>
+
+                                    <span id="pd<?php echo $PRODUCT["pd_no"] ?>" class="addButton">
+                                            加入購物車
+                                    <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
+                                    </span>
+                                    
+                                </div>
+
                                 <br>
-                                <div class="buyNow"><a href="../html/dozen_storeCart.html">立即購買</a></div>
+                                <div class="buyNow">
+                                    <a href="../html/dozen_storeCart.html">
+                                        <span class="addButton">
+                                        立即購買
+                                        <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
                          </div> 
                     </div>
