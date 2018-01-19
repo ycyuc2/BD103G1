@@ -6,7 +6,7 @@
             if( xhr.status == 200 ){
                 //alert( xhr.responseText );  
                 //modify_here
-                document.getElementById('productContent').innerHTML = xhr.responseText;
+                document.getElementsByClassName('productContent').innerHTML = xhr.responseText;
             }else{
                 alert( xhr.status );
             }
