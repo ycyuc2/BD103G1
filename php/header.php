@@ -7,23 +7,6 @@
 		$_SESSION["cartCount"] = 0;
 	}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
-	<link rel="stylesheet" href="../css/header.css">
-	<link rel="stylesheet" href="../css/loginLightbox.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="../js/countDown.js"></script>
-	<script src="../js/loginLightbox.js"></script>
-	<title>header</title>
-</head>
-<body>
-
 	<!-- hamnurger -->
 	<!-- 漢堡選單 -->
 		<input type="checkbox" name="" id="menuControl">
@@ -194,7 +177,3 @@
 		</div>
 	
 	<!-- login燈箱結束 -->
-
-		
-</body>
-</html>
