@@ -2,59 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<?php require_once("publicHeader.php") ?>
 	<script src="../js/iscroll.js"></script>
 	<!-- <script src="../js/iscroll-zoom.js"></script> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/findTeacher.css">
-	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
-	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 	<title>找老師</title>
 </head>
 <body id="body">
 
-	<!-- 漢堡選單 -->
-		<input type="checkbox" name="" id="menuControl">
-
-		<label for="menuControl" class="hamburger">
-				<div></div>
-				<div></div>
-				<div></div>
-		</label for="menuControl">
-
-	<div class="menu">
-		<!-- logo -->
-		<a  href="index.html"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
-
-		<!-- 右邊的title區塊 -->
-
-			<div class="left">
-				<p>距離下次水星逆行還有</p>
-				<table class="countdownContainer">
-						<tr class="info">
-							<td id="days">120</td><td>天</td>
-							<td id="hours">4</td><td>時</td>
-							<td id="minutes">12</td><td>分</td>
-							<td id="seconds">22</td><td>秒</td>
-						</tr>
-						
-					</table>
-			</div>
-		<!-- 中間的line -->
-			<div class="line"></div>
-			<!-- 右邊的time區塊 -->
-			<div class="right">
-				<a class="title" href="findTeacher.html">
-					<span class="findTeacher"></span>
-				</a>
-				<a class="title" href="dozen_store.html">
-					<span class="store"></span>
-				</a>
-				<a class="title" href="member.html">
-					<span class="member"></span>
-				</a>
-			</div>	
-	</div>
+	<?php require_once("header.php") ?>
 
 
 
@@ -557,41 +513,7 @@ try {
 
 <!-- 水星逆行的ＪＳ程式 含7秒關閉說明 -->
 <script type="text/javascript">
-	window.onload=countdown;
-	function countdown(){
-
-		//順便在7秒後關閉說明
-		setTimeout(closeDirections, 7000);
-
-
-		var now = new Date();
-		var eventDate = new Date(2018, 3, 23);
-		var currentTime = now.getTime();
-		var eventTime = eventDate.getTime();
-		var remTime = eventTime - currentTime;
-
-		var s = Math.floor(remTime / 1000);
-		var m = Math.floor(s / 60);
-		var h = Math.floor(m / 60);
-		var d = Math.floor(h / 24);
-
-		h %= 24;
-		m %= 60;
-		s %= 60;
-
-		h = (h < 10) ? "0" + h : h;
-		m = (m < 10) ? "0" + m : m;
-		s = (s < 10) ? "0" + s : s;
-
-		document.getElementById("days").textContent = d;
-		document.getElementById("days").innerText = d;
-		document.getElementById("hours").textContent = h;
-		document.getElementById("minutes").textContent = m;
-		document.getElementById("seconds").textContent = s;
-
-		setTimeout(countdown, 1000);
-	}
-
+	
 
 
 	//點擊按鈕亦可關閉說明頁燈箱

@@ -1,104 +1,17 @@
-<?php
-//記得要使用session之前，要先啟用serssion
-//啟用輸出緩衝區
-ob_start();//啟用session
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <title>會員專區</title>
 <link rel="stylesheet" type="text/css" href="../css/member.css">
-<link rel="stylesheet" type="text/css" href="../css/btn.css">
-<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
-<link rel="stylesheet" href="../css/header.css">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../js/countDown.js"></script>
+<?php require_once("publicHeader.php") ?>
 
 </head>
 <body>
 	
+<?php require_once("header.php") ?>
 
-
-	<!-- hambuerger -->
-	<!-- nav -->
-	<input type="checkbox" name="" id="menuControl">
-
-		<label for="menuControl" class="hamburger">
-				<div></div>
-				<div></div>
-				<div></div>
-		</label for="menuControl">
-
-	<div class="menu">
-		<!-- logo -->
-		<a  href="#"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
-
-		<!-- 右邊的title區塊 -->
-
-			<div class="left">
-				<p>距離下次水星逆行還有</p>
-				<table class="countdownContainer">
-						<tr class="info">
-							<td class="days">120</td><td>天</td>
-							<td class="hours">4</td><td>時</td>
-							<td class="minutes">12</td><td>分</td>
-							<td class="seconds">22</td><td>秒</td>
-						</tr>
-						
-					</table>
-			</div>
-		<!-- 中間的line -->
-			<div class="line"></div>
-			<!-- 右邊的time區塊 -->
-			<div class="right">
-				<a class="title" href="findTeacher.html">
-					<span class="findTeacher"></span>
-				</a>
-				<a class="title" href="dozen_store.html">
-					<span class="store"></span>
-				</a>
-				<a class="title" href="member.html">
-					<span class="member"></span>
-				</a>
-			</div>	
-	</div>
-	<!-- hambuerger end-->
-	<!-- header -->
-	<div class="header">
-
-		<!-- 中間logo -->
-		<div class="logo">
-			<a href="index.html">
-				<img src="../img/share/LOGO-08.png">
-			</a>
-		</div>
-		
-		<!-- 右邊會員專區 -->
-		<div class="memArea">
-			<ul>
-				<li><a href="#">註冊/登入</a></li>
-				<li><a href="#">購物車(<span class="cartNo">0</span>)</a></li>
-			</ul>
-		</div>
-
-		<!-- 右邊水逆倒數 -->
-		<div class="countdown">
-			<div class="countdownAlert"></div>
-			<table class="countdownContainer">
-					<tr class="info">
-						<td>水星逆行倒數 :</td>
-						<td class="days">120</td><td>天</td>
-						<td class="hours">4</td><td>時</td>
-						<td class="minutes">12</td><td>分</td>
-					</tr>
-					
-				</table>
-		</div>
-	</div>
-	<!-- header end -->
+	
 	<div class="topBlank"></div>
 		
 	<div class="wrapper">

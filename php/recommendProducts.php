@@ -2,61 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 	<title>推薦商品</title>
-	<script src="../js/countDown.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<?php require_once("publicHeader.php") ?>
 	<link rel="stylesheet" type="text/css" href="../css/specialColumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRating.css">
-	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
-	<link rel="stylesheet" type="text/css" href="../css/header.css">
-	<link rel="stylesheet" type="text/css" href="../css/footer.css">
-	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 	<link rel="stylesheet" href="../css/input.css">
 	<link rel="stylesheet" href="../css/recommendslider.css">
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
 </head>
 <body>
 
-	<!-- 漢堡選單 -->
-	<input type="checkbox" name="" id="menuControl">
-	<label for="menuControl" class="hamburger">
-			<div></div>
-			<div></div>
-			<div></div>
-	</label for="menuControl">
-	<div class="menu">
-		<!-- logo -->
-		<a  href="index.html"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
-		<!-- 右邊的title區塊 -->
-		<div class="left">
-			<p>距離下次水星逆行還有</p>
-			<table class="countdownContainer">
-				<tr class="info">
-					<td class="days">120</td><td>天</td>
-					<td class="hours">4</td><td>時</td>
-					<td class="minutes">12</td><td>分</td>
-					<td class="seconds">22</td><td>秒</td>
-				</tr>
-			</table>
-		</div>
-	<!-- 中間的line -->
-		<div class="line"></div>
-		<!-- 右邊的time區塊 -->
-		<div class="right">
-			<a class="title" href="findTeacher.html">
-				<span class="findTeacher"></span>
-			</a>
-			<a class="title" href="dozen_store.html">
-				<span class="store"></span>
-			</a>
-			<a class="title" href="member.html">
-				<span class="member"></span>
-			</a>
-		</div>	
-	</div>
+	<?php require_once("header.php") ?>
 <!-- 背景 -->
 	<div class="background">
 		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
