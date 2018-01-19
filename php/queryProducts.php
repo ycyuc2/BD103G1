@@ -10,7 +10,7 @@ try {
 ?>
 
     <div class="content">
-    <?php echo '<a href="../html/dozen_storedetail.php?pd_no=',$productRow["pd_no"],'">' ?>
+    <?php echo '<a href="../php/dozen_storedetail.php?pd_no=',$productRow["pd_no"],'">' ?>
         <div class="pic">
             <div class="picFrame"></div>
             
