@@ -1,9 +1,82 @@
+.teacher .teacherBorder .pdRec_wrapper{
+    position:fixed;
+    width: 100%;
+    height: 100%;   
+    background-color: rgba(0,0,0,0.3);
+    z-index:15;
+    top: 0;
+    left: 0;
+    display:none;
+}
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox{
+    width: 360px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: url('../img/index/hint.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox  .loginClose{
+    margin: 20px 0 15px 300px;
+}
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose i{
+    font-size: 25px;
+    display: block;
+    color: #533e2f;
+    transition: 0.2s filter;
+    filter: drop-shadow(0px 0px 5px #fec16a);
+}
+@font-face {
+    font-family: '王漢宗粗明體繁-中';
+    src: url('../font/王漢宗粗明體繁-中.ttf');
+}
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox  p:first-child{
+    margin: 60px 0 10px;
+}
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p{
+    color: rgb(236, 215, 174);
+    font-family: '王漢宗粗明體繁-中';
+    letter-spacing: 6px;
+    padding-left: 6px;
+    text-align: center;
+}
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btn {
+    position: relative;
+    left: 50%;
+    margin-left: -62.5px;
+    width: 125px;
+    height: 68px;
+    line-height: 68px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+    background-color: transparent;
+    background-image: url(../img/findTeacher/hint_btn.png);
+    background-position: center center;
+    background-size: 100% 100%;
+    border: 0px;
+    transition: filter 0.2s;
+    text-align: center;
+    color: rgb(236, 215, 174);
+    font-family: '王漢宗粗明體繁-中';
+    letter-spacing: 6px;
+    padding-left: 6px;
+}
 .teacher .teacherBorder .merchandise.recommend h3{
     text-align: center;
     padding: 16px 0;
 }
 .teacher .teacherBorder .merchandise.recommend .content {
     margin: 0 4.16666% 5%;
+}
+.teacher .teacherBorder .merchandise.recommend .content:active{
+    cursor: move;
 }
 @media all and (max-width: 759px) {
     .teacher .teacherBorder .merchandise.recommend .content {
@@ -12,6 +85,21 @@
     .teacher .teacherBorder .merchandise.recommend h3 {
         font-size: 14px;
     }
+}
+
+.recommendSlider{
+    border:1px #fff solid;
+    width: 100vw;
+    height: 100px;
+}
+.recommendSlider .white {
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255,255,255,0.3);
+}
+.recommendSlider .recContainer{
+    height: 100%;
+    
 }
 
 .teacher .teacherBorder .productsSelect {
@@ -41,9 +129,12 @@
     left: 0px;
     transition: 1s left;
     box-sizing: border-box;
+    margin: 0 auto;
+    font-size: 0;
 }
 
 .teacher .teacherBorder .productsSelect .container .content {
+    width: 200px;
     display:inline-block;
     vertical-align: center;
     margin: 0;
@@ -52,6 +143,7 @@
     box-sizing: border-box;
     float: none;
     clear:both;
+    font-size: 16px;
 }
 
 @media all and (max-width: 759px) {
@@ -86,7 +178,13 @@
     background-repeat: no-repeat;
     color: #ffffff;
     z-index:10;
+    /* margin: 0 auto; */
     
+}
+@media all and (min-width: 480px) {
+    .teacher .teacherBorder .productsSelect .container .content {
+        display: block;
+    }
 }
 
 .teacher .teacherBorder #name::-webkit-scrollbar {

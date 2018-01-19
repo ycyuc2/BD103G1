@@ -189,7 +189,7 @@ session_start();
 								<div class="td tdWidth replyNo">12</div>
 								<div class="td tdWidth replyContent">
 									<p>
-										<?php echo $msgArtRow->ART_TITLE;?>
+										<?php echo $msgArtRow->art_title;?>
 									</p>
 									<p>
 										<?php echo $msgArtRow->msg_content;?>
@@ -200,16 +200,16 @@ session_start();
 										<?php
 											$sql = "select * from teacher where teacher_no = :teacher_no";
 											$teacher = $pdo->prepare($sql);
-											$teacher -> bindValue(":teacher_no",$msgArtRow->TEACHER_NO);
+											$teacher -> bindValue(":teacher_no",$msgArtRow->teacher_no);
 											$teacher -> execute();
 											if($teacherRow = $teacher->fetchObject()){
 										?>
 										<p><?php echo $teacherRow->teacher_nn;}?></p>
-										<p><?php echo $msgArtRow->ART_POST_TIME;?></p>
+										<p><?php echo $msgArtRow->art_post_time;?></p>
 									</div>
 									<div class="td tdWidth">
 										<p>回文人名稱</p>
-										<p><?php echo $msgArtRow->ART_UPDATE_TIME;?></p>
+										<p><?php echo $msgArtRow->art_update_time;?></p>
 									</div>
 								</div>
 							</div>

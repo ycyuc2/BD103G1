@@ -65,9 +65,44 @@ try {
 	$article->bindValue(":teacher_no",$teacherNo);
 	$article->execute();
 	$article_rows = $article->fetchAll(PDO::FETCH_ASSOC);
+	
 
+	if ($article->rowCount() == 0) {
+		echo 	
+			'
+			<p>
+				QQ，該老師目前沒有文章。
+			</p>
+		</div>
+		<div class="teacherInfoBtn">
+				<div class="left">
+					<span class="btnM">
+						<a href="schedule.html" class="btnText btnText4">
+							進入行程
+						</a>
+					</span>
+				</div>
+				<div class="right">
+					<span class="btnM">
+						<a href="specialColumn.php?teacher_no='.$teacherNo.'" class="btnText btnText4">
+										進入專欄
+									</a>
+								</span>
+							</div>
+					</div>';
+
+	}else{
+
+
+	
+	
 	foreach( $article_rows as $i=>$articleRow){
 ?>
+
+<?php 
+	
+	
+ ?>
 
 
 					<a href="#"><h3><?php echo $articleRow["ART_TITLE"] ?></h3></a>
@@ -85,7 +120,7 @@ try {
 					</div>
 					<div class="right">
 						<span class="btnM">
-							<a href="specialColumn.html" class="btnText btnText4">
+							<a href=<?php echo 'specialColumn.php?teacher_no='.$teacherNo ?> class="btnText btnText4">
 								進入專欄
 							</a>
 						</span>
@@ -99,11 +134,11 @@ try {
 
 <?php		
 	}
-
+}
 } catch (PDOException $e) {
 	echo "錯誤原因 : " , $e->getMessage() , "<br>";
 	echo "錯誤行號 : " , $e->getLine() , "<br>";
 }
-?> 
-<?php 
+
+?>
 	
