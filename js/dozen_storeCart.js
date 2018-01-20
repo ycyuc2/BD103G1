@@ -91,10 +91,10 @@ function doFirst() {
    
 	 var itemCount = document.createElement('input');
 	 itemCount.type = 'number';
-	 itemCount.min = 0;
+	 itemCount.min = 1;
 	 itemCount.value = amount;
 	 itemCount.className = 'count';
-	 //itemCount.input.width = '50px';
+	 //itemCount.appendChild[1]
 	 
 
 	 // itemCount.id.style.width = 10;
@@ -141,13 +141,21 @@ function doFirst() {
    
 	function changeItemCount() {
 	 let inputValue = parseInt(this.value);
-	 let id = this.parentNode.parentNode.childNodes[1].id;
-	 let itemValue = storage[id];
-	 itemValue = itemValue.substr(0,itemValue.lastIndexOf('|'));
-	 itemValue +="|"+inputValue;
-	 storage[id] = itemValue;
-	 let subTotal = inputValue * parseInt(storage[id].split('|')[2]);
-	 document.getElementById('subtotal').textContent = subTotal;
+	 let itemTr = this.parentNode.parentNode.parentNode.childNodes;
+	 let total = 0;
+	 for (let i = 0; i < itemTr.length; i++) {
+	 total += parseInt(itemTr[i].childNodes[2].textContent) * parseInt(itemTr[i].childNodes[3].firstChild.value);
+	
+	//  let itemThing = 
+	
+	 }
+	//  let id = this.parentNode.parentNode.childNodes[1].id;
+	//  let itemValue = storage[id];
+	//  itemValue = itemValue.substr(0,itemValue.lastIndexOf('|'));
+	//  itemValue +="|"+inputValue;
+	//  storage[id] = itemValue;
+	//  let subTotal = inputValue * parseInt(storage[id].split('|')[2]);
+	 document.getElementById('subtotal').textContent = total;
 	}
    
    
