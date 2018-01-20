@@ -5,7 +5,6 @@
 		session_destroy();
 		echo '<a href="#">登入/註冊</a>';
 	}else{
-		require_once("connectBooks.php");
 		$sql = "select * from member where mem_acc = :mem_acc and mem_psw = :mem_psw";
 		$member = $pdo->prepare($sql);
 		$member -> bindValue(":mem_acc",$_GET["mem_acc"]);

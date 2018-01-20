@@ -27,7 +27,6 @@
 			<input class="teacherFinder" type="text" onkeyup="findTeacher()">
 			<ul id="teacherList">
 			</ul>
-			<input type="submit" name="" value="找老師">
 		</div>
 	</div>
 
@@ -76,10 +75,6 @@
 					</p>
 
 				</div>
-			</div>
-
-			<div class="teacherMaps">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.7591798476183!2d121.21762541488746!3d24.940272548196493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682254583cc8a3%3A0x75626fd1a8bef7a8!2zMzI05qGD5ZyS5biC5bmz6Y6u5Y2A55Kw5Y2X6Lev5LiJ5q61MTIz6Jmf!5e0!3m2!1szh-TW!2stw!4v1514826750576" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 			</div>
 			<div class="teacherColumn">
 				<p>最新命運解析</p>
@@ -380,12 +375,13 @@ try {
 			}else{
 				teacherInfo.style.visibility = 'visible';
 				teacherInfo.style.opacity = 1;
+				teacherInfo.style.top = '150px';
 				search.style.display = 'none';
 			}
 		//這段為手機板點擊老師後可以顯示在當前頁面頂端
 		}else{
 			//chrome無法使用window.scrollTop
-			teacherInfo.style.top = document.documentElement.scrollTop + 'px';
+			teacherInfo.style.top = document.documentElement.scrollTop + 150 +'px';
 			teacherInfo.style.visibility = 'visible';
 			teacherInfo.style.opacity = 1;
 			search.style.display = 'none';

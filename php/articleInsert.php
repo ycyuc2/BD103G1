@@ -54,7 +54,7 @@
 		if ($confirm) {
 			try {
 				require_once("connectBD103G1yu.php");
-				$sql = "insert into article (TEACHER_NO, ART_TITLE, ART_CONTENT_1, ART_CONTENT_2, ART_CONTENT_3, ART_IMG_1, ART_IMG_2, ART_IMG_3) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3)";
+				$sql = "insert into article (teacher_no, art_title, art_content_1, art_content_2, art_content_3, art_img_1, art_img_2, art_img_3) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3)";
 				$article = $pdo->prepare($sql);
 				$article = $pdo->prepare($sql);
 				$article->bindValue(":teacher_no", $_REQUEST["teacherNo"]);
@@ -66,7 +66,7 @@
 				$article->bindValue(":art_img_2", $uploadFileName2);
 				$article->bindValue(":art_img_3",$uploadFileName3);
 				$article->execute();
-				header('Location:specialColumn.php?');
+				header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacherNo"]);
 
 
 			} catch (PDOException $e) {
