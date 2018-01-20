@@ -167,9 +167,22 @@
                                         </form>
                                     </div>    
                                     <div class="buy">
-                                        <div class="buyNow"><a href="#">加入購物車</a></div>
+
+                                        <div class="buyNow">
+                                            <span id="pd<?php echo $productRow["pd_no"] ?>" class="addButton">
+                                            <a href="#">加入購物車</a>
+                                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"] ?>">
+                                            </span>
+
+                                        </div>
+
                                         <br>
-                                        <div class="buyNow"><a href="../html/dozen_storeCart.html">立即購買</a></div>
+                                        <div class="buyNow">
+                                            <span class="addButton">
+                                                <a href="../html/dozen_storeCart.html">立即購買</a>
+                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"] ?>">
+                                            </span>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>
