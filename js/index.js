@@ -18,15 +18,54 @@ window.addEventListener("load", function () {
 			month[i].appendChild(optM);
 		}
 	}
-	var date = document.querySelectorAll('.date select');
-	for (var i = 0; i < date.length; i++) {
-		for (var j = 0; j < 31; j++) {
-			var optD = document.createElement("option");
-			optD.value = 1+j;
-			optD.innerText = 1+j;
-			date[i].appendChild(optD);
+	function dayGenerater(dayCount, day) {
+		if(day){
+			day.options.length = 0;
+			for (var j = 0; j < dayCount; j++) {
+				var optD = document.createElement("option");
+				optD.value = 1+j;
+				optD.innerText = 1+j;
+				day.appendChild(optD);
+			}
+		}else{
+			var date = document.querySelectorAll('.date select');
+			for (var i = 0; i < date.length; i++) {
+				for (var j = 0; j < dayCount; j++) {
+					var optD = document.createElement("option");
+					optD.value = 1+j;
+					optD.innerText = 1+j;
+					date[i].appendChild(optD);
+				}
+			}
 		}
 	}
+	dayGenerater(31, null);
+
+	for (var i = 0; i < month.length; i++) {
+		month[i].addEventListener("change", function () {
+			var targetDate = this.parentNode.nextSibling.nextSibling.firstChild;
+			switch(this.value){
+				case '1':	case '3':	case '5':	case '7':	case '8':	case '10':	case '12':
+					dayGenerater(31, targetDate);
+					break;
+				case '4':	case '6':	case '9':	case '11':
+					dayGenerater(30, targetDate);
+					break;
+				default:
+					var leapYear = parseInt(this.parentNode.previousSibling.previousSibling.firstChild.value);
+					if(leapYear%100 == 0){
+						dayGenerater(28, targetDate);
+					}else if(leapYear%4 == 0){
+						dayGenerater(29, targetDate);
+					}else{
+						dayGenerater(28, targetDate);
+					}
+					break;
+			}
+		});
+	}
+	
+
 	document.querySelector('.chooseBirthday').style.display = "none";
 	document.querySelector('span.single').addEventListener("click", function () {
 		document.querySelector('.chooseBirthday').style.display = "block";

@@ -1,7 +1,7 @@
 <?php 
 	ob_start();
 	session_start();
-	$_SESSION["where"] = "header.php";
+	require_once("connectBooks.php");
 	if(empty($_SESSION["fort_sta"])){
 		$_SESSION["fort_sta"] = 0;
 	}
