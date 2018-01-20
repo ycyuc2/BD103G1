@@ -14,7 +14,7 @@ function doFirst() {
    
 	var itemString = storage.getItem('addItemList');
 	var items = itemString.substr(0, itemString.length - 2).split(', ');
-   
+	changeItemAmount();
 	newSection = document.createElement('section');
 	newTable = document.createElement('table');
    
@@ -139,23 +139,46 @@ function doFirst() {
 	 this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
 	}
    
+	function changeItemAmount() {
+		var amount =0;
+		console.log(items);
+		for (let i = 0; i < items.length; i++) {
+			amount += parseInt(storage.getItem(items[i]).split('|')[3]);
+		}
+		document.getElementById('amount').textContent = amount ;
+	}
+
+
 	function changeItemCount() {
 	 let inputValue = parseInt(this.value);
 	 let itemTr = this.parentNode.parentNode.parentNode.childNodes;
+	 let totalAmount = 0
 	 let total = 0;
+	
 	 for (let i = 0; i < itemTr.length; i++) {
-	 total += parseInt(itemTr[i].childNodes[2].textContent) * parseInt(itemTr[i].childNodes[3].firstChild.value);
-	
-	//  let itemThing = 
-	
+		var cost = parseInt(itemTr[i].childNodes[2].textContent);
+		var amount = parseInt(itemTr[i].childNodes[3].firstChild.value);
+		
+		totalAmount += amount;
+	 total += cost * amount;
+
 	 }
+	document.getElementById('subtotal').textContent = total;
+
+	 
+	  
+	
+	 document.getElementById('amount').textContent = totalAmount ;
+	 }
+	
+
 	//  let id = this.parentNode.parentNode.childNodes[1].id;
 	//  let itemValue = storage[id];
 	//  itemValue = itemValue.substr(0,itemValue.lastIndexOf('|'));
 	//  itemValue +="|"+inputValue;
 	//  storage[id] = itemValue;
 	//  let subTotal = inputValue * parseInt(storage[id].split('|')[2]);
-	 document.getElementById('subtotal').textContent = total;
+	
 	}
    
    
@@ -174,7 +197,7 @@ function doFirst() {
    
    
    
-   }
+   
 
 
 

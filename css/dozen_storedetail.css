@@ -200,7 +200,7 @@ body {
           .frame .product .productContent .btn .buy {
             float: none;
             width: 100%; } }
-        .frame .product .productContent .btn .buy a {
+        .frame .product .productContent .btn .buy .addbotton {
           color: #fff;
           font-size: 12px;
           letter-spacing: 4px;
