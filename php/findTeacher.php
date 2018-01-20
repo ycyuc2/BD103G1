@@ -27,7 +27,6 @@
 			<input class="teacherFinder" type="text" onkeyup="findTeacher()">
 			<ul id="teacherList">
 			</ul>
-			<input type="submit" name="" value="找老師">
 		</div>
 	</div>
 

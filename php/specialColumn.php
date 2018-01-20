@@ -24,37 +24,7 @@
 		
 	</div>
 <!-- header -->
-	<div class="header">
 
-		<!-- 中間logo -->
-		<div class="logo">
-			<a href="#">
-				<img src="../img/share/LOGO-08.png">
-			</a>
-		</div>
-		
-		<!-- 右邊會員專區 -->
-		<div class="memArea">
-			<ul>
-				<li><a href="#">註冊</a></li>
-				<li><a href="#">登入</a></li>
-				<li><a href="#">購物車(<span class="cartNo">0</span>)</a></li>
-			</ul>
-		</div>
-
-		<!-- 右邊水逆倒數 -->
-		<div class="countdown">
-			<table class="countdownContainer">
-					<tr class="info">
-						<td>水星逆行倒數 :</td>
-						<td class="days">120</td><td>天</td>
-						<td class="hours">4</td><td>時</td>
-						<td class="minutes">12</td><td>分</td>
-					</tr>
-					
-			</table>
-		</div>
-	</div>
 <!-- header end -->
 <?php 
 $teacherNo = $_REQUEST["teacher_no"];
