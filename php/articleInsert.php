@@ -10,7 +10,7 @@
 		date_default_timezone_set("Asia/Taipei");
 		if( $_FILES["contentImg1"]["error"]==0){
 			$tmpFileName1 = strrchr($_FILES["contentImg1"]["name"],".");
-			$uploadFileName1 =  date("YmdHis").$tmpFileName1;
+			$uploadFileName1 =  "1st".date("YmdHis").$tmpFileName1;
 			$from = $_FILES["contentImg1"]["tmp_name"];
 			$to ="../img/article/".$uploadFileName1;
 			if(copy( $from, $to) ){
@@ -24,7 +24,7 @@
 		}
 		if( $_FILES["contentImg2"]["error"]==0){
 			$tmpFileName2 = strrchr($_FILES["contentImg2"]["name"],".");
-			$uploadFileName2 =  date("YmdHis").$tmpFileName2;
+			$uploadFileName2 =  "2nd".date("YmdHis").$tmpFileName2;
 			$from = $_FILES["contentImg2"]["tmp_name"];
 			$to ="../img/article/".$uploadFileName2;
 			if(copy( $from, $to) ){
@@ -38,7 +38,7 @@
 		}
 		if( $_FILES["contentImg3"]["error"]==0){
 			$tmpFileName3 = strrchr($_FILES["contentImg3"]["name"],".");
-			$uploadFileName3 =  date("YmdHis").$tmpFileName3;
+			$uploadFileName3 =  "3rd".date("YmdHis").$tmpFileName3;
 			$from = $_FILES["contentImg3"]["tmp_name"];
 			$to ="../img/article/".$uploadFileName3;
 			if(copy( $from, $to) ){
