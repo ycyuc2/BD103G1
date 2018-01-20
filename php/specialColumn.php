@@ -152,7 +152,7 @@ try {
 
 try {
 	require_once("connectBD103G1yu.php");
-	$sql = "select * from article where teacher_no = :teacher_no order by ART_POST_TIME desc";
+	$sql = "select * from article where teacher_no = :teacher_no order by art_post_time desc";
 	$article = $pdo->prepare($sql);
 	$article->bindValue(":teacher_no",$teacherNo);
 	$article->execute();
@@ -169,22 +169,22 @@ try {
 						<div class="pic">
 							<div class="picContainer">
 								<div class="picBorder"></div>
-								<?php echo '<img src="../img/article/'.$articleRow["ART_IMG_1"].'">' ?>
+								<?php echo '<img src="../img/article/'.$articleRow["art_img_1"].'">' ?>
 							</div>
 						</div>
 						<div class="content">
 							<div class="topic">
 								<h3>
-									<?php echo '<a href="article.php">'.$articleRow["ART_TITLE"].'</a>' ?>
+									<?php echo '<a href="article.php">'.$articleRow["art_title"].'</a>' ?>
 										
 								</h3>
 								<div class="detail">
-									<span><?php echo date("Y-m-d",strtotime($articleRow["ART_POST_TIME"])) ?></span>
+									<span><?php echo date("Y-m-d",strtotime($articleRow["art_post_time"])) ?></span>
 								</div>
 							</div>
 							<div class="preview">
 								<p>
-									<?php echo mb_substr($articleRow["ART_CONTENT_1"],0,100,"utf-8")."..." ?>
+									<?php echo mb_substr($articleRow["art_content_1"],0,100,"utf-8")."..." ?>
 										
 								</p>
 							</div>

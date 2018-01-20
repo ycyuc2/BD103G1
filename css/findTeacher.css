@@ -78,24 +78,25 @@
   visibility: hidden;
   opacity: 0;
   left: calc(50vw - 300px);
+  top: 150px;
   transition: all 0.3s; }
   @media all and (min-width: 760px) and (max-width: 959px) {
     #teacherInfo {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 0; } }
   @media all and (min-width: 480px) and (max-width: 759px) {
     #teacherInfo {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 0; } }
   @media all and (max-width: 479px) {
     #teacherInfo {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 0; } }
   #teacherInfo #closeBtn {
     z-index: 30;
@@ -407,7 +408,7 @@
   width: 50px;
   position: fixed;
   right: 20px;
-  top: 20px;
+  top: 120px;
   z-index: 8; }
   #search img {
     width: 100%;
