@@ -71,7 +71,7 @@
 		<div class="memArea">
 			<ul><?php
 				 
-						require_once("connectBooks.php");
+						
 						if (isset($_SESSION["mem_no"])) {
 							$sql = "select * from member where mem_no = :mem_no";
 							$member = $pdo->prepare($sql);
