@@ -168,19 +168,21 @@
                                     </div>    
                                     <div class="buy">
 
-                                        <div class="buyNow">
-                                            <span id="pd<?php echo $productRow["pd_no"] ?>" class="addButton">
-                                            <a href="#">加入購物車</a>
-                                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"] ?>">
+                                        <div  id="pd<?php echo $productRow["pd_no"] ?>" >
+                                            
+                                            <span class="addButton buyNow">
+                                            加入購物車
+                                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                            
                                             </span>
 
-                                        </div>
+                                        
 
                                         <br>
-                                        <div class="buyNow">
-                                            <span class="addButton">
-                                                <a href="../html/dozen_storeCart.html">立即購買</a>
-                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"] ?>">
+                                        
+                                            <span class="addButton buyNow">
+                                                立即購買
+                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
                                             </span>
                                         </div>
                                     </div>

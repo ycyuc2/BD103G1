@@ -32,7 +32,7 @@ try {
 
                 <span id="pd<?php echo $PRODUCT["pd_no"] ?>" class="addButton">
                    <a href="#"> 加入購物車</a>
-                <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
+                <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"],'|0' ?>">
                 </span>
 
 
@@ -42,7 +42,7 @@ try {
 
                 <a href="#">立即購買</a>
 
-                <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
+                <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"],'|0' ?>">
                 </span>
 
                 </a>
