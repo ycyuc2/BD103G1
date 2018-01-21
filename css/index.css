@@ -9,9 +9,6 @@
 .cursorHand:active{
 	cursor: url('../img/share/cursor2.png') 12 5, auto;
 }
-.wrapper{
-	overflow-x: hidden;
-}
 .wrapper .background {
 	width: 100vw;
 	height: 100vh;
@@ -27,7 +24,7 @@
 
 .indexPic{
 	position: relative;
-	height: 100vh;
+	height: 80vh;
 }
 .magicRune{
 	position: absolute;
@@ -35,7 +32,6 @@
 	margin: 0 auto;
 	width: 550px;
 	height: 550px;
-	overflow-y: hidden;
 }
 .magicRune .runeImg{
 	font-size: 0;
