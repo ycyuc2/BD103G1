@@ -1,3 +1,8 @@
+<?php 
+	ob_start();
+    session_start();
+    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +21,7 @@
 <body>
    
 <?php 
-    require_once("connectBD103G1peng.php");
+
     require_once("header.php");
     $_SESSION["where"] = "dozen_storedetail.php";
 ?>
