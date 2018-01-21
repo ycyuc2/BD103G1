@@ -16,7 +16,7 @@ function doFirst(){
      addItem(this.parentNode.id,info);
         // localStorage.setItem('item',inputValue);
      if(i ==1){
-      document.location.href='../html/dozen_storeCart.html';
+      document.location.href='../html/dozen_storeCart.php';
      }
     });
 

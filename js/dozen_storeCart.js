@@ -57,7 +57,7 @@ function doFirst() {
 	 var image = document.createElement('img');
 	 // console.log(itemImage);
 	 image.className = 'adc';
-	 image.src = '../img/products/' + itemImage;
+	 image.src = '../' + itemImage;
 	 image.width = '100';
    
 	 tdImage.appendChild(image);

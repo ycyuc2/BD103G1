@@ -49,7 +49,7 @@
 
                             <div class="one">
                                 <div class="picFrame"></div>
-                                <?php echo '<img src="../img/products/',$productRow["pd_pic1"],'" alt="">' ?>
+                                <?php echo '<img src="../',$productRow["pd_pic1"],'" alt="">' ?>
                             </div>
 
                         
