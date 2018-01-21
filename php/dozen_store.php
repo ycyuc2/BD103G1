@@ -12,6 +12,7 @@
     
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/dozen_store.js"></script>
+    <script src="../js/addcart.js"></script>
     <!-- <script src="../js/dozen_storeAJAX.js"></script> -->
     <!-- <script src="../js/33_new.js"></script> -->
 

@@ -272,6 +272,8 @@
 
   .frame .search {
     width: 100%; 
+    padding: 0 70px;
+      box-sizing: border-box;
     
   }
     .frame .search:after {
@@ -316,7 +318,7 @@
     .frame .search .searchBox {
       float: right;
       text-align: center;
-     
+      
     
     }
       @media all and (min-width: 480px) and (max-width: 759px) {
@@ -514,7 +516,7 @@
               display: inline-block;
               vertical-align: middle;
               float: none; } }
-          .frame .content .intro .options .purchase a {
+          .frame .content .intro .options .purchase .name .buyNowƒ {
             display: inline-block;
             text-decoration: none;
             text-align: center;

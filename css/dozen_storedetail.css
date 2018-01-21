@@ -200,7 +200,8 @@ body {
           .frame .product .productContent .btn .buy {
             float: none;
             width: 100%; } }
-        .frame .product .productContent .btn .buy .addbotton {
+            
+        .frame  .productContent .btn .buy .name .buyNow  {
           color: #fff;
           font-size: 12px;
           letter-spacing: 4px;
@@ -211,7 +212,14 @@ body {
           text-align: center;
           text-decoration: none;
           background-image: url(../img/dozen_storedetail/btn.png);
-          background-size: contain; }
+          background-size: contain;
+          cursor: pointer;
+         }
+
+         .frame  .productContent .btn .buy .name .buyNow:hover  {
+          background-image: url(../img/dozen_storedetail/btn2.png);
+         }
+
           .frame .product .productContent .btn .buy a:hover {
             cursor: url(../img/share/cursor.png) 20 15, auto; }
           .frame .product .productContent .btn .buy a:focus {

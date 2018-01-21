@@ -28,85 +28,87 @@
 
     <div class="frame">
         <div class="frameFrame"></div>
+
         <div class="product">
-        <div class="productContent">
+
+            <div class="productContent">
 
 
-        <?php
-        $pdNo = $_REQUEST["pd_no"];
-        try {
-            $sql = "select * from products where pd_no = :pdNo";
-            $products = $pdo->prepare($sql);
-            $products->bindValue(":pdNo",$pdNo);
-            $products->execute();
-            $product_rows = $products->fetchAll(PDO::FETCH_ASSOC);
+                <?php
+                $pdNo = $_REQUEST["pd_no"];
+                try {
+                    $sql = "select * from products where pd_no = :pdNo";
+                    $products = $pdo->prepare($sql);
+                    $products->bindValue(":pdNo",$pdNo);
+                    $products->execute();
+                    $product_rows = $products->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach( $product_rows as $i=>$productRow){
-        ?>
-
-
-
-
-                            <div class="one">
-                                <div class="picFrame"></div>
-                                <?php echo '<img src="../',$productRow["pd_pic1"],'" alt="">' ?>
-                            </div>
-
-                        
+                    foreach( $product_rows as $i=>$productRow){
+                ?>
 
 
 
 
-                            <div class="text">
-                                <h2 id="textTitle"><?php echo $productRow["pd_name"] ?></h2> <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
-                                <br>
-                                <img src="../img/dozen_storedetail/star.png" alt="">
-                                <img src="../img/dozen_storedetail/star.png" alt="">
-                                <img src="../img/dozen_storedetail/star.png" alt="">
-                                <img src="../img/dozen_storedetail/star.png" alt="">
-                                <img src="../img/dozen_storedetail/star.png" alt="">
-                                
-                                <p class="rate">4.5/5</p>
-                                <hr > 
-                                <div class="innerText">
-                                    <p>
-                                    <?php echo $productRow["pd_intro"] ?>
-                                    </p>
+                                <div class="one">
+                                    <div class="picFrame"></div>
+                                    <?php echo '<img src="../',$productRow["pd_pic1"],'" alt="">' ?>
                                 </div>
 
-                                <div class="btn">
-                                    <div class="amount">
-                                        <form id='myform' method='POST' action='#'>
-                                                <label for="" id="count">數量</label>
-                                                <br>
-                                                <input  type='button' value='-' class='qtyminus' field='quantity' />
-                                                <input  type='text' name='quantity' value='1' class='qty' readonly="value" />
-                                                <input  type='button' value='+' class='qtyplus' field='quantity' />
-                                        </form>
-                                    </div>    
-                                    <div class="buy">
+                            
 
-                                        <div  id="pd<?php echo $productRow["pd_no"] ?>" >
-                                            
-                                            <span class="addButton buyNow">
-                                            加入購物車
-                                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
-                                            
-                                            </span>
 
-                                        
 
-                                        <br>
-                                        
-                                            <span class="addButton buyNow">
-                                                立即購買
-                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
-                                            </span>
-                                        </div>
+
+                                <div class="text">
+                                    <h2 id="textTitle"><?php echo $productRow["pd_name"] ?></h2> <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
+                                    <br>
+                                    <img src="../img/dozen_storedetail/star.png" alt="">
+                                    <img src="../img/dozen_storedetail/star.png" alt="">
+                                    <img src="../img/dozen_storedetail/star.png" alt="">
+                                    <img src="../img/dozen_storedetail/star.png" alt="">
+                                    <img src="../img/dozen_storedetail/star.png" alt="">
+                                    
+                                    <p class="rate">4.5/5</p>
+                                    <hr > 
+                                    <div class="innerText">
+                                        <p>
+                                        <?php echo $productRow["pd_intro"] ?>
+                                        </p>
                                     </div>
-                                </div> 
-                            </div>
-                        </div>
+
+                                    <div class="btn">
+                                        <div class="amount">
+                                            <form id='myform' method='POST' action='#'>
+                                                    <label for="" id="count">數量</label>
+                                                    <br>
+                                                    <input  type='button' value='-' class='qtyminus' field='quantity' />
+                                                    <input  type='text' name='quantity' value='1' class='qty' readonly="value" />
+                                                    <input  type='button' value='+' class='qtyplus' field='quantity' />
+                                            </form>
+                                        </div>    
+                                        <div class="buy">
+
+                                            <div  id="pd<?php echo $productRow["pd_no"] ?>" class="name" >
+                                                
+                                                <span class="addButton buyNow">
+                                                加入購物車
+                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                                
+                                                </span>
+
+                                            
+
+                                            <br>
+                                            
+                                                <span class="addButton buyNow">
+                                                    立即購買
+                                                    <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+            </div>
         <?php		
             }
 

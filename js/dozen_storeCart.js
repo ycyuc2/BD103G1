@@ -94,6 +94,7 @@ function doFirst() {
 	 itemCount.min = 1;
 	 itemCount.value = amount;
 	 itemCount.className = 'count';
+	 itemCount.style.width = '50px';
 	 //itemCount.appendChild[1]
 	 
 
@@ -109,6 +110,10 @@ function doFirst() {
    
 	 var delButton = document.createElement('button');
 	 delButton.innerText = 'x';
+	 delButton.style.width = '20px';
+	 delButton.style.height = '20px';
+	 delButton.style.marginLeft = '70px';
+	 delButton.style.border = '1px solid black';
 	 delButton.addEventListener('click', deleteItem);
    
 	 tdDelete.appendChild(delButton);
@@ -155,14 +160,14 @@ function doFirst() {
 	 let totalAmount = 0
 	 let total = 0;
 	
-	 for (let i = 0; i < itemTr.length; i++) {
-		var cost = parseInt(itemTr[i].childNodes[2].textContent);
-		var amount = parseInt(itemTr[i].childNodes[3].firstChild.value);
-		
-		totalAmount += amount;
-	 total += cost * amount;
+		for (let i = 0; i < itemTr.length; i++) {
+			var cost = parseInt(itemTr[i].childNodes[2].textContent);
+			var amount = parseInt(itemTr[i].childNodes[3].firstChild.value);
+			
+			totalAmount += amount;
+		total += cost * amount;
 
-	 }
+		}
 	document.getElementById('subtotal').textContent = total;
 
 	 

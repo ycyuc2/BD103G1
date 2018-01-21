@@ -27,25 +27,24 @@ try {
                 <div class="price">
                     <p>$ <?php echo $productRow["pd_price"] ?></p>
                 </div>
+                
                 <div class="purchase">
 
+                    <div id="pd<?php echo $productRow["pd_no"] ?>" class="name">
+                    <span class="addButton buyNow">
+                            加入購物車
+                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                        </span>
 
-                <span id="pd<?php echo $productRow["pd_no"] ?>" class="addButton">
-                   <a href="#"> 加入購物車</a>
-                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
-                </span>
 
+                        
 
+                        <span class="addButton buyNow">         
+                            立即購買
+                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                        </span>
+                    </div>
                 
-
-                <span class="addButton">
-
-                <a href="../php/dozen_storedetail.php?pd_no=<?php echo $productRow["pd_no"]; ?>">立即購買</a>
-
-                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
-                </span>
-
-                </a>
 
                 </div>
             </div>
