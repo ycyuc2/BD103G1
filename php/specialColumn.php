@@ -10,7 +10,9 @@
 </head>
 <body>
 	
-	<?php require_once("header.php") ?>
+	<?php require_once("header.php");
+			$_SESSION["where"] = "specialColumn.php";
+	?>
 
 	
 
@@ -75,34 +77,58 @@ try {
 					</div>
 				</div>
 				<div class="links">
-					<div class="left">
+<?php 
+	if (isset($_SESSION["teacher_no"])) {
+		if($_SESSION["teacher_no"]==$teacherNo){
+			echo '
+				<div class="left">
+					<span class="btnM">
+						<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
+					</span>
+				</div>
+				<div class="right">
 						<span class="btnM">
-							<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
+							<a href=
+				';
+				echo 'specialColumn.php?teacher_no='.$teacherNo;
+				echo ' class="btnText btnText4">老師專欄</a>
 						</span>
 					</div>
-					<div class="mid">
-						<span class="btnM">
-							<a href="schedule.html" class="btnText btnText4">老師行程</a>
-						</span>
-					</div>
-					<div class="right">
-						<span class="btnM">
-							<a href=<?php echo 'specialColumn.php?teacher_no='.$teacherNo ?> class="btnText btnText4">老師專欄</a>
-						</span>
-					</div>
+				';
+		}
+		
+	}
+
+
+
+ ?>
+					
+					<?php  ?>
 				</div>
 				<hr class="hr">
 
 
 				<!-- 發文按鈕 -->
 				<div class="newArticle">
-					<form action="articlePost.php" method="post">
-					<span class="btnM">
-						<input type="hidden" name="teacherNo" value=<?php echo '"'.$_REQUEST["teacher_no"].'"' ?>>
-						<input type="submit" class="btnText btnText2" value="發文"></input>
-					</span>
-					</form>
-				</div>
+
+<?php 
+	if(isset($_SESSION["teacher_no"])){
+		if ($_SESSION["teacher_no"]==$teacherNo) {
+			echo '<form action="articlePost.php" method="post">
+								<span class="btnM">
+									<input type="hidden" name="teacherNo" value=';
+			echo '"'.$_REQUEST["teacher_no"].'"';
+			echo '>
+							<input type="submit" class="btnText btnText2" value="發文"></input>
+						</span>
+						</form>
+					</div>';			
+		}
+	}
+
+
+ ?>
+					
 
 
 <?php
@@ -124,7 +150,7 @@ try {
 	require_once("connectBD103G1yu.php");
 	$sql = "select * from article where teacher_no = :teacher_no order by art_post_time desc";
 	$article = $pdo->prepare($sql);
-	$article->bindValue(":teacher_no",$teacherNo);
+	$article->bindValue(":teacher_no",$_REQUEST["teacher_no"]);
 	$article->execute();
 	$article_rows = $article->fetchAll(PDO::FETCH_ASSOC);
 
@@ -159,10 +185,22 @@ try {
 								</p>
 							</div>
 						</div>
-						<div class="edit">
-							<a href=""><i class="fa fa-pencil-square-o"></i></a>
-							<a href=""><i class="fa fa-trash-o"></i></a>
-						</div>
+
+						<?php 
+							if (isset($_SESSION["teacher_no"])) {
+								if ($_SESSION["teacher_no"]==$teacherNo) {
+
+									echo
+									'<div class="edit">
+										<a href="articleEdit.php?teacher_no='.$teacherNo.'&art_no='.$articleRow["art_no"].'"><i class="fa fa-pencil-square-o"></i></a>
+										<a href="articleDelete.php?teacher_no='.$teacherNo.'&art_no='.$articleRow["art_no"].'"><i class="fa fa-trash-o"></i></a>
+									</div>';
+
+								}
+							}
+
+						 ?>
+						
 
 
 					</div>

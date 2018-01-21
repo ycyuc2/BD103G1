@@ -9,9 +9,6 @@
 .cursorHand:active{
 	cursor: url('../img/share/cursor2.png') 12 5, auto;
 }
-.wrapper{
-	overflow:hidden;
-}
 .wrapper .background {
 	width: 100vw;
 	height: 100vh;

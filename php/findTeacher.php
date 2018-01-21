@@ -10,7 +10,10 @@
 </head>
 <body id="body">
 
-	<?php require_once("header.php") ?>
+	<?php
+		 require_once("header.php");
+		 $_SESSION["where"] = "findTeacher.php";
+	 ?>
 
 
 
@@ -199,8 +202,16 @@ try {
 			hdInput.setAttribute('type', 'hidden');
 			hdInput.setAttribute('value', i+1);
 			hdInput.setAttribute('name', teachersHiddenInput[i].name);
+
+			//建立標題
+			var teacherTopic = document.createElement('h2');
+			teacherTopic.innerText = teachersHiddenInput[i].name;
+
 			//建立div
 			var contentDiv = document.createElement('div');
+
+			//
+			var contentWrapper = document.createElement('div');
 			//給予此div與其他物件之相同class名稱
 			contentDiv.className += 'box';
 			// console.log(boxes.length);
@@ -211,6 +222,7 @@ try {
 			contentDiv.appendChild(hdInput);
 			contentDiv.appendChild(frameBorder);
 			contentDiv.appendChild(contentImg);
+			contentDiv.appendChild(teacherTopic);
 
 
 			contentDiv.addEventListener('click', getTeacher, false);
@@ -232,6 +244,26 @@ try {
 	}
 
 
+	//找到關閉老師細節的按鈕
+	var closeBtn = document.getElementById('closeBtn');
+
+	//建立事件聆聽功能，點擊使用closeTeacherInfo這個function
+	closeBtn.addEventListener('click', closeTeacherInfo, false);
+
+	//找到搜尋按鈕
+	var search = document.getElementById('search');
+	console.log(search);
+	//找到搜尋div
+	var searchBox = document.getElementById('inp');
+
+	//建立事件聆聽功能，點擊使用searchTeacher這個function
+	search.addEventListener('click', searchTeacher, false);
+
+	var moveArea = document.getElementById('moveArea');
+
+	//若搜尋開著進行滑動則關閉搜尋
+	moveArea.addEventListener('click', clearInp, false);
+
 	function moveToTeacher(){
 		// console.log(this.innerText);
 		for (var i = 0; i < boxes.length; i++) {
@@ -239,6 +271,11 @@ try {
 				if (this.innerText == boxes[i].firstChild.firstChild.name) {
 					var childNum = i+1;
 					theScroll.scrollToElement('.teacherContainer > li:nth-child('+childNum+')',3000,true,true,IScroll.utils.ease.circular);
+					searchBox.style.transform = 'scale(0,0)';
+					searchBox.style.opacity = 0;
+					searchBox.style.top = '20px';
+					searchBox.style.right = '20px';
+
 					// theScroll.zoom(0.7, 750);
 					// theScroll.zoom(1, 750);
 					// setTimeout(function(){
@@ -310,25 +347,7 @@ try {
 	//建立事件聆聽功能，點擊使用showTeacher這個function
 	// horseman.addEventListener('click', showTeacher, false);
 
-	//找到關閉老師細節的按鈕
-	var closeBtn = document.getElementById('closeBtn');
 
-	//建立事件聆聽功能，點擊使用closeTeacherInfo這個function
-	closeBtn.addEventListener('click', closeTeacherInfo, false);
-
-	//找到搜尋按鈕
-	var search = document.getElementById('search');
-	console.log(search);
-	//找到搜尋div
-	var searchBox = document.getElementById('inp');
-
-	//建立事件聆聽功能，點擊使用searchTeacher這個function
-	search.addEventListener('click', searchTeacher, false);
-
-	var moveArea = document.getElementById('moveArea');
-
-	//若搜尋開著進行滑動則關閉搜尋
-	moveArea.addEventListener('click', clearInp, false);
 
 	function clearInp(){
 		searchBox.style.transform = 'scale(0,0)';
@@ -345,7 +364,7 @@ try {
 			searchBox.style.opacity = 1;
 			searchBox.style.right = 'calc(50% - 271px)';
 			searchBox.style.transform = 'scale(1,1)';
-			searchBox.style.top = '50%';
+			searchBox.style.top = '40%';
 		}else{
 			searchBox.style.transform = 'scale(0,0)';
 			searchBox.style.opacity = 0;
@@ -470,7 +489,7 @@ try {
 					boxes[i].querySelector('.box').style.left = '0px';
 					boxes[i].querySelector('.box').style.right = '0px';
 					boxes[i].querySelector('.box').style.bottom = '0px';
-					boxes[i].querySelector('.box').style.margin = '10px auto 0px auto';
+					boxes[i].querySelector('.box').style.margin = '20% auto 0px auto';
 					
 				}
 			}
