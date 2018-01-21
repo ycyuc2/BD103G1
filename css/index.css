@@ -35,6 +35,7 @@
 	margin: 0 auto;
 	width: 550px;
 	height: 550px;
+	overflow-y: hidden;
 }
 .magicRune .runeImg{
 	font-size: 0;
