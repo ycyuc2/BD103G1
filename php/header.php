@@ -1,15 +1,10 @@
 <?php 
 	ob_start();
 	session_start();
-	require_once("connectBooks.php");
-	if(empty($_SESSION["fort_sta"])){
-		$_SESSION["fort_sta"] = 0;
-	}
+	$_SESSION["where"] = "header.php";
+	$_SESSION["fort_sta"] = 0;
 	if(empty($_SESSION["cartCount"])){
 		$_SESSION["cartCount"] = 0;
-	}
-	if(empty($_SESSION["karma_val"])){
-		$_SESSION["karma_val"] = 100;
 	}
 ?>
 	<!-- hamnurger -->
@@ -71,12 +66,12 @@
 		<div class="memArea">
 			<ul><?php
 				 
-						
+						require_once("connectBooksting.php");
 						if (isset($_SESSION["mem_no"])) {
 							$sql = "select * from member where mem_no = :mem_no";
 							$member = $pdo->prepare($sql);
-							$member ->bindValue(":mem_no",$_SESSION["mem_no"]);
-							$member ->execute();
+							$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
+							$member -> execute();
 							$memRow = $member->fetchObject();
 							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>\n\t\t\t\t\t\t\t\t<li><a href='#'>購物車(0)</a></li>", $memRow->mem_nn);
 							$sql = "select * from message msg
@@ -85,32 +80,33 @@
 									where msg.mem_no = :mem_no
 									and msg.last_view <art.art_update_time";
 							$message = $pdo->prepare($sql);
-							$message ->bindValue(":mem_no",$_SESSION["mem_no"]);
-							$message ->execute();
+							$message -> bindValue(":mem_no",$_SESSION["mem_no"]);
+							$message -> execute();
 							$msgRow = $message->fetchObject();
 							$sql = "select * from art_collection collect
 									join member mem on collect.mem_no = mem.mem_no 
 									join article art on collect.art_no = art.art_no
 									where collect.mem_no = :mem_no and collect.last_view < art.art_update_time";
 							$collection = $pdo->prepare($sql);
-							$collection ->bindValue(":mem_no",$_SESSION["mem_no"]);
-							$collection ->execute();
+							$collection -> bindValue(":mem_no",$_SESSION["mem_no"]);
+							$collection -> execute();
 							$collectRow = $collection->fetchObject();
 							if($message->rowCount()+$collection->rowCount()!=0){
-								printf("\n\t\t\t\t<li><a href='#'>新訊息(%d)</a></li>", $message->rowCount()+$collection->rowCount());
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>新訊息(%d)</a></li>", $message->rowCount()+$collection->rowCount());
 							}
 							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no";
 							$teacher = $pdo->prepare($sql);
-							$teacher ->bindValue(":mem_no",$_SESSION["mem_no"]);
-							$teacher ->execute();
-							$teacherRow = $teacher->fetchObject();
+							$teacher -> bindValue(":mem_no",$_SESSION["mem_no"]);
+							$teacher -> execute();
+							$teacherRow = $collection->fetchObject();
 							if($teacher->rowCount()!=0){
-								printf("\n\t\t\t\t<li><a href='#'>我的專欄</a></li>");
-								$_SESSION["teacher_no"] = $teacherRow->teacher_no;
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>我的專欄</a></li>");
+								$_SESSION['teacher_no'] = $teacherRow->$teacher_no;
 							}
 						}
 						else{
-							printf("\n\t\t\t\t<li><a href='#'>登入/註冊</a></li>\n\t\t\t\t<li><a href='#'>購物車(%d)</a></li>", $_SESSION["cartCount"]);
+							printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>登入/註冊</a></li>\n\t\t\t\t\t\t\t\t
+								<li><a href='#'>購物車(%d)</a></li>", $_SESSION["cartCount"]);
 						}
 					
 				
