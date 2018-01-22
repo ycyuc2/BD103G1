@@ -231,7 +231,12 @@ h1 {
     .teacher .teacherBorder .articleList {
       width: 100%;
       padding: 30px;
+      padding-bottom: 0;
       box-sizing: border-box; }
+      .teacher .teacherBorder .articleList h2 {
+        font-size: 30px;
+        text-align: center;
+        color: #533e2f; }
       @media all and (min-width: 760px) and (max-width: 959px) {
         .teacher .teacherBorder .articleList {
           padding: 0px; } }

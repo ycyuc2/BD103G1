@@ -1,8 +1,7 @@
 <?php 
-	ob_start();
-	session_start();
-	$_SESSION["where"] = "header.php";
-	$_SESSION["fort_sta"] = 0;
+	if(empty($_SESSION["fort_sta"])){
+		$_SESSION["fort_sta"] = 0;
+	}
 	if(empty($_SESSION["cartCount"])){
 		$_SESSION["cartCount"] = 0;
 	}
@@ -66,7 +65,6 @@
 		<div class="memArea">
 			<ul><?php
 				 
-						require_once("connectBooksting.php");
 						if (isset($_SESSION["mem_no"])) {
 							$sql = "select * from member where mem_no = :mem_no";
 							$member = $pdo->prepare($sql);
@@ -98,10 +96,10 @@
 							$teacher = $pdo->prepare($sql);
 							$teacher -> bindValue(":mem_no",$_SESSION["mem_no"]);
 							$teacher -> execute();
-							$teacherRow = $collection->fetchObject();
+							$teacherRow = $teacher->fetchObject();
 							if($teacher->rowCount()!=0){
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>我的專欄</a></li>");
-								$_SESSION['teacher_no'] = $teacherRow->$teacher_no;
+								$_SESSION['teacher_no'] = $teacherRow->teacher_no;
 							}
 						}
 						else{
