@@ -105,16 +105,58 @@ try {
 					
 					<?php  ?>
 				</div>
+
+				<hr class="hr">
+
+
+				<!-- 商品推薦 -->
+				<div class="merchandise">
+					<h2>商品推薦</h2>
+					<div class="content">
+						<div class="merchandisePhoto">
+							<div class="picBorder"></div>
+							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
+						<div class="merchandiseIntro">
+							<a href="#">開運水晶柱</a>
+							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
+							<p><span>3599</span><span> 899 </span>元</p>
+						</div>
+					</div>
+					<div class="content rear">
+						<div class="merchandisePhoto">
+							<div class="picBorder"></div>
+							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
+						<div class="merchandiseIntro">
+							<a href="#">開運水晶柱</a>
+							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
+							<p><span>3599</span><span> 899 </span>元</p>
+						</div>
+					</div>
+					<div class="content rear">
+						<div class="merchandisePhoto">
+							<div class="picBorder"></div>
+							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
+						<div class="merchandiseIntro">
+							<a href="#">開運水晶柱</a>
+							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
+							<p><span>3599</span><span> 899 </span>元</p>
+						</div>
+					</div>
+				</div>
+
+
+
 				<hr class="hr">
 
 
 				<!-- 發文按鈕 -->
-				<div class="newArticle">
+				
 
 <?php 
 	if(isset($_SESSION["teacher_no"])){
 		if ($_SESSION["teacher_no"]==$teacherNo) {
-			echo '<form action="articlePost.php" method="post">
+			echo '<div class="newArticle">
+					<form action="articlePost.php" method="post">
 								<span class="btnM">
 									<input type="hidden" name="teacherNo" value=';
 			echo '"'.$_REQUEST["teacher_no"].'"';
@@ -143,6 +185,7 @@ try {
 	 ?>
 
 				<div class="articleList">
+					<h2>文章列表</h2>
 
 <?php 
 
@@ -219,46 +262,12 @@ try {
  ?>
 				</div>
 
-				<hr class="hr">
 
-
-				<!-- 商品推薦 -->
-				<div class="merchandise">
-					<h2>聖物推薦</h2>
-					<div class="content">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
-						<div class="merchandiseIntro">
-							<a href="#">開運水晶柱</a>
-							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
-							<p><span>3599</span><span> 899 </span>元</p>
-						</div>
-					</div>
-					<div class="content rear">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
-						<div class="merchandiseIntro">
-							<a href="#">開運水晶柱</a>
-							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
-							<p><span>3599</span><span> 899 </span>元</p>
-						</div>
-					</div>
-					<div class="content rear">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
-						<div class="merchandiseIntro">
-							<a href="#">開運水晶柱</a>
-							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
-							<p><span>3599</span><span> 899 </span>元</p>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	
+			</div>
+		</div>
 
 	<!-- ====================footer==================== -->
 	<div class="footer">
