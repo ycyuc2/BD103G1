@@ -1,7 +1,3 @@
-<?
-ob_start();
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +7,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/article1.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRatingForArticle.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
-		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+	<link rel="stylesheet" href="../css/articleAskLogin.css">
 	
 </head>
 <body>
@@ -27,9 +22,27 @@ session_start();
 
 	<div class="headerBlank"></div>
 
+<!-- 要求登入的燈箱 -->
+	<div class="ask_wrapper">
+	<div class="ask_lightbox">
+		<label for="askControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		</label>
+		<p>請登入再評價</p>
+		<div class="btn"> 登入</div>
+	</div>
+</div>
 
-
-
+<!-- 成功評價的燈箱 -->
+<div class="win_wrapper">
+	<div class="win_lightbox">
+		<label for="askControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		</label>
+		<p>請登入再評價</p>
+		<div class="btn"> 登入</div>
+	</div>
+</div>
 
 <!-- 標題 -->
 	<h2>搞定水逆，讓你全家不再水逆</h2>
@@ -78,44 +91,72 @@ session_start();
 			</div>
 <?
 		try{
-			$_SESSION["mem_no"]=1;
-			$_REQUEST["art_no"]=1;
 			require_once("../php/connectBooksting.php");
-			$sql="select * from art_review where MEM_NO =? and ART_NO =?";
+			$_REQUEST["art_no"]=1;
+			if(isset($_SESSION["mem_no"])){
+			$sql="select * from art_review where mem_no =? and art_no =?";
 			$check=$pdo->prepare($sql);
-			$check->bindValue(1,1);
+			$check->bindValue(1,$_SESSION["mem_no"]);
 			$check->bindValue(2,1);
 			$check->execute();
 			$checkRow=$check->fetchObject();
 			if($check->rowcount()!=0){
+				
 				?>
 				<script>
-					var star= <?echo  $checkRow->ART_STAR;?>;
+					var star= <?echo  $checkRow->art_star;?>;
 					var inputElems= $('.teacherStar input[type="radio"]');
-					alert(inputElems.length);
-					// alert(inputElems[2].value);
-					inputElems[5-star].checked=true;
-					
+					inputElems[4-star].checked=true;
+
 				</script>
 				
 				
 				<?
-			}
-		
-	
+				}
+			}else{
+					?>
+					<script>
+						var inputElems= $('.teacherStar input[type="radio"]');
+						for(var i=0;i<5;++i){
+							inputElems[i].checked=false;
+							inputElems[i].onclick=function(){
+								$('.ask_wrapper').css('display','block');
+							}
+						}
+
+					</script>
+					<?
+				}
+
 	?>
 
 			<script>
+		
         
-        var inputElems = document.getElementsByTagName("input");
-        for(var i =0;i<inputElems.length;i++){
-            inputElems[i].addEventListener('change', checkboxes, 'true');
+        
+		$(document).ready(function () {
+			$('.ask_wrapper .lightboxClose').click(function(){
+			$('.ask_wrapper').css('display','none');
+			});
+			$('.ask_wrapper .btn').click(function(){
+				$('.loginLightbox').css({
+					'opacity': '1',
+					'right': '0',
+					'transition': 'opacity 0.2s'
+				});
+				$('.ask_wrapper').css('display','none');
+			});
 
-        }
-        function checkboxes(){
-			var star= document.querySelector('input[type="radio"]:checked');
 
+			var inputElems =document.querySelectorAll('input[type="radio"]');
+			for(var i =0;i<inputElems.length;i++){
+            inputElems[i].addEventListener('click', checkboxes, false);
+			}	
+        function checkboxes(e){
+			var star= document.querySelectorAll('input[type="radio"]:checked');
+			$('.win_wrapper').css('display','block');
 			console.log(star.value);
+			var star1=e.target.value-1;
 			var xhr = new  XMLHttpRequest();
 			xhr.onload=function(){
 				if(xhr.status ==200){
@@ -125,10 +166,12 @@ session_start();
 					alert(xhr.status);
 				}
 			}
-			var url="starInsert.php?art_no="+<?echo $_REQUEST["art_no"]?>+"&mem_no="+<?echo $_SESSION["mem_no"]?>+"&art_star="+star.value;
+			var url="starInsert.php?art_no=<?echo $_REQUEST["art_no"]?>&mem_no=<?echo $_SESSION["mem_no"]?>&art_star="+star1;
+			console.log(url);
 			xhr.open("get",url,true);
 			xhr.send(null);
-        }
+			}
+		});
     </script>
 <!-- 文章區 -->
 			<article>
@@ -178,9 +221,9 @@ session_start();
     $sql="select * from message where art_no=?";
     $message=$pdo->prepare($sql);
     $message->bindValue(1,1);
-    $message->execute();
-    while($mesRow=$message->fetchObject()){
-		$mem_no=$mesRow->mem_no;
+	$message->execute();
+    while($msgRow=$message->fetchObject()){
+		$mem_no=$msgRow->mem_no;
         $sql1="select mem_nn from member where mem_no=?";
 		$mem=$pdo->prepare($sql1);
 		$mem->bindValue(1,$mem_no);
@@ -199,7 +242,7 @@ session_start();
 				<div class="author">
 					<div class="intro">
 						<a href=""><?echo $memRow->mem_nn?></a>
-						<p> <? echo $mesRow->msg_time?> </p>
+						<p> <? echo $msgRow->msg_time?> </p>
 					</div>
 					<div class="links">
 						<div class="btns"><span class="btnM report">
@@ -225,21 +268,10 @@ session_start();
 			</div>
 			
 			<article>
-				<p><? echo $mesRow->msg_content?></p>
+				<p><? echo $msgRow->msg_content?></p>
 			</article>
 		</div>
 	</div>
-<?
-
-	}
-}catch(PDOExeption $e){
-        echo "錯誤原因 : " , $e->getMessage() , "<br>";
-        echo "錯誤行號 : " , $e->getLine() , "<br>";
-    }
-?>    
-
-	
-    
 
 
 <!-- 檢舉燈箱 -->
@@ -249,25 +281,21 @@ session_start();
 				<i class="fa fa-times"></i>
 			</div>
 			<p>請輸入檢舉原因</p>
-			<form>
-				<textarea></textarea>
-				<input class="reportSubmit" type="submit" value="送出">
-			</form>
+
+			<textarea id="reportReason"  required></textarea>
+			<span class="btnM" id="msgReportSubmit"><p href="#" class="btnText btnText2">送出</p></span>
+			<!-- <input class="reportSubmit" type="submit" value="送出"> -->
 		</div>
 	</div>
 
-	<!-- ====================footer==================== -->
-	<div class="footer">
-
-		<div class="copyright">
-			<p>
-			點算©Copyright DOZEN, 2018.
-			</p>
-		</div>
-		
-	</div>
-
-
+<?
+	$sql="select * from msg_report where mem_no=? and msg_no=?";
+	$msgReport=$pdo->prepare($sql);
+	$msgReport->bindValue(1,$msgRow -> mem_no);
+	$msgReport->bindValue(2,$msgRow -> msg_no);
+	$msgReport->execute();
+	$count=$msgReport->rowcount();
+?>
 	<script>
 			//宣告一堆變數
 			var reportBtn, lightBox, cancelBtn, reportSubmit;
@@ -279,16 +307,37 @@ session_start();
 			//這是燈箱關閉按鈕
 			cancelBtn = document.getElementsByClassName('cancelBtn')[0];
 			//這是燈箱送出按鈕
-			reportSubmit = document.getElementsByClassName('reportSubmit')[0];
+			// reportSubmit = document.getElementsByClassName('reportSubmit')[0];
+			var msgSubmit=document.getElementById('msgReportSubmit');
 			//燈箱關閉按鈕按了關閉燈箱
 			cancelBtn.addEventListener('click', function(){
-					closeReport();
+				closeReport();				
 			}, false);
 
 			//送出按鈕按了會顯示送出訊息，然後關閉燈箱
-			reportSubmit.addEventListener('click', function(){
+			msgSubmit.addEventListener('click', function(){
+				var textarea=document.getElementById('reportReason').value;
+				var xhr= new XMLHttpRequest();
+
+				if(<? echo $count ?>==0){
+					var url = "msgReport.php?msg_no=<?echo $msgRow -> msg_no?>&mem_no=<? echo $mem_no?>&msg_rep_reason="+textarea+"";
+					xhr.open("Get", url, true);
+					xhr.send(null);
 					alert('已送出檢舉');
 					closeReport();
+				}else{
+					alert("您已經檢舉過了。");
+				}
+				
+				if(xhr.status == 200){
+					alert('已送出檢舉');
+					closeReport();
+				}else{
+					closeReport();
+				}
+				
+				
+				
 			}, false);
 
 			//將所有檢舉按鈕建立click事件
@@ -314,5 +363,28 @@ session_start();
 			}
 		
 	</script>
+
+ 	<?
+
+	}
+
+}catch(PDOExeption $e){
+        echo "錯誤原因 : " , $e->getMessage() , "<br>";
+        echo "錯誤行號 : " , $e->getLine() , "<br>";
+    }
+?>   
+
+	<!-- ====================footer==================== -->
+	<div class="footer">
+
+		<div class="copyright">
+			<p>
+			點算©Copyright DOZEN, 2018.
+			</p>
+		</div>
+		
+	</div>
+
+
 </body>
 </html>

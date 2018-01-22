@@ -133,7 +133,6 @@
 }
 
 @media all and (min-width: 760px) {
-
     .teacher .teacherBorder .merchandise.recommend .content.drag,
     .productsSelect .content.drag {
         width: 176px;

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRating.css">
 	<link rel="stylesheet" href="../css/input.css">
-	<link rel="stylesheet" href="../css/recommendslider.css">
+	<link rel="stylesheet" href="../css/recommendslider1.css">
 
 </head>
 <body>
@@ -50,11 +50,22 @@
 			</table>
 		</div>
 	</div>
+<?php 
+$_SESSION["teacher"]["teacher_no"]=2;
+$_SESSION["mem_no"]=null;
+try{
+    require_once("../php/connectBooksting.php");
+	$sql = "select * from teacher where teacher_no = :teacher_no";
+	$teacher = $pdo->prepare($sql);
+	$teacher->bindValue(":teacher_no",$_SESSION["teacher"]["teacher_no"]);
+	$teacher->execute();
+	$teacher_row = $teacher->fetchAll(PDO::FETCH_ASSOC);
+		foreach( $teacher_row as $i=>$teacherRow){
 
-
+?>
 	<div class="headerBlank"></div>
 
-		<h1>馬男波傑克 X 運勢解析</h1>Ｆ
+		<h1> <?php echo $teacherRow["teacher_nn"] ?> X 運勢解析</h1>
 		<div class="teacher">
 			<div class="border"></div>
 			<div class="teacherBorder">
@@ -67,11 +78,11 @@
 						<img class="photo" src="../img/findTeacher/horseman.jpg" alt="">
 					</div>
 					<div class="introContent">
-						<p>馬男波傑克</p>
-						<p>前中原大學占星社社長，因其對星座算命有著獨到的見解，且本身有著可以預測未來的天命，在2014年多次成功預測天災而爆紅。雖然洩漏天機可能造成災厄，但波傑克為了世人的安危總是甘願承擔苦果，因此成為當代占卜三本柱之一。</p>
+						<p><?php  echo $teacherRow["teacher_nn"] ?></p>
+						<p><?php echo $teacherRow["teacher_info"] ?></p>
 						<p>
 						<!-- 評價星等 -->
-							<fieldset class="rating">
+							<fieldset class="rating teacherStar">
 								<input type="radio" id="star5" name="rating" value="5" />
 								<label class = "full" for="star5" title="Awesome - 5 stars"></label>
 								<input type="radio" id="star4" name="rating" value="4" />
@@ -83,6 +94,24 @@
 								<input type="radio" id="star1" name="rating" value="1" />
 								<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 							</fieldset>
+
+<?php 
+	
+	if($teacher->rowcount()!=0 &&  isset($_SESSION["mem_no"])){
+?>
+		<script>
+			var star= <?php echo  $teacherRow["teacher_star"] ?>;
+			var inputElems= $('.teacherStar input[type="radio"]');
+			inputElems[5-star].checked=true;
+
+		</script>
+<?php 
+	}else if(isset($_SESSION["mem_no"])==null){
+
+	}
+}
+?>
+
 						</p>
 					</div>
 				</div>
@@ -92,11 +121,6 @@
 							<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
 						</span>
 					</div>
-					<div class="mid">
-						<span class="btnM">
-							<a href="schedule.html" class="btnText btnText4">老師行程</a>
-						</span>
-					</div>
 					<div class="right">
 						<span class="btnM">
 							<a href="specialColumn.html" class="btnText btnText4">老師專欄</a>
@@ -104,41 +128,95 @@
 					</div>
 				</div>
 				<hr>
-
-				
+	
 
 <!-- 推薦區域 -->
 <div class="pdRec_wrapper">
 	<div class="pdRec_lightbox">
 		<label for="loginControl">
-			<i class="fa fa-times fa-2x loginClose cursorHand"></i>
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
 		</label>
 		<p>您重複推薦商品了</p>
 		<div class="btn"> 我知道了</div>
 	</div>
 </div>
 
-<?
-try{
-    $_SESSION["teacher"]["teacher_no"]=1;
-    require_once("../php/connectBooksting.php");
-    $sql="select * from pd_recommend where teacher_no = ?";
-    $recommend=$pdo->prepare($sql);
-    $recommend->bindValue(1,2);
-    $recommend->execute();
-    $recRow=$recommend->fetchObject();
-    // 提出老師推薦的商品序號
-    $a=$recRow->pd_no;$b=$recRow->pd_no2;$c=$recRow->pd_no3;
+<?php 
+
 
     // 到products資料庫撈出商品的細項
     $sql="select  * from products where pd_no =?" ;
     $pd=$pdo->prepare($sql);
 ?>
+
+
+<div class="pdRec_wrapper2">
+	<div class="pdRec_lightbox">
+		<label for="loginControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		</label>
+		<p>您尚未推薦滿三個商品</p>
+		<div class="btn"> 我知道了</div>
+	</div>
+</div>
+
+
+<script>
+			function check(){
+				var drop1=document.getElementsByClassName('drop')[0].getElementsByTagName('input')[0].value;
+				var drop2=document.getElementsByClassName('drop')[1].getElementsByTagName('input')[0].value;
+				var drop3=document.getElementsByClassName('drop')[2].getElementsByTagName('input')[0].value;
+				if(drop1==0 || drop2==0 || drop3==0){
+					$('.pdRec_wrapper2').css('display','inline');
+				}else{
+					var form  = document.getElementById('formRec');
+					form.submit();
+				}
+
+			}
+</script>
     <div class="merchandise recommend">
 		<h2>推薦商品</h2>
-		<form action="pdRecInsert.php" method="get">
-			<input type="hidden" value="<?echo $_SESSION["teacher"]["teacher_no"]?>" name="teacher_no">
-<?
+		<div class="pdRecMove">
+		<form action="pdRecInsert.php" method="get" id="formRec">
+			<input type="hidden" value="<?php echo $_SESSION["teacher"]["teacher_no"]?>" name="teacher_no">
+<?php 
+
+
+    $sql="select * from pd_recommend where teacher_no = ?";
+    $recommend=$pdo->prepare($sql);
+    $recommend->bindValue(1,3);
+    $recommend->execute();
+	if($recommend->rowcount()===0){
+?>
+<div class="content drop">
+	<div class="white"></div>
+				<input type="hidden" name="r[]" value="">
+				<p>尚未推薦產品</p>
+
+</div>  
+<div class="content drop">
+	<div class="white"></div>
+				<input type="hidden" name="r[]" value="">
+				<p>尚未推薦產品</p>
+
+</div>  
+<div class="content drop">
+	<div class="white"></div>
+				<input type="hidden" name="r[]" value="">
+				<p>尚未推薦產品</p>
+
+</div>  
+<?php 
+	}else{
+		$recRow=$recommend->fetchObject();
+	
+    // 提出老師推薦的商品序號
+	$a=$recRow->pd_no;
+	$b=$recRow->pd_no2;
+	$c=$recRow->pd_no3;
+	
+	
     for( $i=1;$i<4;++$i){
         //一個個篩選
         if($i==1){   
@@ -152,70 +230,60 @@ try{
 		$pdRow = $pd -> fetchObject();
 			
 ?>
-        <div class="content drop">
-			<input type="text" name="r[]" value="<?echo $pdRow-> pd_no?>">
-            <div class="merchandisePhoto"><img src="../img/specialColumn/cristal.JPG" alt=""></div>
+
+	<div class="content drop">
+			<input type="hidden" name="r[]" value="<?php echo $pdRow-> pd_no?>">
+            <div class="merchandisePhoto"><img src="../img/products/<?php echo $pdRow->pd_pic1?>" alt=""></div>
             <div class="merchandiseIntro">
-                <a href="#"> <? echo $pdRow-> pd_name ?> </a>
-                <p> <? echo mb_substr($pdRow -> pd_describe,0,30,"utf-8")."..."?> </p>
-                <p><span> <? echo $pdRow-> pd_price ?> </span> <span> <? echo $pdRow-> pd_sale ?> </span>元</p>
+                <a href="#"> <?php  echo $pdRow-> pd_name ?> </a>
+                <p class="describe"> <?php  echo mb_substr($pdRow -> pd_describe,0,30,"utf-8")."..."?> </p>
+                <p class="describe"><span> <?php  echo $pdRow-> pd_price ?> </span> <span> <?php  echo $pdRow-> pd_sale ?> </span>元</p>
             </div>
         </div>  
-		<? ;
-    }
+		<?php  
+		}
+	}
 ?>
 
-	<input type="submit" id="btnSend">
+	<input type="send" id="btnSend" value="" onclick="check()">
 	</form>
-    </div>     
+	</div>     
+</div>
 		
-
-
-	<div class="recommendSilder">
-		<div class="white"></div>
-		<div class="recContainer">
-			<div class="product_item">
-				<img src="" alt="">
-				<p></p>
-			</div>
-		</div>
-	</div>
-
 
 
 	<div class="merchandise recommend">
 		
 		<div class="search">
-		<input type="search" id="search" class="input input200">
+		<!-- <input type="search" id="search" class="input input200"> -->
 		<ul id="name" type="none">
-<?			
+<?php 			
 		$sql1="select * from products";
 		$pd=$pdo->query($sql1);
 		while($nameRow = $pd->fetchObject()){
 			echo '<input type="hidden" class="pdHiddenInput" value="',$nameRow-> pd_no,'" >';
 ?> 
-			<li><? echo $nameRow-> pd_name ?></li>
-<?		
+			<li><?php  echo $nameRow-> pd_name ?></li>
+<?php 		
 		}
 ?>
 			</ul>
 		</div>
-	<h3>可搜尋商品，並將商品拖曳到上方取代</h3>
 		<div class="productsSelect">
+			<div id="white"><h3>請將欲推薦商品拖曳至上方，推薦好請點選完成。</h3></div>
 			<div class="container">
-			<?
+			<?php 
 			$sql="select * from products";
 			$pd=$pdo ->query($sql);
-				while($nameRow=$pd->fetchObject()){
+				while($dragRow=$pd->fetchObject()){
 				?>
-				<div class="content drag" draggable="true" id="<?echo $nameRow -> pd_no?>">
-					<input type="text" name="r[]" value="<?echo $nameRow-> pd_no?>">
-					<div class="merchandisePhoto"><img src="../img/specialColumn/cristal.JPG" alt=""></div>
+				<div class="content drag" draggable="true" id="<?php echo $dragRow -> pd_no?>">
+					<input type="hidden" name="r[]" value="<?echo $dragRow-> pd_no?>">
+					<div class="merchandisePhoto"><img src="../img/products/<?echo $dragRow->pd_pic1?>" alt=""></div>
 					<div class="merchandiseIntro">
-						<a href="#"> <? echo $nameRow-> pd_name ?> </a>
-						<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可...</p>
-						<p><span> <? echo $nameRow-> pd_price ?> </span> <span> <? echo $nameRow-> pd_sale ?> </span>元</p>
-						<!-- <p style="display:none;"><? echo $nameRow-> pd_price ?></p> -->
+						<a href="#"> <? echo $dragRow-> pd_name ?> </a>
+						<p class="describe"><? echo mb_substr($dragRow -> pd_describe,0,30,"utf-8")."..."?></p>
+						<p><span> <? echo $dragRow-> pd_price ?> </span> <span> <? echo $dragRow-> pd_sale ?> </span>元</p>
 
 					</div>
 				</div>  
@@ -257,32 +325,73 @@ try{
 
 	<script>
 		$(document).ready(function () {
-			
-			console.log("yeah");
+			function check(){
+				var drop1=document.getElementsByClassName('drop')[0].getElementsByTagName('input')[0].value;
+				var drop2=document.getElementsByClassName('drop')[1].getElementsByTagName('input')[0].value;
+				var drop3=document.getElementsByClassName('drop')[2].getElementsByTagName('input')[0].value;
+				if(drop1==0 || drop2==0 || drop3==0){
+					alert("no");
+				}else{
+					var form  = document.getElementById('formRec');
+					form.submit();
+				}
+
+			}
+			document.getElementById("white").addEventListener("mouseover",disappear);
+			function disappear(){
+				white.style.transition="opacity 1s  0s,0s 1s left";
+				white.style.left="-100%";
+				white.style.opacity="0";
+
+			}
+
+			// 燈箱
+			// $('pdRec_wrapper').click(function(){
+			// 	$(this).css({
+			// 		left:'0'
+			// 	});
+			// });
+			$('.pdRec_wrapper .btn').click(function(){
+				$('.pdRec_wrapper').css('display','none');
+			});
+			$('.pdRec_wrapper .lightboxClose').click(function(){
+				$('.pdRec_wrapper').css('display','none');
+			});
+
+			$('.pdRec_wrapper2 .btn').click(function(){
+				$('.pdRec_wrapper2').css('display','none');
+			});
+			$('.pdRec_wrapper2 .lightboxClose').click(function(){
+				$('.pdRec_wrapper2').css('display','none');
+			});
+
             var contCount=$('.productsSelect .content.drag').length;
 			var divWidth=$('.content.drop').outerWidth();
 			var divHeight=$('.content.drop').outerHeight();
-			$('.productsSelect').height(divHeight);
-			$('.productsSelect .container').outerWidth(divWidth*(contCount));
+			var divHeight2=$('.content.drag').outerHeight();
+			var w=window.innerWidth;
+
+			$('.productsSelect #white').height(divHeight2);
+			$('.productsSelect .container').outerWidth(190*(contCount));
 			$('.productsSelect .container').outerHeight(divHeight);
-			$('.content.drag').outerHeight(divHeight);
-			$('.content.drag').outerWidth(divWidth);
+			
 			$(window).resize(function(){
 				var contCount=$('.productsSelect .content.drag').length;
 				var divWidth=$('.content.drop').outerWidth();
 				var divHeight=$('.content.drop').outerHeight();
+				var divHeight2=$('.content.drag').outerHeight();
+				
 				var w=window.innerWidth;
-				console.log(divWidth,divHeight,w);
 				if(w>760){
-					$('.productsSelect').height(divHeight);
-					$('.productsSelect .container').outerWidth(divWidth*(contCount));
+					prodSelect=$('.productsSelect').outerWidth();
+					$('.productsSelect #white').width(prodSelect);
+					$('.productsSelect #white').height(divHeight2);
+					$('.productsSelect .container').outerWidth(176*(contCount));
 					$('.productsSelect .container').outerHeight(divHeight);
-					$('.content.drag').outerHeight(divHeight);
-					$('.content.drag').outerWidth(divWidth);
 
 				}else if(w<759){
-					$('.productsSelect').height(divHeight);
-					$('.productsSelect .container').outerWidth(divWidth*(contCount));
+					$('.productsSelect #white').height(divHeight2);
+					$('.productsSelect .container').outerWidth(176*(contCount));
 					$('.productsSelect .container').outerHeight(divHeight);
 				}
 			});
@@ -298,7 +407,6 @@ try{
 					var data = e.dataTransfer.getData("text");
 					var nodeCopy = document.getElementById(data).cloneNode(true);
 					 pd2 = document.getElementById(data).getElementsByTagName('input')[0].value;
-					alert(e.dataTransfer.getData("text"));
 
 					if(pd2 != drop1 && pd2 != drop2 && pd2 != drop3){
 						e.currentTarget.parentNode.replaceChild(nodeCopy,e.currentTarget);
@@ -317,14 +425,12 @@ try{
 			}
 
 			var drop_objs =document.getElementsByClassName('drop');
-			console.log( "drop_objs.length:" , drop_objs.length);
 
 			for (var i = 0; i < drop_objs.length; i++) {
 				drop_objs[i].ondrop = dropdown;
 				drop_objs[i].ondragover = dragover;
 			}
 			var drag_objs=document.getElementsByClassName('drag');
-			console.log( "drag_objs.length:" , drag_objs.length);
 			
 			for( var i=0; i<drag_objs.length; i++){
 				drag_objs[i].ondragstart = function (e){
