@@ -9,11 +9,12 @@ window.addEventListener("load", function () {
 				xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
 						document.querySelector('.memArea ul li:first-of-type').innerHTML = this.responseText;
+						location.reload();
 					}
 				};
 				xhttp.open("GET", "login.php");
 				xhttp.send();
-				location.reload();
+
 			});
 		}else{
 			logInOut.addEventListener("click",function (){
