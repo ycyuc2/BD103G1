@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Object 簡介</title>
+		<style>
+			h2 { color:deepPink}
+		</style>
+
+	</head>
+	<body>
+		<h2> new Object()</h2>	<!-- 物件操作 -->
+		<script>
+			function submit(money){
+				document.write('申請費用', money, '元<br>');
+			}
+			var emp = new Object();
+
+			emp.empno = "7566";
+			emp.empName = "Adam";
+			emp.submit = submit;
+
+			document.write('代號：', emp.empno, '<br>');
+			document.write('姓名：', emp.empName, '<br>');
+			emp.submit(5000);
+
+			document.write('<br><hr><br>');
+
+			var emp2 = new Object();
+			emp2.empno = "7567";
+			emp2.empName = "Ann";
+			emp2.submit = submit;
+
+			document.write('代號：', emp2.empno, '<br>');
+			document.write('姓名：', emp2.empName, '<br>');
+			emp2.submit(4000);
+		</script>
+
+		<h2> new 類別名稱()</h2>	<!-- 類別操作 -->
+		<script>
+
+			function Employee(empNo, ename){	// Employee中的this會參考到new出來的物件
+				this.empno = empNo;				// 1.先new Object()
+				this.ename = ename;			// 2.再把new出來的物件傳給Employee函式,
+				this.submit = submit;			//   在Employee funciton中的this就會參考到這個物件
+			}
+			var emp = new Employee('7568', 'Mary');
+			document.write('姓名：', emp.ename, ', 代號：', emp.empno, '<br>');
+			emp.submit(6000);
+
+			document.write('<br><hr><br>');
+
+			var emp2 = new Employee('7569', 'John');
+			document.write('姓名：', emp2.ename, ', 代號：', emp2.empno, '<br>');
+			emp.submit(12000);
+
+		</script>
+
+		<h2>function 當作一般函式</h2>
+		<script type="text/javascript">			// Employee中的this會參考到window物件
+
+			Employee("1001","King");  //Employee function 中的this會參考到window
+			document.write( empno , "<br>");
+			document.write( window.empno , "<br>");
+			document.write( ename , "<br>");
+			document.write( window.ename , "<br>");
+
+		</script>
+		<h2>JSON</h2>
+		<script>
+			var emp = {};	// new Object();
+			var emp = {
+				"empno" : "6001",
+				"ename" : "安安",
+				"sal" : 4000,
+				"married" : true,
+				'phone' : ['03-4257387', "03-168168", '0933-168-168'],
+				"phone2" : {
+					"O" : "03-4257387",
+					"H" : "03-168168",
+					"M" : '0933-168-168'
+				}
+			}
+// =====================================================================
+			var phone = [];		// new Array;
+			var phone = [10, 20, 30];
+			document.write('代號：', emp.empno, '<br>');
+			document.write('姓名：', emp.ename, '<br>');
+			document.write('phone：', emp.phone, '<br>');
+			document.write('phone2.M：', emp.phone2.M, '<br>');
+
+
+
+
+
+
+			document.write('<br><hr><br>');
+				// 將物件轉為JSON格式字串
+			document.write('將物件轉JSON格式字串：', JSON.stringify(emp), "<br>");
+			var jsonStr = '{"empno":"6001","ename":"安安","sal":4000,"married":true,"phone":["03-4257387","03-168168","0933-168-168"],"phone2":{"O":"03-4257387","H":"03-168168","M":"0933-168-168"}}';
+				// xhr.response
+
+			document.write('<br><hr><br>');
+
+				// 將JSON字串轉物件
+			var abc = JSON.parse( jsonStr );
+			document.write('代號：', abc.empno, '<br>');
+			document.write('姓名：', abc.ename, '<br>');
+			document.write('phone：', abc.phone, '<br>');
+			document.write('phone2.M：', abc.phone2.M, '<br>');
+
+		</script>
+	</body>
+</html>

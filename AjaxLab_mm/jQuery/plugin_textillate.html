@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/animate.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="js/jquery.lettering.js"></script>
+		<script src="js/jquery.textillate.js"></script>
+		<script>
+			$(function(){
+				$('.abc').textillate({
+					loop: false,
+					in: {
+						effect: 'fadeInRight',
+						delayScale: 2.5,
+						delay: 10,
+						sync: false,
+						reverse: false,
+						shuffle: false,
+						callback: function () {$('.abc').textillate('out') }
+					}
+				});
+			});
+		</script>
+		<title>textillate</title>
+	</head>
+	<body>
+		<h2>textillate</h2>
+		<div class="abc">
+			Lorem idivsum dolor sit amet, consectetur adidivisicing elit. In exdivedita accusamus redivellat. Nisi magnam, dolores libero sed cordivoris voludivtates odio.
+		</div>
+	</body>
+</html>

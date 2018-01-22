@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){//整個網站讀完再讀取此函數
+				$('#clickMe'/*選取內容*/).click/*處理方式*/(function(){
+					$('#content').slideDown(1000).delay(1000).slideUp(3000);
+				});
+			});
+
+
+		</script>
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="clickMe">
+			the witch needs your help!
+		</div>
+		<div id="content">
+			<img src="../images/witch.jpg">
+		</div>
+	</body>
+</html>

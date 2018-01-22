@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="">
+		<script src="js/jquery-3.2.1.min.js"></script>			
+		<script>
+			$(document).ready(function(){
+				$('#loadButton').click(function(){
+					// $('#feedback').load('31_slider.html');
+					
+					// $('#feedback').load('data.php');
+					// $('#feedback').load('data.php',{});
+					$('#feedback').load('useParameter.php',{name:'Anan',age:13});
+				});
+
+				$('#getButton').click(function(){
+					$.get('useParameter.php',{name:'Anan',age:13},function(data){
+						$('#feedback').html('<h2>'+data+'</h2>');
+					});
+				});
+
+				$('#postButton').click(function(){
+					$.post('useParameter.php',{name:'Anan',age:13},function(data){
+						$('#feedback').html('<h2>'+data+'</h2>');
+					});
+				});
+
+				$('#getJSONButton').click(function(){
+					$.getJSON('animal.json',{},function(data){
+						// $('#feedback').html('<h2>'+data+'</h2>');
+						alert(data[0].Variety);
+					});
+				});
+
+				$('#ajaxButton').click(function(){
+					// $.ajax({});
+					$.ajax({
+						url: 'useParameter.php',
+						type: 'POST',
+						data: {name:'Anan',age:13},
+						dataType: 'text',	//text, json, xml
+						success: function(data){
+							$('#feedback').html('<h2>'+data+'</h2>');
+						}
+					});
+				});
+
+
+
+				// $('#getButton').click(function(){});
+				
+			});			
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		<button id="loadButton">Load</button>
+		<button id="getButton">Get</button>
+		<button id="postButton">Post</button>
+		<button id="getJSONButton">GetJSON</button>
+		<button id="ajaxButton">AJAX</button>
+		<p>
+			<div id="feedback"></div>
+		</p>
+	</body>
+</html>

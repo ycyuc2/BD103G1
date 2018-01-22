@@ -1,0 +1,60 @@
+// 在JS中產生一個陣列物件
+var names = new Array('Peter', 'Anan', 'Mary', 'Stella', 'Tina');
+
+// 自訂物件
+var employee = new Object();
+employee.name = 'Anan';
+employee.age = 13;
+
+alert(employee.name);
+
+// 自訂物件常見的宣告方式
+var employee ={};
+var employee ={
+	name:"Anan",
+	age:13
+};
+alert(employee.name);
+
+// JSON:陣列和物件的集合
+var employee = ['aaa', true, 123];
+
+// 在陣列中放物件
+var emps = [{},{},{},{}];
+var emps = [{
+	name:"Anan",
+	age:13
+	},{
+	name:"Peter",
+	age:30
+	},{
+	name:"Amy",
+	age:23
+	},{
+	name:"A87",
+	age:87
+	}
+];
+emps[0].name		// emps是陣列, emps[0]是一個物件
+
+
+// 在物件裡面放陣列
+var data = {[],[],[],[]};
+var data = {emps:
+	[{name:"Anan",age:13}],
+	[{name:"Peter",age:30}],
+	[{name:"Amy",age:23}],
+	[{name:"A87",age:87}]};
+
+	// data是一個物件
+	// data[] -->X
+	// data.emps是一個陣列
+	// data.emps[0]是一個物件
+	// data.emps[0].name --> 'Anan'
+	for(var i=0; i<data.emps.length; i++){
+
+	}
+
+
+
+

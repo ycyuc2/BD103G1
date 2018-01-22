@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#imgBoard').hover(function(){
+					// $(this).animate({css屬性},毫秒,easing)
+					$(this).stop().animate({
+						left: '0',
+						backgroundColor: 'red'
+					}, 500, 'easeInCubic');
+				},function(){
+					$(this).stop().animate({
+						left: '-130px',
+						backgroundColor: '#999'
+					}, 1500, 'easeOutBounce');
+				});
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		<h2>Mouseover the gray stripe on the left edge.</h2>
+		<div id="imgBoard">
+			<img src="../images/washDrawing/011.JPG" class="myPhoto">
+			<img src="../images/washDrawing/001.JPG" class="myPhoto">
+			<img src="../images/washDrawing/007.JPG" class="myPhoto">
+			<img src="../images/washDrawing/021.JPG" class="myPhoto">
+			<img src="../images/washDrawing/008.JPG" class="myPhoto">
+			<img src="../images/washDrawing/037.JPG" class="myPhoto">
+			<img src="../images/washDrawing/013.JPG" class="myPhoto">
+			<img src="../images/washDrawing/013.JPG" class="myPhoto">
+		</div>
+	</body>
+</html>

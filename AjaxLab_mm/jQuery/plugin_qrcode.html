@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/adipoli.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="js/jquery-qrcode-0.14.0.min.js"></script>
+		<script>
+			$(function(){
+				$('#qrButton').click(function(){
+					var source = $('#source').val();
+
+					$('#result').text(' ');
+					$('#result').qrcode({
+						text:source,
+						size:400,
+						fill:'#0cf',
+						mode:2,
+						label:'87?',
+						fontname:'tahoma',
+						fontcolor:'#0F0'
+					});
+				});
+			});
+		</script>
+		<title>QRcode</title>
+	</head>
+	<body>
+		<h2>QRcode</h2>
+		<p>
+			<input type="text" id="source">
+			<button id="qrButton">QRcode</button>
+		</p>
+		<div id="result"></div>
+	</body>
+</html>

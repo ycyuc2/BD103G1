@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				moveCenter();
+				$(window).resize(function(){
+					moveCenter();
+				});
+				function moveCenter(){
+					winWidth = $(window).width();
+					winHeight = $(window).height();
+					divWidth = $('#inCenter').width();
+					divHeight = $('#inCenter').height();
+
+					$('#inCenter').css({
+						left:(winWidth-divWidth)/2,
+						top:(winHeight-divHeight)/2
+					});
+				}
+				
+
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body style="margin:0">
+		<div id="inCenter"></div>
+	</body>
+</html>

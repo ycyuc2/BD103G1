@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="jquery-qrcode-0.14.0.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(':text').blur(function(){
+					var source = $('#source').val();
+					$('#result').qrcode({
+						text: source,
+						    // size in pixel
+					    size: 500,
+
+					    // code color or image element
+					    fill: '#789',
+
+					    // background color or image element, null for transparent background
+					    background: null,
+
+					    quiet: 0,
+
+					    // modes
+					    // 0: normal
+					    // 1: label strip
+					    // 2: label box
+					    // 3: image strip
+					    // 4: image box
+					    mode: 2,
+
+					    label: 'yoyoyo',
+					    fontname: 'Tahoma',
+					    fontcolor: '#099',
+					});
+				});
+				$(':text').focus(function(){
+					$(':text').val('');
+					$('#result').text('');
+				})
+			});
+		</script>
+		<title>QRCode</title>
+	</head>
+	<body>
+		<h2>QRCode</h2>
+		<p>
+			<input type="text" id="source">
+		</p>
+		<div id="result"></div>
+	</body>
+
+</html>

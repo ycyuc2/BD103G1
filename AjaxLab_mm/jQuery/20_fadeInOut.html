@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				// $('img').hover(function(){
+				// 	$(this).fadeOut(1000);
+				// },function(){
+				// 	$(this).fadeIn(1000);
+				// });
+				$('img').click(function(){
+					$(this).fadeOut(1000).delay(1000).fadeIn(2000);
+				});
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		<img src="../images/washDrawing/011.JPG">
+	</body>
+</html>

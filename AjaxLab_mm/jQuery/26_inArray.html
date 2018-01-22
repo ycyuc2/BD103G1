@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var breads = ['pretzel','bagel','donuts','rolls','croissant','pita'];
+				$('#checkButton').click(function(){
+					var bread = $('#bread').val();
+
+					// alert($.inArray(bread, breads));
+
+					if($.inArray(bread, breads) != -1){
+						$('#feedback').html('<span style="color:red;">' + bread + '</span>' + ' is in bread array')
+					}else{
+						$('#feedback').html('<span style="color:red;">' + bread + '</span>' + ' is NOT in bread array')
+
+					}
+				});
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		Bread: <input type="text" id="bread">
+		<button id="checkButton">Check bread</button>
+		<p id="feedback"></p>
+	</body>
+</html>

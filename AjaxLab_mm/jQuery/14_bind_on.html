@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				// $('p').mouseenter(function(){
+				// 	$(this).addClass('highlight');
+				// }).mouseleave(function(){
+				// 	$(this).removeClass('highlight');
+				// });
+
+
+
+
+
+
+
+				// $('p').bind('mouseenter', function(){
+				// 	$(this).addClass('highlight');
+				// }).bind('mouseleave', function(){
+				// 	$(this).removeClass('highlight');
+				// });
+
+
+
+
+
+
+
+
+				// $('p').bind('mouseenter mouseleave', function(){	//用toggle開關class的套用
+				// 	$(this).toggleClass('highlight');
+				// })
+
+
+				// $('p').on('mouseenter mouseleave', function(){	//用toggle開關class的套用
+				// 	$(this).toggleClass('highlight');
+				// })
+
+				// $().on('事件',[,'selector'物件,data],function(){處理函數});//on的寫法
+				$(document).on('mouseenter mouseleave','p',function(){
+					$(this).toggleClass('highlight');
+
+				});
+
+
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		<p>Ann Hathaway</p>
+	</body>
+</html>

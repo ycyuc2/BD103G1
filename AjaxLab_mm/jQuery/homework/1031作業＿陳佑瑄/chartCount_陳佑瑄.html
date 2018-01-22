@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<title>HW_chartCount</title>
+		<style type="text/css">
+			#talk{
+				resize: none;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('textarea').keyup(function(){
+					var textLength = $(this).val().length;
+					var textContent = $(this).val();
+					$('#feedback').text('字數 : ' + textLength+' | 內容 : '+textContent);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form>
+			<textarea id="talk" rows="5" cols="25" maxlength="70"></textarea>
+			<p id="feedback"></p>
+		</form>
+	</body>
+</html>

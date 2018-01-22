@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){//整個網站讀完再讀取此函數
+				// $("input[type='submit']").click(function(){
+				// 	alert('hi!');
+				// })
+
+				// $(':submit').click(function(){
+				//  	alert('hi!');
+				//  })
+
+				// $("input[type='email']").click(function(){
+				//  	alert('87!');
+				//  })
+
+
+				$(':submit').click(function(){
+				 	$(this).attr('value','Please wait...');
+				 })
+
+				$('a').click(function(){
+					// $(this).attr('href','http://maps.google.com');
+					var ans = $(this).attr('href');
+					alert(ans);
+				})
+
+			});
+
+
+		</script>
+		<title>Document</title>
+	</head>
+	<body>
+		<form>
+			<input type="submit" name="SUBMIT1">
+			<input type="submit" name="SUBMIT2">
+			<p>
+				email: <input type="email" name="email">
+			</p>
+		</form>
+		<p>
+			<a href="https://www.google.com.tw/">Google</a>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){//整個網站讀完再讀取此函數
+				// $(':text').focus(function(){
+				// 	$(this).css('backgroundColor', 'yellow').css('font', 'bold 20px Tahoma');
+				// })
+				// $(':text').blur(function(){
+				// 	$(this).css('backgroundColor', 'transparent').css('fontSize', '12px');
+				// })
+
+
+
+
+
+				// $(':text').focus(function(){
+				// 	$(this).css({
+				// 		backgroundColor:'yellow',
+				// 		font: 'bold 20px Tahoma',
+				// 	});
+				// })
+
+
+
+
+				$(':text').focus(function(){
+					$(this).css({
+						backgroundColor: 'yellow',
+						font: 'bold 20px Tahoma'
+					});
+				}).blur(function(){
+					$(this).css({
+						backgroundColor: 'transparent'
+					});
+				})
+
+
+				$('textarea').focus(function(){
+					$(this).attr({
+						rows: 5,
+						cols: 25,
+					}).css({
+						backgroundColor: 'yellow',
+						font: 'bold 20px Tahoma',
+						resize: 'none'
+					})
+				}).blur(function(){
+					$(this).css({
+						backgroundColor: 'transparent'
+					})
+				})
+
+			});
+
+
+		</script>
+		<title>Document</title>
+	</head>
+	<body>
+		<p class="myLabel">
+			<label for="">Name : </label>
+			<input type="text" name="name">
+		</p>
+		<p class="myLabel">
+			<label for="">Comments : </label>
+			<textarea></textarea>
+		</p>
+	</body>
+</html>

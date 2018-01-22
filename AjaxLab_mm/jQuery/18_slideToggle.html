@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#slideButton').click(function(){
+					$('img').slideToggle(1000, 'easeOutBounce' );
+				});
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		<button id="slideButton">Slide Toggle</button>
+		<p>
+			<img src="../images/washDrawing/005.JPG">
+		</p>
+	</body>
+</html>

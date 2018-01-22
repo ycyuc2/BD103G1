@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<title>HW_selectFood</title>
+		<!-- <style type="text/css">
+			table{
+				border: 1px solid #000;
+			}
+		</style> -->
+		<script>
+			$(function(){
+				var Condiments = ['mustard','salt','pepper','spices','soy source','olive oil','ketchup','cooking oil','sugar'];
+				var Deli = ['roast beef','turkey','Swiss cheese','potato salad','potato Diane'];
+				var Drink = ['coffee','herbal tea','hot chocolate','cafe au lait','latte','Con Panna','Viennese coffee'];
+				var Bread = ['white bread','wheat bread','whole grain bread','rye bread','pretzel','pita bread','french bread','bagel','rolls','donut','bread sticks','swiss rolls','croissant'];
+
+				$('.food').click(function(){
+					var item = $(this).text();
+
+					// $('#myTable tr' ).append('<td>'+item+'</td>')
+					// alert($.inArray(bread, breads));
+
+					if($.inArray(item, Condiments) != -1){
+						$('#Condiments').append('<td>' + item + '</td>');
+
+					}else if($.inArray(item, Deli) != -1){
+						$('#Deli').append('<td>' + item + '</td>');
+
+					}else if($.inArray(item, Drink) != -1){
+						$('#CoffeeAndTea').append('<td>' + item + '</td>');
+
+					}else if($.inArray(item, Bread) != -1){
+						$('#Bread').append('<td>' + item + '</td>');
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h3>Condiments(調味料類)</h3>
+		<p>
+			<button class="food">mustard</button>
+			<button class="food">salt</button>
+			<button class="food">pepper</button>
+			<button class="food">spices</button>
+			<button class="food">soy source</button>
+			<button class="food">ketchup</button>
+			<button class="food">cooking oil</button>
+			<button class="food">sugar</button>
+		</p>
+		<h3>Deli(熟食類)</h3>
+		<p>
+			<button class="food">roast beef</button>
+			<button class="food">turkey</button>
+			<button class="food">Swiss cheese</button>
+			<button class="food">potato salad</button>
+			<button class="food">potato Diane</button>
+		</p>
+		<h3>Coffee and Tea(咖啡茶飲類)</h3>
+		<p>
+			<button class="food">coffee</button>
+			<button class="food">herbal tea</button>
+			<button class="food">hot chocolate</button>
+			<button class="food">latte</button>
+			<button class="food">cafe au lait</button>
+			<button class="food">Con Panna</button>
+			<button class="food">Viennese coffee</button>
+		</p>
+		<h3>Bread(麵包類)</h3>
+		<p>
+			<button class="food">white bread</button>
+			<button class="food">wheat bread</button>
+			<button class="food">whole grain bread</button>
+			<button class="food">rye bread</button>
+			<button class="food">pretzel</button>
+			<button class="food">pita bread</button>
+			<button class="food">french bread</button>
+			<button class="food">bagel</button>
+			<button class="food">rolls</button>
+			<button class="food">donut</button>
+			<button class="food">bread sticks</button>
+			<button class="food">swiss rolls</button>
+			<button class="food">croissant</button>
+		</p>
+		<hr>
+		<h2>Your choices : </h2>
+		<table id="myTable" border="1" cellspacing="2" cellpadding="2">
+			<tr id="Condiments">
+				<th>Condiments</th>
+			</tr>
+			<tr id="Deli">
+				<th>Deli</th>
+			</tr>
+			<tr id="CoffeeAndTea">
+				<th>Coffee and Tea</th>
+			</tr>
+			<tr id="Bread">
+				<th>Bread</th>
+			</tr>
+		</table>
+	</body>
+</html>

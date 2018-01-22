@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>動態建立表格</title>
+
+</head>
+<body id="myBody">
+<input type="button" value="create table" onClick="createTable();">
+
+<div id="showPanel" style="height:100px;background-color:lightBlue"></div>
+
+<script>
+function createTable(){
+	// var table = document.createElement("table");				// 創建一個table標籤
+	// document.getElementById("showPanel").appendChild(table);	// 將table標籤放到showPanel標籤之中
+
+	// var tr = document.createElement("tr");
+	// table.appendChild( tr );
+
+	// var td = document.createElement("td");
+	// tr.appendChild( td );
+
+	// var textNode = document.createTextNode("content");			// 創建一個文字節點
+	// td.appendChild( textNode );
+
+	var i, j, rows = 3, cols = 4, tr, td, textNode;				// 宣告變數 宣告行列數
+	var table = document.createElement("table");				// 創建一個table標籤
+	document.getElementById("showPanel").appendChild(table);	// 將table標籤放到showPanel標籤之中
+
+	for (var i = 1; i <= rows; i++) {
+		var tr = document.createElement("tr");					// 印出tr
+		table.appendChild(tr);
+		for(j = 1; j <= cols; j++){
+			td = document.createElement("td");					// 印出td
+			tr.appendChild( td );
+			textNode = document.createTextNode(i + "," + j);
+			td.appendChild( textNode );
+		}
+	}
+	table.setAttribute("border", 1);							// 改變外觀(外框)
+	table.setAttribute("borderColor", "deeppink");
+
+
+
+
+	// document.getElementById("showPanel").appendChild;
+	// element.appendChild( table );
+}
+</script>
+</body>
+</html>

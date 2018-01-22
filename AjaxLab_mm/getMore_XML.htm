@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>無標題文件</title>
+	</head>
+
+	<body>
+		<div>首頁>>會員專區</div>
+		<center>
+		會員帳號<input type="text" name="memId" id="memId"/>
+		<input type="button" value="取得會員資料" onclick="getMember()"/>
+		<div id="showPanel"></div>
+		</center>
+
+		<script>
+			function showMember( xmlDoc ){
+				var table, tr, td, i, j, text, textNode;
+				var fields = xmlDoc.documentElement.childNodes;
+				table = document.createElement("table");
+
+				var len = fields.length;          // 此行可以使效能提高
+				for(i=0; i<len; i++){
+					tr = document.createElement("tr");
+					table.appendChild(tr);
+						// 產生左邊格
+					th = document.createElement('th');
+					tr.appendChild(th);
+					textNode = document.createTextNode(fields[i].nodeName);
+					th.appendChild(textNode);
+						// 產生右邊格
+					td = document.createElement('td');
+					tr.appendChild(td);
+					textNode = document.createTextNode(fields[i].firstChild.nodeValue);
+					td.appendChild(textNode);
+				}
+				document.getElementById('showPanel').appendChild(table);
+
+			}
+
+			function getMember(){
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function(){
+					if( xhr.status == 200 ){
+						// document.getElementById("showPanel").innerHTML = xhr.responseText;
+						// alert( xhr.responseText );
+						// alert( xhr.responseXML );
+						showMember( xhr.responseXML ); //=============修改左側程式碼
+					}else{
+							alert( xhr.status );
+					}
+				}
+
+				var url = "getMore_XML.php?memId=" + document.getElementById("memId").value;
+				xhr.open("Get", url, true);
+				xhr.send( null );
+			}
+		</script>
+	</body>
+</html>

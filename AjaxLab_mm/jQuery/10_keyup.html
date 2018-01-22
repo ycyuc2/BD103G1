@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<style type="text/css">
+			textarea{
+				resize: none;
+			}
+		</style>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#talk').keyup(function(){
+					var yourText = $(this).val();
+					$('#feedback').text(yourText);
+				});
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body>
+		<form>
+			<textarea id="talk" rows="5" cols="25"></textarea>
+			<p id="feedback"></p>
+		</form>
+	</body>
+</html>

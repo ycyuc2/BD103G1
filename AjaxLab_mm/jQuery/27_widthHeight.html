@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				/*====使用CSS尋找寬度和高度====*/
+				// var imgWidth = $('img').css('width');
+				// var imgHeight = $('img').css('height');
+
+				// $('#feedback').text('Width: '+imgWidth+' | Height: '+imgHeight);
+				/*====使用HTML尋找寬度和高度====*/
+				// var imgWidth = $('img').width();
+				// var imgHeight = $('img').height();
+				// $('#feedback').text('Width: '+imgWidth+' | Height: '+imgHeight);
+
+
+				var winWidth = $(window).width();
+				var winHeight = $(window).height();
+				$('#feedback').text('Width: '+winWidth+' | Height: '+winHeight);
+
+				$('img').css({
+					width: winWidth+'px',
+					height: winHeight+'px',
+
+				})
+
+			});
+		</script>
+		<title>jQuery</title>
+	</head>
+	<body style="margin:0">
+		<img src="../images/washDrawing/037.JPG">
+		<!-- <p id="feedback"></p> -->
+	</body>
+</html>
