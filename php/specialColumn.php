@@ -10,7 +10,9 @@
 </head>
 <body>
 	
-	<?php require_once("header.php") ?>
+	<?php require_once("header.php");
+			$_SESSION["where"] = "specialColumn.php";
+	?>
 
 	
 
@@ -24,37 +26,7 @@
 		
 	</div>
 <!-- header -->
-	<div class="header">
 
-		<!-- 中間logo -->
-		<div class="logo">
-			<a href="#">
-				<img src="../img/share/LOGO-08.png">
-			</a>
-		</div>
-		
-		<!-- 右邊會員專區 -->
-		<div class="memArea">
-			<ul>
-				<li><a href="#">註冊</a></li>
-				<li><a href="#">登入</a></li>
-				<li><a href="#">購物車(<span class="cartNo">0</span>)</a></li>
-			</ul>
-		</div>
-
-		<!-- 右邊水逆倒數 -->
-		<div class="countdown">
-			<table class="countdownContainer">
-					<tr class="info">
-						<td>水星逆行倒數 :</td>
-						<td class="days">120</td><td>天</td>
-						<td class="hours">4</td><td>時</td>
-						<td class="minutes">12</td><td>分</td>
-					</tr>
-					
-			</table>
-		</div>
-	</div>
 <!-- header end -->
 <?php 
 $teacherNo = $_REQUEST["teacher_no"];
@@ -105,34 +77,58 @@ try {
 					</div>
 				</div>
 				<div class="links">
-					<div class="left">
+<?php 
+	if (isset($_SESSION["teacher_no"])) {
+		if($_SESSION["teacher_no"]==$teacherNo){
+			echo '
+				<div class="left">
+					<span class="btnM">
+						<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
+					</span>
+				</div>
+				<div class="right">
 						<span class="btnM">
-							<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
+							<a href=
+				';
+				echo 'specialColumn.php?teacher_no='.$teacherNo;
+				echo ' class="btnText btnText4">老師專欄</a>
 						</span>
 					</div>
-					<div class="mid">
-						<span class="btnM">
-							<a href="schedule.html" class="btnText btnText4">老師行程</a>
-						</span>
-					</div>
-					<div class="right">
-						<span class="btnM">
-							<a href=<?php echo 'specialColumn.php?teacher_no='.$teacherNo ?> class="btnText btnText4">老師專欄</a>
-						</span>
-					</div>
+				';
+		}
+		
+	}
+
+
+
+ ?>
+					
+					<?php  ?>
 				</div>
 				<hr class="hr">
 
 
 				<!-- 發文按鈕 -->
 				<div class="newArticle">
-					<form action="articlePost.php" method="post">
-					<span class="btnM">
-						<input type="hidden" name="teacherNo" value=<?php echo '"'.$_REQUEST["teacher_no"].'"' ?>>
-						<input type="submit" class="btnText btnText2" value="發文"></input>
-					</span>
-					</form>
-				</div>
+
+<?php 
+	if(isset($_SESSION["teacher_no"])){
+		if ($_SESSION["teacher_no"]==$teacherNo) {
+			echo '<form action="articlePost.php" method="post">
+								<span class="btnM">
+									<input type="hidden" name="teacherNo" value=';
+			echo '"'.$_REQUEST["teacher_no"].'"';
+			echo '>
+							<input type="submit" class="btnText btnText2" value="發文"></input>
+						</span>
+						</form>
+					</div>';			
+		}
+	}
+
+
+ ?>
+					
 
 
 <?php
@@ -152,9 +148,9 @@ try {
 
 try {
 	require_once("connectBD103G1yu.php");
-	$sql = "select * from article where teacher_no = :teacher_no order by ART_POST_TIME desc";
+	$sql = "select * from article where teacher_no = :teacher_no order by art_post_time desc";
 	$article = $pdo->prepare($sql);
-	$article->bindValue(":teacher_no",$teacherNo);
+	$article->bindValue(":teacher_no",$_REQUEST["teacher_no"]);
 	$article->execute();
 	$article_rows = $article->fetchAll(PDO::FETCH_ASSOC);
 
@@ -169,30 +165,42 @@ try {
 						<div class="pic">
 							<div class="picContainer">
 								<div class="picBorder"></div>
-								<?php echo '<img src="../img/article/'.$articleRow["ART_IMG_1"].'">' ?>
+								<?php echo '<img src="../img/article/'.$articleRow["art_img_1"].'">' ?>
 							</div>
 						</div>
 						<div class="content">
 							<div class="topic">
 								<h3>
-									<?php echo '<a href="article.php">'.$articleRow["ART_TITLE"].'</a>' ?>
+									<?php echo '<a href="article.php">'.$articleRow["art_title"].'</a>' ?>
 										
 								</h3>
 								<div class="detail">
-									<span><?php echo date("Y-m-d",strtotime($articleRow["ART_POST_TIME"])) ?></span>
+									<span><?php echo date("Y-m-d",strtotime($articleRow["art_post_time"])) ?></span>
 								</div>
 							</div>
 							<div class="preview">
 								<p>
-									<?php echo mb_substr($articleRow["ART_CONTENT_1"],0,100,"utf-8")."..." ?>
+									<?php echo mb_substr($articleRow["art_content_1"],0,100,"utf-8")."..." ?>
 										
 								</p>
 							</div>
 						</div>
-						<div class="edit">
-							<a href=""><i class="fa fa-pencil-square-o"></i></a>
-							<a href=""><i class="fa fa-trash-o"></i></a>
-						</div>
+
+						<?php 
+							if (isset($_SESSION["teacher_no"])) {
+								if ($_SESSION["teacher_no"]==$teacherNo) {
+
+									echo
+									'<div class="edit">
+										<a href="articleEdit.php?teacher_no='.$teacherNo.'&art_no='.$articleRow["art_no"].'"><i class="fa fa-pencil-square-o"></i></a>
+										<a href="articleDelete.php?teacher_no='.$teacherNo.'&art_no='.$articleRow["art_no"].'"><i class="fa fa-trash-o"></i></a>
+									</div>';
+
+								}
+							}
+
+						 ?>
+						
 
 
 					</div>

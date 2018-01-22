@@ -68,7 +68,7 @@
 #teacherInfo {
   position: fixed;
   z-index: 5;
-  width: 600px;
+  width: 500px;
   box-sizing: border-box;
   background-color: transparent;
   background-image: url(../img/findTeacher/paper.png);
@@ -77,25 +77,26 @@
   user-select: auto;
   visibility: hidden;
   opacity: 0;
-  left: calc(50vw - 300px);
+  left: calc(50vw - 250px);
+  top: 150px;
   transition: all 0.3s; }
   @media all and (min-width: 760px) and (max-width: 959px) {
     #teacherInfo {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 0; } }
   @media all and (min-width: 480px) and (max-width: 759px) {
     #teacherInfo {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 0; } }
   @media all and (max-width: 479px) {
     #teacherInfo {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 0; } }
   #teacherInfo #closeBtn {
     z-index: 30;
@@ -116,7 +117,7 @@
       #teacherInfo #closeBtn i:active {
         cursor: url(../img/share/cursor2.png) 20 15, auto; }
   #teacherInfo .columnBorder {
-    padding: 15%;
+    padding: 7%;
     position: relative; }
     @media all and (max-width: 479px) {
       #teacherInfo .columnBorder {
@@ -204,6 +205,47 @@
     #teacherInfo .teacherMaps iframe {
       width: 100%;
       height: 50%; }
+  #teacherInfo .teacherInfoBtn {
+    width: 100%; }
+    @media all and (min-width: 760px) and (max-width: 959px) {
+      #teacherInfo .teacherInfoBtn {
+        width: 70%; } }
+    @media all and (min-width: 480px) and (max-width: 759px) {
+      #teacherInfo .teacherInfoBtn {
+        width: 70%; } }
+    @media all and (max-width: 479px) {
+      #teacherInfo .teacherInfoBtn {
+        width: 100%; } }
+    #teacherInfo .teacherInfoBtn:after {
+      content: '';
+      clear: both;
+      display: block; }
+    #teacherInfo .teacherInfoBtn .left {
+      width: 50%;
+      float: left;
+      text-align: center;
+      margin-top: 20px; }
+      @media all and (max-width: 479px) {
+        #teacherInfo .teacherInfoBtn .left {
+          width: 100%;
+          float: none; } }
+      #teacherInfo .teacherInfoBtn .left a:hover {
+        cursor: url(../img/share/cursor.png) 20 15, auto; }
+      #teacherInfo .teacherInfoBtn .left a:active {
+        cursor: url(../img/share/cursor2.png) 20 15, auto; }
+    #teacherInfo .teacherInfoBtn .right {
+      width: 50%;
+      float: left;
+      text-align: center;
+      margin-top: 20px; }
+      @media all and (max-width: 479px) {
+        #teacherInfo .teacherInfoBtn .right {
+          width: 100%;
+          float: none; } }
+      #teacherInfo .teacherInfoBtn .right a:hover {
+        cursor: url(../img/share/cursor.png) 20 15, auto; }
+      #teacherInfo .teacherInfoBtn .right a:active {
+        cursor: url(../img/share/cursor2.png) 20 15, auto; }
   #teacherInfo .teacherColumn {
     width: 100%;
     box-sizing: border-box; }
@@ -239,47 +281,6 @@
         @media all and (max-width: 479px) {
           #teacherInfo .teacherColumn .column p {
             font-size: 12px; } }
-    #teacherInfo .teacherColumn .teacherInfoBtn {
-      width: 100%; }
-      @media all and (min-width: 760px) and (max-width: 959px) {
-        #teacherInfo .teacherColumn .teacherInfoBtn {
-          width: 70%; } }
-      @media all and (min-width: 480px) and (max-width: 759px) {
-        #teacherInfo .teacherColumn .teacherInfoBtn {
-          width: 70%; } }
-      @media all and (max-width: 479px) {
-        #teacherInfo .teacherColumn .teacherInfoBtn {
-          width: 100%; } }
-      #teacherInfo .teacherColumn .teacherInfoBtn:after {
-        content: '';
-        clear: both;
-        display: block; }
-      #teacherInfo .teacherColumn .teacherInfoBtn .left {
-        width: 50%;
-        float: left;
-        text-align: center;
-        margin-top: 20px; }
-        @media all and (max-width: 479px) {
-          #teacherInfo .teacherColumn .teacherInfoBtn .left {
-            width: 100%;
-            float: none; } }
-        #teacherInfo .teacherColumn .teacherInfoBtn .left a:hover {
-          cursor: url(../img/share/cursor.png) 20 15, auto; }
-        #teacherInfo .teacherColumn .teacherInfoBtn .left a:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
-      #teacherInfo .teacherColumn .teacherInfoBtn .right {
-        width: 50%;
-        float: left;
-        text-align: center;
-        margin-top: 20px; }
-        @media all and (max-width: 479px) {
-          #teacherInfo .teacherColumn .teacherInfoBtn .right {
-            width: 100%;
-            float: none; } }
-        #teacherInfo .teacherColumn .teacherInfoBtn .right a:hover {
-          cursor: url(../img/share/cursor.png) 20 15, auto; }
-        #teacherInfo .teacherColumn .teacherInfoBtn .right a:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
 
 .directions {
   width: 100vw;
@@ -346,9 +347,14 @@
       margin: auto; }
 
 .teacherContainer {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
   font-size: 0;
   padding: 0; }
   @media all and (max-width: 479px) {
@@ -402,12 +408,23 @@
     width: 100%;
     height: 100%;
     border-image: url(../img/share/picframe.png) 30 30 repeat; }
+  .box h2 {
+    display: block;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 210px;
+    color: #fff;
+    font-size: 30px; }
+    @media all and (max-width: 479px) {
+      .box h2 {
+        top: calc(100% + 10px); } }
 
 #search {
   width: 50px;
   position: fixed;
   right: 20px;
-  top: 20px;
+  top: 120px;
   z-index: 8; }
   #search img {
     width: 100%;

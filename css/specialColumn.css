@@ -186,7 +186,7 @@ h1 {
         clear: both; }
       .teacher .teacherBorder .links .left {
         float: left;
-        width: 33.333%;
+        width: 50%;
         text-align: center; }
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .links .left {
@@ -196,22 +196,9 @@ h1 {
           cursor: url(../img/share/cursor.png) 20 15, auto; }
         .teacher .teacherBorder .links .left a:active {
           cursor: url(../img/share/cursor2.png) 20 15, auto; }
-      .teacher .teacherBorder .links .mid {
-        float: left;
-        width: 33.333%;
-        text-align: center; }
-        @media all and (max-width: 479px) {
-          .teacher .teacherBorder .links .mid {
-            width: 100%;
-            float: none;
-            margin-top: 20px; } }
-        .teacher .teacherBorder .links .mid a:hover {
-          cursor: url(../img/share/cursor.png) 20 15, auto; }
-        .teacher .teacherBorder .links .mid a:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
       .teacher .teacherBorder .links .right {
         float: left;
-        width: 33.333%;
+        width: 50%;
         text-align: center; }
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .links .right {
@@ -225,6 +212,14 @@ h1 {
     .teacher .teacherBorder .newArticle {
       margin-top: 30px;
       text-align: center; }
+      .teacher .teacherBorder .newArticle form {
+        width: 50%;
+        float: right;
+        text-align: center; }
+        .teacher .teacherBorder .newArticle form:after {
+          display: block;
+          content: '';
+          clear: both; }
       .teacher .teacherBorder .newArticle a:hover {
         cursor: url(../img/share/cursor.png) 20 15, auto; }
       .teacher .teacherBorder .newArticle a:active {
@@ -336,6 +331,7 @@ h1 {
           .teacher .teacherBorder .articleList .article .content .preview {
             margin-top: 20px; }
             .teacher .teacherBorder .articleList .article .content .preview p {
+              text-align: left;
               color: #533e2f;
               font-weight: 500;
               font-size: 16px;

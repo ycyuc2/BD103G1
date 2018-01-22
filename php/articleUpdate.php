@@ -34,7 +34,7 @@
 			}
 			
 		}else{
-			$_FILES["contentImg2"]["name"] = null;
+			$uploadFileName2 = null;
 		}
 		if( $_FILES["contentImg3"]["error"]==0){
 			$tmpFileName3 = strrchr($_FILES["contentImg3"]["name"],".");
@@ -48,15 +48,15 @@
 			}
 			
 		}else{
-			$_FILES["contentImg3"]["name"] = null;
+			$uploadFileName3 = null;
 		}
 
 		if ($confirm) {
 			try {
 				require_once("connectBD103G1yu.php");
-				$sql = "insert into article (teacher_no, art_title, art_content_1, art_content_2, art_content_3, art_img_1, art_img_2, art_img_3) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3)";
+				$sql = "update article set art_title = :art_title, art_content_1 = :art_content_1, art_content_2 = :art_content_2, art_content_3 = :art_content_3, art_img_1 = :art_img_1, art_img_2 = :art_img_2, art_img_3 = :art_img_3, art_update_time = :art_update_time where art_no = :art_no and teacher_no = :teacher_no";
 				$article = $pdo->prepare($sql);
-				$article = $pdo->prepare($sql);
+				$article->bindValue(":art_no", $_REQUEST["artNo"]);
 				$article->bindValue(":teacher_no", $_REQUEST["teacherNo"]);
 				$article->bindValue(":art_title", $_REQUEST["title"]);
 				$article->bindValue(":art_content_1", $_REQUEST["content1"]);
@@ -65,6 +65,7 @@
 				$article->bindValue(":art_img_1", $uploadFileName1);
 				$article->bindValue(":art_img_2", $uploadFileName2);
 				$article->bindValue(":art_img_3",$uploadFileName3);
+				$article->bindValue(":art_update_time",date("Y-m-d H:i:s"));
 				$article->execute();
 				header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacherNo"]);
 

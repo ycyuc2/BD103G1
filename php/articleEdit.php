@@ -10,9 +10,20 @@
 <body>
 
 	<?php
-	 require_once("header.php");
-	 $_SESSION["where"] = "articlePost.php";
-	  ?>
+		require_once("header.php");
+		$_SESSION["where"] = "articleEdit.php";
+	 ?>
+	<?php 
+		$teacherNo = $_REQUEST["teacher_no"];
+		$artNo = $_REQUEST["art_no"];
+		require_once("connectBD103G1yu.php");
+		$sql = "select * from article where teacher_no = $teacherNo and art_no = $artNo";
+		$article = $pdo->query($sql);
+		$articleRow = $article->fetch();
+
+
+
+	 ?>
 
 	<div class="background">
 		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
@@ -28,29 +39,38 @@
 		<div class="border"></div>
 		<div class="teacherBorder">
 			<h1>發表文章</h1>
-			<form action="articleInsert.php" method="post" enctype="multipart/form-data">
+			<form action="articleUpdate.php" method="post" enctype="multipart/form-data">
 				<p class="intro">請輸入文章標題</p>
-				<input class="inputTopic" type="text" name="title" required>
+				<input class="inputTopic" type="text" name="title" value=
+				<?php echo $articleRow["art_title"]?> 
+				required>
 
 				<p class="intro line">請選擇文章圖片1</p>
 				<input class="inputImg first" type="file" name="contentImg1">
 
 				<p class="intro">請輸入文章段落1</p>
-				<textarea class="inputContent first" name="content1"></textarea>
+				<textarea class="inputContent first" name="content1">
+					<?php echo $articleRow["art_content_1"]?> 
+				</textarea>
 
 				<p class="intro line">請選擇文章圖片2</p>
 				<input class="inputImg second" type="file" name="contentImg2">
 
 				<p class="intro">請輸入文章段落2</p>
-				<textarea class="inputContent second" name="content2"></textarea>
+				<textarea class="inputContent second" name="content2">
+					<?php echo $articleRow["art_content_2"]?>
+				</textarea>
 
 				<p class="intro line">請選擇文章圖片3</p>
 				<input class="inputImg third" type="file" name="contentImg3">
 
 				<p class="intro">請輸入文章段落3</p>
-				<textarea class="inputContent third" name="content3"></textarea>
+				<textarea class="inputContent third" name="content3">
+					<?php echo $articleRow["art_content_3"]?>
+				</textarea>
 				
-				<input type="hidden" name="teacherNo" value=<?php echo '"'.$_REQUEST["teacherNo"].'"' ?>>
+				<input type="hidden" name="teacherNo" value=<?php echo '"'.$teacherNo.'"' ?>>
+				<input type="hidden" name="artNo" value=<?php echo '"'.$artNo.'"' ?>>
 
 				<input class="submit" type="submit" name="" value="發表">
 			</form>

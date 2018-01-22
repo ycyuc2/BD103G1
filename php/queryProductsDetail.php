@@ -66,7 +66,7 @@ try {
 
                                 <br>
                                 <div class="buyNow">
-                                    <a href="../html/dozen_storeCart.html">
+                                    <a href="../html/dozen_storeCart.php">
                                         <span class="addButton">
                                         立即購買
                                         <input type="hidden" value="<?php echo $PRODUCT["pd_name"],'|',$PRODUCT["pd_pic1"],'|',$PRODUCT["pd_price"] ?>">
