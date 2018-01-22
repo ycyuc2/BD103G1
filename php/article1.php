@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/article1.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRatingForArticle.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
-
+	<link rel="stylesheet" href="../css/articleAskLogin.css">
 	
 </head>
 <body>
@@ -22,9 +22,27 @@
 
 	<div class="headerBlank"></div>
 
+<!-- 要求登入的燈箱 -->
+	<div class="ask_wrapper">
+	<div class="ask_lightbox">
+		<label for="askControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		</label>
+		<p>請登入再評價</p>
+		<div class="btn"> 登入</div>
+	</div>
+</div>
 
-
-
+<!-- 成功評價的燈箱 -->
+<div class="win_wrapper">
+	<div class="win_lightbox">
+		<label for="askControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		</label>
+		<p>請登入再評價</p>
+		<div class="btn"> 登入</div>
+	</div>
+</div>
 
 <!-- 標題 -->
 	<h2>搞定水逆，讓你全家不再水逆</h2>
@@ -74,7 +92,6 @@
 <?
 		try{
 			require_once("../php/connectBooksting.php");
-			// $_SESSION["mem_no"]=null;
 			$_REQUEST["art_no"]=1;
 			if(isset($_SESSION["mem_no"])){
 			$sql="select * from art_review where mem_no =? and art_no =?";
@@ -89,8 +106,8 @@
 				<script>
 					var star= <?echo  $checkRow->art_star;?>;
 					var inputElems= $('.teacherStar input[type="radio"]');
-					inputElems[5-star].checked=true;
-					
+					inputElems[4-star].checked=true;
+
 				</script>
 				
 				
@@ -102,20 +119,11 @@
 						var inputElems= $('.teacherStar input[type="radio"]');
 						for(var i=0;i<5;++i){
 							inputElems[i].checked=false;
-							inputElems[i].disabled=true;
-							$('.teacherStar').click(function(){
-								document.querySelector(".loginLightbox .boxContent .registerForm").style.display = "none";
-								document.querySelector(".loginLightbox .boxContent .backToLogin").style.display = "none";
-								document.querySelector(".loginLightbox .boxContent .loginForm").style.display = "block";
-								$('.login_wrapper').css({
-									'opacity': '1',
-									'right': '0',
-									'transition': 'opacity 0.2s'
-								});
-							});
-
+							inputElems[i].onclick=function(){
+								$('.ask_wrapper').css('display','block');
+							}
 						}
-						
+
 					</script>
 					<?
 				}
@@ -123,16 +131,32 @@
 	?>
 
 			<script>
+		
         
-        var inputElems =document.querySelector('input[type="radio"]');
-        for(var i =0;i<inputElems.length;i++){
-            inputElems[i].addEventListener('change', checkboxes, 'true');
+        
+		$(document).ready(function () {
+			$('.ask_wrapper .lightboxClose').click(function(){
+			$('.ask_wrapper').css('display','none');
+			});
+			$('.ask_wrapper .btn').click(function(){
+				$('.loginLightbox').css({
+					'opacity': '1',
+					'right': '0',
+					'transition': 'opacity 0.2s'
+				});
+				$('.ask_wrapper').css('display','none');
+			});
 
-        }
-        function checkboxes(){
-			var star= document.querySelector('input[type="radio"]:checked');
 
+			var inputElems =document.querySelectorAll('input[type="radio"]');
+			for(var i =0;i<inputElems.length;i++){
+            inputElems[i].addEventListener('click', checkboxes, false);
+			}	
+        function checkboxes(e){
+			var star= document.querySelectorAll('input[type="radio"]:checked');
+			$('.win_wrapper').css('display','block');
 			console.log(star.value);
+			var star1=e.target.value-1;
 			var xhr = new  XMLHttpRequest();
 			xhr.onload=function(){
 				if(xhr.status ==200){
@@ -142,11 +166,12 @@
 					alert(xhr.status);
 				}
 			}
-			var url="starInsert.php?art_no=<?echo $_REQUEST["art_no"]?>&mem_no=<?echo $_SESSION["mem_no"]?>&art_star="+star.value;
+			var url="starInsert.php?art_no=<?echo $_REQUEST["art_no"]?>&mem_no=<?echo $_SESSION["mem_no"]?>&art_star="+star1;
 			console.log(url);
 			xhr.open("get",url,true);
 			xhr.send(null);
-        }
+			}
+		});
     </script>
 <!-- 文章區 -->
 			<article>

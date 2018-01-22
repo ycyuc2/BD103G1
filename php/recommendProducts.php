@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>推薦商品</title>
 	<?php require_once("publicHeader.php") ?>
-	<!-- <link rel="stylesheet" type="text/css" href="../css/specialColumn.css"> -->
+	<link rel="stylesheet" type="text/css" href="../css/specialColumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
 	<link rel="stylesheet" type="text/css" href="../css/starRating.css">
 	<link rel="stylesheet" href="../css/input.css">
@@ -107,7 +107,7 @@ try{
 		</script>
 <?php 
 	}else if(isset($_SESSION["mem_no"])==null){
-		
+
 	}
 }
 ?>
@@ -119,11 +119,6 @@ try{
 					<div class="left">
 						<span class="btnM">
 							<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
-						</span>
-					</div>
-					<div class="mid">
-						<span class="btnM">
-							<a href="schedule.html" class="btnText btnText4">老師行程</a>
 						</span>
 					</div>
 					<div class="right">
