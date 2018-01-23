@@ -27,7 +27,7 @@ session_start();
             $pdRecInsert->bindValue(3,$_REQUEST["r"][1]);
             $pdRecInsert->bindValue(4,$_REQUEST["r"][2]);
             $pdRecInsert->execute();
-        }else if($check->rowcount()!=0){
+        }else{
             $sql="update pd_recommend set pd_no=? , pd_no2=? ,pd_no3=? where teacher_no=?";
             $pdRecUpdate=$pdo->prepare($sql);
             $pdRecUpdate->bindValue(1,$_REQUEST["r"][0]);

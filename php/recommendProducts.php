@@ -123,8 +123,8 @@ try{
 <!-- 推薦區域 -->
 <div class="pdRec_wrapper">
 	<div class="pdRec_lightbox">
-		<label for="loginControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		<label for="lightboxClose">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
 		</label>
 		<p>您重複推薦商品了</p>
 		<span class="btnM btn">
@@ -141,10 +141,21 @@ try{
 
 <div class="pdRec_wrapper2">
 	<div class="pdRec_lightbox">
-		<label for="loginControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		<label for="lightboxClose">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
 		</label>
 		<p>您尚未推薦滿三個商品</p>
+		<span class="btnM btn">
+			<p class="btnText btnText2">我知道了</p>
+		</span>
+	</div>
+</div>
+<div class="pdRec_wrapper3">
+	<div class="pdRec_lightbox">
+		<label for="lightboxClose">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
+		</label>
+		<p>最多只能推薦三個商品</p>
 		<span class="btnM btn">
 			<p class="btnText btnText2">我知道了</p>
 		</span>
@@ -241,6 +252,7 @@ try{
 		
 		
 		<div class="productsSelect">
+			<div class="back"></div>
 			<div id="white"><h3>請將欲推薦商品拖曳至上方，推薦好請點選完成。</h3></div>
 			<div class="container">
 			<?php 
@@ -274,13 +286,14 @@ try{
 <div class="phone">
 		<h2>推薦商品</h2>
 		<h4>最多推薦三個</h4>
+		<form action="pdRecInsert.php" method="post">
 	<?php
 	$sql="select * from products";
 	$phoneProd=$pdo->query($sql);
 	while($prodRow=$phoneProd->fetchObject()){
 	?>
 			<div class="phoneItems">
-				<input type="checkbox"  id="phoneProd<?php echo  $prodRow->pd_no ?>" value="<?php echo  $prodRow->pd_no ?>">
+				<input type="checkbox" name="r[]"  id="phoneProd<?php echo  $prodRow->pd_no ?>" value="<?php echo  $prodRow->pd_no ?>">
 				<label class="prodCheck" for="phoneProd<?php echo  $prodRow->pd_no ?>"></label>
 				<div class="prodPhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $prodRow->pd_pic1?>" alt=""></div>
 				<div class="prodInfo">
@@ -289,41 +302,46 @@ try{
 				</div>
 			</div>
 	<?php }?>
+	<input type="submit" id="btnSend2">
+	</form>
+	<label class="submit" for="btnSend2">
 		<span class="btnS">
 			<p class="btnText btnText4">完成</p>
 		</span>
+	</label>
 		</div>
 	</div>
 </div>
 <script>
-	$(document).ready(function(){
-		var count=0;
-		var radios=$('.phoneItems input[type="radio"]');
-		var phoneProd=$('.phone .phoneItems');
-		var prodCheck=$('.phone .prodCheck');
-		alert(phoneProd.length);
-
-	for(var i =0; i< phoneProd.length ; ++i){
+$(document).ready(function(){
+	var count=0;
+	var prodCheck=$('.phone .prodCheck');
+	for(var i =0; i< prodCheck.length ; ++i){
 		$(prodCheck[i]).on('click',function(){
-			var state = $(this).data('state');
-			switch(state){
-				case 1 :
-				case undefined : 
-				$(this).css('background-color','#f00');
-				++count;
-				$(this).html(count);
-				 $(this).data('state', 2); 
-				 break;
-				case 2 : 
-				--count;
-				$(this).html("");
-				$(this).css('background-color','rgb(221, 183, 12)');
-				 $(this).data('state', 1); 
-				 break;
+			if(count<3){
+				var state = $(this).data('state');
+				switch(state){
+					case 1 :
+					case undefined : 
+						$(this).css('background-color','rgb(221, 183, 12');
+						++count;
+						$(this).html(count);
+						$(this).data('state', 2); 
+						break;
+					case 2 : 
+						--count;
+						$(this).html("");
+						$(this).css('background-color','transparent');
+						$(this).data('state', 1); 
+						break;
+				}
+			}else{
+				$('.pdRec_wrapper3').css('display','block');
 			}
+			
 		});
 	}	
-	});
+});
 
 </script>
 
@@ -367,15 +385,21 @@ try{
 			$('.pdRec_wrapper2 .lightboxClose').click(function(){
 				$('.pdRec_wrapper2').css('display','none');
 			});
+			$('.pdRec_wrapper3 .btn').click(function(){
+				$('.pdRec_wrapper3').css('display','none');
+			});
+			$('.pdRec_wrapper3 .lightboxClose').click(function(){
+				$('.pdRec_wrapper3').css('display','none');
+			});
 
             var contCount=$('.productsSelect .content.drag').length;
 			var divWidth=$('.content.drop').outerWidth();
 			var divHeight=$('.content.drop').outerHeight();
 			var divHeight2=$('.content.drag').outerHeight();
 			var w=window.innerWidth;
-
+			$('.productsSelect .back').width(176*(contCount));
 			$('.productsSelect #white').height(divHeight2);
-			$('.productsSelect .container').outerWidth(190*(contCount));
+			$('.productsSelect .container').outerWidth(176*(contCount));
 			$('.productsSelect .container').outerHeight(divHeight);
 			
 			$(window).resize(function(){
@@ -383,10 +407,11 @@ try{
 				var divWidth=$('.content.drop').outerWidth();
 				var divHeight=$('.content.drop').outerHeight();
 				var divHeight2=$('.content.drag').outerHeight();
-				
+				var divWidth3=$('.productsSelect .container').outerWidth();
 				var w=window.innerWidth;
 				if(w>760){
 					prodSelect=$('.productsSelect').outerWidth();
+					$('.productsSelect .back').width(176*(contCount));
 					$('.productsSelect #white').width(prodSelect);
 					$('.productsSelect #white').height(divHeight2);
 					$('.productsSelect .container').outerWidth(176*(contCount));

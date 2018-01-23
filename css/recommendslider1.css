@@ -1,4 +1,5 @@
-.teacher .teacherBorder .pdRec_wrapper2
+.teacher .teacherBorder .pdRec_wrapper3
+,.teacher .teacherBorder .pdRec_wrapper2
 ,.teacher .teacherBorder .pdRec_wrapper {
     position: fixed;
     width: 100%;
@@ -9,7 +10,8 @@
     left: 0;
     display: none;
 }
-.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox {
     width: 360px;
     height: 150px;
@@ -24,7 +26,8 @@
     background-repeat: no-repeat;
     z-index: 11;
 }
-.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .loginClose
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .loginClose
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .loginClose
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose {
     margin: 20px 0 15px 300px;
     font-size: 25px;
@@ -33,7 +36,8 @@
     transition: 0.2s filter;
     filter: drop-shadow(0px 0px 5px #fec16a);
 }
-.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .loginClose:hover
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .loginClose:hover
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .loginClose:hover
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose:hover {
     color: #533e2f;
     cursor: url('../img/share/cursor.png') 12 5, auto;
@@ -45,7 +49,8 @@
     src: url('../font/王漢宗粗明體繁-中.ttf');
 }
 
-.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox p:first-of-type
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox p:first-of-type
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox p:first-of-type
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:first-of-type {
     font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
@@ -130,7 +135,6 @@
 }
 
 .recommendSlider {
-    border: 1px #fff solid;
     width: 100vw;
     height: 100px;
 }
@@ -143,7 +147,6 @@
     height: 360px;
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid #fff;
     clear: both;
     overflow: scroll;
     position: relative;
@@ -151,8 +154,12 @@
     box-sizing: border-box;
     overflow: hidden;
     overflow-x: scroll;
+    background:linear-gradient(to right, rgba(43, 26, 3, 1) 0%, rgba(43, 26, 3, 0.3) 1%, rgba(255, 255, 255, 0.3) 30%,  rgba(255, 255, 255, 0.3) 70%, rgba(43, 26, 3, 0.3) 99%, rgba(43, 26, 3, 1) 100%);
 }
-
+.teacher .teacherBorder .productsSelect .back{
+    height: 172px;
+    background :linear-gradient(to bottom, rgba(43, 26, 3, 1) 0%, rgba(43, 26, 3, 0.8) 2%, rgba(43, 26, 3, 0.4) 15%, rgba(43, 26, 3, 0.8) 40%, rgba(23, 0, 0, 1) 85%, rgba(43, 26, 3, 0.9) 92%, rgba(43, 26, 3, 0.8) 95%);
+}
 .teacher .teacherBorder .productsSelect #white {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.6);
@@ -233,6 +240,7 @@
     box-sizing: border-box;
     float: left;
     margin: 0 1.66666%;
+   
 }
 .teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(1){
     display:inline;
@@ -242,40 +250,6 @@
     font-size: 40px;
     color: #800;
     font-weight: bold;
-}
-.teacher .teacherBorder .search {
-    clear: both;
-    position: relative;
-}
-.teacher .teacherBorder #name {
-    clear: both;
-    position: absolute;
-    top: 32px;
-    left: 50%;
-    width: 300px;
-    height: 0px;
-    margin-left: -150px;
-    transition: 1s height;
-    overflow: scroll;
-    background: url('../img/share/textarea.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    z-index: 10;
-    /* margin: 0 auto; */
-}
-.teacher .teacherBorder #name::-webkit-scrollbar {
-    display: none
-}
-.teacher .teacherBorder #name li {
-    position: relative;
-    left: 50%;
-    margin-left: -150px;
-    text-align: left;
-    padding: 5px;
-}
-.teacher .teacherBorder #name li.highlight {
-    background: #cff;
 }
 @media all and (min-width: 760px){
     .desktop{
@@ -306,7 +280,8 @@
     .phone .phoneItems input[type="checkbox"]{
         position: absolute;
         top: 0;
-        left: 0;
+        left: -10000px;
+        opacity: 0;
     }
     .phone .phoneItems .prodCheck{
         position: absolute;
@@ -314,8 +289,9 @@
         right: 10px;
         width: 20px;
         height: 20px;
-        border-radius:5px;
-        background-color: rgb(221, 183, 12);
+        line-height: 20px;
+        border-radius:10px;
+        border:rgb(221, 183, 12) 1px solid;
         z-index:1;
         text-align: center;
     }
