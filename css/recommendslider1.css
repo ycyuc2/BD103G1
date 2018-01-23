@@ -292,15 +292,32 @@
         display:block;
         padding:0 1%;
     }
-    .phone h2{
+    .phone h2,.phone h4{
         text-align: center;
         margin: 15px auto;
     }
     .phone .phoneItems {
+        position: relative;
         display: inline-block;
         vertical-align: top;
         width: 46%;
         padding: 0 1%;
+    }   
+    .phone .phoneItems input[type="checkbox"]{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .phone .phoneItems .prodCheck{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        border-radius:5px;
+        background-color: rgb(221, 183, 12);
+        z-index:1;
+        text-align: center;
     }
     .phone .phoneItems .prodPhoto {
         position: relative;

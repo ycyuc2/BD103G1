@@ -273,14 +273,15 @@ try{
 	
 <div class="phone">
 		<h2>推薦商品</h2>
-
+		<h4>最多推薦三個</h4>
 	<?php
 	$sql="select * from products";
 	$phoneProd=$pdo->query($sql);
 	while($prodRow=$phoneProd->fetchObject()){
 	?>
 			<div class="phoneItems">
-				<div class="prodCheck"></div>
+				<input type="checkbox"  id="phoneProd<?php echo  $prodRow->pd_no ?>" value="<?php echo  $prodRow->pd_no ?>">
+				<label class="prodCheck" for="phoneProd<?php echo  $prodRow->pd_no ?>"></label>
 				<div class="prodPhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $prodRow->pd_pic1?>" alt=""></div>
 				<div class="prodInfo">
 					<p><?php echo  $prodRow->pd_name ?></p>
@@ -294,6 +295,39 @@ try{
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		var count=0;
+		var radios=$('.phoneItems input[type="radio"]');
+		var phoneProd=$('.phone .phoneItems');
+		var prodCheck=$('.phone .prodCheck');
+		alert(phoneProd.length);
+
+	for(var i =0; i< phoneProd.length ; ++i){
+		$(prodCheck[i]).on('click',function(){
+			var state = $(this).data('state');
+			switch(state){
+				case 1 :
+				case undefined : 
+				$(this).css('background-color','#f00');
+				++count;
+				$(this).html(count);
+				 $(this).data('state', 2); 
+				 break;
+				case 2 : 
+				--count;
+				$(this).html("");
+				$(this).css('background-color','rgb(221, 183, 12)');
+				 $(this).data('state', 1); 
+				 break;
+			}
+		});
+	}	
+	});
+
+</script>
+
+
 <?php
 			  
     }catch(PDOExeption $e){
