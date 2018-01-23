@@ -15,20 +15,17 @@
   margin: 0;
   padding: 0; }
 
-.bg{
-  background-image: url(../img/dozen_store/bg.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-}
 
 .background {
-  background-image: url(../img/lightening/background_pure.jpg);
+  background-image: url(../img/dozen_store/bg.jpg);
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   position: fixed;
+  top:0;
+  left: 0;
   z-index: -5; }
 
 .background .flash {
@@ -318,6 +315,7 @@
     .frame .search .searchBox {
       float: right;
       text-align: center;
+      position: relative;
       
     
     }
@@ -359,14 +357,12 @@
 
             .frame .search .searchBox i{
               position: absolute;
-              top: 4.2%;
-              right: 9%;
+              top: 20%;
+              right: 10%;
               color: #aaa;
 
-              
-
-              
             }
+
             @media all and (max-width: 479px) {
               .frame .search .searchBox i {
                 display: none;
@@ -467,9 +463,19 @@
         color: #533e2f;
         letter-spacing: 2px;
         font-size: 35px; }
+
+      .frame .content .intro #karma_dec {
+          font-family: "王漢宗中明體繁- 細";
+          font-size: 14px;
+          letter-spacing: 5px;
+          color: #c53522;
+          margin-top: 10px;
+
+      }
+
       .frame .content .intro p {
         color: #533e2f;
-        margin-top: 20px; }
+        margin-top: 10px; }
       .frame .content .intro .options {
         margin-top: 20px;
         box-sizing: border-box;
@@ -516,15 +522,18 @@
               display: inline-block;
               vertical-align: middle;
               float: none; } }
-          .frame .content .intro .options .purchase .name .buyNowƒ {
+          .frame .content .intro .options .purchase .name .buyNow {
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 4px;
+            cursor: pointer;
+            margin-right: 5%;
             display: inline-block;
             text-decoration: none;
             text-align: center;
             width: 120px;
             height: 33px;
-            color: #ccc;
             line-height: 33px;
-            font-size: 14px;
             font-weight: 400;
             letter-spacing: 2px;
             background-image: url(../img/dozen_store/btn.png);

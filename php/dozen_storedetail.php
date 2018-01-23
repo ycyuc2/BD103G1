@@ -21,10 +21,10 @@
 <body>
    
 <?php 
-
+    require_once("connectBooks.php");
     require_once("header.php");
-    $_SESSION["where"] = "dozen_storedetail.php";
-?>
+    $_SESSION["where"] = "dozen_store.php";
+    ?>
 
     <div class="frame">
         <div class="frameFrame"></div>
@@ -60,7 +60,9 @@
 
 
                                 <div class="text">
-                                    <h2 id="textTitle"><?php echo $productRow["pd_name"] ?></h2> <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
+                                    <h2 id="textTitle"><?php echo $productRow["pd_name"] ?></h2>
+                                     <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
+                                     <h2 id="karma_dec">業力值扣減(<?php echo $productRow["karma_dec"] ?>)</h2>
                                     <br>
                                     <img src="../img/dozen_storedetail/star.png" alt="">
                                     <img src="../img/dozen_storedetail/star.png" alt="">
@@ -165,9 +167,13 @@
             
         </div>
 
+        
+
 
 
 
 </body>
+
+
 
 </html>

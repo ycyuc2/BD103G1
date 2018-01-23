@@ -51,7 +51,7 @@ function doFirst() {
    
 	 //商品圖片 -- 第一個td
 	 var tdImage = document.createElement('td');
-	 tdImage.style.width = '250px';
+	 tdImage.style.width = '23%';
 	 tdImage.valign = 'center';
    
 	 var image = document.createElement('img');
@@ -62,10 +62,14 @@ function doFirst() {
    
 	 tdImage.appendChild(image);
 	 trItemList.appendChild(tdImage);
+
+
+
+	 
    
 	 //商品名稱 -- 第二個td
 	 var tdTitle = document.createElement('td');
-	 tdTitle.style.width = '200px';
+	 tdTitle.style.width = '16%';
 	 tdTitle.id = itemKey;
 	 tdTitle.valign = 'center';
    
@@ -76,10 +80,11 @@ function doFirst() {
    
    
 	 trItemList.appendChild(tdTitle);
-   
+
+	
 	 //單價 -- 第三個td
 	 var tdPrice = document.createElement('td');
-	 tdPrice.style.width = '100px';
+	 tdPrice.style.width = '11%';
 	 tdPrice.setAttribute('data-price', itemPrice);
 	 tdPrice.innerText = itemPrice;
    
@@ -87,7 +92,7 @@ function doFirst() {
    
 	 //數量 -- 第四個td
 	 var tdItemCount = document.createElement('td');
-	 tdItemCount.style.width = '50px';
+	 tdItemCount.style.width = '1%';
    
 	 var itemCount = document.createElement('input');
 	 itemCount.type = 'number';
@@ -106,7 +111,7 @@ function doFirst() {
    
 	 //x -- 第五個td
 	 var tdDelete = document.createElement('td');
-	 tdDelete.style.width = '50px';
+	 tdDelete.style.width = '18%';
    
 	 var delButton = document.createElement('button');
 	 delButton.innerText = 'x';

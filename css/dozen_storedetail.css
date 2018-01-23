@@ -124,10 +124,20 @@ body {
         color: #533e2f;
         display: inline-block; }
       .frame .product .productContent .text #price {
+      
         letter-spacing: 5px;
         color: #533e2f;
         display: inline-block;
-        margin-bottom: 2%; }
+        margin-bottom: 2%; 
+      }
+
+        .frame .product .productContent .text #karma_dec {
+          font-family: "王漢宗中明體繁- 細";
+          font-size: 14px;
+          letter-spacing: 5px;
+          color: #c53522;
+          display: inline-block;
+          margin-bottom: 2%; }
       .frame .product .productContent .text i {
         color: yellow; }
       .frame .product .productContent .text .rate {

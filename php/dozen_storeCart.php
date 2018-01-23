@@ -1,130 +1,45 @@
+<?php 
+	ob_start();
+    session_start();
+    ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dozen_storeCart</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css ">
-    <link rel="stylesheet" href="../css/dozen_nav.css">
+    <title>dozen_storeCart</title>
+    <?php require_once("publicHeader.php")?>
+
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/dozen_storeCart.css">
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/dozen_storeCart.js"></script>
     <script src="../js/count.js"></script>
 </head>
 
 <body>
-   <!-- 漢堡選單 -->
-		<input type="checkbox" name="" id="menuControl">
-
-		<label for="menuControl" class="hamburger">
-				<div></div>
-				<div></div>
-				<div></div>
-		</label for="menuControl">
-
-	<div class="menu">
-        <!-- logo -->
-        <div class="navlogo">
-            <a  href="#">
-                <img src="../img/share/LOGO-08.png">
-            </a>
-        </div>
-		
-
-		<!-- 右邊的title區塊 -->
-
-			<div class="left">
-				<p>距離下次水星逆行還有</p>
-				<table class="countdownContainer">
-						<tr class="info">
-							<td id="days">120</td><td>天</td>
-							<td id="hours">4</td><td>時</td>
-							<td id="minutes">12</td><td>分</td>
-							<td id="seconds">22</td><td>秒</td>
-						</tr>
-						
-					</table>
-			</div>
-		<!-- 中間的line -->
-			<div class="line"></div>
-			<!-- 右邊的time區塊 -->
-			<div class="right">
-				<a class="title" href="#">
-					<span class="findTeacher"></span>
-				</a>
-				<a class="title" href="../html/dozen_store.html">
-					<span class="store"></span>
-				</a>
-				<a class="title" href="#">
-					<span class="member"></span>
-				</a>
-			</div>	
-	</div>
-
-<!-- 水星逆行的ＪＳ程式 -->
-	<script type="text/javascript">
-		window.onload=countdown;
-		function countdown(){
-			var now = new Date();
-			var eventDate = new Date(2018, 3, 23);
-			var currentTime = now.getTime();
-			var eventTime = eventDate.getTime();
-			var remTime = eventTime - currentTime;
-
-			var s = Math.floor(remTime / 1000);
-			var m = Math.floor(s / 60);
-			var h = Math.floor(m / 60);
-			var d = Math.floor(h / 24);
-
-			h %= 24;
-			m %= 60;
-			s %= 60;
-
-			h = (h < 10) ? "0" + h : h;
-			m = (m < 10) ? "0" + m : m;
-			s = (s < 10) ? "0" + s : s;
-
-			document.getElementById("days").textContent = d;
-			document.getElementById("days").innerText = d;
-			document.getElementById("hours").textContent = h;
-			document.getElementById("minutes").textContent = m;
-			document.getElementById("seconds").textContent = s;
-
-			setTimeout(countdown, 1000);
-		}
-	</script>
-
-    <i class="fa fa-address-book" aria-hidden="true"></i>
-    <div class="header">
-        <a href="#">
-            <img class="logo" src="../img/share/LOGO-08.png">
-        </a>
-
-
-        <p class="cart">
-            <span id="person">
-                <a href="#" class="name">王小姐</a>
-            </span> 您好 購物車(<a href="#">0</a>)
-        </p>
-
-    </div>
-
+    <?php 
+        require_once("connectBooks.php");
+        require_once("header.php");
+        $_SESSION["where"] = "dozen_store.php";
+        ?>
+   
     <div class="frame">
         <div class="frameFrame"></div>
         
        <div class="title">
            <h2>商品細項</h2>
+           <h2>業力扣減值</h2>
            <h2>金額</h2>
            <h2>數量</h2>
-           <h2>小計</h2>
            <h2>刪除</h2>
        </div>
 
-       <div class="content">
+        <div class="cartList"></div>
+       <!-- <div class="content">
            <div>
            <img src="../img/dozen_storeCart/lion.jpg" alt="">
             </div>
@@ -153,14 +68,14 @@
 
             <div class="delete"><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>
 
-       </div>
+       </div> -->
 
 
 
 
        <hr>
 
-       <p class="all">共<span>1</span>件商品，總金額<span id="subtotal">99999</span>元</p>
+       <p class="all">共<span id='amount'>0</span>件商品，總金額<span id="subtotal">0</span>元</p>
 
        <h2 class="know">購買須知</h2>
        <div class="contract">

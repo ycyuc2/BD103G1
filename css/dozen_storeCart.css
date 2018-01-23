@@ -80,7 +80,7 @@ body {
   .frame .title {
     margin-top: 2%;
     background-color: #564826;
-    padding-left: 20%;
+    padding-left: 10%;
    }
     .frame .title:after {
       content: '';
@@ -88,7 +88,7 @@ body {
       clear: both; }
     .frame .title h2 {
       float: left;
-      margin-left: 15%;
+      margin-left: 12%;
       font-size: 14px;
       color: #fff;
       font-weight: 200;
