@@ -2,14 +2,17 @@
 	ob_start();
 	session_start();
 	require_once("connectBooks.php");
-	$sql = "insert into member(mem_acc, mem_psw, mem_nn, mem_tel, fort_sta, mem_sta)
-			value (:mem_acc, :mem_psw, :mem_nn, :mem_tel, :fort_sta, :mem_sta)";
+	$sql = "insert into member(mem_acc, mem_psw, mem_nn, mem_tel, fort_sta, fort_no, obj_fort_no, karma_val, mem_sta)
+			value (:mem_acc, :mem_psw, :mem_nn, :mem_tel, :fort_sta, :fort_no, :obj_fort_no, :karma_val, :mem_sta)";
 	$member = $pdo->prepare($sql);
 	$member -> bindValue(":mem_acc",$_POST["mem_acc"]);
 	$member -> bindValue(":mem_psw",$_POST["mem_psw"]);
 	$member -> bindValue(":mem_nn",$_POST["mem_nn"]);
 	$member -> bindValue(":mem_tel",$_POST["mem_tel"]);
 	$member -> bindValue(":fort_sta",$_SESSION["fort_sta"]);
+	$member -> bindValue(":fort_no",$_SESSION["fort_no"]);
+	$member -> bindValue(":obj_fort_no",$_SESSION["obj_fort_no"]);
+	$member -> bindValue(":karma_val",$_SESSION["karma_inc"]+100);
 	$member -> bindValue(":mem_sta",1);
 	$member -> execute();
 	$sql = "select * from member where mem_acc = :mem_acc and mem_psw = :mem_psw";

@@ -145,6 +145,7 @@
 	margin-bottom: 350px;
 	text-align: center;
 	padding: 50px;
+	display: none;
 }
 .chooseBirthday .birthdayFrame{
 	position: absolute;

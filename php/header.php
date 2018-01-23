@@ -5,6 +5,9 @@
 	if(empty($_SESSION["cartCount"])){
 		$_SESSION["cartCount"] = 0;
 	}
+	if(empty($_SESSION["karma_inc"])){
+		$_SESSION["karma_inc"] = 0;
+	}
 ?>
 	<!-- hamnurger -->
 	<!-- 漢堡選單 -->
@@ -125,6 +128,21 @@
 				</table>
 		</div>
 	</div>
+	<!-- 業力球 -->
+
+	<a class="showKarma" href="#">
+        <div class="face">
+            <h3>業障干擾值</h3>
+            <img src="../img/showKarma/700.png">
+            <span><?php
+	            if( empty($_SESSION["karma_val"]) ){
+					echo $_SESSION["karma_inc"]+100;
+				}else{
+					echo $_SESSION["karma_val"];
+				}?>
+			</span>
+        </div>
+    </a>
 	<!-- 燈箱開始 -->
 	
 	<input type="checkbox" id="loginControl">

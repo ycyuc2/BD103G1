@@ -1,20 +1,26 @@
+<?php
+ob_start();
+session_start();
+$_SESSION["where"] = "recommendProducts.php";
+$_REQUEST["teacher_no"]=2;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php require_once("publicHeader.php") ?>
 	<meta charset="UTF-8">
-	<title>推薦商品</title>
-	<?php require_once("publicHeader.php") ?>
+	<title>專欄文章</title>
 	<link rel="stylesheet" type="text/css" href="../css/specialColumn.css">
+	<link rel="stylesheet" type="text/css" href="../css/starRatingForArticle.css">
 	<link rel="stylesheet" type="text/css" href="../css/lightening.css">
-	<link rel="stylesheet" type="text/css" href="../css/starRating.css">
-	<link rel="stylesheet" href="../css/input.css">
 	<link rel="stylesheet" href="../css/recommendslider1.css">
-
+	
 </head>
 <body>
-
-	<?php require_once("header.php") ?>
-<!-- 背景 -->
+	<?php
+		require_once("connectBooks.php");
+		require_once("header.php"); 
+	?>
 	<div class="background">
 		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
 		<img src="../img/lightening/flash2.png" alt="" class="flash lt2">
@@ -22,42 +28,16 @@
 		<img src="../img/lightening/flash4.png" alt="" class="flash lt4">
 		
 	</div>
-<!-- header -->
-	<div class="header">
-		<!-- 中間logo -->
-		<div class="logo">
-			<a href="#">
-				<img src="../img/share/LOGO-08.png">
-			</a>
-		</div>	
-		<!-- 右邊會員專區 -->
-		<div class="memArea">
-			<ul>
-				<li><a href="#">註冊</a></li>
-				<li><a href="#">登入</a></li>
-				<li><a href="#">購物車(<span class="cartNo">0</span>)</a></li>
-			</ul>
-		</div>
-		<!-- 右邊水逆倒數 -->
-		<div class="countdown">
-			<table class="countdownContainer">
-				<tr class="info">
-					<td>水星逆行倒數 :</td>
-					<td class="days">120</td><td>天</td>
-					<td class="hours">4</td><td>時</td>
-					<td class="minutes">12</td><td>分</td>
-				</tr>				
-			</table>
-		</div>
-	</div>
+
+	<div class="headerBlank"></div>
 <?php 
-$_SESSION["teacher"]["teacher_no"]=2;
-$_SESSION["mem_no"]=null;
+
 try{
-    require_once("../php/connectBooksting.php");
+	if(isset($_SESSION["teacher_no"])){
+    require_once("../php/connectBooks.php");
 	$sql = "select * from teacher where teacher_no = :teacher_no";
 	$teacher = $pdo->prepare($sql);
-	$teacher->bindValue(":teacher_no",$_SESSION["teacher"]["teacher_no"]);
+	$teacher->bindValue(":teacher_no",$_SESSION["teacher_no"]);
 	$teacher->execute();
 	$teacher_row = $teacher->fetchAll(PDO::FETCH_ASSOC);
 		foreach( $teacher_row as $i=>$teacherRow){
@@ -96,20 +76,30 @@ try{
 							</fieldset>
 
 <?php 
-	
-	if($teacher->rowcount()!=0 &&  isset($_SESSION["mem_no"])){
+	$sql="select * from art_review where  art_no =?";
+	$check=$pdo->prepare($sql);
+	$check->bindValue(1,1);
+	$check->execute();
+	$count=$check->rowcount();
+	$starScore=0;
+	while($checkRow=$check->fetchObject()){
+		$starScore+=$checkRow->art_star;
+	}
 ?>
 		<script>
-			var star= <?php echo  $teacherRow["teacher_star"] ?>;
+			var star= <?echo round($starScore/$count);?>;
 			var inputElems= $('.teacherStar input[type="radio"]');
 			inputElems[5-star].checked=true;
-
+			for(var i=0;i<5;++i){
+				inputElems[i].disabled=true;
+			}
 		</script>
 <?php 
-	}else if(isset($_SESSION["mem_no"])==null){
-
+	
 	}
-}
+}else if(isset($_SESSION["teacher_no"])==null){
+		header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacher_no"]);
+	}
 ?>
 
 						</p>
@@ -133,143 +123,107 @@ try{
 <!-- 推薦區域 -->
 <div class="pdRec_wrapper">
 	<div class="pdRec_lightbox">
-		<label for="loginControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		<label for="lightboxClose">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
 		</label>
 		<p>您重複推薦商品了</p>
-		<div class="btn"> 我知道了</div>
+		<span class="btnM btn">
+			<p class="btnText btnText2">我知道了</p>
+		</span>
 	</div>
 </div>
 
 <?php 
-
-
     // 到products資料庫撈出商品的細項
     $sql="select  * from products where pd_no =?" ;
     $pd=$pdo->prepare($sql);
 ?>
 
-
 <div class="pdRec_wrapper2">
 	<div class="pdRec_lightbox">
-		<label for="loginControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		<label for="lightboxClose">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
 		</label>
 		<p>您尚未推薦滿三個商品</p>
-		<div class="btn"> 我知道了</div>
+		<span class="btnM btn">
+			<p class="btnText btnText2">我知道了</p>
+		</span>
+	</div>
+</div>
+<div class="pdRec_wrapper3">
+	<div class="pdRec_lightbox">
+		<label for="lightboxClose">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
+		</label>
+		<p>最多只能推薦三個商品</p>
+		<span class="btnM btn">
+			<p class="btnText btnText2">我知道了</p>
+		</span>
 	</div>
 </div>
 
-
-<script>
-			function check(){
-				var drop1=document.getElementsByClassName('drop')[0].getElementsByTagName('input')[0].value;
-				var drop2=document.getElementsByClassName('drop')[1].getElementsByTagName('input')[0].value;
-				var drop3=document.getElementsByClassName('drop')[2].getElementsByTagName('input')[0].value;
-				if(drop1==0 || drop2==0 || drop3==0){
-					$('.pdRec_wrapper2').css('display','inline');
-				}else{
-					var form  = document.getElementById('formRec');
-					form.submit();
-				}
-
-			}
-</script>
+<div class="desktop">
     <div class="merchandise recommend">
 		<h2>推薦商品</h2>
 		<div class="pdRecMove">
 		<form action="pdRecInsert.php" method="get" id="formRec">
-			<input type="hidden" value="<?php echo $_SESSION["teacher"]["teacher_no"]?>" name="teacher_no">
+			<input type="hidden" value="<?php echo $_SESSION["teacher_no"]?>" name="teacher_no">
 <?php 
-
-
-    $sql="select * from pd_recommend where teacher_no = ?";
-    $recommend=$pdo->prepare($sql);
-    $recommend->bindValue(1,3);
-    $recommend->execute();
-	if($recommend->rowcount()===0){
-?>
-<div class="content drop">
-	<div class="white"></div>
-				<input type="hidden" name="r[]" value="">
+	$sql="select a.pd_no, a.pd_name, a.pd_pic1, a.pd_describe, a.pd_price, a.pd_sale
+		  from products as a left join pd_recommend as b
+		  on a.pd_no = b.pd_no 
+		  or a.pd_no = b.pd_no2 
+		  or a.pd_no = b.pd_no3
+		  where b.teacher_no = :teacher_no";
+	$pd=$pdo->prepare($sql);
+	$pd->bindValue(':teacher_no',$_REQUEST["teacher_no"]);
+	$pd->execute();
+	$countPd1=$pd->rowcount();
+	$countPd=3-$countPd1;
+	$pdRecRow=$pd->fetchAll(PDO::FETCH_ASSOC);
+	foreach($pdRecRow as $i => $recRow){
+	?>
+		<div class="content drop">
+				<input type="hidden" name="r[]" value="<?php echo $recRow["pd_no"]?>">
+				<div class="merchandisePhoto"><div class="pictureBorder"></div><img src="../img/products/<?php echo $recRow["pd_pic1"]?>" alt=""></div>
+				<div class="merchandiseIntro">
+					<a href="#"> <?php  echo $recRow["pd_name"] ?> </a>
+					<p class="describe"> <?php  echo mb_substr($recRow["pd_describe"],0,50,"utf-8")."..." ?> </p>
+					<p><span> <?php  echo $recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
+				</div>
+			</div>  
+	<?php
+	}for($i=0;$i<$countPd;++$i){?>
+		<div class="content drop">
+			<div class="white"></div>
+				<input type="hidden" name="r[]" value="null">
 				<p>尚未推薦產品</p>
-
-</div>  
-<div class="content drop">
-	<div class="white"></div>
-				<input type="hidden" name="r[]" value="">
-				<p>尚未推薦產品</p>
-
-</div>  
-<div class="content drop">
-	<div class="white"></div>
-				<input type="hidden" name="r[]" value="">
-				<p>尚未推薦產品</p>
-
-</div>  
-<?php 
-	}else{
-		$recRow=$recommend->fetchObject();
-	
-    // 提出老師推薦的商品序號
-	$a=$recRow->pd_no;
-	$b=$recRow->pd_no2;
-	$c=$recRow->pd_no3;
-	
-	
-    for( $i=1;$i<4;++$i){
-        //一個個篩選
-        if($i==1){   
-            $pd->bindValue(1,$a);
-        }elseif($i==2){
-             $pd->bindValue(1,$b);
-        }else{
-             $pd->bindValue(1,$c);
-        }
-		$pd->execute();
-		$pdRow = $pd -> fetchObject();
+		</div>  
+<?php
+	}	?>
 			
-?>
+		
 
-	<div class="content drop">
-			<input type="hidden" name="r[]" value="<?php echo $pdRow-> pd_no?>">
-            <div class="merchandisePhoto"><img src="../img/products/<?php echo $pdRow->pd_pic1?>" alt=""></div>
-            <div class="merchandiseIntro">
-                <a href="#"> <?php  echo $pdRow-> pd_name ?> </a>
-                <p class="describe"> <?php  echo mb_substr($pdRow -> pd_describe,0,30,"utf-8")."..."?> </p>
-                <p class="describe"><span> <?php  echo $pdRow-> pd_price ?> </span> <span> <?php  echo $pdRow-> pd_sale ?> </span>元</p>
-            </div>
-        </div>  
-		<?php  
-		}
-	}
-?>
 
-	<input type="send" id="btnSend" value="" onclick="check()">
+	<input type="button" id="btnSend" value="" onclick="formSubmit();" width="0" >
 	</form>
 	</div>     
 </div>
-		
+<?php if(isset($_SESSION["teacher_no"])){?>
+	<script>
+		function formSubmit(){
+		var form  = document.getElementById('formRec');
+		form.submit();
+		}
+	</script>
+<?php }?>
 
 
 	<div class="merchandise recommend">
 		
-		<div class="search">
-		<!-- <input type="search" id="search" class="input input200"> -->
-		<ul id="name" type="none">
-<?php 			
-		$sql1="select * from products";
-		$pd=$pdo->query($sql1);
-		while($nameRow = $pd->fetchObject()){
-			echo '<input type="hidden" class="pdHiddenInput" value="',$nameRow-> pd_no,'" >';
-?> 
-			<li><?php  echo $nameRow-> pd_name ?></li>
-<?php 		
-		}
-?>
-			</ul>
-		</div>
+		
 		<div class="productsSelect">
+			<div class="back"></div>
 			<div id="white"><h3>請將欲推薦商品拖曳至上方，推薦好請點選完成。</h3></div>
 			<div class="container">
 			<?php 
@@ -278,30 +232,92 @@ try{
 				while($dragRow=$pd->fetchObject()){
 				?>
 				<div class="content drag" draggable="true" id="<?php echo $dragRow -> pd_no?>">
-					<input type="hidden" name="r[]" value="<?echo $dragRow-> pd_no?>">
-					<div class="merchandisePhoto"><img src="../img/products/<?echo $dragRow->pd_pic1?>" alt=""></div>
+					<input type="hidden" name="r[]" value="<?php echo $dragRow-> pd_no?>">
+					<div class="merchandisePhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $dragRow->pd_pic1?>" alt=""></div>
 					<div class="merchandiseIntro">
-						<a href="#"> <? echo $dragRow-> pd_name ?> </a>
-						<p class="describe"><? echo mb_substr($dragRow -> pd_describe,0,30,"utf-8")."..."?></p>
-						<p><span> <? echo $dragRow-> pd_price ?> </span> <span> <? echo $dragRow-> pd_sale ?> </span>元</p>
+						<a href="#"> <?php echo $dragRow-> pd_name ?> </a>
+						<p class="describe"><?php echo mb_substr($dragRow -> pd_describe,0,30,"utf-8")."..."?></p>
+						<p><span> <?php  echo $dragRow-> pd_price ?> </span> <span> <? echo $dragRow-> pd_sale ?> </span>元</p>
 
 					</div>
 				</div>  
-					<? 
+					<?php  
 				}
 			?>      
 			</div>
 		</div>
-	</div>
-
-			<label class="submit" for="btnSend">
-				<span class="btnM">
-					<p class="btnText btnText4">完成</p>
-				</span>
-			</label>
-			</div>
 		</div>
-<?
+		<label class="submit" for="btnSend">
+			<span class="btnM">
+				<p class="btnText btnText4">完成</p>
+			</span>
+		</label>
+	</div>
+	
+<div class="phone">
+		<h2>推薦商品</h2>
+		<h4>最多推薦三個</h4>
+		<form action="pdRecInsert.php" method="post">
+	<?php
+	$sql="select * from products";
+	$phoneProd=$pdo->query($sql);
+	while($prodRow=$phoneProd->fetchObject()){
+	?>
+			<div class="phoneItems">
+				<input type="checkbox" name="r[]"  id="phoneProd<?php echo  $prodRow->pd_no ?>" value="<?php echo  $prodRow->pd_no ?>">
+				<label class="prodCheck" for="phoneProd<?php echo  $prodRow->pd_no ?>"></label>
+				<div class="prodPhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $prodRow->pd_pic1?>" alt=""></div>
+				<div class="prodInfo">
+					<p><?php echo  $prodRow->pd_name ?></p>
+					<p><span><?php echo $prodRow->pd_price?></span> <span><?php echo $prodRow->pd_sale?></span>元</p>
+				</div>
+			</div>
+	<?php }?>
+	<input type="submit" id="btnSend2">
+	</form>
+	<label class="submit" for="btnSend2">
+		<span class="btnS">
+			<p class="btnText btnText4">完成</p>
+		</span>
+	</label>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	var count=0;
+	var prodCheck=$('.phone .prodCheck');
+	for(var i =0; i< prodCheck.length ; ++i){
+		$(prodCheck[i]).on('click',function(){
+			if(count<3){
+				var state = $(this).data('state');
+				switch(state){
+					case 1 :
+					case undefined : 
+						$(this).css('background-color','rgb(221, 183, 12');
+						++count;
+						$(this).html(count);
+						$(this).data('state', 2); 
+						break;
+					case 2 : 
+						--count;
+						$(this).html("");
+						$(this).css('background-color','transparent');
+						$(this).data('state', 1); 
+						break;
+				}
+			}else{
+				$('.pdRec_wrapper3').css('display','block');
+			}
+			
+		});
+	}	
+});
+
+</script>
+
+
+<?php
 			  
     }catch(PDOExeption $e){
         echo "錯誤原因 : " , $e->getMessage() , "<br>";
@@ -312,31 +328,14 @@ try{
 
 
 	<!-- ====================footer==================== -->
-	<div class="footer">
-
-	
-		<div class="copyright">
+	<div class="copyright">
 			<p>
 			點算©Copyright DOZEN, 2018.
 			</p>
-		</div>
-		
 	</div>
 
 	<script>
 		$(document).ready(function () {
-			function check(){
-				var drop1=document.getElementsByClassName('drop')[0].getElementsByTagName('input')[0].value;
-				var drop2=document.getElementsByClassName('drop')[1].getElementsByTagName('input')[0].value;
-				var drop3=document.getElementsByClassName('drop')[2].getElementsByTagName('input')[0].value;
-				if(drop1==0 || drop2==0 || drop3==0){
-					alert("no");
-				}else{
-					var form  = document.getElementById('formRec');
-					form.submit();
-				}
-
-			}
 			document.getElementById("white").addEventListener("mouseover",disappear);
 			function disappear(){
 				white.style.transition="opacity 1s  0s,0s 1s left";
@@ -344,13 +343,6 @@ try{
 				white.style.opacity="0";
 
 			}
-
-			// 燈箱
-			// $('pdRec_wrapper').click(function(){
-			// 	$(this).css({
-			// 		left:'0'
-			// 	});
-			// });
 			$('.pdRec_wrapper .btn').click(function(){
 				$('.pdRec_wrapper').css('display','none');
 			});
@@ -364,15 +356,21 @@ try{
 			$('.pdRec_wrapper2 .lightboxClose').click(function(){
 				$('.pdRec_wrapper2').css('display','none');
 			});
+			$('.pdRec_wrapper3 .btn').click(function(){
+				$('.pdRec_wrapper3').css('display','none');
+			});
+			$('.pdRec_wrapper3 .lightboxClose').click(function(){
+				$('.pdRec_wrapper3').css('display','none');
+			});
 
             var contCount=$('.productsSelect .content.drag').length;
 			var divWidth=$('.content.drop').outerWidth();
 			var divHeight=$('.content.drop').outerHeight();
 			var divHeight2=$('.content.drag').outerHeight();
 			var w=window.innerWidth;
-
+			$('.productsSelect .back').width(176*(contCount));
 			$('.productsSelect #white').height(divHeight2);
-			$('.productsSelect .container').outerWidth(190*(contCount));
+			$('.productsSelect .container').outerWidth(176*(contCount));
 			$('.productsSelect .container').outerHeight(divHeight);
 			
 			$(window).resize(function(){
@@ -380,10 +378,11 @@ try{
 				var divWidth=$('.content.drop').outerWidth();
 				var divHeight=$('.content.drop').outerHeight();
 				var divHeight2=$('.content.drag').outerHeight();
-				
+				var divWidth3=$('.productsSelect .container').outerWidth();
 				var w=window.innerWidth;
 				if(w>760){
 					prodSelect=$('.productsSelect').outerWidth();
+					$('.productsSelect .back').width(176*(contCount));
 					$('.productsSelect #white').width(prodSelect);
 					$('.productsSelect #white').height(divHeight2);
 					$('.productsSelect .container').outerWidth(176*(contCount));
@@ -431,7 +430,6 @@ try{
 				drop_objs[i].ondragover = dragover;
 			}
 			var drag_objs=document.getElementsByClassName('drag');
-			
 			for( var i=0; i<drag_objs.length; i++){
 				drag_objs[i].ondragstart = function (e){
 					e.dataTransfer.setData("text", e.currentTarget.id);
@@ -439,43 +437,6 @@ try{
 			}
 
 
-			//搜尋滑動功能
-			$('li').click(function () {
-				index = $(this).index();
-				
-				if(w<760){
-					$('.productsSelect .container').animate({
-						top:(divWidth1*0.5*index*-1 )
-					});
-				}else{
-					$('.productsSelect .container').animate({
-						left:(divWidth1*0.5*index*-1 )
-					});
-				}
-			});
-
-            $('#name li').css('display', '');
-			$('#search').keyup(function () {
-				var get =$(this).val();
-				$("#name li").hide();
-				if($.trim(get)!==''){
-					$('#name li:contains("'+get+'")').show();
-				}
-			});
-			$('#search').focus(function(){
-					var get =$(this).val();
-				$("#name li").hide();
-				if($.trim(get)!==''){
-					$('#name li:contains("'+get+'")').show();
-				}
-				$('#name li').css('display', 'block');
-				$('#name').css('height','100px');
-			}).blur(function(){
-				$('#name').css('height','0px');
-			});
-			$(document).on('mouseenter mouseleave', 'li', function () {
-				$(this).toggleClass('highlight');
-			});
 			$('.productsSelect .content').click(function(){
 				index = $(this).index()+1;
 			});

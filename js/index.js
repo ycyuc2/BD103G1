@@ -1,4 +1,6 @@
-window.addEventListener("load", function () {
+
+window.addEventListener("load", function(){
+	
     $('html,body').animate({ scrollTop: -100 }, 0);
 	var year = document.querySelectorAll('.year select');
 	for (var i = 0; i < year.length; i++) {
@@ -17,6 +19,27 @@ window.addEventListener("load", function () {
 			optM.innerText = 1+j;
 			month[i].appendChild(optM);
 		}
+		month[i].addEventListener("change", function () {
+			var targetDate = this.parentNode.nextSibling.nextSibling.firstChild;
+			switch(this.value){
+				case '1':	case '3':	case '5':	case '7':	case '8':	case '10':	case '12':
+					dayGenerater(31, targetDate);
+					break;
+				case '4':	case '6':	case '9':	case '11':
+					dayGenerater(30, targetDate);
+					break;
+				default:
+					var leapYear = parseInt(this.parentNode.previousSibling.previousSibling.firstChild.value);
+					if(leapYear%100 == 0){
+						dayGenerater(28, targetDate);
+					}else if(leapYear%4 == 0){
+						dayGenerater(29, targetDate);
+					}else{
+						dayGenerater(28, targetDate);
+					}
+					break;
+			}
+		});
 	}
 	function dayGenerater(dayCount, day) {
 		if(day){
@@ -40,72 +63,23 @@ window.addEventListener("load", function () {
 		}
 	}
 	dayGenerater(31, null);
-
-	for (var i = 0; i < month.length; i++) {
-		month[i].addEventListener("change", function () {
-			var targetDate = this.parentNode.nextSibling.nextSibling.firstChild;
-			switch(this.value){
-				case '1':	case '3':	case '5':	case '7':	case '8':	case '10':	case '12':
-					dayGenerater(31, targetDate);
-					break;
-				case '4':	case '6':	case '9':	case '11':
-					dayGenerater(30, targetDate);
-					break;
-				default:
-					var leapYear = parseInt(this.parentNode.previousSibling.previousSibling.firstChild.value);
-					if(leapYear%100 == 0){
-						dayGenerater(28, targetDate);
-					}else if(leapYear%4 == 0){
-						dayGenerater(29, targetDate);
-					}else{
-						dayGenerater(28, targetDate);
-					}
-					break;
-			}
-		});
-	}
+	
+		// choosebirthday
 	
 
-	document.querySelector('.chooseBirthday').style.display = "none";
-	document.querySelector('span.single').addEventListener("click", function () {
-		document.querySelector('.chooseBirthday').style.display = "block";
-		document.querySelector('form.pair').style.display = "none";
-		document.querySelector('form.single').style.display = "block";
-        $('html,body').animate({ scrollTop: $('.chooseBirthday').offset().top-250 }, 1000);
-	});
-	document.querySelector('span.pair').addEventListener("click", function () {
-		document.querySelector('.chooseBirthday').style.display = "block";
-		document.querySelector('form.single').style.display = "none";
-		document.querySelector('form.pair').style.display = "block";
-        $('html,body').animate({ scrollTop: $('.chooseBirthday').offset().top-250 }, 1000);
-	});
+
+		// resultArea
+
+	
+	
+	blurImgChange();
+	window.addEventListener("resize", blurImgChange);
 
 
-	// resultArea
-
-
-	document.querySelector('.resultArea').style.display = "none";
-	document.querySelector('.singleSubmit').addEventListener("click", function () {
-		document.querySelector('.resultArea').style.display = "block";
-		document.querySelector('.matchResult').style.display = "none";
-		document.querySelector('.singleResult').style.display = "block";
-		document.querySelector('.pairResult').style.display = "none";
-        $('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
-	});
-	document.querySelector('.pairSubmit').addEventListener("click", function () {
-		document.querySelector('.resultArea').style.display = "block";
-		document.querySelector('.matchResult').style.display = "block";
-		document.querySelector('.singleResult').style.display = "block";
-		document.querySelector('.pairResult').style.display = "block";
-        $('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
-	});
-	window.addEventListener("resize", blurImgChange());
-	window.addEventListener("load", blurImgChange());
 	function blurImgChange() {
-		var windowWidth = window.innerWidth;
 		var blurImg = document.querySelectorAll('.blurImg');
 
-		if( windowWidth > 480){
+		if( window.innerWidth > 480){
 			for (var i = 0; i < blurImg.length; i++) {
 				blurImg[i].setAttribute("src", "../img/index/blur_words_666H200.png");
 			}
@@ -114,8 +88,110 @@ window.addEventListener("load", function () {
 				blurImg[j].setAttribute("src", "../img/index/blur_words_235H390.png");
 			}
 		}
-	}
+	}	//blurImgChange end
+
+	
+	
+	
 });
+function generateResult(className) {
+		console.log(className);
+	var cancelSwitch = document.querySelectorAll('.chooseBtn .btnM');
+	for (var i = 0; i < cancelSwitch.length; i++) {
+		cancelSwitch[i].style.display = 'none';
+	}
+	var data_type = className.split(' ')[2].slice(0, -6);	//single or pair
+	var allSelect = document.querySelectorAll('form.'+data_type+' p select');
+	var singleBirthday = paddingLeft(allSelect[1].value, 2)+paddingLeft(allSelect[2].value, 2);
+	var singleConstelation = constelation(singleBirthday);
+	if(data_type == 'single'){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.querySelector('.resultArea').innerHTML = this.responseText;
+	    		//location.reload();
+	    		$('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
+			}
+		};
+		xhttp.open("GET", "fortuneResult.php?data_type=1&singleConstelation="+singleConstelation);
+		xhttp.send();
+	}else{
+		var pairBirthday = paddingLeft(allSelect[4].value, 2)+paddingLeft(allSelect[5].value, 2);
+		console.log(singleBirthday, pairBirthday);
+		var pairConstelation = constelation(pairBirthday);
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.querySelector('.resultArea').innerHTML = this.responseText;
+	    		//location.reload();
+	    		$('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
+			}
+		};
+		xhttp.open("GET", "fortuneResult.php?data_type=0&singleConstelation="+singleConstelation+"&pairConstelation="+pairConstelation);
+		xhttp.send();
+	}	
+}	//printResult end
+
+
+function printResult(fort_no, obj_fort_no = 0) {
+	console.log(fort_no, obj_fort_no);
+	if (obj_fort_no != 0) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.querySelector('.resultArea').innerHTML = this.responseText;
+	    		$('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
+			}
+		};
+		xhttp.open("GET", "fortuneResult.php?data_type=0&singleConstelation="+fort_no+"&pairConstelation="+obj_fort_no);
+		xhttp.send();
+	}else{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.querySelector('.resultArea').innerHTML = this.responseText;
+	    		$('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
+			}
+		};
+		xhttp.open("GET", "fortuneResult.php?data_type=1&singleConstelation="+fort_no);
+		xhttp.send();
+	}
+		
+}	//printResult end
+function paddingLeft(str, length) {
+	if(str.length < length){
+		return paddingLeft("0"+str, length);
+	}
+	return str;
+}	//paddingLeft end
+
+function constelation(birthday) {
+	if(birthday>1220 || birthday < 121){
+	    return 0;
+	}else if(birthday< 221){
+	    return 1;
+	}else if(birthday< 321){
+	    return 2;
+	}else if(birthday< 421){
+	    return 3;
+	}else if(birthday< 521){
+	    return 4;
+	}else if(birthday< 621){
+	    return 5;
+	}else if(birthday< 721){
+	    return 6;
+	}else if(birthday< 821){
+	    return 7;
+	}else if(birthday< 921){
+	    return 8;
+	}else if(birthday< 1021){
+	    return 9;
+	}else if(birthday< 1121){
+	    return 10;
+	}else{
+	    return 11;
+	}
+}
 
     
 

@@ -1,4 +1,6 @@
-.teacher .teacherBorder .pdRec_wrapper {
+.teacher .teacherBorder .pdRec_wrapper3
+,.teacher .teacherBorder .pdRec_wrapper2
+,.teacher .teacherBorder .pdRec_wrapper {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -8,23 +10,25 @@
     left: 0;
     display: none;
 }
-
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox {
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox
+,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox {
     width: 360px;
-    height: 200px;
+    height: 150px;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     margin: auto;
-    background: url('../img/index/hint.png');
+    background: url('../img/findTeacher/paper.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     z-index: 11;
 }
-
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose {
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .loginClose
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .loginClose
+,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose {
     margin: 20px 0 15px 300px;
     font-size: 25px;
     display: block;
@@ -32,9 +36,10 @@
     transition: 0.2s filter;
     filter: drop-shadow(0px 0px 5px #fec16a);
 }
-
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose:hover {
-    color: #e9b060;
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .loginClose:hover
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .loginClose:hover
+,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .loginClose:hover {
+    color: #533e2f;
     cursor: url('../img/share/cursor.png') 12 5, auto;
     filter: drop-shadow(0px 0px 10px #533e2f);
 }
@@ -44,48 +49,18 @@
     src: url('../font/王漢宗粗明體繁-中.ttf');
 }
 
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:first-child {
-    margin: 60px 0 10px;
-}
-
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p {
-    color: rgb(236, 215, 174);
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox p:first-of-type
+,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox p:first-of-type
+,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:first-of-type {
     font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     padding-left: 6px;
     text-align: center;
 }
-
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btn {
-    position: relative;
-    left: 50%;
-    margin-left: -62.5px;
-    width: 125px;
-    height: 68px;
-    line-height: 68px;
-    font-size: 16px;
-    font-weight: bold;
-    display: inline-block;
-    vertical-align: top;
-    background-color: transparent;
-    background-image: url(../img/findTeacher/hint_btn.png);
-    background-position: center center;
-    background-size: 100% 100%;
-    border: 0px;
-    transition: filter 0.2s;
-    text-align: center;
-    color: rgb(236, 215, 174);
-    font-family: '王漢宗粗明體繁-中';
-    letter-spacing: 6px;
-    padding-left: 6px;
+.teacher .teacherBorder .btnM {
+    display: block;
+    margin: 15px auto;
 }
-
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btn:hover {
-    filter: drop-shadow(0px 0px 3px #fc9) drop-shadow(0px 0px 5px #fec16a);
-    cursor: url('../img/share/cursor.png') 12 5, auto;
-    color: #fc9;
-}
-
 .teacher .teacherBorder .merchandise.recommend {
     margin: 15px 0 0;
     padding: 0 30px;
@@ -94,7 +69,10 @@
 .teacher .teacherBorder .merchandise.recommend form {
     padding-left: calc(85% - 570px);
 }
-
+.teacher .teacherBorder .merchandise.recommend form #btnSend{
+    background-color: transparent;
+    border:0px solid transparent;
+}
 .teacher .teacherBorder .merchandise.recommend h3 {
     text-align: center;
     padding: 16px 0;
@@ -124,6 +102,9 @@
 .content.drop .describe {
     display: none;
 }
+.content.drop .merchandisePhoto{
+    width: 70%;
+}
 
 
 
@@ -141,10 +122,7 @@
     .teacher .teacherBorder .merchandise.recommend .content {
         margin: 0 15px 5%;
     }
-    .teacher .teacherBorder .btnM {
-        display: block;
-        margin: 15px auto;
-    }
+    
 }
 
 @media all and (max-width: 670px) {
@@ -157,7 +135,6 @@
 }
 
 .recommendSlider {
-    border: 1px #fff solid;
     width: 100vw;
     height: 100px;
 }
@@ -170,7 +147,6 @@
     height: 360px;
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid #fff;
     clear: both;
     overflow: scroll;
     position: relative;
@@ -178,8 +154,12 @@
     box-sizing: border-box;
     overflow: hidden;
     overflow-x: scroll;
+    background:linear-gradient(to right, rgba(43, 26, 3, 1) 0%, rgba(43, 26, 3, 0.3) 1%, rgba(255, 255, 255, 0.3) 30%,  rgba(255, 255, 255, 0.3) 70%, rgba(43, 26, 3, 0.3) 99%, rgba(43, 26, 3, 1) 100%);
 }
-
+.teacher .teacherBorder .productsSelect .back{
+    height: 172px;
+    background :linear-gradient(to bottom, rgba(43, 26, 3, 1) 0%, rgba(43, 26, 3, 0.8) 2%, rgba(43, 26, 3, 0.4) 15%, rgba(43, 26, 3, 0.8) 40%, rgba(23, 0, 0, 1) 85%, rgba(43, 26, 3, 0.95) 92%, rgba(43, 26, 3, 0.9) 95%);
+}
 .teacher .teacherBorder .productsSelect #white {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.6);
@@ -228,80 +208,121 @@
     font-size: 16px;
     z-index: 0;
 }
-.teacher .teacherBorder .merchandise .content .merchandisePhoto{
-    width: 152px;
+.teacher .teacherBorder .merchandise .content .merchandisePhoto {
     height: 152px;
+}
+.teacher .teacherBorder .merchandise .content .merchandisePhoto .pictureBorder{
+    width: 100%;
+    height: 100%;
+    box-sizing:border-box;
+    position: absolute;
+    border:20px solid transparent;
+    border-image:url(../img/share/picframe.png) 30 30 repeat;
+}
+@media screen and(min-width: 960px){
+    .teacher .teacherBorder .merchandise .content .merchandisePhoto {
+        width: 152px;
+    }
+}
+
+@media screen and(max-width: 959px) and (min-width: 760px){
+    .teacher .teacherBorder .merchandise .content .merchandisePhoto {
+        width: 100%;
+    }
+    
 }
 .teacher .teacherBorder .merchandise .content .merchandisePhoto img {
     width: 100%;
     height: 100%;
 }
-
-/* 
-@media all and (max-width: 759px) {
-    .teacher .teacherBorder .productsSelect .container .content {
-        display: block;
-        float: none;
-        width: 300px;
-    } */
-
-
-/* } */
 .teacher .teacherBorder .merchandise .content {
     width: 30%;
     box-sizing: border-box;
     float: left;
     margin: 0 1.66666%;
+   
 }
-
-
-.teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
-    text-decoration: line-through;
+.teacher .teacherBorder .merchandise.recommend .content .merchandiseIntro p:nth-child(3) span:nth-child(1){
     display:inline;
 }
 
-.teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
+.teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-of-type(2) span:nth-of-type(2) {
     font-size: 40px;
     color: #800;
     font-weight: bold;
 }
-.teacher .teacherBorder .search {
-    clear: both;
-    position: relative;
+@media all and (min-width: 760px){
+    .desktop{
+        display:inline;
+    }.phone{
+        display:none;
+    }
 }
-.teacher .teacherBorder #name {
-    clear: both;
-    position: absolute;
-    top: 32px;
-    left: 50%;
-    width: 300px;
-    height: 0px;
-    margin-left: -150px;
-    transition: 1s height;
-    overflow: scroll;
-    background: url('../img/share/textarea.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    z-index: 10;
-    /* margin: 0 auto; */
-}
-.teacher .teacherBorder #name::-webkit-scrollbar {
-    display: none
-}
-.teacher .teacherBorder #name li {
-    position: relative;
-    left: 50%;
-    margin-left: -150px;
-    text-align: left;
-    padding: 5px;
-}
-.teacher .teacherBorder #name li.highlight {
-    background: #cff;
-}
-@media all and (max-width: 759px) {
-    .productsSelect,
-    .teacher .teacherBorder .btnM {
+@media all and (max-width: 759px){
+    .desktop {
         display: none;
+    }
+    .phone{
+        display:block;
+        padding:0 1%;
+    }
+    .phone h2,.phone h4{
+        text-align: center;
+        margin: 15px auto;
+    }
+    .phone .phoneItems {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 46%;
+        padding: 0 1%;
+    }   
+    .phone .phoneItems input[type="checkbox"]{
+        position: absolute;
+        top: 0;
+        left: -10000px;
+        opacity: 0;
+    }
+    .phone .phoneItems .prodCheck{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius:10px;
+        border:rgb(221, 183, 12) 1px solid;
+        z-index:1;
+        text-align: center;
+    }
+    .phone .phoneItems .prodPhoto {
+        position: relative;
+        width: 100%;
+    }
+    .phone .phoneItems .prodPhoto .pictureBorder{
+        width: 100%;
+        height: 100%;
+        box-sizing:border-box;
+        position: absolute;
+        border:10px solid transparent;
+        border-image:url(../img/share/picframe.png) 30 30 repeat;
+    }
+    .phone .phoneItems .prodPhoto img {
+        width: 100%;
+    }
+    .phone .phoneItems .prodInfo p{
+        text-align: center;
+    }
+    .phone .phoneItems .prodInfo p:nth-of-type(2) span:nth-of-type(1){
+        text-decoration: line-through;
+        font-size: 10px;
+    }
+    .phone .phoneItems .prodInfo p:nth-of-type(2) span:nth-of-type(2) {
+        color:#d00;
+        font-weight:700;
+    }
+    .phone .btnS{
+        margin: 15px auto;
+        display: block;
     }
 }
