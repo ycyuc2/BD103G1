@@ -113,24 +113,6 @@ try {
 				<!-- 發文按鈕 -->
 				
 
-<?php 
-	if(isset($_SESSION["teacher_no"])){
-		if ($_SESSION["teacher_no"]==$teacherNo) {
-			echo '<div class="newArticle">
-					<form action="articlePost.php" method="post">
-								<span class="btnM">
-									<input type="hidden" name="teacherNo" value=';
-			echo '"'.$_REQUEST["teacher_no"].'"';
-			echo '>
-							<input type="submit" class="btnText btnText2" value="發文"></input>
-						</span>
-						</form>
-					</div>';			
-		}
-	}
-
-
- ?>
 					
 
 
@@ -214,6 +196,26 @@ try {
 
 				<div class="articleList">
 					<h2>文章列表</h2>
+
+
+<?php 
+	if(isset($_SESSION["teacher_no"])){
+		if ($_SESSION["teacher_no"]==$teacherNo) {
+			echo '<div class="newArticle">
+					<form action="articlePost.php" method="post">
+								<span class="btnM">
+									<input type="hidden" name="teacherNo" value=';
+			echo '"'.$_REQUEST["teacher_no"].'"';
+			echo '>
+							<input type="submit" class="btnText btnText2" value="發文"></input>
+						</span>
+						</form>
+					</div>';			
+		}
+	}
+
+
+ ?>
 
 <?php 
 
