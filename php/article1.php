@@ -1,3 +1,8 @@
+<?php
+ob_start();
+session_start();
+$_REQUEST["art_no"]=1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,11 @@
 	
 </head>
 <body>
-	<?php require_once("header.php"); ?>
+	<?php
+		require_once("connectBooks.php");
+		require_once("header.php"); 
+		$_SESSION["where"] = "article1.php";
+	?>
 	<div class="background">
 		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
 		<img src="../img/lightening/flash2.png" alt="" class="flash lt2">
@@ -26,21 +35,44 @@
 	<div class="ask_wrapper">
 	<div class="ask_lightbox">
 		<label for="askControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+			<i class="fa fa-times fa-2x login lightboxClose cursorHand"></i>
 		</label>
-		<p>請登入再評價</p>
-		<div class="btn"> 登入</div>
+		<p>請先登入</p>
+		<span class="btnM btn">
+			<p class="btnText btnText2">登入</p>
+		</span>
 	</div>
 </div>
 
+<!-- 檢舉燈箱 -->
+	<div class="reportLightBox">
+		<div class="content">
+			<div class="cancelBtn">
+				<i class="fa fa-times cancelBtni"></i>
+			</div>
+			<p>請輸入檢舉原因</p>
+
+			<textarea id="reportReason"  required></textarea>
+			<span class="btnM msgReportSubmit"><p href="#" class="btnText btnText2">送出</p></span>
+			<!-- <input class="reportSubmit" type="submit" value="送出"> -->
+		</div>
+	</div>
 <!-- 成功評價的燈箱 -->
 <div class="win_wrapper">
 	<div class="win_lightbox">
 		<label for="askControl">
 			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
 		</label>
-		<p>請登入再評價</p>
-		<div class="btn"> 登入</div>
+		<p>您已成功評價</p>
+	</div>
+</div>
+<!-- 成功收藏的燈箱 -->
+<div class="collection_wrapper">
+	<div class="collection_lightbox">
+		<label for="askControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		</label>
+		<p>您已成功收藏</p>
 	</div>
 </div>
 
@@ -62,117 +94,170 @@
 						<p>文章人氣:2565</p>
 						<p>2017/12/2 00:17:31</p>
 					</div>
-					<div class="links">
+					<div class="links collection">
 						<div class="btns">
 							<span class="btnM">
-								<a href="" class="btnText btnText2">收藏</a>
+								<p class="btnText btnText2">收藏</p>
 							</span>
 						</div>
-						<div class="stars">
-	<!-- 評價星等 -->
-	
-
-
-	<fieldset class="rating teacherStar">
-	    <input type="radio" id="star5" name="rating" value="5" />
-	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" />
-	    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" />
-	    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" />
-	    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" />
-	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-	</fieldset>
-						</div>
-					</div>
-				</div>
-			</div>
-<?
-		try{
-			require_once("../php/connectBooksting.php");
-			$_REQUEST["art_no"]=1;
-			if(isset($_SESSION["mem_no"])){
-			$sql="select * from art_review where mem_no =? and art_no =?";
-			$check=$pdo->prepare($sql);
-			$check->bindValue(1,$_SESSION["mem_no"]);
-			$check->bindValue(2,1);
-			$check->execute();
-			$checkRow=$check->fetchObject();
-			if($check->rowcount()!=0){
-				
-				?>
-				<script>
-					var star= <?echo  $checkRow->art_star;?>;
-					var inputElems= $('.teacherStar input[type="radio"]');
-					inputElems[4-star].checked=true;
-
-				</script>
-				
-				
-				<?
-				}
-			}else{
-					?>
-					<script>
-						var inputElems= $('.teacherStar input[type="radio"]');
-						for(var i=0;i<5;++i){
-							inputElems[i].checked=false;
-							inputElems[i].onclick=function(){
-								$('.ask_wrapper').css('display','block');
-							}
-						}
-
-					</script>
-					<?
-				}
-
-	?>
-
-			<script>
-		
-        
-        
-		$(document).ready(function () {
-			$('.ask_wrapper .lightboxClose').click(function(){
-			$('.ask_wrapper').css('display','none');
-			});
-			$('.ask_wrapper .btn').click(function(){
-				$('.loginLightbox').css({
-					'opacity': '1',
-					'right': '0',
-					'transition': 'opacity 0.2s'
-				});
-				$('.ask_wrapper').css('display','none');
-			});
-
-
-			var inputElems =document.querySelectorAll('input[type="radio"]');
-			for(var i =0;i<inputElems.length;i++){
-            inputElems[i].addEventListener('click', checkboxes, false);
-			}	
-        function checkboxes(e){
-			var star= document.querySelectorAll('input[type="radio"]:checked');
-			$('.win_wrapper').css('display','block');
-			console.log(star.value);
-			var star1=e.target.value-1;
+<!-- 收藏php -->
+<?php if(isset($_SESSION["mem_no"])){ ?>
+	<script>
+		$('.collection').click(function(){
 			var xhr = new  XMLHttpRequest();
 			xhr.onload=function(){
 				if(xhr.status ==200){
-					alert("win");
-
+					$('.collection_wrapper').css('display','block');
 				}else{
 					alert(xhr.status);
 				}
 			}
-			var url="starInsert.php?art_no=<?echo $_REQUEST["art_no"]?>&mem_no=<?echo $_SESSION["mem_no"]?>&art_star="+star1;
+			var url="articleCollect.php?mem_no=<?echo $_SESSION["mem_no"]?>&art_no="+1;
+			xhr.open("get",url,true);
+			xhr.send(null);
+		});
+	</script>
+
+<?php }else{ ?>
+		 <script>
+			 $('.collection, .login.lightboxClose').click(function(){
+				$('.ask_wrapper').css('display','block');
+			 });
+		 </script>
+<?php
+	}
+?>
+<!-- 收藏php結束 -->
+<!-- 評價星等php -->
+			<div class="stars">
+			<fieldset class="rating teacherStar">
+				<input type="radio" id="star5" name="rating" value="5" />
+				<label class = "full" for="star5" title="Awesome - 5 stars"></label>
+				<input type="radio" id="star4" name="rating" value="4" />
+				<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+				<input type="radio" id="star3" name="rating" value="3" />
+				<label class = "full" for="star3" title="Meh - 3 stars"></label>
+				<input type="radio" id="star2" name="rating" value="2" />
+				<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+				<input type="radio" id="star1" name="rating" value="1" />
+				<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+			</fieldset>
+			</div>
+		</div>
+	</div>
+</div>
+<?
+try{
+	
+		$sql="select * from art_review where  art_no =?";
+		$check=$pdo->prepare($sql);
+		$check->bindValue(1,1);
+		$check->execute();
+		$count=$check->rowcount();
+		$starScore=0;
+		while($checkRow=$check->fetchObject()){
+			$starScore+=$checkRow->art_star;
+		}	if($check->rowcount()!=0){
+	?>
+		<script>
+			var star= <?echo round($starScore/$count);?>;
+			var inputElems= $('.teacherStar input[type="radio"]');
+			inputElems[4-star].checked=true;
+		</script>	
+	<?php		
+		}
+		if(isset($_SESSION['mem_no'])){
+		$sql="select * from art_review where  art_no =? and mem_no=?";
+		$check1=$pdo->prepare($sql);
+		$check1->bindValue(1,1);
+		$check1->bindValue(2,$_SESSION['mem_no']);
+		$check1->execute();
+		$checkRow1=$check1->fetchObject();
+		if($check->rowcount()!=0){
+		?>
+			<script>
+				var star1= <?echo  $checkRow1->art_star;?>;
+				var inputElems= $('.teacherStar input[type="radio"]');
+				inputElems[4-star1].checked=true;
+			</script>
+	<?php
+		}	
+	}else{
+	?>
+		<script>
+			for(var i=0;i<5;++i){
+				$(''+iputElems[i]+',.login.lightboxC').click(function(){
+					$('.ask_wrapper').css('display','block');
+				});
+			}
+		</script>
+	<?php
+		}
+	
+	?>
+	<!-- 評價收藏登入燈箱控制 -->
+<script>
+	$(document).ready(function () {
+		$('.ask_wrapper .lightboxClose').click(function(){
+			$('.ask_wrapper').css('display','none');
+		});
+		$('.ask_wrapper .btn ').click(function(){
+			$('.loginLightbox').css({
+				'opacity': '1',
+				'right': '0',
+				'transition': 'opacity 0.2s'
+			});
+			$('.ask_wrapper').css('display','none');
+		});
+		$('.collection_wrapper .lightboxClose').click(function(){
+			$('.collection_wrapper').css('display','none');
+		});
+		
+		$('.win_wrapper .lightboxClose').click(function(){
+			$('.win_wrapper').css('display','none');
+		});
+
+		$('.loginClose').click(function(){
+				$('.loginLightbox').css({
+					'opacity': '0',
+					'right': '-100%',
+					'transition': 'opacity 0.2s'
+				});
+				
+			});
+		var inputElems =document.querySelectorAll('input[type="radio"]');
+		<?php if(isset($_SESSION["mem_no"])){ ?>
+			for(var i =0;i<inputElems.length;i++){
+				inputElems[i].addEventListener('click', checkboxes, false);
+			}	
+		<?php } ?>
+		
+
+	function checkboxes(e){
+		$('.collection_wrapper').css('display','none');
+		$('.win_wrapper').css('display','block');
+		var star1=e.target.value-1;
+		var xhr = new  XMLHttpRequest();
+		xhr.onload=function(){
+			if(xhr.status ==200){
+
+			}else{
+				alert(xhr.status);
+			}
+		}
+		<?php  if(isset($_SESSION["mem_no"])){?>
+			var url="starInsert.php?art_no=<?php echo $_REQUEST["art_no"]?>&mem_no=<?php echo $_SESSION["mem_no"]?>&art_star="+star1;
 			console.log(url);
 			xhr.open("get",url,true);
 			xhr.send(null);
-			}
-		});
-    </script>
+
+	<?php		}else{ ?>
+					e.target.checked=false;
+			<?php }?>
+		}	
+	});
+</script>
+<!-- 評價星等結束 -->
 <!-- 文章區 -->
 			<article>
 				<p>
@@ -193,25 +278,32 @@
 			</article>
 		</div>
 	</div>
-<?
-	$_SESSION["article"]["art_no"]=1;
-?>
+
 <!-- 會員回復 -->
 	<div class="memberReply">
 		<div class="border"></div>
 		<div class="columnBorder">
 			<h3>撰寫留言</h3>
-			<form action="articleMsg.php" method="get">
+			<form action="articleMsg.php" method="get" id="artForm">
 				<textarea id="replyArea" name="replyText"></textarea>
-				<input class="btnM btnText btnText2" type="submit" value="回　覆">
+				<input class="btnM btnText btnText2" type="button" value="回　覆" onclick="formSubmit();">
 			</form>
 		</div>
 	</div>
-
-
-
-
-	<!-- 留言區 -->
+<?php if(isset($_SESSION["mem_no"])){?>
+		<script>
+			function formSubmit(){
+				$('#artForm').submit();
+			}
+		</script>
+	<?php }else{?>
+			<script>
+			$('.memberReply input,.login.lightboxClose').click(function(){
+					$('.ask_wrapper').css('display','block');
+				});
+				</script>
+	<?php }?>
+<!-- 留言區 -->
 	<script>
 	count=0;
 	</script>
@@ -229,8 +321,6 @@
 		$mem->bindValue(1,$mem_no);
 		$mem->execute();
 		$memRow=$mem->fetchObject();
-		
-
 ?>
         <div class="replys">
 		<div class="border"></div>
@@ -250,44 +340,20 @@
 							</span></div>
 						<div class="stars">
 	<!-- 評價星等 -->
-	<fieldset class="rating memStar">
-	    <input type="radio" id="star5" name="rating" value="5" />
-	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" />
-	    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" />
-	    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" />
-	    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" />
-	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-	</fieldset>
 						</div>
 					</div>
+					
 				</div>
+				
 			</div>
-			
 			<article>
 				<p><? echo $msgRow->msg_content?></p>
 			</article>
+			
 		</div>
 	</div>
 
-
-<!-- 檢舉燈箱 -->
-	<div class="reportLightBox">
-		<div class="content">
-			<div class="cancelBtn">
-				<i class="fa fa-times"></i>
-			</div>
-			<p>請輸入檢舉原因</p>
-
-			<textarea id="reportReason"  required></textarea>
-			<span class="btnM" id="msgReportSubmit"><p href="#" class="btnText btnText2">送出</p></span>
-			<!-- <input class="reportSubmit" type="submit" value="送出"> -->
-		</div>
-	</div>
-
+<!-- 檢舉php -->
 <?
 	$sql="select * from msg_report where mem_no=? and msg_no=?";
 	$msgReport=$pdo->prepare($sql);
@@ -297,48 +363,76 @@
 	$count=$msgReport->rowcount();
 ?>
 	<script>
-			//宣告一堆變數
-			var reportBtn, lightBox, cancelBtn, reportSubmit;
+		window.onload=function(){
+		// window.onload=function(){
+			for(var i=0;i<msgSubmit.length;++i){
+				cancelBtn[i].addEventListener('click', function(){
+					closeReport();				
+				}, false);
+				
+			}
+		}
+	</script>
+	<?php
+	 if(isset($_SESSION["mem_no"])){ ?>
+		 <script>
+			 window.onload=function(){
+				 for(var i=0;i<msgSubmit.length;++i){
+			msgSubmit[i].addEventListener('click', function(){
+						sendReport();				
+			}, false);
+		}
+		}
+		 </script>
+	<?php }else{  ?>
+			<script>
+	
+				$('msgReportSubmit,.login.lightboxClose').click(function(){
+					$('.ask_wrapper').css('display','block');
+				});	
+			</script>
+<?php	}
+	?>
+		<script>
+		function sendReport(){
+		var textarea=document.getElementById('reportReason').value;
+		var xhr= new XMLHttpRequest();
+		
+			if(<? echo $count ?>==0){
+				var url = "msgReport.php?msg_no=<?echo $msgRow -> msg_no?>&mem_no=<? echo $mem_no?>&msg_rep_reason="+textarea+"";
+				xhr.open("Get", url, true);
+				xhr.send(null);
+				closeReport();
+			}else{
+				alert("您已經檢舉過了。");
+			}
+			if(xhr.status == 200){
+				alert('已送出檢舉');
+				closeReport();
+			}else{
+				closeReport();
+			}
+		}
+	</script>
+	<?
+		
+	}
+?>
+
+	<script>
 			//這是檢舉按鈕
-			reportBtn = document.getElementsByClassName('report');
+			var reportBtn = document.getElementsByClassName('report');
 			console.log(reportBtn);
 			//這是檢舉燈箱
-			lightBox = document.getElementsByClassName('reportLightBox')[0];
+			var lightBox = document.getElementsByClassName('reportLightBox')[0];
 			//這是燈箱關閉按鈕
-			cancelBtn = document.getElementsByClassName('cancelBtn')[0];
+			var cancelBtn = document.getElementsByClassName('cancelBtni');
 			//這是燈箱送出按鈕
-			// reportSubmit = document.getElementsByClassName('reportSubmit')[0];
-			var msgSubmit=document.getElementById('msgReportSubmit');
+			var msgSubmit=document.getElementsByClassName('msgReportSubmit');
 			//燈箱關閉按鈕按了關閉燈箱
-			cancelBtn.addEventListener('click', function(){
-				closeReport();				
-			}, false);
-
+			
 			//送出按鈕按了會顯示送出訊息，然後關閉燈箱
-			msgSubmit.addEventListener('click', function(){
-				var textarea=document.getElementById('reportReason').value;
-				var xhr= new XMLHttpRequest();
-
-				if(<? echo $count ?>==0){
-					var url = "msgReport.php?msg_no=<?echo $msgRow -> msg_no?>&mem_no=<? echo $mem_no?>&msg_rep_reason="+textarea+"";
-					xhr.open("Get", url, true);
-					xhr.send(null);
-					alert('已送出檢舉');
-					closeReport();
-				}else{
-					alert("您已經檢舉過了。");
-				}
-				
-				if(xhr.status == 200){
-					alert('已送出檢舉');
-					closeReport();
-				}else{
-					closeReport();
-				}
-				
-				
-				
-			}, false);
+			
 
 			//將所有檢舉按鈕建立click事件
 			for (var i = 0; i < reportBtn.length; i++) {
@@ -348,14 +442,12 @@
 			function closeReport(){
 				lightBox.style.visibility = 'hidden';
 				lightBox.style.opacity = 0;
-
 			}
 			//打開燈箱的function
 			function showReport(){
 				lightBox.style.visibility = 'visible';
 				lightBox.style.opacity = 1;
 			}
-
 			var reply = document.getElementById('replyArea');
 
 			reply.onclick = function(){
@@ -365,8 +457,8 @@
 	</script>
 
  	<?
-
-	}
+	// 檢舉結束
+		
 
 }catch(PDOExeption $e){
         echo "錯誤原因 : " , $e->getMessage() , "<br>";

@@ -1,4 +1,4 @@
-.ask_wrapper {
+.ask_wrapper,.win_wrapper,.collection_wrapper {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -8,22 +8,27 @@
     left: 0;
     display: none;
 }
-
-.ask_wrapper .ask_lightbox {
+.collection_wrapper .collection_lightbox,
+    .ask_wrapper .ask_lightbox,
+.win_wrapper .win_lightbox {
     width: 360px;
-    height: 200px;
+    height: 180px;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     margin: auto;
-    background: url('../img/index/hint.png');
+    background: url('../img/findTeacher/paper.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     z-index: 11;
+    filter:drop-shadow(0px 0px 5px #533e2f);
 }
-.ask_wrapper .ask_lightbox .lightboxClose {
+.collection_wrapper .collection_lightbox .lightboxClose,
+.ask_wrapper .ask_lightbox .lightboxClose ,
+    .win_wrapper .win_lightbox .lightboxClose {
+
     margin: 20px 0 15px 300px;
     font-size: 25px;
     display: block;
@@ -31,8 +36,12 @@
     transition: 0.2s filter;
     filter: drop-shadow(0px 0px 5px #fec16a);
 }
-.ask_wrapper .ask_lightbox .lightboxClose:hover {
-    color: #e9b060;
+
+.collection_wrapper .collection_lightbox .lightboxClose:hover,
+.ask_wrapper .ask_lightbox .lightboxClose:hover ,
+    .win_wrapper .win_lightbox .lightboxClose:hover {
+
+    color: #533e2f;
     cursor: url('../img/share/cursor.png') 12 5, auto;
     filter: drop-shadow(0px 0px 10px #533e2f);
 }
@@ -41,19 +50,32 @@
     font-family: '王漢宗粗明體繁-中';
     src: url('../font/王漢宗粗明體繁-中.ttf');
 }
-.ask_wrapper .ask_lightbox p:first-child {
-    margin: 60px 0 10px;
+.collection_wrapper .collection_lightbox p,
+.ask_wrapper .ask_lightbox p,
+.win_wrapper .win_lightbox p{
+    text-align: center;
 }
+.collection_wrapper .collection_lightbox p,
+.win_wrapper .win_lightbox p{
+    margin-top: 20px;
+}
+.ask_wrapper .ask_lightbox .btnM{
+    margin: 15px auto;
+    display: block;
+}
+/* .ask_wrapper .ask_lightbox p ,
+    .win_wrapper .win_lightbox p {
 
-.ask_wrapper .ask_lightbox p {
-    color: rgb(236, 215, 174);
+    color: #533e2f;
     font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     padding-left: 6px;
     text-align: center;
-}
+} */
+/* 
+ .ask_wrapper .ask_lightbox .btn ,
+      .win_wrapper .win_lightbox .btn {
 
- .ask_wrapper .ask_lightbox .btn {
     position: relative;
     left: 50%;
     margin-left: -62.5px;
@@ -65,7 +87,7 @@
     display: inline-block;
     vertical-align: top;
     background-color: transparent;
-    background-image: url(../img/findTeacher/hint_btn.png);
+    background-image: url('');
     background-position: center center;
     background-size: 100% 100%;
     border: 0px;
@@ -75,10 +97,40 @@
     font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     padding-left: 6px;
-}
-
- .ask_wrapper .ask_lightbox .btn:hover {
+/* } */
+ .collection_wrapper .collection_lightbox .btn:hover,
+ .ask_wrapper .ask_lightbox .btn:hover ,
+      .win_wrapper .win_lightbox .btn:hover {
     filter: drop-shadow(0px 0px 3px #fc9) drop-shadow(0px 0px 5px #fec16a);
     cursor: url('../img/share/cursor.png') 12 5, auto;
     color: #fc9;
+} 
+
+.reportLightBox #msgReportSubmit{
+    display:block;
+    margin:10px auto;
 }
+
+
+/* 美化 */
+@media screen and (min-width:960px){
+       .replys .columnBorder .authorIntro .authorPhoto {
+           width: 13%;
+       }
+
+       .replys .columnBorder .authorIntro .author {
+           width: 87%;
+           margin-top: 0%;
+           margin-bottom: 5%;
+       }
+
+       .replys .columnBorder article {
+           margin-left: 15px;
+       }
+}
+@media screen and (max-width: 959px) and (min-width: 760px){
+    .replys .columnBorder .authorIntro .authorPhoto{
+        width: 30%;
+    }
+}
+ 

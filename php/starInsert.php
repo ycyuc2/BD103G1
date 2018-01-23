@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?
+    <?php
     $art_no=$_REQUEST["art_no"];
     $mem_no=$_REQUEST["mem_no"];
     $art_star=$_REQUEST["art_star"];
