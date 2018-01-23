@@ -1,5 +1,6 @@
 <?php
 try{
+    date_default_timezone_set("Asia/Taipei");
     $mem_no=$_REQUEST["mem_no"];
     $art_no=$_REQUEST["art_no"];
     require_once("connectBooksting.php");

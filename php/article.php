@@ -48,14 +48,13 @@ $_SESSION["where"] = "article.php";
 <!-- 檢舉燈箱 -->
 	<div class="reportLightBox">
 		<div class="content">
-			<div class="cancelBtn">
+			<div id="cancelBtn">
 				<i class="fa fa-times cancelBtni"></i>
 			</div>
 			<p>請輸入檢舉原因</p>
 
 			<textarea id="reportReason"  required></textarea>
 			<span class="btnM msgReportSubmit"><p href="#" class="btnText btnText2">送出</p></span>
-			<!-- <input class="reportSubmit" type="submit" value="送出"> -->
 		</div>
 	</div>
 
@@ -63,8 +62,8 @@ $_SESSION["where"] = "article.php";
 <!-- 成功評價的燈箱 -->
 <div class="win_wrapper">
 	<div class="win_lightbox">
-		<label for="askControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		<label for="winControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="winControl"></i> 
 		</label>
 		<p>您已成功評價</p>
 	</div>
@@ -72,8 +71,8 @@ $_SESSION["where"] = "article.php";
 <!-- 成功收藏的燈箱 -->
 <div class="collection_wrapper">
 	<div class="collection_lightbox">
-		<label for="askControl">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand"></i>
+		<label for="colControl">
+			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="colControl"></i>
 		</label>
 		<p>您已成功收藏</p>
 	</div>
@@ -99,9 +98,9 @@ $_SESSION["where"] = "article.php";
 						<p>文章人氣:2565</p>
 						<p>2017/12/2 00:17:31</p>
 					</div>
-					<div class="links collection">
+					<div class="links">
 						<div class="btns">
-							<span class="btnM">
+							<span class="btnM collection">
 								<p class="btnText btnText2">收藏</p>
 							</span>
 						</div>
@@ -168,8 +167,11 @@ try{
 	while($checkRow=$check->fetchObject()){
 		$starScore+=$checkRow->art_star;
 	}
-	$starEnd=ceil($starScore/$count);
-		if(isset($_SESSION['mem_no'])){
+	$starEnd=round($starScore/$count,1);
+	$starEnd1=ceil($starScore/$count);
+
+
+	if(isset($_SESSION['mem_no'])){
 		$sql="select * from art_review where  art_no =? and mem_no=?";
 		$check1=$pdo->prepare($sql);
 		$check1->bindValue(1,$_REQUEST["art_no"]);
@@ -180,26 +182,29 @@ try{
 		?>
 			<script>
 				var star1= <?echo  $checkRow1->art_star;?>;
+				var star=<?php echo $starEnd ;?>;
 				var inputElems= $('.teacherStar input[type="radio"]');
-				inputElems[4-star1].checked=true;				
-				$('.starCount').html(star1+1);
+				inputElems[5-star1].checked=true;				
 				for(var i=0;i<5;++i){
-					$(inputElems[i]).disabled=true;
+					$(inputElems[i]).disabled=false;
 				}
-				$('.starCount').html(star1);
+				$('.starCount').html(star);
 			</script>
 	<?php
 		}	
 	}else{
 	?>
 		<script>
-			var star=<?echo floor($starScore/$count);?>;
-			$('.starCount').html("<?echo $starEnd?>");
+			var star=<?php echo $starEnd ;?>;
+			console.log(star);
+			var star1=<?php echo $starEnd1 ;?>;
+			console.log(star1);			
+			$('.starCount').html(star);
 			var inputElems= $('.teacherStar input[type="radio"]');
-			inputElems[4-star].checked=true;
+			inputElems[5-star1].checked=true;
 			for(var i=0;i<5;++i){
-				$(inputElems[i]).disabled=true;
-				$(inputElems[i]).click(function(){
+				inputElems[i].disabled=true;
+				inputElems[i].click(function(){
 					$('.ask_wrapper').css('display','block');
 				});
 			}
@@ -247,26 +252,20 @@ try{
 		
 
 	function checkboxes(e){
-		$('.collection_wrapper').css('display','none');
-		$('.win_wrapper').css('display','block');
 		var star1=e.target.value-1;
 		var xhr = new  XMLHttpRequest();
 		xhr.onload=function(){
 			if(xhr.status ==200){
+				$('.win_wrapper').css('display','block');
 				$('.starCount').html(star1+1);
 			}else{
 				alert(xhr.status);
 			}
 		}
-		<?php  if(isset($_SESSION["mem_no"])){?>
-			var url="starInsert.php?art_no=<?php echo $_REQUEST["art_no"]?>&mem_no=<?php echo $_SESSION["mem_no"]?>&art_star="+star1;
-			console.log(url);
-			xhr.open("get",url,true);
-			xhr.send(null);
-
-	<?php		}else{ ?>
-					e.target.checked=false;
-			<?php }?>
+		var url="starInsert.php?art_no=<?php echo $_REQUEST["art_no"]?>&mem_no=<?php echo @$_SESSION["mem_no"]?>&art_star="+star1;
+		console.log(url);
+		xhr.open("get",url,true);
+		xhr.send(null);
 		}	
 	});
 </script>
@@ -336,8 +335,8 @@ try{
 		$memRow=$mem->fetchObject();
 ?>
         <div class="replys">
-		<div class="border"></div>
-		<div class="columnBorder">
+			<div class="border"></div>
+			<div class="columnBorder">
 			<div class="authorIntro">
 				<div class="authorPhoto">
 					<img src="../img/specialColumn/jessePinkman.jpg">
@@ -350,6 +349,7 @@ try{
 					<div class="links">
 						<div class="btns">
 							<span class="btnM report">
+								<input type="hidden" value="<?echo $msgRow -> msg_no;?>">
 								<p class="btnText btnText2">檢舉</p>
 							</span>
 						</div>
@@ -367,91 +367,110 @@ try{
 			
 		</div>
 	</div>
-
-<!-- 檢舉php -->
-<?
-	$sql="select * from msg_report where mem_no=? and msg_no=?";
-	$msgReport=$pdo->prepare($sql);
-	$msgReport->bindValue(1,$msgRow -> mem_no);
-	$msgReport->bindValue(2,$msgRow -> msg_no);
-	$msgReport->execute();
-	$count=$msgReport->rowcount();
+	<?
+	}
 ?>
-	<script>
-		window.onload=function(){
-			for(var i=0;i<msgSubmit.length;++i){
-				cancelBtn[i].addEventListener('click', function(){
-					closeReport();				
-				}, false);
-				
-			}
+<!-- 檢舉php -->
+
+
+<script>
+	window.addEventListener('load',function(){
+		var report=document.getElementsByClassName('report');
+		for(var i=0;i<report.length;i++){
+			report[i].addEventListener('click', function(){
+				var textarea=document.getElementById('reportReason').value;
+				var msg_no=this.childNodes[1].value;
+				console.log(msg_no);
+				var xhr= new XMLHttpRequest();
+				if(xhr.status == 200){
+					var a = this.responseText;
+					if(a==2){
+						 
+					}
+				}else{
+
+				}
+				var url = "msgReportCheck.php?msg_no="+msg_no+"";				
+				console.log(url);
+				xhr.open("Get", url, true);
+				xhr.send(null);
+			}, false);
 		}
-	</script>
+	},false);
+</script>
+
+
 	<?php
 	 if(isset($_SESSION["mem_no"])){ ?>
 		 <script>
-			 window.onload=function(){
+			window.addEventListener('load',function(){
+				 //這是燈箱送出按鈕
+				var msgSubmit=document.getElementsByClassName('msgReportSubmit');
+
 				 for(var i=0;i<msgSubmit.length;++i){
-			msgSubmit[i].addEventListener('click', function(){
-						sendReport();				
-			}, false);
-			}
-		}
+					msgSubmit[i].addEventListener('click', function(){
+						var textarea=document.getElementById('reportReason').value;
+						var msg_no=$('.replys input').val();
+						console.log(msg_no);
+						var xhr= new XMLHttpRequest();
+						alert('get');
+						
+						if(xhr.status == 200){
+							alert('已送出檢舉');
+							closeReport();
+						}else{
+							closeReport();
+						}
+						var count =<?php echo $count?>;
+						// console.log(count);
+						if(count == 0){
+							console.log('');
+							var url = "msgReportCheck.php?msg_no="+msg_no"";
+							
+							xhr.open("Get", url, true);
+							xhr.send(null);
+							alert('finish');
+							closeReport();
+						}else{
+							alert("您已經檢舉過了。");
+						}
+					}, false);
+							}
+							
+				},false);
 		 </script>
 	<?php }else{  ?>
 			<script>
-	
-				$('msgReportSubmit,.login.lightboxClose').click(function(){
+				$('.msgReportSubmit').click(function(){
 					$('.ask_wrapper').css('display','block');
+					var lightBox = document.getElementsByClassName('reportLightBox')[0];
+					lightBox.style.visibility = 'hidden';
+					lightBox.style.opacity = 0;
 				});	
 			</script>
 <?php	}
-	?>
-		<script>
-		function sendReport(){
-		var textarea=document.getElementById('reportReason').value;
-		var xhr= new XMLHttpRequest();
+
 		
-			if(<? echo $count ?>==0){
-				var url = "msgReport.php?msg_no=<?echo $msgRow -> msg_no?>&mem_no=<? echo $mem_no?>&msg_rep_reason="+textarea+"";
-				xhr.open("Get", url, true);
-				xhr.send(null);
-				closeReport();
-			}else{
-				alert("您已經檢舉過了。");
-			}
-			if(xhr.status == 200){
-				alert('已送出檢舉');
-				closeReport();
-			}else{
-				closeReport();
-			}
-		}
-	</script>
-	<?
-		
-	}
+	
 ?>
 
 	<script>
-			//這是檢舉按鈕
-			var reportBtn = document.getElementsByClassName('report');
-			console.log(reportBtn);
+
 			//這是檢舉燈箱
 			var lightBox = document.getElementsByClassName('reportLightBox')[0];
-			//這是燈箱關閉按鈕
-			var cancelBtn = document.getElementsByClassName('cancelBtni')[0];
-			//這是燈箱送出按鈕
-			var msgSubmit=document.getElementsByClassName('msgReportSubmit')[0];
+			
+						//這是燈箱關閉按鈕
+			var cancelBtn = document.getElementById('cancelBtn');
+
+			cancelBtn.addEventListener('click', function(){
+					closeReport();				
+			}, false);
 			//燈箱關閉按鈕按了關閉燈箱
 			
 			//送出按鈕按了會顯示送出訊息，然後關閉燈箱
 			
 
-			//將所有檢舉按鈕建立click事件
-			for (var i = 0; i < reportBtn.length; i++) {
-				reportBtn[i].addEventListener('click', showReport, false);
-			};
+
 			//關閉燈箱的function
 			function closeReport(){
 				lightBox.style.visibility = 'hidden';

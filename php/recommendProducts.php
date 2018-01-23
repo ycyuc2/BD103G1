@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 $_SESSION["where"] = "recommendProducts.php";
-
+$_REQUEST["teacher_no"]=2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -169,70 +169,41 @@ try{
 		<form action="pdRecInsert.php" method="get" id="formRec">
 			<input type="hidden" value="<?php echo $_SESSION["teacher_no"]?>" name="teacher_no">
 <?php 
-
-
-    $sql="select * from pd_recommend where teacher_no = ?";
-    $recommend=$pdo->prepare($sql);
-    $recommend->bindValue(1,$_SESSION["teacher_no"]);
-    $recommend->execute();
-	if($recommend->rowcount()===0){
-?>
-
-<div class="content drop">
-	<div class="white"></div>
+	$sql="select a.pd_no, a.pd_name, a.pd_pic1, a.pd_describe, a.pd_price, a.pd_sale
+		  from products as a left join pd_recommend as b
+		  on a.pd_no = b.pd_no 
+		  or a.pd_no = b.pd_no2 
+		  or a.pd_no = b.pd_no3
+		  where b.teacher_no = :teacher_no";
+	$pd=$pdo->prepare($sql);
+	$pd->bindValue(':teacher_no',$_REQUEST["teacher_no"]);
+	$pd->execute();
+	$countPd1=$pd->rowcount();
+	$countPd=3-$countPd1;
+	$pdRecRow=$pd->fetchAll(PDO::FETCH_ASSOC);
+	foreach($pdRecRow as $i => $recRow){
+	?>
+		<div class="content drop">
+				<input type="hidden" name="r[]" value="<?php echo $recRow["pd_no"]?>">
+				<div class="merchandisePhoto"><div class="pictureBorder"></div><img src="../img/products/<?php echo $recRow["pd_pic1"]?>" alt=""></div>
+				<div class="merchandiseIntro">
+					<a href="#"> <?php  echo $recRow["pd_name"] ?> </a>
+					<p class="describe"> <?php  echo mb_substr($recRow["pd_describe"],0,50,"utf-8")."..." ?> </p>
+					<p><span> <?php  echo $recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
+				</div>
+			</div>  
+	<?php
+	}for($i=0;$i<$countPd;++$i){?>
+		<div class="content drop">
+			<div class="white"></div>
 				<input type="hidden" name="r[]" value="null">
 				<p>尚未推薦產品</p>
-
-</div>  
-<div class="content drop">
-	<div class="white"></div>
-				<input type="hidden" name="r[]" value="null">
-				<p>尚未推薦產品</p>
-
-</div>  
-<div class="content drop">
-	<div class="white"></div>
-				<input type="hidden" name="r[]" value="null">
-				<p>尚未推薦產品</p>
-
-</div>  
-<?php 
-	}else{
-		$recRow=$recommend->fetchObject();
-	
-    // 提出老師推薦的商品序號
-	$a=$recRow->pd_no;
-	$b=$recRow->pd_no2;
-	$c=$recRow->pd_no3;
-	
-	
-    for( $i=1;$i<4;++$i){
-        //一個個篩選
-        if($i==1){   
-            $pd->bindValue(1,$a);
-        }elseif($i==2){
-             $pd->bindValue(1,$b);
-        }else{
-             $pd->bindValue(1,$c);
-        }
-		$pd->execute();
-		$pdRow = $pd -> fetchObject();
+		</div>  
+<?php
+	}	?>
 			
-?>
+		
 
-	<div class="content drop">
-			<input type="hidden" name="r[]" value="<?php echo $pdRow-> pd_no?>">
-            <div class="merchandisePhoto"><div class="pictureBorder"></div><img src="../img/products/<?php echo $pdRow->pd_pic1?>" alt=""></div>
-            <div class="merchandiseIntro">
-                <a href="#"> <?php  echo $pdRow-> pd_name ?> </a>
-                <p class="describe"> <?php  echo mb_substr($pdRow -> pd_describe,0,30,"utf-8")."..."?> </p>
-                <p><span> <?php  echo $pdRow-> pd_price ?> </span> <span> <?php  echo $pdRow-> pd_sale ?> </span>元</p>
-            </div>
-        </div>  
-		<?php  
-		}
-	}
-?>
 
 	<input type="button" id="btnSend" value="" onclick="formSubmit();" width="0" >
 	</form>
