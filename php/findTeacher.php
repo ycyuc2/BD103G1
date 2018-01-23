@@ -1,3 +1,7 @@
+<?
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +15,9 @@
 <body id="body">
 
 	<?php
-		 require_once("header.php");
-		 $_SESSION["where"] = "findTeacher.php";
+		require_once("connectBD103G1yu.php");
+		require_once("header.php");
+		$_SESSION["where"] = "findTeacher.php";
 	 ?>
 
 
@@ -132,7 +137,7 @@ try {
 
 	foreach( $teacher_rows as $i=>$teacherRow){
 ?>
-<?php echo '<input type="hidden" class="teachersHiddenInput" value="',$teacherRow["teacher_img"],'" name="',$teacherRow["teacher_nn"],'">';
+<?php echo '<input type="hidden" class="teachersHiddenInput" value="',$teacherRow["teacher_img"],'" name="',$teacherRow["teacher_nn"],'|',$teacherRow["teacher_no"],'">';
 
 ?>
 		
@@ -172,7 +177,7 @@ try {
 			var teacherListUl = document.getElementById('teacherList');
 			var teacherListLi = document.createElement('li');
 			
-			teacherListLi.innerText = teachersHiddenInput[i].name;
+			teacherListLi.innerText = teachersHiddenInput[i].name.split('|')[0];
 			teacherListUl.appendChild(teacherListLi);
 			teacherListLi.addEventListener('click', moveToTeacher, false);
 	}
@@ -198,14 +203,15 @@ try {
 			frameBorder.className += 'frameBorder';
 
 			//建立隱藏input
+			var attrName = teachersHiddenInput[i].name.split('|');
 			var hdInput = document.createElement('input');
 			hdInput.setAttribute('type', 'hidden');
-			hdInput.setAttribute('value', i+1);
-			hdInput.setAttribute('name', teachersHiddenInput[i].name);
+			hdInput.setAttribute('value', attrName[1]);
+			hdInput.setAttribute('name', attrName[0]);
 
 			//建立標題
 			var teacherTopic = document.createElement('h2');
-			teacherTopic.innerText = teachersHiddenInput[i].name;
+			teacherTopic.innerText = attrName[0];
 
 			//建立div
 			var contentDiv = document.createElement('div');

@@ -1,3 +1,7 @@
+<?
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +14,7 @@
 <body>
 
 	<?php
+		require_once("connectBD103G1yu.php");
 		require_once("header.php");
 		$_SESSION["where"] = "articleEdit.php";
 	 ?>
