@@ -15,13 +15,6 @@
 }
 
 	/*表單*/
-.tr{
-	margin-top: 1%;
-	margin-left: 10%;
-	width: 80%;
-	font-size: 0;
-	text-align: center;
-}
 .tr:first-of-type{
 	font-weight: bold;
 }

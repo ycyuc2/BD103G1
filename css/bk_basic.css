@@ -1,12 +1,52 @@
+@font-face {
+    font-family: 王漢宗粗明體繁-中;
+    src: url(../font/王漢宗粗明體繁-中.ttf);
+}
+@font-face {
+    font-family: 王漢宗粗明體繁-細;
+    src: url(../font/王漢宗中明體繁- 細.ttf);
+}
+@font-face {
+    font-family: 王漢宗粗明體繁-標準;
+    src: url(../font/王漢宗特明體 – 標準.ttf);
+}
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "微軟正黑體";
+ }
+ body{
+ 	width: 100%;
+ 	height: 100%;
+ 	background-image: url(../img/share/bg.jpg);
+ 	background-position: center center;
+ 	background-size: 100% 100%;
+ 	position: relative;
+ 	padding-top: 200px;
+ 	background-attachment: fixed;
+ }
 .wrapper{
-	width: 960px;
+	background-image: url(../img/share/texture.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 30px solid transparent;
+	border-image: url(../img/share/frame2.png) 90 90 repeat;
 	margin: 0 auto;
+	width: 960px;
+	min-height: 400px;
 	font-size: 0;
+	padding: 30px;
 }
 .left{
 	display: inline-block;
 	width: 20%;
 	vertical-align: top;
+	text-align: center;
+	
 }
 a{
 	text-decoration: none;
@@ -15,20 +55,41 @@ a{
 ol{
 	list-style: none;
 	margin: 0;padding: 0;font-size: 0;
-	font-family: "微軟正黑體";
-	background: #ccc;
+}
+.sideNav > li+li{
+	margin-top: 10px;
 }
 .fstNav{
-	font-size: 24px;
+	font-family: "王漢宗粗明體繁-中";
+	background: #221;
+	font-weight: bold;
+	color: rgb(238,217,145);
+	font-size: 22px;
 	letter-spacing: 1px;
-	line-height: 32px;
-	margin-left: 10%;
+	line-height: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	border: 15px solid transparent;
+	border-image: url(../img/share/bk_border.png) 50 50 stretch;
 }
 .innerNav{
-	//margin-left: 25px;
-	font-size: 20px;
-	line-height: 28px;
+	/*margin-left: 20px;*/
+	font-size: 18px;
+	line-height: 26px;
 	display: none;
+}
+.innerNav li:hover{
+	background-color: #110;
+}
+.innerNav li a{
+	font-family: "王漢宗粗明體繁-中";
+	color: #cca879;
+}
+.innerNav li:hover a{
+	color: #cca879;
+	
 }
 .maintain:hover .maintain{
 	display: block;
@@ -44,8 +105,10 @@ ol{
 
 .right{
 	display: inline-block;
-	width: 80%;
+	width: 78%;
+	margin-left: 2%;
 	font-size: 16px;
+	vertical-align: top;
 }
 
 	/*麵包屑*/
@@ -57,4 +120,11 @@ ol{
 .breadcrumb li+li:before{
 	content: '>';
 	margin: 0 8px;
+}
+.tr{
+	margin-top: 1%;
+	margin-left: 2%;
+	width: 98%;
+	font-size: 0;
+	text-align: center;
 }
