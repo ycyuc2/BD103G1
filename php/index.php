@@ -1,15 +1,24 @@
+<?php
+    ob_start();
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-<?php require_once("publicHeader.php"); ?>
+    <?php require_once("publicHeader.php"); ?>
     <link rel="stylesheet" href="../css/index.css">
     <script src="../js/index.js"></script>
 	<title>Dozen</title>
 
 </head>
 <body>
-<?php require_once("header.php");?>
+    <?php 
+        require_once("connectBooks.php");
+        require_once("header.php");
+        $_SESSION["where"] = 'index.php';
+    ?>
 	<div class="wrapper">
 	    <!-- 底圖 --> 
 		<div class="background"></div>
@@ -32,10 +41,15 @@
                 <img src="../img/index/index_correct.png" alt="過度準確
                 ！" class="indexImg indexCorrect">
                 <img src="../img/index/index_small_text.png" alt="深受重要政治家、公司董事、企業泰斗溺愛10萬人驚聲尖叫，傳說級準確率" class="indexImg indexSmallText">
-				<div class="chooseBtn">
-					<span class="btnM"><span class="btnText btnText2 single cursorHand">單人</span></span>
-					<span class="btnM"><span class="btnText btnText2 pair cursorHand">配對</span></span>
-                </div>
+                <?php if (empty($_SESSION["fort_sta"])){
+                    printf( '<div class="chooseBtn">
+                        <span class="btnM"><span class="btnText btnText2 single cursorHand" onclick="birthdayAreaControl(this.className)">單人</span></span>
+                        <span class="btnM"><span class="btnText btnText2 pair cursorHand" onclick="birthdayAreaControl(this.className)">配對</span></span>
+                        </div>');
+                } ?>
+                
+                    
+				
             </div>
         </div>
 
@@ -47,7 +61,7 @@
 
 		<!-- chooseBirthday -->
 
-
+     <?php if (empty($_SESSION["fort_sta"])){?>
         <div class="chooseBirthday">
             <div class="birthdayFrame"></div>
         	<form action="" method="post" class="single">
@@ -80,7 +94,7 @@
             </form>
         </div>
 
-
+    <?php } ?>
 		<!-- chooseBirthday end-->
 
 
@@ -131,7 +145,7 @@
         		</div>
         		<div class="item">
         			<p>象徵之幸運物</p>
-        			<img src="../img/products/02.jpg" class="itemLeft"></img>
+        			<img src="../img/products/02/02.jpg" class="itemLeft"></img>
         			<div class="itemRight">
         				<p class="itemName">鑽石</p>
 	        			<p class="itemIntro">簡介：名稱來自於希臘語「ADAMAS」-不能征服的東西。它是地球上硬度最高的物質...</p>
@@ -168,7 +182,7 @@
         		</div>
         		<div class="item">
         			<p>象徵之幸運物</p>
-        			<img src="../img/products/02.jpg" class="itemLeft"></img>
+        			<img src="../img/products/02/02.jpg" class="itemLeft"></img>
         			<div class="itemRight">
         				<p class="itemName">鑽石</p>
 	        			<p class="itemIntro">簡介：名稱來自於希臘語「ADAMAS」-不能征服的東西。它是地球上硬度最高的物質...</p>

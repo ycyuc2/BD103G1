@@ -1,3 +1,8 @@
+<?php 
+	ob_start();
+    session_start();
+    ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,6 +45,12 @@
 </head>
 
 <body>
+       
+    <?php 
+    require_once("connectBooks.php");
+    require_once("header.php");
+    $_SESSION["where"] = "dozen_store.php";
+    ?>
 
      <!-- 閃電 -->
      <div class="background">
@@ -176,97 +187,87 @@
         <div class="search">
             <div class="filter">
                 <select>
-                    <option value="">飾品</option>
-                    <option value="">家飾</option>
-                    <option value="">食品</option>
-                    <option value="">文具</option>
+                    <option value="1" class="prodClass" id="prodClass_wear">飾品</option>
+                    <option value="2" class="prodClass" id="prodClass_home">家飾</option>
+                    <option value="3" class="prodClass" id="prodClass_food">食品</option>
+                    <option value="4" class="prodClass" id="prodClass_stationery">文具</option>
                 </select>
             </div>
             <div class="searchBox">
                 <input type="text" name="" placeholder="請輸入商品名稱...">
                 <a href="">
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
                 </a>
             </div>
         </div>
 
         
         <div id="pdContent">
-            <!-- <div class="content">
-                <a href="#">
+
+            <?php
+            try {
+                require_once("connectBD103G1peng.php");
+                $sql = "select * from products";
+                $products = $pdo->prepare($sql);
+                $products->execute();
+                $product_rows = $products->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach( $product_rows as $i=>$productRow){
+            ?>
+
+                <div class="content">
+                    
+                <?php echo '<a href="../php/dozen_storedetail.php?pd_no=',$productRow["pd_no"],'">' ?>
                     <div class="pic">
                         <div class="picFrame"></div>
-                        <img src="../img/dozen_store/lion.jpg">
+                        
+                        
+                        <?php echo '<img src="../',$productRow["pd_pic1"],'" alt="">' ?>
+                        
                     </div>
-                </a>    
-                <div class="intro">
-                    <h2>開運石獅子</h2>
-                    <p>獅子：古人視獅子為百獸之王，比虎豹更凶猛，也比虎豹更具驅邪除煞的效力。每逢年節慶典必有祥獅獻瑞的表演活動，有驅吉避凶的作用。俗語說：「厝內擺對獅，攢錢無人知。」...</p>
-                    <div class="options">
-                        <div class="price">
-                            <p>$99999</p>
-                        </div>
-                        <div class="purchase">
-                            <a href="#">加入購物車</a>
-                            <a href="#">立即購買</a>
+                    </a>
+                        
+                    <div class="intro">
+                        <h2><?php echo $productRow["pd_name"] ?></h2>
+                        <p><?php echo mb_substr($productRow["pd_intro"],0,70,"utf-8")."..." ?></p>
+                        <div class="options">
+                            <div class="price">
+                                <p>$ <?php echo $productRow["pd_price"] ?></p>
+                            </div>
+                            
+                            <div class="purchase">
+
+                                <div id="pd<?php echo $productRow["pd_no"] ?>" class="name">
+                                <span class="addButton buyNow">
+                                        加入購物車
+                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                    </span>
+
+
+                                    
+
+                                    <span class="addButton buyNow">         
+                                        立即購買
+                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                    </span>
+                                </div>
+                            
+
+                            </div>
                         </div>
                     </div>
+                        
                 </div>
 
-                
-                
-                
-            </div>
+            <?php		
+                }
 
-            <hr>
-            
-
-            <div class="content">
-                    <div class="pic">
-                        <div class="picFrame"></div>
-                        <img src="../img/dozen_store/lucky.jpg">
-                    </div>
-                        
-                    <div class="intro">
-                        <h2>開運柱柱</h2>
-                        <p>獅子：古人視獅子為百獸之王，比虎豹更凶猛，也比虎豹更具驅邪除煞的效力。每逢年節慶典必有祥獅獻瑞的表演活動，有驅吉避凶的作用。俗語說：「厝內擺對獅，攢錢無人知。」...</p>
-                        <div class="options">
-                            <div class="price">
-                                <p>$7888</p>
-                            </div>
-                            <div class="purchase">
-                                <a href="#">加入購物車</a>
-                                <a href="#">立即購買</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-            </div>
-
-            <hr>
-
-            <div class="content">
-                    <div class="pic">
-                        <div class="picFrame"></div>
-                        <img src="../img/dozen_store/lion.jpg">
-                    </div>
-                        
-                    <div class="intro">
-                        <h2>開運石獅子</h2>
-                        <p>獅子：古人視獅子為百獸之王，比虎豹更凶猛，也比虎豹更具驅邪除煞的效力。每逢年節慶典必有祥獅獻瑞的表演活動，有驅吉避凶的作用。俗語說：「厝內擺對獅，攢錢無人知。」...</p>
-                        <div class="options">
-                            <div class="price">
-                                <p>$ 7888</p>
-                            </div>
-                            <div class="purchase">
-                                <a href="#">加入購物車</a>
-                                <a href="#">立即購買</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-            </div> -->
-
+            } catch (PDOException $e) {
+                echo "錯誤原因 : " , $e->getMessage() , "<br>";
+                echo "錯誤行號 : " , $e->getLine() , "<br>";
+            }
+            ?> 
+           
 
        
         </div>
@@ -319,7 +320,8 @@
 
 
 </div>   
-<script>
+
+<!-- <script>
 
 
 window.onload = function(){
@@ -340,8 +342,35 @@ window.onload = function(){
         xhr.send( null );
 
 
+        
+
+
     }
-</script>
+</script> -->
+
+
+<!-- <script>
+    var btns = document.querySelectorAll(".prodClass");  
+     for( var i=1; i<btns.length; i++){
+      btns[i].addEventListener("click",getProducts,false)
+     }
+
+     function getProducts(e){
+     var prodClass = e.target.id.substr(10);
+     var xhr = new XMLHttpRequest();
+     xhr.onload = function (){
+      if( xhr.status == 200){
+       document.getElementById("showPanel").innerHTML = xhr.responseText;
+      }else{
+       alert(xhr.status);
+      }
+     }
+      var url = "xxx.php&prodClass=" + prodClass;
+      xhr.open("Get",url, true);
+      xhr.send( null );     
+     }
+  
+</script> -->
 
 </body>
 
