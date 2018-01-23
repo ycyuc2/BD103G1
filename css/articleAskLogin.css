@@ -63,11 +63,23 @@
     margin: 15px auto;
     display: block;
 }
-.reportLightBox #msgReportSubmit{
+.reportLightBox .btnM{
     display:block;
     margin:10px auto;
 }
 
+
+/* 評價分數 */
+.specialColumn .columnBorder .authorIntro .author .links .stars .rating{
+    display: inline-block;
+    vertical-align: middle;
+}
+.specialColumn .columnBorder .authorIntro .author .links .stars .starCount{
+    font-size: 31px;
+    color:rgb(225,225,0);
+    display: inline-block;
+    vertical-align: middle;
+}
 
 /* 美化 */
 @media screen and (min-width:960px){

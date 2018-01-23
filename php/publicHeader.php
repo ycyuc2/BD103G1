@@ -6,6 +6,6 @@
     <link rel="stylesheet" href="../css/showKarma.css">
 	<link rel="stylesheet" href="../css/loginLightbox.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.3.2/jquery.min.js"></script>
 	<script src="../js/countDown.js"></script>
 	<script src="../js/loginLightbox.js"></script>

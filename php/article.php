@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 $_REQUEST["art_no"]=1;
+$_SESSION["where"] = "article.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +20,7 @@ $_REQUEST["art_no"]=1;
 	<?php
 		require_once("connectBooks.php");
 		require_once("header.php"); 
-		$_SESSION["where"] = "article1.php";
+
 	?>
 	<div class="background">
 		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
@@ -57,6 +58,8 @@ $_REQUEST["art_no"]=1;
 			<!-- <input class="reportSubmit" type="submit" value="送出"> -->
 		</div>
 	</div>
+
+
 <!-- 成功評價的燈箱 -->
 <div class="win_wrapper">
 	<div class="win_lightbox">
@@ -75,6 +78,8 @@ $_REQUEST["art_no"]=1;
 		<p>您已成功收藏</p>
 	</div>
 </div>
+
+
 
 <!-- 標題 -->
 	<h2>搞定水逆，讓你全家不再水逆</h2>
@@ -100,6 +105,7 @@ $_REQUEST["art_no"]=1;
 								<p class="btnText btnText2">收藏</p>
 							</span>
 						</div>
+
 <!-- 收藏php -->
 <?php if(isset($_SESSION["mem_no"])){ ?>
 	<script>
@@ -112,7 +118,7 @@ $_REQUEST["art_no"]=1;
 					alert(xhr.status);
 				}
 			}
-			var url="articleCollect.php?mem_no=<?echo $_SESSION["mem_no"]?>&art_no="+1;
+			var url="articleCollect.php?mem_no=<?echo $_SESSION["mem_no"]?>&art_no="<?php $_REQUEST["art_no"]?>;
 			xhr.open("get",url,true);
 			xhr.send(null);
 		});
@@ -128,8 +134,11 @@ $_REQUEST["art_no"]=1;
 	}
 ?>
 <!-- 收藏php結束 -->
-<!-- 評價星等php -->
+
+
+<!-- 星星評價 -->
 			<div class="stars">
+			<div class="starCount"></div>	
 			<fieldset class="rating teacherStar">
 				<input type="radio" id="star5" name="rating" value="5" />
 				<label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -146,30 +155,24 @@ $_REQUEST["art_no"]=1;
 		</div>
 	</div>
 </div>
-<?
+
+<!-- 評價星等php -->
+<?php
 try{
-	
-		$sql="select * from art_review where  art_no =?";
-		$check=$pdo->prepare($sql);
-		$check->bindValue(1,1);
-		$check->execute();
-		$count=$check->rowcount();
-		$starScore=0;
-		while($checkRow=$check->fetchObject()){
-			$starScore+=$checkRow->art_star;
-		}	if($check->rowcount()!=0){
-	?>
-		<script>
-			var star= <?echo round($starScore/$count);?>;
-			var inputElems= $('.teacherStar input[type="radio"]');
-			inputElems[4-star].checked=true;
-		</script>	
-	<?php		
-		}
+	$sql="select * from art_review where art_no =?";
+	$check=$pdo->prepare($sql);
+	$check->bindValue(1,$_REQUEST["art_no"]);
+	$check->execute();
+	$count=$check->rowcount();
+	$starScore=0;
+	while($checkRow=$check->fetchObject()){
+		$starScore+=$checkRow->art_star;
+	}
+	$starEnd=ceil($starScore/$count);
 		if(isset($_SESSION['mem_no'])){
 		$sql="select * from art_review where  art_no =? and mem_no=?";
 		$check1=$pdo->prepare($sql);
-		$check1->bindValue(1,1);
+		$check1->bindValue(1,$_REQUEST["art_no"]);
 		$check1->bindValue(2,$_SESSION['mem_no']);
 		$check1->execute();
 		$checkRow1=$check1->fetchObject();
@@ -178,23 +181,33 @@ try{
 			<script>
 				var star1= <?echo  $checkRow1->art_star;?>;
 				var inputElems= $('.teacherStar input[type="radio"]');
-				inputElems[4-star1].checked=true;
+				inputElems[4-star1].checked=true;				
+				$('.starCount').html(star1+1);
+				for(var i=0;i<5;++i){
+					$(inputElems[i]).disabled=true;
+				}
+				$('.starCount').html(star1);
 			</script>
 	<?php
 		}	
 	}else{
 	?>
 		<script>
+			var star=<?echo floor($starScore/$count);?>;
+			$('.starCount').html("<?echo $starEnd?>");
+			var inputElems= $('.teacherStar input[type="radio"]');
+			inputElems[4-star].checked=true;
 			for(var i=0;i<5;++i){
-				$(''+iputElems[i]+',.login.lightboxC').click(function(){
+				$(inputElems[i]).disabled=true;
+				$(inputElems[i]).click(function(){
 					$('.ask_wrapper').css('display','block');
 				});
 			}
 		</script>
-	<?php
-		}
-	
-	?>
+
+
+
+	<?php } ?>
 	<!-- 評價收藏登入燈箱控制 -->
 <script>
 	$(document).ready(function () {
@@ -240,7 +253,7 @@ try{
 		var xhr = new  XMLHttpRequest();
 		xhr.onload=function(){
 			if(xhr.status ==200){
-
+				$('.starCount').html(star1+1);
 			}else{
 				alert(xhr.status);
 			}
@@ -312,7 +325,7 @@ try{
 	
     $sql="select * from message where art_no=?";
     $message=$pdo->prepare($sql);
-    $message->bindValue(1,1);
+    $message->bindValue(1,$_REQUEST["art_no"]);
 	$message->execute();
     while($msgRow=$message->fetchObject()){
 		$mem_no=$msgRow->mem_no;
@@ -335,9 +348,11 @@ try{
 						<p> <? echo $msgRow->msg_time?> </p>
 					</div>
 					<div class="links">
-						<div class="btns"><span class="btnM report">
+						<div class="btns">
+							<span class="btnM report">
 								<p class="btnText btnText2">檢舉</p>
-							</span></div>
+							</span>
+						</div>
 						<div class="stars">
 	<!-- 評價星等 -->
 						</div>
@@ -364,7 +379,6 @@ try{
 ?>
 	<script>
 		window.onload=function(){
-		// window.onload=function(){
 			for(var i=0;i<msgSubmit.length;++i){
 				cancelBtn[i].addEventListener('click', function(){
 					closeReport();				
@@ -381,7 +395,7 @@ try{
 			msgSubmit[i].addEventListener('click', function(){
 						sendReport();				
 			}, false);
-		}
+			}
 		}
 		 </script>
 	<?php }else{  ?>
@@ -426,9 +440,9 @@ try{
 			//這是檢舉燈箱
 			var lightBox = document.getElementsByClassName('reportLightBox')[0];
 			//這是燈箱關閉按鈕
-			var cancelBtn = document.getElementsByClassName('cancelBtni');
+			var cancelBtn = document.getElementsByClassName('cancelBtni')[0];
 			//這是燈箱送出按鈕
-			var msgSubmit=document.getElementsByClassName('msgReportSubmit');
+			var msgSubmit=document.getElementsByClassName('msgReportSubmit')[0];
 			//燈箱關閉按鈕按了關閉燈箱
 			
 			//送出按鈕按了會顯示送出訊息，然後關閉燈箱

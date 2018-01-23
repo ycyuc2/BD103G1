@@ -18,7 +18,6 @@ session_start();
     $check=$pdo->prepare($sql);
     $check->bindValue(1,$_SESSION["teacher_no"]);
     $check->execute();
- 
         if($check->rowcount()===0){
             $sql="insert into pd_recommend (teacher_no,pd_no,pd_no2,pd_no3) values(?,?,?,?)";
             $pdRecInsert=$pdo->prepare($sql);

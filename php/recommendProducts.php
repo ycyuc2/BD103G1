@@ -98,7 +98,7 @@ try{
 	
 	}
 }else if(isset($_SESSION["teacher_no"])==null){
-		header('Location:article1.php');
+		header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacher_no"]);
 	}
 ?>
 
@@ -167,7 +167,7 @@ try{
 		<h2>推薦商品</h2>
 		<div class="pdRecMove">
 		<form action="pdRecInsert.php" method="get" id="formRec">
-			<input type="hidden" value="<?php echo $_SESSION["teacher"]["teacher_no"]?>" name="teacher_no">
+			<input type="hidden" value="<?php echo $_SESSION["teacher_no"]?>" name="teacher_no">
 <?php 
 
 

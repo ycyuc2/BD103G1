@@ -13,6 +13,7 @@ session_start();
 <body>
     <?
     try{
+        date_default_timezone_set('Asia/Taipei');
         require_once("connectBooksting.php");
         $sql="insert into message ( mem_no, art_no ,msg_content, msg_time, msg_like,msg_dislike,last_view) values(?,?,?,?,?,?,?)";
         $msgAdd=$pdo->prepare($sql);
