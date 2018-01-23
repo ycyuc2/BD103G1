@@ -10,8 +10,9 @@
 </head>
 <body>
 	
-	<?php require_once("header.php");
-			$_SESSION["where"] = "specialColumn.php";
+	<?php 
+		require_once("header.php");
+		$_SESSION["where"] = "specialColumn.php";
 	?>
 
 	
@@ -103,50 +104,10 @@ try {
 
  ?>
 					
-					<?php  ?>
-				</div>
 
-				<hr class="hr">
-
-
-				<!-- 商品推薦 -->
-				<div class="merchandise">
-					<h2>商品推薦</h2>
-					<div class="content">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
-						<div class="merchandiseIntro">
-							<a href="#">開運水晶柱</a>
-							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
-							<p><span>3599</span><span> 899 </span>元</p>
-						</div>
-					</div>
-					<div class="content rear">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
-						<div class="merchandiseIntro">
-							<a href="#">開運水晶柱</a>
-							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
-							<p><span>3599</span><span> 899 </span>元</p>
-						</div>
-					</div>
-					<div class="content rear">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<img src="../img/specialColumn/cristal.JPG" alt=""></div>
-						<div class="merchandiseIntro">
-							<a href="#">開運水晶柱</a>
-							<p>放在家裡的各個角落，以確保邪靈無法輕易入侵，三個以上可形成結界，結界內的人事物皆會受到祝福，在結界內告白，成功率超過80%！</p>
-							<p><span>3599</span><span> 899 </span>元</p>
-						</div>
-					</div>
 				</div>
 
 
-
-				<hr class="hr">
 
 
 				<!-- 發文按鈕 -->
@@ -184,6 +145,73 @@ try {
 
 	 ?>
 
+
+
+
+
+
+				<hr class="hr">
+
+
+				<!-- 商品推薦 -->
+				<div class="merchandise">
+					<h2>商品推薦</h2>
+
+
+<?php 
+try {
+	require_once("connectBD103G1yu.php");
+	$sql = "select a.pd_no, a.pd_name, a.pd_sale, a.pd_pic1, a.pd_price, a.pd_describe 
+			from products as a left join pd_recommend as b 
+			on a.pd_no = b.pd_no 
+			or a.pd_no = b.pd_no2 
+			or a.pd_no = b.pd_no3 
+			where b.teacher_no = :teacher_no";
+	$recommends = $pdo->prepare($sql);
+	$recommends->bindValue(":teacher_no",$teacherNo);
+	$recommends->execute();
+	$recommend_rows = $recommends->fetchAll(PDO::FETCH_ASSOC);
+
+	foreach( $recommend_rows as $i=>$recommendRow){
+ ?>
+					<div class="content">
+						<div class="merchandisePhoto">
+							<div class="picBorder"></div>
+							<?php echo '<img class="photo" src="../img/products/',$recommendRow["pd_pic1"],'" alt="">' ?>
+						</div>
+						<div class="merchandiseIntro">
+									<?php echo '<a href="dozen_storedetail.php?pd_no=',$recommendRow["pd_no"],'">' ?>
+									<?php echo $recommendRow["pd_name"] ?>
+									
+								</a>
+							<p>
+								<?php echo mb_substr($recommendRow["pd_describe"],0,50,"utf-8")."..." ?>
+							</p>
+							<p>
+								<span><?php echo $recommendRow["pd_price"] ?></span>
+								<span> <?php echo $recommendRow["pd_sale"] ?> </span>元
+							</p>
+						</div>
+					</div>
+				
+
+
+<?php
+	}
+} catch (PDOException $e) {
+			echo "錯誤原因 : " , $e->getMessage() , "<br>";
+			echo "錯誤行號 : " , $e->getLine() , "<br>";
+			
+		}
+
+
+	 ?>
+
+			</div>
+				<hr class="hr">
+
+
+
 				<div class="articleList">
 					<h2>文章列表</h2>
 
@@ -214,7 +242,15 @@ try {
 						<div class="content">
 							<div class="topic">
 								<h3>
-									<?php echo '<a href="article.php">'.$articleRow["art_title"].'</a>' ?>
+									<?php echo 
+									'<a href="article.php?teacher_no='
+									.$_REQUEST["teacher_no"]
+									.'&art_no='
+									.$articleRow["art_no"]
+									.'">'
+									.$articleRow["art_title"]
+									.'</a>' 
+									?>
 										
 								</h3>
 								<div class="detail">
