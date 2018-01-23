@@ -3,16 +3,20 @@
 //瀏覽器load完成執行：
 window.addEventListener('load', function () {
 
+    let searchName = '';
+    let searchBtn = document.getElementsByClassName('fa-search')[0];
+    searchBtn.addEventListener('click', ajaxData);
+
     
 
 
     //找到所有class名為buyNow的物件
-    var buyNow = document.getElementsByClassName('buyNow');
+    var buyNow = document.getElementsByClassName('addButton');
     //跑迴圈註冊按鈕click事件
     for (let i = 0; i < buyNow.length; i++) {
         buyNow[i].addEventListener('click', function () {
 
-            var inputValue = document.querySelector('.qty').value;
+            var inputValue = document.querySelector('.addButton').value;
 
             localStorage.setItem('item', inputValue);
             console.log(inputValue);
@@ -20,6 +24,35 @@ window.addEventListener('load', function () {
         });
 
     }
+
+    function ajaxData(e) {
+
+        var searchName = document.getElementsByClassName('searchName')[0].value;
+           
+        if (searchName !== '') {
+         //getData('searchName=' + searchName);
+         var url = "changePage.php?searchValue=" + searchName;
+         console.log(url);
+         var xhr = new XMLHttpRequest();
+         
+         xhr.onload = function(){
+         
+          if( xhr.status == 200 ){
+             
+           document.getElementById("pdContent").innerHTML = xhr.responseText;
+           console.log(xhr.responseText);
+          }else{
+           alert(xhr.status);
+          }
+         
+         }
+         xhr.open("Get",url, true);
+         xhr.send( null );
+        } else if (searchName === '') {
+         alert("請輸入您需要的開運聖品...");
+        }
+        
+       }
 
 
 
