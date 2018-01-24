@@ -1,4 +1,4 @@
-<?
+<?php
 ob_start();
 session_start();
 ?>
@@ -14,7 +14,7 @@ session_start();
 <body>
 
 	<?php
-		require_once("connectBD103G1yu.php");
+		require_once("connectBD103G1.php");
 		require_once("header.php");
 		$_SESSION["where"] = "articlePost.php";
 	  ?>
