@@ -108,9 +108,7 @@ function generateResult(className) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				document.querySelector('.resultArea').innerHTML = this.responseText;
-	    		//location.reload();
-	    		$('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
+	    		location.reload();
 			}
 		};
 		xhttp.open("GET", "fortuneResult.php?data_type=1&singleConstelation="+singleConstelation);
@@ -122,9 +120,7 @@ function generateResult(className) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				document.querySelector('.resultArea').innerHTML = this.responseText;
-	    		//location.reload();
-	    		$('html,body').animate({ scrollTop: $('.star').offset().top-100 }, 1000);
+	    		location.reload();
 			}
 		};
 		xhttp.open("GET", "fortuneResult.php?data_type=0&singleConstelation="+singleConstelation+"&pairConstelation="+pairConstelation);
