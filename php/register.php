@@ -1,7 +1,7 @@
 <?php 
 	ob_start();
 	session_start();
-	require_once("connectBooks.php");
+	require_once("connectBD103G1.php");
 	$sql = "insert into member(mem_acc, mem_psw, mem_nn, mem_tel, fort_sta, fort_no, obj_fort_no, karma_val, mem_sta)
 			value (:mem_acc, :mem_psw, :mem_nn, :mem_tel, :fort_sta, :fort_no, :obj_fort_no, :karma_val, :mem_sta)";
 	$member = $pdo->prepare($sql);

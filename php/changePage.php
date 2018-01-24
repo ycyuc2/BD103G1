@@ -1,6 +1,6 @@
 <?php
 try {
- require_once("../php/connectBD103G1peng.php");
+ require_once("connectBD103G1.php");
  if(isset($_REQUEST["pdType"])){
     $sql = "select * from products where pd_type = :TYPE";
     $pdType = $_REQUEST["pdType"];

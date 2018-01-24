@@ -1,6 +1,6 @@
 <?
 try{  
-    require_once("connectBooks.php");
+    require_once("connectBD103G1.php");
     if(isset($_SESSION["mem_no"])){
         $sql="select * from msg_report where mem_no=? and msg_no=?";
         $msgReport=$pdo->prepare($sql);

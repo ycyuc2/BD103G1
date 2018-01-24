@@ -1,7 +1,7 @@
 <?php 
 	ob_start();
 	session_start();
-	require_once("connectBooks.php");
+	require_once("connectBD103G1.php");
 	
 	//$_GET["data_type"], $_GET["singleConstelation"]
 	if (empty($_SESSION["fort_sta"])) {

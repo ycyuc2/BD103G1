@@ -1,6 +1,6 @@
 <?php
 try {
-	require_once("connectBD103G1peng.php");
+	require_once("connectBD103G1.php");
 	$sql = "select * from products";
 	$products = $pdo->prepare($sql);
 	$products->execute();

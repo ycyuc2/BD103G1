@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
     <title>dozen_storeCart</title>
-    <?php require_once("publicHeader.php")?>
+    <?php require_once("publicHeader.php") ?>
 
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/dozen_storeCart.css">
@@ -22,7 +22,7 @@
 
 <body>
     <?php 
-        require_once("connectBooks.php");
+        require_once("connectBD103G1.php");
         require_once("header.php");
         $_SESSION["where"] = "dozen_store.php";
         ?>
@@ -149,31 +149,7 @@
 
     <div class="footer">
 
-            <!-- 左邊icon -->
-            <div class="icon">
-                <ul>
-                    <!-- facebook icon -->
-                    <li class="facebook">
-                        <a href="#">
-                            <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-                        </a>				
-                    </li>
-    
-                    <!-- instagram icon -->
-                    <li class="instagram"></i>
-                        <a href="#">
-                            <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
-                        </a>					
-                    </li>
-    
-                    <!-- twitter icon -->
-                    <li class="twitter">
-                        <a href="#">
-                            <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
-                        </a>			
-                    </li>
-                </ul>
-            </div>
+ 
     
             <!-- 右邊copyright -->
             <div class="copyright">

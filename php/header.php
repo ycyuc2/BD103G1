@@ -21,7 +21,7 @@
 
 	<div class="menu">
 		<!-- logo -->
-		<a  href="#"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
+		<a  href="index.php"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
 
 		<!-- 右邊的title區塊 -->
 
@@ -41,13 +41,13 @@
 			<div class="line"></div>
 			<!-- 右邊的time區塊 -->
 			<div class="right">
-				<a class="title" href="findTeacher.html">
+				<a class="title" href="findTeacher.php">
 					<span class="findTeacher"></span>
 				</a>
-				<a class="title" href="dozen_store.html">
+				<a class="title" href="dozen_store.php">
 					<span class="store"></span>
 				</a>
-				<a class="title" href="member.html">
+				<a class="title" href="member.php">
 					<span class="member"></span>
 				</a>
 			</div>	

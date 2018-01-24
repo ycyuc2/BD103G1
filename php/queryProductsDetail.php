@@ -1,7 +1,7 @@
 <?php
 $pdNo = $_REQUEST["pd_no"];
 try {
-	require_once("connectBD103G1peng.php");
+	require_once("connectBD103G1.php");
 	$sql = "select * from products where pd_no = :pdNo";
     $products = $pdo->prepare($sql);
     $products->bindValue(":pdNo",$pdNo);

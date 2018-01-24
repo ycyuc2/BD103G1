@@ -1,7 +1,7 @@
 <?php 
 	ob_start();
 	session_start();
-	require_once("connectBooks.php");
+	require_once("connectBD103G1.php");
 	?>
 	<script type="text/javascript">
 		console.log($_GET["mem_acc"], $_GET["mem_psw"]);

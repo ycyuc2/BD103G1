@@ -16,7 +16,7 @@ session_start();
     @$_REQUEST["r"][0]==""? $_REQUEST["r"][0]= 0: $_REQUEST["r"][0];
     @$_REQUEST["r"][1]==""? $_REQUEST["r"][1]= 0: $_REQUEST["r"][1];
     @$_REQUEST["r"][2]==""? $_REQUEST["r"][2]= 0: $_REQUEST["r"][2];
- require_once("connectBooksting.php");
+ require_once("connectBD103G1.php");
     $sql="select * from pd_recommend where teacher_no=?";
     $check=$pdo->prepare($sql);
     $check->bindValue(1,$_SESSION["teacher_no"]);

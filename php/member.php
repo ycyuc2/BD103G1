@@ -43,7 +43,7 @@
 					//=====連資料庫，做測試
 					try{
 						$_SESSION["mem_no"] = 1;
-						require_once("connectBooks.php");
+						require_once("connectBD103G1.php");
 						$sql = "select * from member where mem_no = :mem_no";
 						$member = $pdo->prepare($sql);
 						$member -> bindValue(":mem_no",$_SESSION["mem_no"]);

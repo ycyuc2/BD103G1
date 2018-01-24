@@ -18,7 +18,7 @@ $_REQUEST["teacher_no"]=2;
 </head>
 <body>
 	<?php
-		require_once("connectBooks.php");
+		require_once("connectBD103G1.php");
 		require_once("header.php"); 
 	?>
 	<div class="background">
@@ -34,7 +34,7 @@ $_REQUEST["teacher_no"]=2;
 
 try{
 	if(isset($_SESSION["teacher_no"])){
-    require_once("../php/connectBooks.php");
+    require_once("connectBD103G1.php");
 	$sql = "select * from teacher where teacher_no = :teacher_no";
 	$teacher = $pdo->prepare($sql);
 	$teacher->bindValue(":teacher_no",$_SESSION["teacher_no"]);
