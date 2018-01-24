@@ -56,7 +56,37 @@ session_start();
 					<div class="links">
 						<div class="btns">
 							<span class="btnM">
-								<a href="" class="btnText btnText2">收藏</a>
+								<a href="#" class="btnText btnText2">收藏</a>
+								<script type="text/javascript">
+									var artCollectBtn = document.querySelector('.authorIntro .author .links a');
+									artCollectBtn.addEventListener("click", artCollect);
+									artCollect();
+									document.querySelector('#loginControl').checked = false;
+
+									function artCollect(artCollectBtn) {
+										<?php if (isset($_SESSION["mem_no"])) {?>
+						 					var xhttp = new XMLHttpRequest();
+											xhttp.onreadystatechange = function() {
+												var artCollectBtn = document.querySelector('.authorIntro .author .links a');
+												if (this.readyState == 4 && this.status == 200) {
+										    		artCollectBtn.innerText = this.responseText;
+										    		if(artCollectBtn.innerText == '收藏'){
+										    			console.log("2");
+										    			artCollectBtn.className = 'btnText btnText2';
+										    		}else{
+										    			console.log("4");
+										    			artCollectBtn.className = 'btnText btnText4';
+										    		}
+												}
+											}
+											xhttp.open("GET", "articleCollect.php?art_no=<?php echo $_REQUEST["art_no"];?>");
+											xhttp.send();
+						 				<?php }else{?>
+											document.querySelector('#loginControl').checked = true;
+						 				<?php }?>
+									}
+										
+								</script>
 							</span>
 						</div>
 						<div class="stars">
@@ -118,7 +148,20 @@ session_start();
 			</form>
 		</div>
 	</div>
-
+<script type="text/javascript">
+	//document.querySelector('.memberReply .columnBorder .btnM input').disabled = true;
+	document.querySelector('.memberReply .columnBorder .btnM input').addEventListener("click", function () {
+		<?php  if( empty($_SESSION["mem_no"]) ){?>
+			event.preventDefault();
+			document.querySelector('#loginControl').checked = true;
+		<?php } ?>
+			if (this.parentNode.parentNode.childNodes[1].value == '') {
+				event.preventDefault();
+				document.querySelector('#articleLightBoxControl').checked = true;
+			}
+	});
+		
+</script>
 
 
 	
@@ -171,7 +214,7 @@ session_start();
 						    		document.querySelector('#articleLightBoxControl').checked = true;
 								}
 							}
-							xhttp.open("GET", "articleReport.php?action=show&msg_no="+this.lastChild.value);
+							xhttp.open("GET", "msgReport.php?action=show&msg_no="+this.lastChild.value);
 							xhttp.send();
 		 				<?php }else{?>
 							document.querySelector('#loginControl').checked = true;

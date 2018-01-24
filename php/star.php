@@ -3,7 +3,7 @@
 	session_start();
 	$_SESSION["mem_no"] = 1;
 	//	$_REQUEST["type"], $_REQUEST["action"], $_REQUEST["target_no"], $_REQUEST["value"]
-	require_once('connectBooks.php');
+	require_once('connectBD103G1.php');
 	if($_REQUEST["type"] == 'article'){
 		$type = 'art';
 		$typeStar = $type."_star";

@@ -1,34 +1,33 @@
 <?php
+ob_start();
+session_start();
 try{
+    //$_REQUEST["art_no"]
+    require_once("connectBD103G1.php");
     date_default_timezone_set("Asia/Taipei");
-    $mem_no=$_REQUEST["mem_no"];
-    $art_no=$_REQUEST["art_no"];
-    require_once("connectBooksting.php");
-    $sql="select * from art_collection where mem_no=? and art_no=?";
-    $artCollect=$pdo->prepare($sql);
-    $artCollect->bindValue(1,$mem_no);
-    $artCollect->bindValue(2,$art_no);
+    $sql = "select * from art_collection where mem_no = :mem_no and art_no = :art_no";
+    $artCollect = $pdo->prepare($sql);
+    $artCollect->bindValue(':mem_no', $_SESSION["mem_no"]);
+    $artCollect->bindValue(':art_no', $_REQUEST["art_no"]);
     $artCollect->execute();
-    if($artCollect->rowcount()==0){
-        $sql="insert into art_collection (mem_no, art_no ,last_view) values (?,?,?)";
-        $artCollectIns=$pdo->prepare($sql);
-        $artCollectIns->bindValue(1,$mem_no);
-        $artCollectIns->bindValue(2,$art_no);
-        $artCollectIns->bindValue(3,date('Y-h-m h:i:s'));
-        $artCollectIns->execute();
+    if( $artCollect->rowCount() == 0 ){
+        $sql = "insert into art_collection(mem_no, art_no, last_view) values(:mem_no, :art_no, :last_view) ";
+        $artInsert = $pdo->prepare($sql);
+        $artInsert->bindValue(':mem_no', $_SESSION["mem_no"]);
+        $artInsert->bindValue(':art_no', $_REQUEST["art_no"]);
+        $artInsert->bindValue(':last_view', date("YmdHis"));
+        $artInsert->execute();
+        echo "取消收藏";
     }else{
-        $sql="update art_collection set last_view=? where mem_no=? and art_no=?";
-        $artCollectUp=$pdo->prepare($sql);
-        $artCollectUp->bindValue(1,date('Y-h-m h:i:s'));
-        $artCollectUp->bindValue(2,$mem_no);
-        $artCollectUp->bindValue(3,$art_no);
-        $artCollectUp->execute();
+        $sql = "delete from art_collection where mem_no = :mem_no and art_no = :art_no ";
+        $artDelete = $pdo->prepare($sql);
+        $artDelete->bindValue(':mem_no', $_SESSION["mem_no"]);
+        $artDelete->bindValue(':art_no', $_REQUEST["art_no"]);
+        $artDelete->execute();
+        echo "收藏";
     }
-
 } catch (PDOException $e) {
-			echo "錯誤原因 : " , $e->getMessage() , "<br>";
-			echo "錯誤行號 : " , $e->getLine() , "<br>";
-            $sql="";
-            
-		}
+	echo "錯誤原因 : " , $e->getMessage() , "<br>";
+	echo "錯誤行號 : " , $e->getLine() , "<br>";
+}
 ?>
