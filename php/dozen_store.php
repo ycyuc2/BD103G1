@@ -137,7 +137,7 @@
                     <div class="intro">
                         <h2><?php echo $productRow["pd_name"] ?></h2>
                         <h2 id="karma_dec">業力值扣減(<?php echo $productRow["karma_dec"] ?>)</h2>
-                        <p><?php echo mb_substr($productRow["pd_intro"],0,70,"utf-8")."..." ?></p>
+                        <p><?php echo mb_substr($productRow["pd_describe"],0,70,"utf-8")."..." ?></p>
                         <div class="options">
                             <div class="price">
                                 <p>$ <?php echo $productRow["pd_price"] ?></p>
