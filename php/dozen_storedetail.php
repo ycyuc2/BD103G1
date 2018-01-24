@@ -51,7 +51,7 @@
 
                                 <div class="one">
                                     <div class="picFrame"></div>
-                                    <?php echo '<img src="../',$productRow["pd_pic1"],'" alt="">' ?>
+                                    <?php echo '<img src="../img/products/',$productRow["pd_pic1"],'" alt="">' ?>
                                 </div>
 
                             
@@ -74,7 +74,7 @@
                                     <hr > 
                                     <div class="innerText">
                                         <p>
-                                        <?php echo $productRow["pd_intro"] ?>
+                                        <?php echo $productRow["pd_describe"] ?>
                                         </p>
                                     </div>
 

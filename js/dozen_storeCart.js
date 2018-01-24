@@ -1,5 +1,6 @@
 function doFirst() {
- 
+	var pay = document.getElementsByClassName('pay');
+	
 	var storage = localStorage;
 	
 	// if(storage['addItemList']== null){
@@ -57,7 +58,7 @@ function doFirst() {
 	 var image = document.createElement('img');
 	 // console.log(itemImage);
 	 image.className = 'adc';
-	 image.src = '../' + itemImage;
+	 image.src = '../img/products/' + itemImage;
 	 image.width = '100';
    
 	 tdImage.appendChild(image);
@@ -205,7 +206,7 @@ function doFirst() {
 	 
 	// })
    
-   
+
    
    
 

@@ -15,14 +15,14 @@ try {
             <div class="picFrame"></div>
             
             
-            <?php echo '<img src="../',$productRow["pd_pic1"],'" alt="">' ?>
+            <?php echo '<img src="../img/products/',$productRow["pd_pic1"],'" alt="">' ?>
             
         </div>
         </a>
             
         <div class="intro">
             <h2><?php echo $productRow["pd_name"] ?></h2>
-            <p><?php echo mb_substr($productRow["pd_intro"],0,70,"utf-8")."..." ?></p>
+            <p><?php echo mb_substr($productRow["pd_describe"],0,70,"utf-8")."..." ?></p>
             <div class="options">
                 <div class="price">
                     <p>$ <?php echo $productRow["pd_price"] ?></p>
