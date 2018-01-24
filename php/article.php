@@ -111,9 +111,10 @@ session_start();
 		<div class="border"></div>
 		<div class="columnBorder">
 			<h3>撰寫留言</h3>
-			<form>
-				<textarea id="replyArea"></textarea>
-				<input class="btnM btnText btnText2" type="submit" value="回　覆">
+			<form action="msgReply.php" method="post">
+				<input type="hidden" name="art_no" value="<?php echo $_REQUEST["art_no"];?>">
+				<textarea id="replyArea" name="msg_content"></textarea>
+				<span class="btnM"><input class="btnText btnText2" type="submit" value="回覆"></span>
 			</form>
 		</div>
 	</div>
@@ -155,23 +156,38 @@ session_start();
 					</article>
 				</div>
 			</div>
+	 	<?php } //foreach end
+	 	if ($msg->rowCount() != 0) {?>
+	 		
+	 			<script type="text/javascript">
+	 			var report = document.querySelectorAll('.report p');
+	 			for (var i = 0;i<report.length; i++) {
+	 				report[i].addEventListener('click', function () {
+		 				<?php if (isset($_SESSION["mem_no"])) {?>
+		 					var xhttp = new XMLHttpRequest();
+							xhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+						    		document.querySelector('.articleLightBox').innerHTML = this.responseText;
+						    		document.querySelector('#articleLightBoxControl').checked = true;
+								}
+							}
+							xhttp.open("GET", "articleReport.php?action=show&msg_no="+this.lastChild.value);
+							xhttp.send();
+		 				<?php }else{?>
+							document.querySelector('#loginControl').checked = true;
+		 				<?php }?>
+		 			});
+	 			}	//for end
+	 		</script>
+	 		
 	 	<?php }?>
 	
 
 
 
 <!-- 檢舉燈箱 -->
+	<input type="checkbox" name="" id="articleLightBoxControl">
 	<div class="articleLightBox">
-		<div class="content">
-			<div class="cancelBtn">
-				<i class="fa fa-times"></i>
-			</div>
-			<p>請輸入檢舉原因</p>
-			<form>
-				<textarea></textarea>
-				<input class="reportSubmit" type="submit" value="送出">
-			</form>
-		</div>
 	</div>
 
 	<!-- ====================footer==================== -->
@@ -186,51 +202,6 @@ session_start();
 	</div>
 
 
-	<script>
-			//宣告一堆變數
-			var reportBtn, lightBox, cancelBtn, reportSubmit;
-			//這是檢舉按鈕
-			reportBtn = document.getElementsByClassName('report');
-			console.log(reportBtn);
-			//這是檢舉燈箱
-			lightBox = document.getElementsByClassName('reportLightBox')[0];
-			//這是燈箱關閉按鈕
-			cancelBtn = document.getElementsByClassName('cancelBtn')[0];
-			//這是燈箱送出按鈕
-			reportSubmit = document.getElementsByClassName('reportSubmit')[0];
-			//燈箱關閉按鈕按了關閉燈箱
-			cancelBtn.addEventListener('click', function(){
-					closeReport();
-			}, false);
-
-			//送出按鈕按了會顯示送出訊息，然後關閉燈箱
-			reportSubmit.addEventListener('click', function(){
-					alert('已送出檢舉');
-					closeReport();
-			}, false);
-
-			//將所有檢舉按鈕建立click事件
-			for (var i = 0; i < reportBtn.length; i++) {
-				reportBtn[i].addEventListener('click', showReport, false);
-			};
-			//關閉燈箱的function
-			function closeReport(){
-				lightBox.style.visibility = 'hidden';
-				lightBox.style.opacity = 0;
-
-			}
-			//打開燈箱的function
-			function showReport(){
-				lightBox.style.visibility = 'visible';
-				lightBox.style.opacity = 1;
-			}
-
-			var reply = document.getElementById('replyArea');
-
-			reply.onclick = function(){
-				this.style.height = '300px';
-			}
-		
-	</script>
+	
 </body>
 </html>

@@ -12,7 +12,7 @@
     $mem_no=$_REQUEST["mem_no"];
     $msg_rep_reason=$_REQUEST["msg_rep_reason"];
         try{    		
-                require_once("connectBD103G1.php");
+                require_once("connectBooksting.php");
                 $sql="insert into msg_report (mem_no,msg_no,msg_rep_reason) values(?,?,?)";
                 $msgRepInsert=$pdo->prepare($sql);
                 $msgRepInsert->bindValue(1,$mem_no);

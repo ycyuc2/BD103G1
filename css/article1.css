@@ -31,7 +31,8 @@ h2 {
   box-sizing: border-box;
   background-image: url(../img/share/texture.png);
   background-position: center center;
-  background-size: 100% 100%; }
+  background-size: 100% 100%; 
+text-align: center;}
   .specialColumn .border, .replys .border, .memberReply .border {
     position: absolute;
     z-index: 0;
@@ -214,11 +215,31 @@ h2 {
   overflow: hidden;
   transition: height .2s; }
 
+.memberReply textarea:focus {
+  height: 200px;
+
+}
+.memberReply span {
+  margin-top: 20px;
+}
 .memberReply input {
   display: block;
-  margin: 10px auto; }
+  }
 
-.reportLightBox {
+#articleLightBoxControl{
+  position: fixed;
+  top: -20px;left: -20px;
+  opacity: 0;
+  display: none;
+}
+#articleLightBoxControl:checked+.articleLightBox{
+  right: 0;bottom: 0;
+  margin: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.articleLightBox {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -229,7 +250,7 @@ h2 {
   visibility: hidden;
   opacity: 0;
   transition: 0.3s; }
-  .reportLightBox .content {
+  .articleLightBox .content {
     position: absolute;
     top: 0;
     left: 0;
@@ -244,7 +265,7 @@ h2 {
     background-image: url(../img/findTeacher/paper.png);
     background-position: center center;
     background-size: 100% 100%; }
-    .reportLightBox .content .cancelBtn {
+    .articleLightBox .content .cancelBtn {
       width: 20px;
       height: 20px;
       line-height: 20px;
@@ -252,16 +273,16 @@ h2 {
       right: 10px;
       top: 10px;
       text-align: center; }
-      .reportLightBox .content .cancelBtn i {
+      .articleLightBox .content .cancelBtn i {
         font-size: 20px;
         color: #333;
         cursor: pointer; }
-    .reportLightBox .content p {
+    .articleLightBox .content p {
       text-align: center;
       font-size: 20px;
       columns: #333;
       font-weight: bold; }
-    .reportLightBox .content textarea {
+    .articleLightBox .content textarea {
       width: 90%;
       display: block;
       margin: 20px auto 0px auto;
@@ -269,7 +290,7 @@ h2 {
       box-sizing: border-box;
       padding: 10px;
       resize: none; }
-    .reportLightBox .content input {
+    .articleLightBox .content input {
       display: block;
       width: 150px;
       height: 50px;
@@ -284,5 +305,5 @@ h2 {
       background-image: url(../img/findTeacher/btn.png);
       background-position: center center;
       background-size: 100% 100%; }
-      .reportLightBox .content input:focus {
+      .articleLightBox .content input:focus {
         outline: 0; }
