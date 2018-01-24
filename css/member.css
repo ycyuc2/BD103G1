@@ -191,20 +191,52 @@ ol li{
 	width: 90%;
 	font-size: 0;
 }
-.trade .table .tr .close{
+.trade .table .tr > span:last-of-type{
 	width: 4%;
 	text-align: right;
 }
 .trade .table .tr .small{
-	width: 15%;
-}
-.trade .table .tr .medium{
-	width: 25%;
+	width: 16%;
 }
 .trade .table .tr .large,
 .trade .table .tr .detail .large{
 	text-align: left;
-	width: 31%;
+	width: 39%;
+}
+.trade .table .tr input{
+	position: fixed;
+	top: -20px;left: -20px;
+	display: none;
+	opacity: 0;
+}
+.trade .table .tr span:first-of-type{
+	width: 25%;
+	text-align: center;
+}
+.trade .table .tr input:checked + .detailList{
+	height: auto;
+	transform: scaleY(1);
+	transform-origin: 0 0;
+	transition:height 0s 0.3s, transform 0.3s 0s;
+}
+.trade .table .tr .detailList{
+	transform: scaleY(0);
+	height: 0;
+	transition:height 0s 0.3s, transform 0.3s 0s;
+}
+
+.trade .table .tr .detail{
+	box-sizing: border-box;
+	font-size: 0;
+}
+.trade .table .tr p{
+	text-align: center;
+}
+.trade .table .tr .detail span:first-of-type{
+	margin-left: 25%;
+}
+.trade .table .tr .detail span:last-of-type{
+	margin-right: 4%;
 }
 .trade .table .tr span,
 .trade .table .tr .detail span{
@@ -213,20 +245,9 @@ ol li{
 	box-sizing: border-box;
 	font-size: 16px;
 	text-align: center;
+	vertical-align: middle;
 }
-.trade .table .tr span:first-of-type{
-
-}
-.trade .table .tr .detail span:first-of-type{
-	margin-left: 25%;
-}
-.trade .table .tr .detail span:last-of-type{
-	margin-right: 4%;
-}
-.trade .table .tr .detail{
-	box-sizing: border-box;
-	font-size: 0;
-}
+/*分隔線*/
 .trade .table .tr .detail:first-of-type:before,
 .trade .table .tr .detail:last-of-type:before{
 	content: '';
