@@ -57,7 +57,7 @@ session_start();
 				
 				<input type="hidden" name="teacherNo" value=<?php echo '"'.$_REQUEST["teacherNo"].'"' ?>>
 
-				<input class="submit" type="submit" name="" value="發表">
+				<input class="btnM btnText btnText2" type="submit" name="" value="發表">
 			</form>
 		</div>
 	</div>

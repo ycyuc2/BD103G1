@@ -129,8 +129,11 @@ session_start();
 			</div>
 <!-- 文章區 -->
 			<article>
+				<?php echo '<img src="../img/article/'.$artRow->art_img_1.'">' ?>
 				<p><?php echo $artRow->art_content_1; ?></p>
+				<?php echo '<img src="../img/article/'.$artRow->art_img_2.'">' ?>
 				<p><?php echo $artRow->art_content_2; ?></p>
+				<?php echo '<img src="../img/article/'.$artRow->art_img_3.'">' ?>
 				<p><?php echo $artRow->art_content_3; ?></p>
 			</article>
 		</div>

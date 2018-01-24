@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "王漢宗粗明體繁-中";
+  src: url(../font/王漢宗粗明體繁-中.ttf); }
+
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +17,8 @@ h2 {
   padding-top: 30px;
   font-size: 45px;
   text-align: center;
-  color: #ddd; }
+  color: #ddd;
+  font-family: "王漢宗粗明體繁-中"; }
   @media all and (min-width: 760px) and (max-width: 959px) {
     h2 {
       font-size: 40px; } }
@@ -31,8 +36,7 @@ h2 {
   box-sizing: border-box;
   background-image: url(../img/share/texture.png);
   background-position: center center;
-  background-size: 100% 100%; 
-text-align: center;}
+  background-size: 100% 100%; }
   .specialColumn .border, .replys .border, .memberReply .border {
     position: absolute;
     z-index: 0;
@@ -80,7 +84,7 @@ text-align: center;}
       .specialColumn .columnBorder, .replys .columnBorder, .memberReply .columnBorder {
         border: 30px solid transparent;
         border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
-        padding: 0; } }
+        padding: 10px; } }
     .specialColumn .columnBorder .authorIntro, .replys .columnBorder .authorIntro, .memberReply .columnBorder .authorIntro {
       width: 100%; }
       .specialColumn .columnBorder .authorIntro:after, .replys .columnBorder .authorIntro:after, .memberReply .columnBorder .authorIntro:after {
@@ -177,69 +181,62 @@ text-align: center;}
     .specialColumn .columnBorder article, .replys .columnBorder article, .memberReply .columnBorder article {
       padding-top: 30px;
       padding-bottom: 30px; }
+      .specialColumn .columnBorder article img, .replys .columnBorder article img, .memberReply .columnBorder article img {
+        margin-top: 10px;
+        width: 30%; }
+        @media all and (min-width: 760px) and (max-width: 959px) {
+          .specialColumn .columnBorder article img, .replys .columnBorder article img, .memberReply .columnBorder article img {
+            width: 50%;
+            display: block; } }
+        @media all and (min-width: 480px) and (max-width: 759px) {
+          .specialColumn .columnBorder article img, .replys .columnBorder article img, .memberReply .columnBorder article img {
+            width: 50%;
+            display: block; } }
+        @media all and (max-width: 479px) {
+          .specialColumn .columnBorder article img, .replys .columnBorder article img, .memberReply .columnBorder article img {
+            display: block;
+            width: 90%;
+            margin: 10px auto 0px auto; } }
       .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
         color: #333;
         font-size: 20px;
         line-height: 28px;
-        letter-spacing: 1px; }
+        letter-spacing: 1px;
+        text-align: left;
+        margin-top: 10px; }
         @media all and (min-width: 760px) and (max-width: 959px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
             font-size: 16px;
             line-height: 24px; } }
         @media all and (min-width: 480px) and (max-width: 759px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 14px;
-            line-height: 22px; } }
+            font-size: 16px;
+            line-height: 24px; } }
         @media all and (max-width: 479px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
-            font-size: 14px;
-            line-height: 22px; } }
-        .specialColumn .columnBorder article p + p, .replys .columnBorder article p + p, .memberReply .columnBorder article p + p {
-          margin-top: 20px; }
+            font-size: 16px;
+            line-height: 24px; } }
 
-.memberReply h3 {
-  text-align: center;
-  font-size: 24px;
-  color: #533e2f;
-  font-weight: bold; }
+.memberReply {
+  text-align: center; }
+  .memberReply h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #533e2f;
+    font-weight: bold; }
+  .memberReply textarea {
+    display: block;
+    margin: 20px auto 20px auto;
+    width: 90%;
+    height: 42px;
+    font-size: 22px;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: none;
+    overflow: hidden;
+    transition: height .2s; }
 
-.memberReply textarea {
-  display: block;
-  margin: 20px auto 0px auto;
-  width: 90%;
-  height: 42px;
-  font-size: 22px;
-  box-sizing: border-box;
-  padding: 10px;
-  resize: none;
-  overflow: hidden;
-  transition: height .2s; }
-
-.memberReply textarea:focus {
-  height: 200px;
-
-}
-.memberReply span {
-  margin-top: 20px;
-}
-.memberReply input {
-  display: block;
-  }
-
-#articleLightBoxControl{
-  position: fixed;
-  top: -20px;left: -20px;
-  opacity: 0;
-  display: none;
-}
-#articleLightBoxControl:checked+.articleLightBox{
-  right: 0;bottom: 0;
-  margin: auto;
-  visibility: visible;
-  opacity: 1;
-}
-
-.articleLightBox {
+.reportLightBox {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -250,7 +247,7 @@ text-align: center;}
   visibility: hidden;
   opacity: 0;
   transition: 0.3s; }
-  .articleLightBox .content {
+  .reportLightBox .content {
     position: absolute;
     top: 0;
     left: 0;
@@ -265,7 +262,7 @@ text-align: center;}
     background-image: url(../img/findTeacher/paper.png);
     background-position: center center;
     background-size: 100% 100%; }
-    .articleLightBox .content .cancelBtn {
+    .reportLightBox .content .cancelBtn {
       width: 20px;
       height: 20px;
       line-height: 20px;
@@ -273,16 +270,16 @@ text-align: center;}
       right: 10px;
       top: 10px;
       text-align: center; }
-      .articleLightBox .content .cancelBtn i {
+      .reportLightBox .content .cancelBtn i {
         font-size: 20px;
         color: #333;
         cursor: pointer; }
-    .articleLightBox .content p {
+    .reportLightBox .content p {
       text-align: center;
       font-size: 20px;
       columns: #333;
       font-weight: bold; }
-    .articleLightBox .content textarea {
+    .reportLightBox .content textarea {
       width: 90%;
       display: block;
       margin: 20px auto 0px auto;
@@ -290,7 +287,7 @@ text-align: center;}
       box-sizing: border-box;
       padding: 10px;
       resize: none; }
-    .articleLightBox .content input {
+    .reportLightBox .content input {
       display: block;
       width: 150px;
       height: 50px;
@@ -305,5 +302,5 @@ text-align: center;}
       background-image: url(../img/findTeacher/btn.png);
       background-position: center center;
       background-size: 100% 100%; }
-      .articleLightBox .content input:focus {
+      .reportLightBox .content input:focus {
         outline: 0; }
