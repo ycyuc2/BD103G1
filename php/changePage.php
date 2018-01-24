@@ -24,7 +24,7 @@ try {
   $PRODUCT_COVER = $product_rows['pd_pic1'];
   $PRODUCT_NAME = $product_rows['pd_name'];
   $PRODUCT_PRICE = $product_rows['pd_price'];
-  $PRODUCT_INTRO = $product_rows['pd_intro'];
+  $PRODUCT_INTRO = $product_rows['pd_describe'];
 
  $result .="<div class='content'>
                     
