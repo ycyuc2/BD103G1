@@ -48,13 +48,6 @@ session_start();
 	</div>
 
 
-	<!-- 說明頁js -->
-	<script>
-
-
-	</script>
-
-
 
 
 	<!-- 老師細節燈箱 -->
@@ -485,6 +478,8 @@ try {
 	function sortLi(){
 		var screenWidth = window.innerWidth;
 		if (screenWidth < 480 ) {
+			search.style.display = 'none';
+			closeDirections();
 			//手機板隱藏
 			for (var i = 0; i < boxes.length; i++) {
 				if (boxes[i].childElementCount < 1) {
@@ -501,6 +496,7 @@ try {
 			}
 		}else{
 			//桌機版要恢復
+			search.style.display = 'block';
 			for (var i = 0; i < boxes.length; i++) {
 				if (boxes[i].childElementCount < 1) {
 					//使所有沒有小孩的li重新排列為inline-block
@@ -523,20 +519,6 @@ try {
 	//當瀏覽器resize時，重新查詢寬度
 	window.addEventListener('resize', queryWidth, false );
 
-
-
-
-
-	</script>
-
-	
-	<!-- <script src="../js/findTeacher2.js"></script> -->
-
-<!-- 水星逆行的ＪＳ程式 含7秒關閉說明 -->
-<script type="text/javascript">
-	
-
-
 	//點擊按鈕亦可關閉說明頁燈箱
 	document.getElementById('clickCloseDirection').onclick = closeDirections;
 	// 關閉的function
@@ -546,6 +528,8 @@ try {
 		directionLightBox.style.opacity = '0';
 	}
 
-</script>
+
+
+	</script>
 </body>
 </html>

@@ -72,13 +72,6 @@ try {
 			</p>
 		</div>
 		<div class="teacherInfoBtn">
-				<div class="left">
-					<span class="btnM">
-						<a href="schedule.html" class="btnText btnText4">
-							進入行程
-						</a>
-					</span>
-				</div>
 				<div class="right">
 					<span class="btnM">
 						<a href="specialColumn.php?teacher_no='.$teacherNo.'" class="btnText btnText4">
@@ -108,13 +101,6 @@ try {
 					</p>
 				</div>
 				<div class="teacherInfoBtn">
-					<div class="left">
-						<span class="btnM">
-							<a href="schedule.html" class="btnText btnText4">
-								進入行程
-							</a>
-						</span>
-					</div>
 					<div class="right">
 						<span class="btnM">
 							<a href=<?php echo 'specialColumn.php?teacher_no='.$teacherNo ?> class="btnText btnText4">
