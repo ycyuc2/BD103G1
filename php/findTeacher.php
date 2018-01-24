@@ -15,7 +15,7 @@ session_start();
 <body id="body">
 
 	<?php
-		require_once("connectBD103G1yu.php");
+		require_once("connectBD103G1.php");
 		require_once("header.php");
 		$_SESSION["where"] = "findTeacher.php";
 	 ?>
@@ -130,7 +130,7 @@ session_start();
 <?php 
 
 try {
-	require_once("connectBD103G1yu.php");
+	require_once("connectBD103G1.php");
 	$sql = "select * from teacher";
 	$teachers = $pdo->query($sql);
 	$teacher_rows = $teachers->fetchAll(PDO::FETCH_ASSOC);

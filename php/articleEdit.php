@@ -14,14 +14,14 @@ session_start();
 <body>
 
 	<?php
-		require_once("connectBD103G1yu.php");
+		require_once("connectBD103G1.php");
 		require_once("header.php");
 		$_SESSION["where"] = "articleEdit.php";
 	 ?>
 	<?php 
 		$teacherNo = $_REQUEST["teacher_no"];
 		$artNo = $_REQUEST["art_no"];
-		require_once("connectBD103G1yu.php");
+		require_once("connectBD103G1.php");
 		$sql = "select * from article where teacher_no = $teacherNo and art_no = $artNo";
 		$article = $pdo->query($sql);
 		$articleRow = $article->fetch();

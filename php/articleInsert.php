@@ -57,7 +57,7 @@ session_start();
 
 		if ($confirm) {
 			try {
-				require_once("connectBD103G1yu.php");
+				require_once("connectBD103G1.php");
 				$sql = "insert into article (teacher_no, art_title, art_content_1, art_content_2, art_content_3, art_img_1, art_img_2, art_img_3) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3)";
 				$article = $pdo->prepare($sql);
 				$article = $pdo->prepare($sql);

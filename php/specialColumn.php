@@ -15,7 +15,7 @@ session_start();
 <body>
 	
 	<?php 
-		require_once("connectBD103G1yu.php");
+		require_once("connectBD103G1.php");
 		require_once("header.php");
 		$_SESSION["where"] = "specialColumn.php";
 	?>
@@ -37,7 +37,7 @@ session_start();
 <?php 
 $teacherNo = $_REQUEST["teacher_no"];
 try {
-	require_once("connectBD103G1yu.php");
+	require_once("connectBD103G1.php");
 	$sql = "select * from teacher where teacher_no = :teacher_no";
 	$teachers = $pdo->prepare($sql);
 	$teachers->bindValue(":teacher_no",$teacherNo);
@@ -147,7 +147,7 @@ try {
 
 <?php 
 try {
-	require_once("connectBD103G1yu.php");
+	require_once("connectBD103G1.php");
 	$sql = "select a.pd_no, a.pd_name, a.pd_sale, a.pd_pic1, a.pd_price, a.pd_describe 
 			from products as a left join pd_recommend as b 
 			on a.pd_no = b.pd_no 
@@ -225,7 +225,7 @@ try {
 <?php 
 
 try {
-	require_once("connectBD103G1yu.php");
+	require_once("connectBD103G1.php");
 	$sql = "select * from article where teacher_no = :teacher_no order by art_post_time desc";
 	$article = $pdo->prepare($sql);
 	$article->bindValue(":teacher_no",$_REQUEST["teacher_no"]);
@@ -250,9 +250,7 @@ try {
 							<div class="topic">
 								<h3>
 									<?php echo 
-									'<a href="article.php?teacher_no='
-									.$_REQUEST["teacher_no"]
-									.'&art_no='
+									'<a href="article.php?art_no='
 									.$articleRow["art_no"]
 									.'">'
 									.$articleRow["art_title"]
