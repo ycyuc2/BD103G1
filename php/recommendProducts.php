@@ -85,8 +85,10 @@ try{
 	while($checkRow=$check->fetchObject()){
 		$starScore+=$checkRow->art_star;
 	}
+	
 ?>
 		<script>
+
 			var star= <?echo round($starScore/$count);?>;
 			var inputElems= $('.teacherStar input[type="radio"]');
 			inputElems[5-star].checked=true;
@@ -182,8 +184,7 @@ try{
 	$countPd=3-$countPd1;
 	$pdRecRow=$pd->fetchAll(PDO::FETCH_ASSOC);
 	foreach($pdRecRow as $i => $recRow){
-	?>
-		<div class="content drop">
+	echo '<div class="content drop">
 				<input type="hidden" name="r[]" value="<?php echo $recRow["pd_no"]?>">
 				<div class="merchandisePhoto"><div class="pictureBorder"></div><img src="../img/products/<?php echo $recRow["pd_pic1"]?>" alt=""></div>
 				<div class="merchandiseIntro">
@@ -191,15 +192,16 @@ try{
 					<p class="describe"> <?php  echo mb_substr($recRow["pd_describe"],0,50,"utf-8")."..." ?> </p>
 					<p><span> <?php  echo $recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
 				</div>
-			</div>  
-	<?php
-	}for($i=0;$i<$countPd;++$i){?>
-		<div class="content drop">
+			</div>  ';
+		
+	}for($i=0;$i<$countPd;++$i){
+
+	echo '<div class="content drop">
 			<div class="white"></div>
 				<input type="hidden" name="r[]" value="null">
 				<p>尚未推薦產品</p>
-		</div>  
-<?php
+		</div>  ';
+		
 	}	?>
 			
 		
@@ -306,7 +308,11 @@ $(document).ready(function(){
 						$(this).data('state', 1); 
 						break;
 				}
-			}else{
+			}else if(count=3){
+				var clickRadios=$('.phone .prodCheck').prop('checked');
+				console.log(clickRadios.value);
+			}
+			else{
 				$('.pdRec_wrapper3').css('display','block');
 			}
 			
