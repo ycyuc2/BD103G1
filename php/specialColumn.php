@@ -89,7 +89,7 @@ try {
 			echo '
 				<div class="left">
 					<span class="btnM">
-						<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
+						<a href="recommendProducts.php?teacher_no='.$teacherNo.'" class="btnText btnText4">商品推薦</a>
 					</span>
 				</div>
 				<div class="right">

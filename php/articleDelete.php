@@ -1,5 +1,5 @@
 <?php 
-	require_once("connectBD103G1yu.php");
+	require_once("connectBD103G1.php");
 	$teacherNo = $_REQUEST["teacher_no"];
 	$artNo = $_REQUEST["art_no"];
 	$sql = "delete from article where teacher_no = $teacherNo and art_no = $artNo";
