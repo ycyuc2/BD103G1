@@ -239,11 +239,12 @@ try{
 			</div>
 		</div>
 		</div>
-		<label class="submit" for="btnSend">
-			<span class="btnM">
+		
+			<span class="btnM"><label class="submit" for="btnSend">
 				<p class="btnText btnText4">完成</p>
+				</label>
 			</span>
-		</label>
+		
 	</div>
 	
 <div class="phone">
@@ -256,7 +257,6 @@ try{
 	while($prodRow=$phoneProd->fetchObject()){
 	?>
 			<div class="phoneItems">
-				<input type="checkbox" name="r[]"  id="phoneProd<?php echo  $prodRow->pd_no ?>" value="<?php echo  $prodRow->pd_no ?>">
 				<label class="prodCheck" for="phoneProd<?php echo  $prodRow->pd_no ?>"></label>
 				<div class="prodPhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $prodRow->pd_pic1?>" alt=""></div>
 				<div class="prodInfo">
@@ -297,12 +297,12 @@ try{
 	<script>
 
 		$(document).ready(function () {
-			var count=0;
+			count=0;
 			var prodCheck=$('.phone .prodCheck');
 			for(var i =0; i< prodCheck.length ; ++i){
 				$(prodCheck[i]).on('click',function(){
 					if(count<3){
-						var state = $(this).data('state');
+						state = $(this).data('state');
 						switch(state){
 							case 1 :
 							case undefined : 
@@ -318,9 +318,15 @@ try{
 								$(this).data('state', 1); 
 								break;
 						}
-					}else if(count=3){
-						var clickRadios=$('.phone .prodCheck').prop('checked');
-						console.log(clickRadios.value);
+					}else if(count==3){
+						var clickRadios=$('.phone .phoneProdCheck');
+						var prodCheck=$('.phone .prodCheck');
+								$(this).data('state', 1);
+								count--;
+								$(this).html("");
+								$(this).css('background-color','transparent');
+							
+						
 					}
 					else{
 						$('.pdRec_wrapper3').css('display','block');
@@ -428,9 +434,6 @@ try{
 			}
 
 
-			$('.productsSelect .content').click(function(){
-				index = $(this).index()+1;
-			});
 		});
 	
 	</script>

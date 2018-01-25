@@ -160,7 +160,8 @@
     background:linear-gradient(to right, rgba(43, 26, 3, 1) 0%, rgba(43, 26, 3, 0.3) 1%, rgba(255, 255, 255, 0.3) 30%,  rgba(255, 255, 255, 0.3) 70%, rgba(43, 26, 3, 0.3) 99%, rgba(43, 26, 3, 1) 100%);
 }
 .productsSelect::-webkit-scrollbar {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.6);
+    height: 0;
 }
 .teacher .teacherBorder .productsSelect .back{
     height: 172px;
