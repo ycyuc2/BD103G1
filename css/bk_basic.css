@@ -36,7 +36,7 @@
 	border: 30px solid transparent;
 	border-image: url(../img/share/frame2.png) 90 90 repeat;
 	margin: 0 auto;
-	width: 960px;
+	max-width: 1400px;
 	min-height: 400px;
 	font-size: 0;
 	padding: 30px;
@@ -78,10 +78,22 @@ ol{
 	/*margin-left: 20px;*/
 	font-size: 18px;
 	line-height: 26px;
-	display: none;
+	/*display: none;*/
+	height: 0;
+	transform-origin: top;
+	transition: .2s;
+	transform: scale(1,0);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .innerNav li:hover{
 	background-color: #110;
+}
+.innerNav li a{
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 .innerNav li a{
 	font-family: "王漢宗粗明體繁-中";
@@ -92,13 +104,16 @@ ol{
 	
 }
 .maintain:hover .maintain{
-	display: block;
+	transform: scale(1);
+	height: 80px;
 }
 .trade:hover .trade{
-	display: block;
+	transform: scale(1);
+	height: 55px;
 }
 .member:hover .member{
-	display: block;
+	transform: scale(1);
+	height: 55px;
 }
 
 /*right*/
@@ -109,6 +124,36 @@ ol{
 	margin-left: 2%;
 	font-size: 16px;
 	vertical-align: top;
+}
+.right .rightNav3{
+	margin-top: 20px;
+}
+.rightNav3 li{
+	display: inline-block;
+	width: 20%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin:0 6.6%;
+	font-size: 16px;
+	text-align: center;
+}
+.rightNav3 li a{
+	font-weight: bold;
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #fff;
+	transition: .2s;
+}
+.rightNav3 li a:hover{
+	border: 0;
+	background: #333;
+	color: #ddd;
 }
 
 	/*麵包屑*/
@@ -127,4 +172,6 @@ ol{
 	width: 98%;
 	font-size: 0;
 	text-align: center;
+	border-bottom: 1px solid #000;
+	padding-bottom: 5px;
 }
