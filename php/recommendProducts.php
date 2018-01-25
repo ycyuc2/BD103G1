@@ -76,20 +76,18 @@ try{
 							</fieldset>
 
 <?php 
-	$sql="select * from art_review where  art_no =?";
+	$sql="select * from teacher_review where  teacher_no =?";
 	$check=$pdo->prepare($sql);
-	$check->bindValue(1,1);
+	$check->bindValue(1,$_REQUEST["teacher_no"]);
 	$check->execute();
-	$count=$check->rowcount();
-	$starScore=0;
-	while($checkRow=$check->fetchObject()){
-		$starScore+=$checkRow->art_star;
-	}
-	
-?>
+	$count=$check->rowCount();
+	if($count!=0){
+		$starScore=0;
+		while($checkRow=$check->fetchObject()){
+			$starScore+=$checkRow->review_star;
+		}?>
 		<script>
-
-			var star= <?echo round($starScore/$count);?>;
+			var star= <?php echo round($starScore/$count);?>;
 			var inputElems= $('.teacherStar input[type="radio"]');
 			inputElems[5-star].checked=true;
 			for(var i=0;i<5;++i){
@@ -97,7 +95,7 @@ try{
 			}
 		</script>
 <?php 
-	
+	}
 	}
 }else if(isset($_SESSION["teacher_no"])==null){
 		header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacher_no"]);
@@ -110,9 +108,10 @@ try{
 				<div class="links">
 					<div class="left">
 						<span class="btnM">
-							<a href="recommendProducts.html" class="btnText btnText4">商品推薦</a>
+							<a href="#" class="btnText btnText4">商品推薦</a>
 						</span>
 					</div>
+					
 					<div class="right">
 						<span class="btnM">
 							<a href="specialColumn.html" class="btnText btnText4">老師專欄</a>
@@ -141,17 +140,8 @@ try{
     $pd=$pdo->prepare($sql);
 ?>
 
-<div class="pdRec_wrapper2">
-	<div class="pdRec_lightbox">
-		<label for="lightboxClose">
-			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
-		</label>
-		<p>您尚未推薦滿三個商品</p>
-		<span class="btnM btn">
-			<p class="btnText btnText2">我知道了</p>
-		</span>
-	</div>
-</div>
+
+
 <div class="pdRec_wrapper3">
 	<div class="pdRec_lightbox">
 		<label for="lightboxClose">
@@ -239,7 +229,7 @@ try{
 					<div class="merchandiseIntro">
 						<a href="#"> <?php echo $dragRow-> pd_name ?> </a>
 						<p class="describe"><?php echo mb_substr($dragRow -> pd_describe,0,30,"utf-8")."..."?></p>
-						<p><span> <?php  echo $dragRow-> pd_price ?> </span> <span> <? echo $dragRow-> pd_sale ?> </span>元</p>
+						<p><span> <?php  echo $dragRow-> pd_price ?> </span> <span> <?php echo $dragRow-> pd_sale ?> </span>元</p>
 
 					</div>
 				</div>  
@@ -286,45 +276,10 @@ try{
 	</div>
 </div>
 <script>
-$(document).ready(function(){
-	var count=0;
-	var prodCheck=$('.phone .prodCheck');
-	for(var i =0; i< prodCheck.length ; ++i){
-		$(prodCheck[i]).on('click',function(){
-			if(count<3){
-				var state = $(this).data('state');
-				switch(state){
-					case 1 :
-					case undefined : 
-						$(this).css('background-color','rgb(221, 183, 12');
-						++count;
-						$(this).html(count);
-						$(this).data('state', 2); 
-						break;
-					case 2 : 
-						--count;
-						$(this).html("");
-						$(this).css('background-color','transparent');
-						$(this).data('state', 1); 
-						break;
-				}
-			}else if(count=3){
-				var clickRadios=$('.phone .prodCheck').prop('checked');
-				console.log(clickRadios.value);
-			}
-			else{
-				$('.pdRec_wrapper3').css('display','block');
-			}
-			
-		});
-	}	
-});
+
 
 </script>
-
-
-<?php
-			  
+<?php  
     }catch(PDOExeption $e){
         echo "錯誤原因 : " , $e->getMessage() , "<br>";
         echo "錯誤行號 : " , $e->getLine() , "<br>";
@@ -339,16 +294,55 @@ $(document).ready(function(){
 			點算©Copyright DOZEN, 2018.
 			</p>
 	</div>
-
 	<script>
+
 		$(document).ready(function () {
+			var count=0;
+			var prodCheck=$('.phone .prodCheck');
+			for(var i =0; i< prodCheck.length ; ++i){
+				$(prodCheck[i]).on('click',function(){
+					if(count<3){
+						var state = $(this).data('state');
+						switch(state){
+							case 1 :
+							case undefined : 
+								$(this).css('background-color','rgb(221, 183, 12');
+								++count;
+								$(this).html(count);
+								$(this).data('state', 2); 
+								break;
+							case 2 : 
+								--count;
+								$(this).html("");
+								$(this).css('background-color','transparent');
+								$(this).data('state', 1); 
+								break;
+						}
+					}else if(count=3){
+						var clickRadios=$('.phone .prodCheck').prop('checked');
+						console.log(clickRadios.value);
+					}
+					else{
+						$('.pdRec_wrapper3').css('display','block');
+					}
+					
+				});
+			}
 			document.getElementById("white").addEventListener("mouseover",disappear);
 			function disappear(){
 				white.style.transition="opacity 1s  0s,0s 1s left";
 				white.style.left="-100%";
 				white.style.opacity="0";
-
 			}
+			var recBtn=document.querySelector('.links .left .btnM');
+			recBtn.addEventListener('load',btnDisabled);
+			function btnDisabled(e){
+				recBtn.style.background='url(../img/btn/02.png) no-repeat center center';
+				recBtn.style.backgroundSize = 'cover';
+				e.childNodes[0].preventDefault;
+			}
+			
+
 			$('.pdRec_wrapper .btn').click(function(){
 				$('.pdRec_wrapper').css('display','none');
 			});
@@ -356,12 +350,7 @@ $(document).ready(function(){
 				$('.pdRec_wrapper').css('display','none');
 			});
 
-			$('.pdRec_wrapper2 .btn').click(function(){
-				$('.pdRec_wrapper2').css('display','none');
-			});
-			$('.pdRec_wrapper2 .lightboxClose').click(function(){
-				$('.pdRec_wrapper2').css('display','none');
-			});
+			
 			$('.pdRec_wrapper3 .btn').click(function(){
 				$('.pdRec_wrapper3').css('display','none');
 			});
@@ -411,7 +400,7 @@ $(document).ready(function(){
 					e.preventDefault();
 					var data = e.dataTransfer.getData("text");
 					var nodeCopy = document.getElementById(data).cloneNode(true);
-					 pd2 = document.getElementById(data).getElementsByTagName('input')[0].value;
+					pd2 = document.getElementById(data).getElementsByTagName('input')[0].value;
 
 					if(pd2 != drop1 && pd2 != drop2 && pd2 != drop3){
 						e.currentTarget.parentNode.replaceChild(nodeCopy,e.currentTarget);
@@ -422,13 +411,10 @@ $(document).ready(function(){
 					}else{
 						$('.pdRec_wrapper').css('display','block');
 					}
-
-					
 			}
 			function  dragover(e){
 					e.preventDefault();
 			}
-
 			var drop_objs =document.getElementsByClassName('drop');
 
 			for (var i = 0; i < drop_objs.length; i++) {
@@ -446,10 +432,8 @@ $(document).ready(function(){
 			$('.productsSelect .content').click(function(){
 				index = $(this).index()+1;
 			});
-       
-		});	
+		});
 	
-
 	</script>
 
 </body>
