@@ -435,3 +435,15 @@
 		margin-bottom: 40px;
 	}
 }
+.result .titleImg{
+	width: 60%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+@media all and (max-width: 479px) {
+	.result .titleImg{
+		width: 90%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+}
