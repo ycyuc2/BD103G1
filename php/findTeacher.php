@@ -367,7 +367,7 @@ try {
 		}else{
 			searchBox.style.transform = 'scale(0,0)';
 			searchBox.style.opacity = 0;
-			searchBox.style.top = '20px';
+			searchBox.style.top = '120px';
 			searchBox.style.right = '20px';
 		}
 	}
@@ -402,7 +402,7 @@ try {
 			teacherInfo.style.top = document.documentElement.scrollTop + 150 +'px';
 			teacherInfo.style.visibility = 'visible';
 			teacherInfo.style.opacity = 1;
-			search.style.display = 'none';
+			// search.style.display = 'none';
 		}
 		
 		
@@ -414,11 +414,16 @@ try {
 		var teacherInfo = document.getElementById('teacherInfo');
 
 		var search = document.getElementById('search');
+		var screenWidth = window.innerWidth;
 		
 		//使老師燈箱在顯示狀態無法使用放大鏡
 			teacherInfo.style.visibility = 'hidden';
 			teacherInfo.style.opacity = 0;
 			search.style.display = 'block';
+
+		if(screenWidth < 480){
+			search.style.display = 'none';
+		}
 	}
 
 

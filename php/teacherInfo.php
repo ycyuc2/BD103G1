@@ -39,7 +39,7 @@ try {
 			</div>
 
 			<div class="teacherColumn">
-				<p>最新命運解析</p>
+				<p>最新文章</p>
 				<div class="column">
 
 
@@ -94,8 +94,9 @@ try {
 	
  ?>
 
-
-					<a href="#"><h3><?php echo $articleRow["art_title"] ?></h3></a>
+					<?php echo '<a href="article.php?art_no='.$articleRow["art_no"].'"' ?>
+						<h3><?php echo $articleRow["art_title"] ?></h3>
+					</a>
 					<p>
 						<?php echo mb_substr($articleRow["art_content_1"],0,100,"utf-8")."..." ?>
 					</p>
