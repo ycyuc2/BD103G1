@@ -494,7 +494,6 @@ h1 {
     .teacher .teacherBorder .merchandise.recommend .content {
       width: 25%;
       margin: 0 4.16666%;
-      border: 2px solid #fff;
       padding: 10px; }
       @media all and (min-width: 480px) and (max-width: 759px) {
         .teacher .teacherBorder .merchandise.recommend .content {
@@ -543,7 +542,6 @@ h1 {
       width: 100%;
       height: 300px;
       box-sizing: border-box;
-      border: 2px solid #fff;
       position: relative; }
       @media all and (min-width: 480px) and (max-width: 759px) {
         .teacher .teacherBorder .productsSelect {
