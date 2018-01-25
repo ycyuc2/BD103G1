@@ -19,13 +19,19 @@ session_start();
 	require_once("header.php"); 
 	$_SESSION["where"] = 'member.php';
 ?>
-
+	<?php if (empty($_SESSION["mem_no"])) {?>
+		<script type="text/javascript">
+			document.querySelector('#loginControl').checked = true;
+		</script>
+	<?php } ?>
 	
 	<div class="topBlank"></div>
 		
 	<div class="wrapper">
 		<div class="borderFrame"></div>
+		<?php if (isset($_SESSION["mem_no"])) {?>
 		<div class="left"><!-- 一般會員 -->
+			<?php if(empty($_SESSION["teacher_no"])) {?>
 			<ol class="nav">
 				<li><span class="btnM"><a href="infoAlter.html" class="btnText btnText4">修改資料</a></span></li>
 				<li><span class="btnM"><a href="replyVIew.html" class="btnText btnText4">檢視留言</a></span></li>
@@ -33,25 +39,26 @@ session_start();
 				<li><span class="btnM"><a href="essayCollect.html" class="btnText btnText4">收藏文章</a></span></li>
 				<li><span class="btnM"><a href="teacherApllication.html" class="btnText btnText4">成為老師</a></span></li>
 			</ol>
-			
+			<?php }else{ ?>
 			<!-- 老師 -->
-			<!-- <ol class="nav navTeacher">
-				<li><a href="infoAlter.html">修改資料</a></li>
-				<li><a href="replyVIew.html">檢視留言</a></li>
-				<li><a href="tradeView.html">檢視交易</a></li>
-				<li><a href="teacherApllication.html">成為老師</a></li>
-			</ol> -->
+			<ol class="nav navTeacher">
+				<li><span class="btnM"><a href="infoAlter.html" class="btnText btnText4">修改資料</a></span></li>
+				<li><span class="btnM"><a href="replyVIew.html" class="btnText btnText4">檢視留言</a></span></li>
+				<li><span class="btnM"><a href="tradeView.html" class="btnText btnText4">檢視交易</a></span></li>
+				<li><span class="btnM"><a href="essayCollect.html" class="btnText btnText4">收藏文章</a></span></li>
+			</ol>
+			<?php } ?>
 		</div>
 
-
+		
 		<div class="right">
+			
 			<div class="content info">
 					
 				<h2>個人資料</h2>
 				<?php
 					//=====連資料庫，做測試
 					try{
-						$_SESSION["mem_no"] = 1;
 						require_once("connectBD103G1.php");
 						$sql = "select * from member where mem_no = :mem_no";
 						$member = $pdo->prepare($sql);
@@ -217,7 +224,13 @@ session_start();
 					}
 				</script>
 			</div>
+			
+				
+			
 		</div>
+		<?php }else{
+			header('location:index.php');
+		} ?>
 		<div class="blank"></div>
 	</div>
 </body>
