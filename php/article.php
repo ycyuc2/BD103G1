@@ -198,7 +198,7 @@ session_start();
 						</div>
 						<div class="author">
 							<div class="intro">
-								<a href=""><?php echo $msgRow["mem_nn"]; ?></a>
+								<p><?php echo $msgRow["mem_nn"]; ?></p>
 								<p><?php echo $msgRow["msg_time"]; ?></p>
 							</div>
 							<div class="links">

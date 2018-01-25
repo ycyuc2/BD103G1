@@ -257,6 +257,7 @@ try{
 	while($prodRow=$phoneProd->fetchObject()){
 	?>
 			<div class="phoneItems">
+				<input type="checkbox" name="r[]" class="phoneProdCheck" id="phoneProd<?php echo  $prodRow->pd_no ?>" value="<?php echo  $prodRow->pd_no ?>">
 				<label class="prodCheck" for="phoneProd<?php echo  $prodRow->pd_no ?>"></label>
 				<div class="prodPhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $prodRow->pd_pic1?>" alt=""></div>
 				<div class="prodInfo">
