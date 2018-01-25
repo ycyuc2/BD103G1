@@ -205,7 +205,7 @@
 					$randomTeacher = randomNo($teacher->rowCount());
 				 ?>
 				<p>精準算命老師</p>
-				<img src="<?php echo '../img/findTeacher'.$teacherRow[$randomTeacher[0]]['teacher_img']; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/findTeacher/'.$teacherRow[$randomTeacher[0]]['teacher_img']; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $teacherRow[$randomTeacher[0]]["teacher_nn"]; ?></p>
 					<p class="itemIntro"><?php echo mb_substr($teacherRow[$randomTeacher[0]]["teacher_info"],0,70,"utf-8").'...'; ?></p>
@@ -253,7 +253,7 @@
 			<p class="subtitle title">為你的戀愛開運</p>
 			<div class="item">
 				<p>精準算命老師</p>
-				<img src="<?php echo '../img/findTeacher'.$teacherRow[$randomTeacher[1]]['teacher_img']; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/findTeacher/'.$teacherRow[$randomTeacher[1]]['teacher_img']; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $teacherRow[$randomTeacher[1]]["teacher_nn"]; ?></p>
 					<p class="itemIntro"><?php echo mb_substr($teacherRow[$randomTeacher[1]]["teacher_info"],0,70,"utf-8").'...'; ?></p>
