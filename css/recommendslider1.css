@@ -61,6 +61,9 @@
     display: block;
     margin: 15px auto;
 }
+.teacher .teacherBorder .btnM p {
+    color: #ffff00;
+}
 .teacher .teacherBorder .merchandise.recommend {
     margin: 15px 0 0;
     padding: 0 30px;

@@ -108,7 +108,7 @@ try{
 				<div class="links">
 					<div class="left">
 						<span class="btnM">
-							<a href="#" class="btnText btnText4">商品推薦</a>
+							<p href="#" class="btnText btnText4">商品推薦</p>
 						</span>
 					</div>
 					
@@ -173,8 +173,8 @@ try{
 	$countPd1=$pd->rowcount();
 	$countPd=3-$countPd1;
 	$pdRecRow=$pd->fetchAll(PDO::FETCH_ASSOC);
-	foreach($pdRecRow as $i => $recRow){
-	echo '<div class="content drop">
+	foreach($pdRecRow as $i => $recRow){?>
+	<div class="content drop">
 				<input type="hidden" name="r[]" value="<?php echo $recRow["pd_no"]?>">
 				<div class="merchandisePhoto"><div class="pictureBorder"></div><img src="../img/products/<?php echo $recRow["pd_pic1"]?>" alt=""></div>
 				<div class="merchandiseIntro">
@@ -182,17 +182,17 @@ try{
 					<p class="describe"> <?php  echo mb_substr($recRow["pd_describe"],0,50,"utf-8")."..." ?> </p>
 					<p><span> <?php  echo $recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
 				</div>
-			</div>  ';
+			</div>  
 		
-	}for($i=0;$i<$countPd;++$i){
+<?php	}for($i=0;$i<$countPd;++$i){ ?>
 
-	echo '<div class="content drop">
+	<div class="content drop">
 			<div class="white"></div>
 				<input type="hidden" name="r[]" value="null">
 				<p>尚未推薦產品</p>
-		</div>  ';
+		</div>  
 		
-	}	?>
+<?php	}	?>
 			
 		
 
@@ -339,7 +339,6 @@ try{
 			function btnDisabled(e){
 				recBtn.style.background='url(../img/btn/02.png) no-repeat center center';
 				recBtn.style.backgroundSize = 'cover';
-				e.childNodes[0].preventDefault;
 			}
 			
 
