@@ -46,6 +46,7 @@
 		$count->bindValue(":mem_no", $_SESSION["mem_no"]);
 		$count -> execute();
 		$countRow = $count->fetchObject();
+		echo $countRow;
 		if($count->rowCount() == 0){
 			$sql = "select * from ".$_REQUEST["type"]." where ".$type."_no = :".$type."_no";
 			$review = $pdo->prepare($sql);
