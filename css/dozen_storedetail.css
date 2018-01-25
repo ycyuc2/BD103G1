@@ -13,6 +13,7 @@
   src: url("../font/王漢宗特明體 – 標準.ttf"); }
 
 body {
+  font-family: "微軟正黑體";
   margin: 0;
   padding: 0;
   background-attachment: fixed;
