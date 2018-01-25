@@ -56,9 +56,9 @@ session_start();
 					<div class="links">
 						<div class="btns">
 							<span class="btnM">
-								<a href="#" class="btnText btnText2">收藏</a>
+								<p class="btnText btnText2">收藏</p>
 								<script type="text/javascript">
-									var artCollectBtn = document.querySelector('.authorIntro .author .links a');
+									var artCollectBtn = document.querySelector('.authorIntro .author .links p');
 									artCollectBtn.addEventListener("click", artCollect);
 									artCollect();
 									document.querySelector('#loginControl').checked = false;
@@ -67,15 +67,19 @@ session_start();
 										<?php if (isset($_SESSION["mem_no"])) {?>
 						 					var xhttp = new XMLHttpRequest();
 											xhttp.onreadystatechange = function() {
-												var artCollectBtn = document.querySelector('.authorIntro .author .links a');
+												var artCollectBtn = document.querySelector('.authorIntro .author .links p');
 												if (this.readyState == 4 && this.status == 200) {
 										    		artCollectBtn.innerText = this.responseText;
 										    		if(artCollectBtn.innerText == '收藏'){
 										    			console.log("2");
 										    			artCollectBtn.className = 'btnText btnText2';
+														artCollectBtn.style.filter='';
+														artCollectBtn.style.color='#dcdcdc';
 										    		}else{
 										    			console.log("4");
 										    			artCollectBtn.className = 'btnText btnText4';
+														artCollectBtn.style.filter='drop-shadow(0px 0px 5px #c596ff)  drop-shadow(0px 0px 1px #c596ff)';
+														artCollectBtn.style.color='#fff';
 										    		}
 												}
 											}
