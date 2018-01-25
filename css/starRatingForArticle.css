@@ -28,7 +28,6 @@ fieldset, label{
 .rating > label{ 
     color: rgba(183,162,147, 0.8); 
     float: right; 
-    text-shadow: 1px 4px 6px #333, 0 0 0 #000, 1px 4px 6px #333;
     transition: .2s;
 }
 
@@ -36,13 +35,16 @@ fieldset, label{
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
 .rating:not(:checked) > label:hover ~ label{ 
-    color: rgba(80,0,0,0.9);  
-    text-shadow: 1px -4px 6px #333, 0 0 0 #000, 1px -4px 6px #333;
+    color: transparent;  
+    background: url('../img/share/star.png');
+    background-size: 100% 100%;
 } /* hover previous stars in list */
 
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label{ 
-    color: rgba(180,0,0,0.9);  
+    filter:hue-rotate(30deg);
+    background: url('../img/share/star.png');
+    background-size: 100% 100%;
 } 
