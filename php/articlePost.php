@@ -38,10 +38,10 @@ session_start();
 				<input class="inputTopic" type="text" name="title" required>
 
 				<p class="intro line">請選擇文章圖片1</p>
-				<input class="inputImg first" type="file" name="contentImg1">
+				<input class="inputImg first" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落1</p>
-				<textarea class="inputContent first" name="content1"></textarea>
+				<textarea class="inputContent first" name="content1" required></textarea>
 
 				<p class="intro line">請選擇文章圖片2</p>
 				<input class="inputImg second" type="file" name="contentImg2">
@@ -62,6 +62,28 @@ session_start();
 		</div>
 	</div>
 
+<script>
+	window.addEventListener('load', function(){
+		var imgInput = document.getElementsByClassName('inputImg');
+		for (var i = 0; i < imgInput.length; i++) {
+			imgInput[i].addEventListener('change', function(e){
+				var fileName = this.value;
+				var fileType = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length);
+				if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
+					alert('檔案格式須為jpg、jpeg、png或gif');
+					this.value = null;
+				}
+
+
+			});
+		};
+
+
+
+	});
+
+
+</script>
 
 	<!-- ====================footer==================== -->
 	<div class="footer">
