@@ -2,7 +2,6 @@
 ob_start();
 session_start();
 $_SESSION["where"] = "recommendProducts.php";
-$_REQUEST["teacher_no"]=2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +77,7 @@ try{
 <?php 
 	$sql="select * from teacher_review where  teacher_no =?";
 	$check=$pdo->prepare($sql);
-	$check->bindValue(1,$_REQUEST["teacher_no"]);
+	$check->bindValue(1,$_SESSION["teacher_no"]);
 	$check->execute();
 	$count=$check->rowCount();
 	if($count!=0){
@@ -98,7 +97,7 @@ try{
 	}
 	}
 }else if(isset($_SESSION["teacher_no"])==null){
-		header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacher_no"]);
+		header('Location:specialColumn.php?teacher_no='.$_SESSION["teacher_no"]);
 	}
 ?>
 
@@ -114,7 +113,7 @@ try{
 					
 					<div class="right">
 						<span class="btnM">
-							<a href="specialColumn.html" class="btnText btnText4">老師專欄</a>
+							<a href="specialColumn.php?teacher_no=<?php echo $_SESSION['teacher_no']?> "class="btnText btnText4">老師專欄</a>
 						</span>
 					</div>
 				</div>
@@ -124,12 +123,12 @@ try{
 <!-- 推薦區域 -->
 <div class="pdRec_wrapper">
 	<div class="pdRec_lightbox">
-		<label for="lightboxClose">
+		<label for="lightboxClose" class="boxCloseLabel">
 			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
 		</label>
 		<p>您重複推薦商品了</p>
-		<span class="btnM btn">
-			<p class="btnText btnText2">我知道了</p>
+		<span class="btnMRec btn">
+			<p>我知道了</p>
 		</span>
 	</div>
 </div>
@@ -144,12 +143,12 @@ try{
 
 <div class="pdRec_wrapper3">
 	<div class="pdRec_lightbox">
-		<label for="lightboxClose">
+		<label for="lightboxClose" class="boxCloseLabel">
 			<i class="fa fa-times fa-2x lightboxClose cursorHand" id="lightboxClose"></i>
 		</label>
 		<p>最多只能推薦三個商品</p>
-		<span class="btnM btn">
-			<p class="btnText btnText2">我知道了</p>
+		<span class="btnMRec btn">
+			<p>我知道了</p>
 		</span>
 	</div>
 </div>
@@ -178,7 +177,7 @@ try{
 				<input type="hidden" name="r[]" value="<?php echo $recRow["pd_no"]?>">
 				<div class="merchandisePhoto"><div class="pictureBorder"></div><img src="../img/products/<?php echo $recRow["pd_pic1"]?>" alt=""></div>
 				<div class="merchandiseIntro">
-					<a href="#"> <?php  echo $recRow["pd_name"] ?> </a>
+					<p> <?php  echo $recRow["pd_name"] ?> </p>
 					<p class="describe"> <?php  echo mb_substr($recRow["pd_describe"],0,50,"utf-8")."..." ?> </p>
 					<p><span> <?php  echo $recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
 				</div>
