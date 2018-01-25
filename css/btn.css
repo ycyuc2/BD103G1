@@ -1,8 +1,16 @@
+@font-face {
+	font-family: "王漢宗特明體 – 標準";
+	src: url("../font/王漢宗特明體 – 標準.ttf"); }
+
+	@font-face {
+		font-family: "王漢宗中明體繁- 細";
+		src: url("../font/王漢宗中明體繁- 細.ttf"); }
+
 .btnText{
 	display: inline-block;
-	color:rgba(238, 217, 145, 1);
+	color:rgb(255, 246, 231);
 	text-decoration: none;
-	font-family: "微軟正黑體";
+	font-family: "王漢宗中明體繁- 細";
 	margin: 0;padding: 0;
 	border: none;
 	background: none;
@@ -12,7 +20,7 @@
 	box-sizing: border-box;
 }
 .btnText:hover{
-	color: #FFFF00;
+	color: rgb(253, 245, 218);
 }
 .btnL{
 	display: inline-block;
