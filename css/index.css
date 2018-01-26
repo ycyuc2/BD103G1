@@ -170,7 +170,7 @@
 	margin: 20px 0 40px 0;
 }
 .chooseBirthday .text{
-	font-size: 32px;
+	font-size: 18px;
 	line-height: 40px;
 	letter-spacing: 6px;
 	padding-left: 18px;
@@ -219,7 +219,7 @@
 		margin: 20px 0 40px 0;
 	}
 	.chooseBirthday .text{
-		font-size: 26px;
+		font-size: 20px;
 		line-height: 34px;
 		letter-spacing: 2px;
 		padding-left: 6px;
@@ -230,7 +230,7 @@
 		font-size: 16px;
 	}
 	.chooseBirthday p span:after{
-		font-size: 20px;
+		font-size: 18px;
 	}
 }
 
