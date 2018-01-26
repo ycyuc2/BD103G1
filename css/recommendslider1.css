@@ -13,7 +13,7 @@
 .teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox
 ,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox {
-    width: 360px;
+    width: 420px;
     height: 300px;
     position: absolute;
     left: 0;
@@ -90,6 +90,9 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     color:#000;
     font-size: 15px;
 }
+.teacherBorder{
+    padding-bottom: 70px;
+}
 .teacher .teacherBorder .btnM {
     display: block;
     margin: 15px auto;
@@ -148,14 +151,14 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
 
 .productsSelect .content.drag {
     width: 176px;
-    height: 360px;
+    height:420px;
 }
 
 @media all and (min-width: 760px) {
     .teacher .teacherBorder .merchandise.recommend .content.drag,
     .productsSelect .content.drag {
         width: 176px;
-        height: 360px;
+        height:420px;
     }
     .teacher .teacherBorder .merchandise.recommend .content {
         margin: 0 15px 5%;
@@ -182,7 +185,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
 }
 
 .teacher .teacherBorder .productsSelect {
-    height: 360px;
+    height:420px;
     width: 100%;
     box-sizing: border-box;
     clear: both;
@@ -213,8 +216,9 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     transition: 1s 0s opacity, 0s 1s left;
     ;
 }
-.teacher .teacherBorder .productsSelect #white h3{
+.teacher .teacherBorder  h3{
     padding-top: 20%;
+    font-size: 20px;
 }
 @media all and (max-width: 470px) {
     .teacher .teacherBorder .productsSelect {
@@ -252,6 +256,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     z-index: 0;
 }
 .teacher .teacherBorder .merchandise .content .merchandisePhoto {
+    width: 160px;
     height: 160px;
 }
 .teacher .teacherBorder .merchandise .content .merchandisePhoto .pictureBorder{
