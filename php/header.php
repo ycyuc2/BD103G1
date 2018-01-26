@@ -104,8 +104,8 @@
 							$teacher -> execute();
 							$teacherRow = $teacher->fetchObject();
 							if($teacher->rowCount()!=0){
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='specialColumn.php?teacher_no=%d'>我的專欄</a></li>", $_SESSION["teacher_no"]);
 								$_SESSION['teacher_no'] = $teacherRow->teacher_no;
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='specialColumn.php?teacher_no=%d'>我的專欄</a></li>", $_SESSION["teacher_no"]);
 							}
 						}
 						else{
