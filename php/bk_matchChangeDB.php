@@ -6,7 +6,7 @@
 	if ($_REQUEST["action"] == 0) {
 		$sql = "DELETE from pair where pair_no = $pairNo";
 		$deleteData = $pdo->prepare($sql);
-		$deleteData->ececute();
+		$deleteData->execute();
 		header("location:bk_fortuneDB.php");
 	}else{
  ?>

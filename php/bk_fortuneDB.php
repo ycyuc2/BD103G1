@@ -132,15 +132,15 @@
 			<div class="boxContent">
 
 				<label for="lightBoxControl"><p class="exit">X</p></label>
-				<form>
+				<form action="bk_addFortuneDB.php" method="get">
 					<p class="input">
 						<span>星座</span>
 						<span>
-							<select >
-								<option value="0">請選擇星座</option>
+							<select name="const" required>
+								<option value="">請選擇星座</option>
 								<option value="1">水瓶座</option>
 								<option value="2">雙魚座</option>
-								<option value="3">白羊座</option>
+								<option value="3">牡羊座</option>
 								<option value="4">金牛座</option>
 								<option value="5">雙子座</option>
 								<option value="6">巨蟹座</option>
@@ -153,9 +153,37 @@
 							</select>
 						</span>
 					</p>
-					<p class="input"><span>標題</span><span><input type="text" name="fortuneTitle"></span></p>
-					<p class="input"><span>內文</span></p>
-					<p class="center"><textarea cols="26" rows="6"></textarea></p>
+					<p class="input"><span>未登入內文</span></p>
+					<p class="center">
+						<textarea name="fort_content" cols="26" rows="6" required style="resize: none"></textarea>
+					</p>
+					<p class="input"><span>已登入內文</span></p>
+					<p class="center">
+						<textarea name="fort_content2" cols="26" rows="6" required style="resize: none"></textarea>
+					</p>
+					<p class="input" required><span>業力增加值</span>
+						<span>
+							<select name="karma_inc" required>
+								<option value="">請選擇結果凶吉</option>
+								<option value="0">大吉</option>
+								<option value="50">吉</option>
+								<option value="100">凶</option>
+								<option value="200">大凶</option>
+							</select>
+						</span>
+					</p>
+					<p class="input">
+						<span>推薦商品類型</span>
+						<span>
+							<select name="recommend_type" required>
+								<option value="">請選擇類型</option>
+								<option value="1">飾品類</option>
+								<option value="2">擺飾類</option>
+								<option value="3">食品類</option>
+								<option value="4">文具類</option>
+							</select>
+						</span>
+					</p>
 					<p class="center">
 						<span class="btnS"><input type="submit" value="新增" class="btnText btnText2"></span>
 						<span class="btnS"><input type="reset" value="重填" class="btnText btnText2"></span></p>

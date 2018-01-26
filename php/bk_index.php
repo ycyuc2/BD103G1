@@ -74,7 +74,6 @@
 			<ol class="rightNav3">
 				<li><a href="#">線上算命資料庫</a></li>
 				<li><a href="#">配對資料庫</a></li>
-				<li><a href="#">業力更新排程</a></li>
 			</ol>
 		</div>
 

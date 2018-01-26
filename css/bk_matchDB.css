@@ -78,7 +78,7 @@
 	position: absolute;
 	top: 0;right: 0;bottom: 0;left: 0;
 	width: 400px;
-	height: 400px;
+	height: 500px;
 	margin: auto auto;
 	background: #ccc;
 	box-sizing: border-box;
@@ -99,8 +99,8 @@
 }
 .lightBox .boxContent .input span:first-of-type{
 	display: inline-block;
-	width: 64px;
-	text-align: right;
+	width: 90px;
+	text-align: left;
 }
 .lightBox .boxContent p span+span{
 	margin-left: 10%;

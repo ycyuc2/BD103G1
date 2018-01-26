@@ -96,50 +96,17 @@
 			
 			<div class="boxContent">
 				<label for="lightBoxControl"><p class="exit">X</p></label>
-				<form>
+				<form action="bk_addPairDB.php">
 					<p class="input">
-						<span>星座</span>
+						<span>配對指數</span>
 						<span>
-							<select>
-								<option value="0">請選擇星座</option>
-								<option value="1">水瓶座</option>
-								<option value="2">雙魚座</option>
-								<option value="3">白羊座</option>
-								<option value="4">金牛座</option>
-								<option value="5">雙子座</option>
-								<option value="6">巨蟹座</option>
-								<option value="7">獅子座</option>
-								<option value="8">處女座</option>
-								<option value="9">天秤座</option>
-								<option value="10">天蠍座</option>
-								<option value="11">射手座</option>
-								<option value="12">摩羯座</option>
-							</select>
+							<input type="text" name="pair_value" required>
 						</span>
 					</p>
-					<p class="input">
-						<span>對象星座</span>
-						<span>
-							<select >
-								<option value="0">請選擇星座</option>
-								<option value="1">水瓶座</option>
-								<option value="2">雙魚座</option>
-								<option value="3">白羊座</option>
-								<option value="4">金牛座</option>
-								<option value="5">雙子座</option>
-								<option value="6">巨蟹座</option>
-								<option value="7">獅子座</option>
-								<option value="8">處女座</option>
-								<option value="9">天秤座</option>
-								<option value="10">天蠍座</option>
-								<option value="11">射手座</option>
-								<option value="12">摩羯座</option>
-							</select>
-						</span>
-					</p>
-					<p class="input"><span>標題</span><span><input type="text" name="fortuneTitle"></span></p>
-					<p class="input"><span>內文</span></p>
-					<p class="center"><textarea cols="26" rows="6"></textarea></p>
+					<p class="input"><span>未登入內文</span></p>
+					<p class="center"><textarea name="pair_content" cols="26" rows="6" required style="resize: none"></textarea></p>
+					<p class="input"><span>未登入內文</span></p>
+					<p class="center"><textarea name="pair_content2" cols="26" rows="6" required style="resize: none"></textarea></p>
 					<p class="center">
 						<span class="btnS"><input type="submit" value="新增" class="btnText btnText2"></span>
 						<span class="btnS"><input type="reset" value="重填" class="btnText btnText2"></span></p>

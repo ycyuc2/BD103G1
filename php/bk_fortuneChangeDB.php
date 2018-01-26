@@ -6,7 +6,7 @@
 	if ($_REQUEST["action"] == 0) {
 		$sql = "DELETE from fortune where fort_no = $fortNo";
 		$deleteData = $pdo->prepare($sql);
-		$deleteData->ececute();
+		$deleteData->execute();
 		header("location:bk_fortuneDB.php");
 	}else{
  ?>
