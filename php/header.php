@@ -75,8 +75,8 @@
 							$member -> execute();
 							$memRow = $member->fetchObject();
 							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>", $memRow->mem_nn);
-							if (isset($cartCount)) {
-								echo '\n\t\t\t\t\t\t\t\t<li><a href="dozen_store.php">購物車($_SESSION["cartCount"])</a></li>';
+							if (isset($_SESSION["cartCount"])) {
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車(%d)</a></li>", $_SESSION["cartCount"]);
 							}
 							$sql = "select * from message msg
 									join member mem on msg.mem_no = mem.mem_no 

@@ -15,24 +15,42 @@
 	display: inline-block;
 	font-size: 16px;
 	vertical-align: middle;
+	text-align: center;
+	
+}
+.tr{
+	font-size: 0;
+}
+.tr *{
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.tr textarea{
+	width: 90%;
+	height: 150px;
+}
+.tr input{
+	width: 90%;
 }
 .tr .no{
 	width: 5%;
 }
 .tr .constel{
-	width: 5%;
+	width: 7%;
 }
 .tr .content1{
-	width: 35%;
+	width: 29%;
 }
 .tr .content2{
-	width: 35%;
+	width: 29%;
 }
 .tr .karmaInc{
-	width: 5%;
+	width: 10%;
 }
 .tr .category{
-	width: 5%;
+	width: 10%;
 }
 .tr .alter{
 	width: 10%;

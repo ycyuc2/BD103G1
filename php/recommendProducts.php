@@ -111,13 +111,6 @@ try{
 						</span>
 					</div>
 					<div class="middle">
-					<form action="articlePost.php" method="post">
-						<span class="btnM">
-							<input type="hidden" name="teacherNo" value="<?php echo $_REQUEST["teacher_no"]?>">
-							<input type="submit" class="btnText btnText2" value="發文"></input>
-						</span>
-					</form>
-				</div>	
 					<div class="right">
 						<span class="btnM">
 							<a href="specialColumn.php?teacher_no=<?php echo $_SESSION['teacher_no']?> "class="btnText btnText4">老師專欄</a>
@@ -140,11 +133,6 @@ try{
 	</div>
 </div>
 
-<?php 
-    // 到products資料庫撈出商品的細項
-    $sql="select  * from products where pd_no =?" ;
-    $pd=$pdo->prepare($sql);
-?>
 
 
 
@@ -214,10 +202,10 @@ try{
 
 	<div class="merchandise recommend">
 		
-		
+		<h3>請將欲推薦商品拖曳至上方，推薦好請點選完成。</h3>
 		<div class="productsSelect">
 			<div class="back"></div>
-			<div id="white"><h3>請將欲推薦商品拖曳至上方，推薦好請點選完成。</h3></div>
+			
 			<div class="container">
 			<?php 
 			$sql="select * from products";
@@ -288,7 +276,7 @@ try{
     }
 ?>
 
-
+</div>
 
 	<!-- ====================footer==================== -->
 	<div class="copyright">
@@ -327,12 +315,7 @@ try{
 					
 				});
 			}
-			document.getElementById("white").addEventListener("mouseover",disappear);
-			function disappear(){
-				white.style.transition="opacity 1s  0s,0s 1s left";
-				white.style.left="-100%";
-				white.style.opacity="0";
-			}
+			
 			var recBtn=document.querySelector('.links .left .btnM');
 			recBtn.addEventListener('load',btnDisabled);
 			function btnDisabled(e){

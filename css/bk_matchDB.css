@@ -7,15 +7,26 @@
 }
 
 	/*表單*/
-.tr{
-	margin-top: 1%;
-	margin-left: 10%;
-	width: 80%;
-	font-size: 0;
-	text-align: center;
-}
 .tr:first-of-type{
 	font-weight: bold;
+}
+.tr *{
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.tr textarea{
+	width: 90%;
+	height: 150px;
+}
+.tr{
+	font-size: 0;
+}
+.tr input{
+	width: 90%;
 }
 .tr .col{
 	display: inline-block;
