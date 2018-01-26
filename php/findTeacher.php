@@ -124,7 +124,7 @@ session_start();
 
 try {
 	require_once("connectBD103G1.php");
-	$sql = "select * from teacher";
+	$sql = "select * from teacher where teacher_app = 1";
 	$teachers = $pdo->query($sql);
 	$teacher_rows = $teachers->fetchAll(PDO::FETCH_ASSOC);
 
