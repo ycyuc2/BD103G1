@@ -80,6 +80,18 @@ ol li{
 	font-size: 16px;
 	z-index: 2;
 }
+.wrapper .right a{
+	text-decoration: none;
+	color: #533e2f;
+}
+.wrapper a:hover,
+.wrapper .btnText:hover{
+	cursor: url(../img/share/cursor.png)20 15,auto;
+}
+.wrapper a:active,
+.wrapper .btnText:active{
+	cursor: url(../img/share/cursor2.png)20 15,auto;
+}
 .content{
 	margin: 0 8%;
 }
