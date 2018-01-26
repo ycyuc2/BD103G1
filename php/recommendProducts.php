@@ -167,14 +167,9 @@ try{
 		<form action="pdRecInsert.php" method="get" id="formRec">
 			<input type="hidden" value="<?php echo $_SESSION["teacher_no"]?>" name="teacher_no">
 <?php 
-	$sql="select a.pd_no, a.pd_name, a.pd_pic1, a.pd_describe, a.pd_price, a.pd_sale
-		  from products as a left join pd_recommend as b
-		  on a.pd_no = b.pd_no 
-		  or a.pd_no = b.pd_no2 
-		  or a.pd_no = b.pd_no3
-		  where b.teacher_no = :teacher_no";
+	$sql="select a.pd_no, a.pd_name, a.pd_pic1, a.pd_describe, a.pd_price, a.pd_sale from products as a left join pd_recommend as b on a.pd_no = b.pd_no or a.pd_no = b.pd_no2  or a.pd_no = b.pd_no3 where b.teacher_no = :teacher_no";
 	$pd=$pdo->prepare($sql);
-	$pd->bindValue(':teacher_no',$_REQUEST["teacher_no"]);
+	$pd->bindValue(':teacher_no', $_SESSION["teacher_no"]);
 	$pd->execute();
 	$countPd1=$pd->rowcount();
 	$countPd=3-$countPd1;
