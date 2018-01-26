@@ -99,8 +99,8 @@
         content: '';
         clear: both; }
       .specialColumn .columnBorder .authorIntro .authorPhoto, .replys .columnBorder .authorIntro .authorPhoto, .memberReply .columnBorder .authorIntro .authorPhoto {
-        width: 50%;
-        float: none;
+        width: 20%;
+        float: left;
       margin: 0 auto; }
         @media all and (max-width: 479px) {
           .replys .columnBorder .authorIntro .authorPhoto{
@@ -129,11 +129,11 @@
             float: none; } 
            .replys .columnBorder .authorIntro .authorPhoto{
              width: 23%;
-             margin: 5% auto;
+             margin: 5% auto 0;
            }
           }
       .specialColumn .columnBorder .authorIntro .author, .replys .columnBorder .authorIntro .author, .memberReply .columnBorder .authorIntro .author {
-        width: 100%;
+        width: 80%;
         background-color: #333;
         float: right;
         margin-top: 5%;
@@ -152,8 +152,8 @@
           clear: both; }
         @media all and (min-width: 760px) and (max-width: 959px) {
           .specialColumn .columnBorder .authorIntro .author, .replys .columnBorder .authorIntro .author, .memberReply .columnBorder .authorIntro .author {
-            width: 100%;
-            float: none; } }
+            width: 78%;
+            float: left; } }
         @media all and (min-width: 480px) and (max-width: 759px) {
           .specialColumn .columnBorder .authorIntro .author, .replys .columnBorder .authorIntro .author, .memberReply .columnBorder .authorIntro .author {
             width: 100%;

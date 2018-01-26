@@ -55,7 +55,8 @@
     font-family: '王漢宗粗明體繁-中';
     src: url('../font/王漢宗粗明體繁-中.ttf');
 }
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btnMRec{
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .btnMRec
+,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btnMRec{
     width: 150px;
     height: 70px;
     line-height: 70px;
@@ -71,7 +72,8 @@
     margin: 15px auto;
     text-align: center;
 }
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btnMRec:hover{
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .btnMRec:hover
+,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btnMRec:hover{
 filter: drop-shadow(0px 0px 2px #533e2f) drop-shadow(0px 0px 5px #533e2f);
 cursor: url(../img/share/cursor.png) 20 15,auto;
 }
@@ -81,7 +83,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
 ,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox p:nth-child(2)
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:nth-child(2) {
     font-family: '王漢宗粗明體繁-中';
-    padding-top: 100px;
+    padding-top: 55px;
     letter-spacing: 6px;
     padding-left: 6px;
     text-align: center;
@@ -91,7 +93,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     margin: 15px auto;
 }
 .teacher .teacherBorder .btnM p {
-    color: #ffff00;
+    color: rgb(223, 211, 174);
 }
 .teacher .teacherBorder .merchandise.recommend {
     margin: 15px 0 0;
@@ -318,6 +320,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
         vertical-align: top;
         width: 46%;
         padding: 0 1%;
+        margin: 10px 0;
     }   
     .phone .phoneItems input[type="checkbox"]{
         position: absolute;

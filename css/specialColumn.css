@@ -17,7 +17,10 @@ h1 {
   padding-top: 30px;
   font-size: 45px;
   text-align: center;
-  color: #ddd; }
+  color: #ddd; 
+  margin:80px 10px;
+  text-shadow:2px 3px 1px #000;
+  }
   @media all and (min-width: 480px) and (max-width: 759px) {
     h1 {
       font-size: 35px; } }
@@ -113,7 +116,8 @@ h1 {
             width: 50%; } }
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .intro .teacherPhoto {
-            width: 100%;
+            margin: 20px 10%;
+            width: 80%;
             float: none; } }
       .teacher .teacherBorder .intro .introContent {
         box-sizing: border-box;
@@ -137,7 +141,9 @@ h1 {
           font-size: 16px;
           line-height: 24px;
           letter-spacing: 1px;
-          margin-top: 10px; }
+          margin-top: 10px;
+          text-align:justify;
+        text-justify: distribute;}
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .intro .introContent p {
               font-size: 14px;
@@ -145,7 +151,12 @@ h1 {
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .intro .introContent p {
               font-size: 14px;
-              line-height: 22px; } }
+              line-height: 22px; 
+            }
+        .teacher .teacherBorder .intro .introContent p:first-child{
+          text-align: center;
+        }
+        }
           .teacher .teacherBorder .intro .introContent p:nth-child(1):before {
             content: '暱稱：';
             display: block;
@@ -171,7 +182,8 @@ h1 {
             margin-top: 20px; }
             .teacher .teacherBorder .intro .introContent p:nth-child(3) i {
               font-size: 20px;
-              color: #ff0; }
+            color: rgb(223, 211, 174);
+            }
               @media all and (min-width: 480px) and (max-width: 759px) {
                 .teacher .teacherBorder .intro .introContent p:nth-child(3) i {
                   font-size: 14px; } }
@@ -188,11 +200,13 @@ h1 {
         content: '';
         display: block;
         clear: both; }
-      .teacher .teacherBorder .links .left {
+        .teacher .teacherBorder .links .left,
+        .teacher .teacherBorder .links .middle,
+      .teacher .teacherBorder .links .right {
         float: left;
-        width: 50%;
+        width: 33.3%;
         text-align: center; }
-        @media all and (max-width: 479px) {
+        @media all and (max-width: 759px) {
           .teacher .teacherBorder .links .left {
             width: 100%;
             float: none; } }
@@ -200,11 +214,13 @@ h1 {
           cursor: url(../img/share/cursor.png) 20 15, auto; }
         .teacher .teacherBorder .links .left a:active {
           cursor: url(../img/share/cursor2.png) 20 15, auto; }
-      .teacher .teacherBorder .links .right {
-        float: left;
-        width: 50%;
-        text-align: center; }
-        @media all and (max-width: 479px) {
+        @media all and (max-width: 759px) {
+            .teacher .teacherBorder .links .middle ,
+              .teacher .teacherBorder .links .right{
+            width: 100%;
+            float: none;
+            margin-top: 20px;
+            }
           .teacher .teacherBorder .links .right {
             width: 100%;
             float: none;
@@ -213,49 +229,53 @@ h1 {
           cursor: url(../img/share/cursor.png) 20 15, auto; }
         .teacher .teacherBorder .links .right a:active {
           cursor: url(../img/share/cursor2.png) 20 15, auto; }
-    .teacher .teacherBorder .newArticle {
-      margin-top: 30px;
-      text-align: center; }
-      .teacher .teacherBorder .newArticle form {
-        width: 50%;
-        float: right;
-        text-align: center; }
-        .teacher .teacherBorder .newArticle form:after {
-          display: block;
-          content: '';
-          clear: both; }
-      .teacher .teacherBorder .newArticle a:hover {
-        cursor: url(../img/share/cursor.png) 20 15, auto; }
-      .teacher .teacherBorder .newArticle a:active {
-        cursor: url(../img/share/cursor2.png) 20 15, auto; }
-      .teacher .teacherBorder .newArticle:after {
-        content: '';
-        display: block;
-        clear: right; }
+ 
     .teacher .teacherBorder .articleList {
       width: 100%;
-      padding: 30px;
+      padding:30px;
       padding-bottom: 0;
-      box-sizing: border-box; }
+      box-sizing: border-box; 
+      position:relative;}
       .teacher .teacherBorder .articleList h2 {
+        font-size: 30px;
+        text-align: center;
+        color: #533e2f; }
+        .teacher .teacherBorder .merchandise h2 {
+        margin-bottom: 30px;
         font-size: 30px;
         text-align: center;
         color: #533e2f; }
       @media all and (min-width: 760px) and (max-width: 959px) {
         .teacher .teacherBorder .articleList {
-          padding: 0px; } }
+          padding:30px 0px; } }
       @media all and (min-width: 480px) and (max-width: 759px) {
         .teacher .teacherBorder .articleList {
-          padding: 0px; } }
+          padding:30px  0px; } 
+        .teacher .teacherBorder .newArticle {
+          position: static;
+        }
+        }
       @media all and (max-width: 479px) {
         .teacher .teacherBorder .articleList {
-          padding: 0px; } }
+          padding:30px  0px; }
+          .teacher .teacherBorder .newArticle {
+            position: static;
+          }
+         }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .teacher .teacherBorder .articleList .first {
-          border-bottom: 1px solid #ddd; } }
+          .teacher .teacherBorder .articleList .first {
+            border-bottom: 1px solid #ddd; } 
+          .teacher .teacherBorder .articleList .first:nth-of-type(1){
+          border-bottom: 1px solid transparent;
+          }
+        }
       @media all and (max-width: 479px) {
         .teacher .teacherBorder .articleList .first {
-          border-bottom: 1px solid #ddd; } }
+          border-bottom: 1px solid #ddd; } 
+        .teacher .teacherBorder .articleList .first:nth-of-type(1) {
+          border-bottom: 1px  solid transparent ;
+        }
+      }
       @media all and (min-width: 480px) and (max-width: 759px) {
         .teacher .teacherBorder .articleList .second {
           border-bottom: 1px solid #ddd; } }
@@ -274,12 +294,12 @@ h1 {
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .articleList .article .pic {
               width: 70%;
-              margin: auto;
+              margin:20px auto;
               float: none; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .articleList .article .pic {
               width: 60%;
-              margin: auto;
+              margin:20px auto;
               float: none; } }
           .teacher .teacherBorder .articleList .article .pic .picContainer .picBorder {
             border: 30px solid transparent;
@@ -293,9 +313,7 @@ h1 {
           width: 65%;
           box-sizing: border-box;
           float: left;
-          padding-top: 10px;
-          padding-left: 20px;
-          padding-bottom: 20px;
+          padding: 10px 10px 20px 10px;
           position: relative; }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .articleList .article .content {
@@ -309,16 +327,10 @@ h1 {
           .teacher .teacherBorder .articleList .article .content .topic h3 {
             float: left;
             color: #533e2f;
-            font-size: 25px; }
-            @media all and (min-width: 760px) and (max-width: 959px) {
-              .teacher .teacherBorder .articleList .article .content .topic h3 {
-                font-size: 20px; } }
-            @media all and (min-width: 480px) and (max-width: 759px) {
-              .teacher .teacherBorder .articleList .article .content .topic h3 {
-                font-size: 20px; } }
-            @media all and (max-width: 479px) {
-              .teacher .teacherBorder .articleList .article .content .topic h3 {
-                font-size: 18px; } }
+            font-size: 35px; 
+            font-family: "王漢宗粗明體繁-中";
+}
+            
             .teacher .teacherBorder .articleList .article .content .topic h3 a {
               text-decoration: none;
               color: #533e2f;
@@ -337,6 +349,18 @@ h1 {
             content: '';
             display: block;
             clear: both; }
+            @media all and (max-width: 759px) {
+              .teacher .teacherBorder .articleList .article .content .topic{
+                text-align: center;
+              }
+              .teacher .teacherBorder .articleList .article .content .topic h3 {
+                float: none;
+            }
+            .teacher .teacherBorder .articleList .article .content .topic .detail{
+              float:none;
+            }
+            }
+
           .teacher .teacherBorder .articleList .article .content .preview {
             margin-top: 20px; }
             .teacher .teacherBorder .articleList .article .content .preview p {
@@ -415,11 +439,7 @@ h1 {
       @media all and (max-width: 479px) {
         .teacher .teacherBorder .merchandise {
           padding: 10px; } }
-      .teacher .teacherBorder .merchandise h2 {
-        margin-bottom: 30px;
-        font-size: 30px;
-        text-align: center;
-        color: #533e2f; }
+      
       .teacher .teacherBorder .merchandise .content {
         width: 30%;
         box-sizing: border-box;
@@ -428,7 +448,7 @@ h1 {
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .merchandise .content {
             width: 100%;
-            margin: auto; } }
+            margin:30px auto; } }
         .teacher .teacherBorder .merchandise .content .merchandiseIntro a {
           margin-top: 10px;
           text-decoration: none;
@@ -455,6 +475,15 @@ h1 {
           line-height: 24px;
           letter-spacing: 1px;
           text-align: center; }
+          .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
+            text-decoration: line-through;
+          }
+
+          .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
+            font-size: 40px;
+            color: #800;
+            font-weight: bold;
+          }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
               font-size: 14px;
@@ -462,13 +491,12 @@ h1 {
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .merchandise .content .merchandiseIntro p {
               font-size: 14px;
-              line-height: 22px; } }
-          .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(1) {
-            text-decoration: line-through; }
-          .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2) {
-            font-size: 40px;
-            color: #800;
-            font-weight: bold; }
+              line-height: 22px; } 
+          .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-child(3) span:nth-child(2){
+              font-size: 30px;
+           }
+          }
+          
         .teacher .teacherBorder .merchandise .content .merchandisePhoto {
           width: 100%;
           position: relative;
@@ -557,10 +585,29 @@ h1 {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border: 50px solid transparent;
+  border: 40px solid transparent;
   position: absolute;
-  border-image: url(../img/share/picframe.png) 30 30 repeat; }
+  border-image: url(../img/share/picframe.png) 30 30 repeat;} 
+  @media all and (max-width: 479px) {
+    .picBorder {
+      border:20px solid transparent;
+      border-image: url(../img/share/picframe.png) 30 30 repeat;
+    }
+  }
+  @media all and (min-width: 480px) and (max-width: 759px) {
+    .picBorder {
+      border:20px solid transparent;
+      border-image: url(../img/share/picframe.png) 30 30 repeat;
 
+    }
+  }
+  @media all and (max-width: 479px) {
+    .picBorder {
+      border:25px solid transparent;
+      border-image: url(../img/share/picframe.png) 30 30 repeat;
+
+    }
+  }
 .teacher .teacherBorder h1 {
   color: #533e2f; }
 
@@ -572,8 +619,7 @@ h1 {
   font-size: 20px;
   color: #533e2f;
   font-weight: 600;
-  padding: 0;
-  margin-top: 30px; }
+  padding: 0;}
 
 .teacher .teacherBorder .inputTopic {
   display: block;
@@ -628,10 +674,29 @@ h1 {
       padding: 10px; } }
   @media all and (min-width: 480px) and (max-width: 759px) {
     .teacher .teacherBorder .schedule {
-      padding: 10px; } }
+      padding: 10px; }
+    .teacher .teacherBorder .articleList .newArticle .btnM{
+      width: 100px;
+      height: 25px;      
+  }
+  .teacher .teacherBorder .articleList .newArticle .btnM input{
+    font-size: 12px;
+    line-height: 25px;
+  }
+    }
   @media all and (max-width: 479px) {
     .teacher .teacherBorder .schedule {
-      padding: 10px; } }
+      padding: 10px; }
+  .teacher .teacherBorder .articleList .newArticle .btnM {
+      width: 100px;
+      height: 25px;
+    }
+
+    .teacher .teacherBorder .articleList .newArticle .btnM input {
+      font-size: 12px;
+      line-height: 25px;
+    }
+  }
   .teacher .teacherBorder .schedule h2 {
     margin-bottom: 30px;
     font-size: 30px;
@@ -649,12 +714,15 @@ h1 {
           width: 100%;
           float: none;
           padding: 0; } }
+
       .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
         text-align: center;
         font-size: 20px; }
+
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .schedule .scheduleContent .content .left h3 {
             text-align: left; } }
+            
     .teacher .teacherBorder .schedule .scheduleContent .content .mid {
       float: left;
       width: 60%;

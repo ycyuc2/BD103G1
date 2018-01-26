@@ -11,12 +11,8 @@ a.showKarma{
 	display: inline-block;
 	z-index:5;
 }
-@media all and (min-width: 480px) and (max-width: 759px) {
-	a.showKarma {
-		display: none;
-	}
-}
-@media all and (max-width: 479px) {
+
+@media all and (max-width: 960px) {
 	a.showKarma {
 		display: none;
 	}
@@ -46,4 +42,7 @@ a.showKarma{
 
 .face span{
 	color:#d61616;
+	font-weight:500;
+	font-size: 25px;
+	text-shadow:0px 0px 1px #000000;
 }
