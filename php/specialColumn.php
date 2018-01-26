@@ -66,7 +66,7 @@ try {
 						<p><?php echo $teacherRow["teacher_info"] ?></p>
 						<p>
 	<!-- 評價星等 -->
-	<fieldset class="rating">
+	<fieldset class="rating teacherStar">
 	    <input type="radio" id="star5" name="rating" value="5" />
 	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
 	    <input type="radio" id="star4" name="rating" value="4" />
@@ -78,49 +78,55 @@ try {
 	    <input type="radio" id="star1" name="rating" value="1" />
 	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 	</fieldset>
-
+<?php 
+	$sql="select * from teacher_review where  teacher_no =?";
+	$check=$pdo->prepare($sql);
+	$check->bindValue(1,$_REQUEST["teacher_no"]);
+	$check->execute();
+	$count=$check->rowCount();
+	if($count!=0){
+		$starScore=0;
+		while($checkRow=$check->fetchObject()){
+			$starScore+=$checkRow->review_star;
+		}?>
+		<script>
+			var star= <?php echo round($starScore/$count);?>;
+			var inputElems= $('.teacherStar input[type="radio"]');
+			inputElems[5-star].checked=true;
+			for(var i=0;i<5;++i){
+				inputElems[i].disabled=true;
+			}
+		</script>
+	<?php }?>
 						</p>
 					</div>
 				</div>
 				<div class="links">
 <?php 
 	if (isset($_SESSION["teacher_no"])) {
-		if($_SESSION["teacher_no"]==$teacherNo){
-			echo '
+		if($_SESSION["teacher_no"]==$teacherNo){?>
 				<div class="left">
 					<span class="btnM">
 						<a href="recommendProducts.php?teacher_no='.$teacherNo.'" class="btnText btnText4">商品推薦</a>
 					</span>
 				</div>
+				<div class="middle">
+					<form action="articlePost.php" method="post">
+						<span class="btnM">
+							<input type="hidden" name="teacherNo" value="<?php echo $_REQUEST["teacher_no"]?>">
+							<input type="submit" class="btnText btnText2" value="發文"></input>
+						</span>
+					</form>
+				</div>	
 				<div class="right">
 						<span class="btnM">
-							<a href=
-				';
-				echo 'specialColumn.php?teacher_no='.$teacherNo;
-				echo ' class="btnText btnText4">老師專欄</a>
+							<a href="specialColumn.php?teacher_no='.$teacherNo"class="btnText btnText4">老師專欄</a>
 						</span>
 					</div>
-				';
-		}
-		
+		<?}
 	}
-
-
-
  ?>
-					
-
 				</div>
-
-
-
-
-				<!-- 發文按鈕 -->
-				
-
-					
-
-
 <?php
 	}
 } catch (PDOException $e) {
@@ -175,8 +181,8 @@ try {
 								<?php echo mb_substr($recommendRow["pd_describe"],0,50,"utf-8")."..." ?>
 							</p>
 							<p>
-								<span><?php echo $recommendRow["pd_price"] ?></span>
-								<span> <?php echo $recommendRow["pd_sale"] ?> </span>元
+								<span>$<?php echo $recommendRow["pd_price"] ?></span>
+								<span><?php echo $recommendRow["pd_sale"] ?> </span>元
 							</p>
 						</div>
 					</div>
@@ -203,24 +209,7 @@ try {
 					<h2>文章列表</h2>
 
 
-<?php 
-	if(isset($_SESSION["teacher_no"])){
-		if ($_SESSION["teacher_no"]==$teacherNo) {
-			echo '<div class="newArticle">
-					<form action="articlePost.php" method="post">
-								<span class="btnM">
-									<input type="hidden" name="teacherNo" value=';
-			echo '"'.$_REQUEST["teacher_no"].'"';
-			echo '>
-							<input type="submit" class="btnText btnText2" value="發文"></input>
-						</span>
-						</form>
-					</div>';			
-		}
-	}
 
-
- ?>
 
 <?php 
 

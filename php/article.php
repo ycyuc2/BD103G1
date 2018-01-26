@@ -50,7 +50,7 @@ session_start();
 <!-- 作者區 -->
 				<div class="author">
 					<div class="intro">
-						<a href=""><?php echo $artRow->teacher_nn; ?></a>
+						<a href="specialColumn.php?teacher_no=<?php echo $artRow->teacher_no;?>"><p><?php echo $artRow->teacher_nn; ?></p></a>
 						<p><?php echo $artRow->art_post_time; ?></p>
 					</div>
 					<div class="links">

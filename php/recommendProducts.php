@@ -110,7 +110,14 @@ try{
 							<p href="#" class="btnText btnText4">商品推薦</p>
 						</span>
 					</div>
-					
+					<div class="middle">
+					<form action="articlePost.php" method="post">
+						<span class="btnM">
+							<input type="hidden" name="teacherNo" value="<?php echo $_REQUEST["teacher_no"]?>">
+							<input type="submit" class="btnText btnText2" value="發文"></input>
+						</span>
+					</form>
+				</div>	
 					<div class="right">
 						<span class="btnM">
 							<a href="specialColumn.php?teacher_no=<?php echo $_SESSION['teacher_no']?> "class="btnText btnText4">老師專欄</a>
@@ -265,7 +272,7 @@ try{
 				</div>
 			</div>
 	<?php }?>
-	<input type="submit" id="btnSend2">
+	<input type="submit" id="btnSend2" value="">
 	</form>
 	<label class="submit" for="btnSend2">
 		<span class="btnS">
@@ -318,15 +325,6 @@ try{
 								$(this).data('state', 1); 
 								break;
 						}
-					}else if(count==3){
-						var clickRadios=$('.phone .phoneProdCheck');
-						var prodCheck=$('.phone .prodCheck');
-								$(this).data('state', 1);
-								count--;
-								$(this).html("");
-								$(this).css('background-color','transparent');
-							
-						
 					}
 					else{
 						$('.pdRec_wrapper3').css('display','block');

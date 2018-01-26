@@ -8,7 +8,7 @@
 
 .btnText{
 	display: inline-block;
-	color:rgb(255, 246, 231);
+	color:rgb(240, 225, 200);
 	text-decoration: none;
 	font-family: "王漢宗中明體繁- 細";
 	margin: 0;padding: 0;
@@ -18,9 +18,11 @@
 	height: 100%;
 	cursor: pointer;
 	box-sizing: border-box;
+	transition:.2s all ;
 }
 .btnText:hover{
-	color: rgb(253, 245, 218);
+	/* color: rgb(223, 211, 174); */
+	filter:drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.1));
 }
 .btnL{
 	display: inline-block;
