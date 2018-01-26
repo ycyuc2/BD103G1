@@ -13,11 +13,16 @@
   src: url("../font/王漢宗特明體 – 標準.ttf"); }
 
 body {
+  font-family: "微軟正黑體";
   margin: 0;
   padding: 0;
   background-attachment: fixed;
   background-size: cover;
   background-image: url(../img/dozen_storedetail/bg.jpg); }
+
+  h2{
+    font-family: "王漢宗特明體 – 標準";
+  }
 
 @media all and (max-width: 479px) {
   background-image: url(../img/hamburger/bright-galaxy-space-plain.jpg);

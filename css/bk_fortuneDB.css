@@ -5,23 +5,9 @@
 	box-sizing: border-box;
 	font-size: 0;
 }
-.rightNav3 li{
-	display: inline-block;
-	width: 20%;
-	margin:0 6.6%;
-	font-size: 16px;
-	text-align: center;
-	background: #999;
-}
 
 	/*表單*/
-.tr{
-	margin-top: 1%;
-	margin-left: 10%;
-	width: 80%;
-	font-size: 0;
-	text-align: center;
-}
+
 .tr:first-of-type{
 	font-weight: bold;
 }

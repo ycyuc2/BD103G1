@@ -18,7 +18,7 @@
 
 
 	$singleConstelation =$_GET["singleConstelation"]; // 0~11的星座
-	$constelation = array("摩羯座", "水瓶座", "雙魚座", "牧羊座", "金牛座", "雙子座", "巨蟹座", "獅子座", "處女座", "天秤座", "天蠍座", "射手座");	// 數字轉文字陣列
+	$constelation = array("摩羯座", "水瓶座", "雙魚座", "牡羊座", "金牛座", "雙子座", "巨蟹座", "獅子座", "處女座", "天秤座", "天蠍座", "射手座");	// 數字轉文字陣列
 
 
 	echo $_GET["data_type"];
@@ -51,16 +51,16 @@
 		<div class="singleResult result">
 			<div class="resultFrame"></div>
 			<div class="resultTitle">
-				<p class="title">我的結果</p>
+				<img class="titleImg" src="../img/index/text/4.png" alt="感受自己的靈魂狀態">
 				<p><?php echo $constelation[$singleConstelation]; ?></p>
 				<p>整體：<?php 
 					$_SESSION["karma_inc"] = $fortRows[$fortNo[0]]["karma_inc"];
 					echo karmaShow($_SESSION["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
 				?></p>
 			</div>
-			<p class="subtitle title">神準之算，扣緊你心</p>
+			<img class="titleImg" src="../img/index/text/5.png" alt="首當其衝!靈力透視!">
 			<p class="text"><?php echo $fortRows[$fortNo[0]]["fort_content"];?></p>
-			<p class="subtitle title">你的致命弱點與優勢！</p>
+			<img class="titleImg" src="../img/index/text/6.png" alt="令人畏懼的準確預言">
 			<?php if(empty($_SESSION["mem_no"])){?>
 			<p class="blur">
 				<img src="../img/index/blur_words_666H200.png" alt="模糊文字" class="blurImg">
@@ -69,7 +69,7 @@
 			<?php }else{ ?>
 				<p class="text"><?php echo $fortRows[$fortNo[0]]["fort_content2"];?></p>
 			<?php } ?>
-			<p class="subtitle title">為你的戀愛開運</p>
+			<img class="titleImg" src="../img/index/text/7.png" alt="解開你的迷惘">
 			<div class="item">
 				<?php 
 					$sql = "select * from teacher";
@@ -80,10 +80,10 @@
 					$randomTeacher = randomNo($teacher->rowCount());
 				 ?>
 				<p>精準算命老師</p>
-				<img src="<?php echo $teacherRow[$randomTeacher[0]]['teacher_img']; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/findTeacher/'.$teacherRow[$randomTeacher[0]]['teacher_img']; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $teacherRow[$randomTeacher[0]]["teacher_nn"]; ?></p>
-					<p class="itemIntro">簡介:<?php echo $teacherRow[$randomTeacher[0]]["teacher_info"]; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($teacherRow[$randomTeacher[0]]["teacher_info"],0,70,"utf-8").'...'; ?></p>
 					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="specialColumn.php?teacher_no="+<?php echo $teacherRow[$randomTeacher[0]]["teacher_no"]; ?>'>進入專欄</span></span>
 				</div>
 			</div>
@@ -95,12 +95,12 @@
 					$productsRow = $products->fetchAll();
 					$randomproducts = randomNo($products->rowCount());
 				 ?>
-				<p>象徵之幸運物</p>
-				<img src="<?php echo $productsRow[$randomproducts[0]]["pd_pic1"]; ?>" class="itemLeft"></img>
+				<p>專屬必需品</p>
+				<img src="<?php echo '../img/products/'.$productsRow[$randomproducts[0]]["pd_pic1"]; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $productsRow[$randomproducts[0]]["pd_name"]; ?></p>
-					<p class="itemIntro"><?php echo $productsRow[$randomproducts[0]]["pd_describe"]; ?>...</p>
-					<p class="itemPrice">原價：<?php echo $productsRow[$randomproducts[0]]["pd_sale"]; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($productsRow[$randomproducts[0]]["pd_describe"],0,50,"utf-8"); ?>...</p>
+					<p class="itemPrice">特價：<?php echo $productsRow[$randomproducts[0]]["pd_sale"]; ?></p>
 					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow[$randomproducts[0]]["pd_no"]; ?>'>直接購買</span></span>
 				</div>
 			</div>
@@ -157,15 +157,13 @@
 		<div class="matchResult result">
 			<div class="resultFrame"></div>
 			<div class="resultTitle">
-				<p class="title">你與他</p>
+				<img class="titleImg" src="../img/index/text/1.png" alt="命運之輪已悄悄轉動">
 				<p>速配指數：100%</p>
 				<p>整體：吉</p>
 			</div>
-			<p class="subtitle title">你真的了解他嗎</p>
-			<p class="subtitle title">你最該知道的事</p>
+			<img class="titleImg" src="../img/index/text/2.png" alt="透過點算，建立兩人間的連結">
 			<p class="text">天秤是好的開創者，但不能有始有終，牡羊正好可以彌補這個缺點，若雙方都能展現自己的長才，當天秤與牡羊一同處理危機時，可以說是無往不利。在交往後，就算兩個人只是做自己，都能成為相當登對的情人。但如果是在交往前，事情可就沒有那麼簡單了！ 由於天秤跟牡羊是對立的兩個星座，在還未了解對方以前，就算有一方偷偷暗戀對方，另外一方肯定因為習慣及個性的差距對這個人敬而遠之，很容易因為雙方在個性上沒有交集而不了了之。</p>
-			<p class="subtitle title">怎樣才能成就幸福?</p>
-			<p class="subtitle title">若瞭解幸福就掌握在你手中</p>
+			<img class="titleImg" src="../img/index/text/3.png" alt="驚愕!見證預言瞬間">
 			<p class="blur">
 				<img src="../img/index/blur_words_666H200.png" alt="模糊文字" class="blurImg">
 				<label for="loginControl"><span class="payLogin cursorHand">立即登入查看結果</span></label>
@@ -176,16 +174,16 @@
 		<div class="singleResult result">
 			<div class="resultFrame"></div>
 			<div class="resultTitle">
-				<p class="title">我的結果</p>
+				<img class="titleImg" src="../img/index/text/4.png" alt="感受自己的靈魂狀態">
 				<p><?php echo $constelation[$singleConstelation]; ?></p>
 				<p>整體：<?php 
 					$_SESSION["karma_inc"] = $singleFortRows[$fortNo[0]]["karma_inc"];
 					echo karmaShow($_SESSION["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
 				?></p>
 			</div>
-			<p class="subtitle title">神準之算，扣緊你心</p>
+			<img class="titleImg" src="../img/index/text/5.png" alt="首當其衝!靈力透視!">
 			<p class="text"><?php echo $singleFortRows[$fortNo[0]]["fort_content"];?></p>
-			<p class="subtitle title">你的致命弱點與優勢！</p>
+			<img class="titleImg" src="../img/index/text/6.png" alt="令人畏懼的準確預言">
 			<?php if(empty($_SESSION["mem_no"])){?>
 			<p class="blur">
 				<img src="../img/index/blur_words_666H200.png" alt="模糊文字" class="blurImg">
@@ -194,7 +192,7 @@
 			<?php }else{ ?>
 				<p class="text"><?php echo $singleFortRows[$fortNo[0]]["fort_content2"];?></p>
 			<?php } ?>
-			<p class="subtitle title">為你的戀愛開運</p>
+			<img class="titleImg" src="../img/index/text/7.png" alt="解開你的迷惘">
 			<div class="item">
 				<?php 
 					$sql = "select * from teacher";
@@ -205,10 +203,10 @@
 					$randomTeacher = randomNo($teacher->rowCount());
 				 ?>
 				<p>精準算命老師</p>
-				<img src="<?php echo $teacherRow[$randomTeacher[0]]['teacher_img']; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/findTeacher/'.$teacherRow[$randomTeacher[0]]['teacher_img']; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $teacherRow[$randomTeacher[0]]["teacher_nn"]; ?></p>
-					<p class="itemIntro">簡介:<?php echo $teacherRow[$randomTeacher[0]]["teacher_info"]; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($teacherRow[$randomTeacher[0]]["teacher_info"],0,70,"utf-8").'...'; ?></p>
 					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="specialColumn.php?teacher_no="+<?php echo $teacherRow[$randomTeacher[0]]["teacher_no"]; ?>'>進入專欄</span></span>
 				</div>
 			</div>
@@ -220,12 +218,12 @@
 					$productsRow = $products->fetchAll();
 					$randomproducts = randomNo($products->rowCount());
 				 ?>
-				<p>象徵之幸運物</p>
-				<img src="<?php echo $productsRow[$randomproducts[0]]["pd_pic1"]; ?>" class="itemLeft"></img>
+				<p>專屬必需品</p>
+				<img src="<?php echo '../img/products/'.$productsRow[$randomproducts[0]]["pd_pic1"]; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $productsRow[$randomproducts[0]]["pd_name"]; ?></p>
-					<p class="itemIntro"><?php echo $productsRow[$randomproducts[0]]["pd_describe"]; ?>...</p>
-					<p class="itemPrice">原價：<?php echo $productsRow[$randomproducts[0]]["pd_sale"]; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($productsRow[$randomproducts[0]]["pd_describe"],0,50,"utf-8"); ?>...</p>
+					<p class="itemPrice">特價：<?php echo $productsRow[$randomproducts[0]]["pd_sale"]; ?></p>
 					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow[$randomproducts[0]]["pd_no"]; ?>'>直接購買</span></span>
 				</div>
 			</div>
@@ -235,13 +233,13 @@
 		<div class="pairResult result">
 			<div class="resultFrame"></div>
 			<div class="resultTitle">
-				<p class="title">你的他</p>
+				<img class="titleImg" src="../img/index/text/8.png" alt="那個人的心靈特徵">
 				<p><?php echo $constelation[$pairConstelation]; ?></p>
 				<p>整體：<?php echo karmaShow($pairFortRows[$fortNo[1]]["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/?></p>
 			</div>
-			<p class="subtitle title">神準之算，扣緊你心</p>
+			<img class="titleImg" src="../img/index/text/9.png" alt="光譜兩端，兩人間的聯繫">
 			<p class="text"><?php echo $pairFortRows[$fortNo[1]]["fort_content"];?></p>
-			<p class="subtitle title">你的致命弱點與優勢！</p>
+			<img class="titleImg" src="../img/index/text/10.png" alt="毫無贅言!直擊他的內在!">
 			<?php if(empty($_SESSION["mem_no"])){?>
 			<p class="blur">
 				<img src="../img/index/blur_words_666H200.png" alt="模糊文字" class="blurImg">
@@ -250,23 +248,23 @@
 			<?php }else{ ?>
 				<p class="text"><?php echo $pairFortRows[$fortNo[1]]["fort_content2"];?></p>
 			<?php } ?>
-			<p class="subtitle title">為你的戀愛開運</p>
+			<img class="titleImg" src="../img/index/text/11.png" alt="兩人間的阻礙">
 			<div class="item">
 				<p>精準算命老師</p>
-				<img src="<?php echo $teacherRow[$randomTeacher[1]]['teacher_img']; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/findTeacher/'.$teacherRow[$randomTeacher[1]]['teacher_img']; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $teacherRow[$randomTeacher[1]]["teacher_nn"]; ?></p>
-					<p class="itemIntro">簡介:<?php echo $teacherRow[$randomTeacher[1]]["teacher_info"]; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($teacherRow[$randomTeacher[1]]["teacher_info"],0,70,"utf-8").'...'; ?></p>
 					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="specialColumn.php?teacher_no="+<?php echo $teacherRow[$randomTeacher[1]]["teacher_no"]; ?>'>進入專欄</span></span>
 				</div>
 			</div>
 			<div class="item">
-				<p>象徵之幸運物</p>
-				<img src="<?php echo $productsRow[$randomproducts[1]]["pd_pic1"]; ?>" class="itemLeft"></img>
+				<p>專屬必需品</p>
+				<img src="<?php echo '../img/products/'.$productsRow[$randomproducts[1]]["pd_pic1"]; ?>" class="itemLeft"></img>
 				<div class="itemRight">
 					<p class="itemName"><?php echo $productsRow[$randomproducts[1]]["pd_name"]; ?></p>
-					<p class="itemIntro"><?php echo $productsRow[$randomproducts[1]]["pd_describe"]; ?>...</p>
-					<p class="itemPrice">原價：<?php echo $productsRow[$randomproducts[1]]["pd_sale"]; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($productsRow[$randomproducts[1]]["pd_describe"],0,50,"utf-8"); ?>...</p>
+					<p class="itemPrice">特價：<?php echo $productsRow[$randomproducts[1]]["pd_sale"]; ?></p>
 					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow[$randomproducts[1]]["pd_no"]; ?>'>直接購買</span></span>
 				</div>
 			</div>

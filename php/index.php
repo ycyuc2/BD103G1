@@ -81,7 +81,7 @@
         <div class="chooseBirthday">
             <div class="birthdayFrame"></div>
         	<form action="" method="post" class="single">
-                <p class="text">請輸入你的生日</p>
+                <p class="text">請輸入您的生日</p>
                 <p>
                     <span class="year cursorHand"><select name="year"></select></span>
                     <span class="month cursorHand"><select name="month"></select></span>
@@ -92,13 +92,13 @@
             	</p>
             </form>
             <form action="" method="post" class="pair">
-                <p class="text">請輸入你的生日</p>
+                <p class="text">請輸入您的生日</p>
                 <p>
                     <span class="year cursorHand"><select name="year"></select></span>
                     <span class="month cursorHand"><select name="month"></select></span>
                     <span class="date cursorHand"><select name="date"></select></span>
                 </p>
-                <p class="text">請輸入對象的生日</p>
+                <p class="text">請輸入對方的生日</p>
                 <p>
                     <span class="year cursorHand"><select name="pairYear"></select></span>
                     <span class="month cursorHand"><select name="pairMonth"></select></span>

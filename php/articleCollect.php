@@ -17,7 +17,7 @@ try{
         $artInsert->bindValue(':art_no', $_REQUEST["art_no"]);
         $artInsert->bindValue(':last_view', date("YmdHis"));
         $artInsert->execute();
-        echo "取消收藏";
+        echo "已收藏";
     }else{
         $sql = "delete from art_collection where mem_no = :mem_no and art_no = :art_no ";
         $artDelete = $pdo->prepare($sql);

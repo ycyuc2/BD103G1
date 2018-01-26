@@ -3,6 +3,10 @@
 	padding: 0;
 	font-family: "微軟正黑體";
 }
+
+@font-face {
+	font-family: "王漢宗特明體 – 標準";
+	src: url("../font/王漢宗特明體 – 標準.ttf"); }
 .cursorHand:hover{
 	cursor: url('../img/share/cursor.png') 12 5, auto;
 }
@@ -58,14 +62,14 @@
 	top: 13.33%;
 	left: 0;right: 0;
 	margin: 0 auto;
-	filter: drop-shadow( 0px 0px 3px rgba(255, 183, 76, 1)) drop-shadow( 0px 0px 4px rgba(255, 183, 76, 0.8)) drop-shadow( 0px 0px 2px rgba(255, 183, 76, 1));
+	filter:  drop-shadow( 0px 0px 2px rgba(255, 183, 76, 0.8)) drop-shadow( 0px 0px 2px rgba(255, 255, 255, 1)) drop-shadow( 0px 0px 2px rgba(255, 191, 99, .7)) drop-shadow( 0px 0px 2px rgba(255, 191, 99, .7)) drop-shadow( 0px 0px 1px rgba(255, 191, 99, .7)) ;
 }
 .indexSubtitle{
 	display: inline-block;
 	width: 141%;	height: 6.17%;
 	top: 45.33%;
 	left: -17.42%;
-	filter: drop-shadow( 0px 0px 3px rgb(245, 187, 100) )  drop-shadow( 0px 0px 2px rgb(253, 188, 89));
+	filter: drop-shadow( 0px 0px 1px rgba(255, 183, 76, 0.8)) drop-shadow( 0px 0px 1px rgba(255, 255, 255, 1))drop-shadow( 0px 0px 1px rgba(255, 191, 99, .7)) drop-shadow( 0px 0px 1px rgba(255, 191, 99, .7)) ;
 }
 .indexImpulse{
 	display: inline-block;
@@ -152,8 +156,8 @@
 	box-sizing: border-box;
 	top: 0;left: 0;
 	width: 100%;	height: 100%;
-	border: 45px solid transparent;
-	border-image: url(../img/index/frame2.png) 90 90 repeat;
+	border: 35px solid transparent;
+	border-image: url(../img/share/frame_960x960.png) 70 70 repeat;
 	filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
 }
 .birthdayControl{
@@ -208,7 +212,7 @@
 	}
 	.chooseBirthday .birthdayFrame{
 		border: 25px solid transparent;
-		border-image: url(../img/index/frame2.png) 50 50 repeat;
+		border-image: url(../img/share/frame_960x960.png) 50 50 repeat;
 	}
 	.chooseBirthday p{
 		font-size: 0;
@@ -243,7 +247,8 @@
 	filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, 0.9))
 			drop-shadow( 0px 0px 5px rgba(255, 255, 255, 0.7))
 			drop-shadow( 0px 0px 7px rgba(255, 255, 255, 0.5));
-	margin-bottom: 100px;
+	margin-top: 300px;
+	margin-bottom: 50px;
 }
 .result{
 	box-sizing: border-box;
@@ -261,7 +266,7 @@
 	top: 0;left: 0;
 	width: 100%;	height: 100%;
 	border: 50px solid transparent;
-	border-image: url(../img/index/frame2.png) 90 90 repeat;
+	border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
 	filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
     box-sizing: border-box;
 
@@ -429,5 +434,17 @@
 		width: 100%;
 		font-size: 16px;
 		margin-bottom: 40px;
+	}
+}
+.result .titleImg{
+	width: 60%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+@media all and (max-width: 479px) {
+	.result .titleImg{
+		width: 90%;
+		margin-top: 20px;
+		margin-bottom: 20px;
 	}
 }
