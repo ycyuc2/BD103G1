@@ -123,7 +123,7 @@ try {
 							<a href="specialColumn.php?teacher_no='.$teacherNo"class="btnText btnText4">老師專欄</a>
 						</span>
 					</div>
-		<?}
+		<?php }
 	}
  ?>
 				</div>
