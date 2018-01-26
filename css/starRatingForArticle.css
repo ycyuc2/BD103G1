@@ -26,7 +26,6 @@ fieldset, label{
 }
 
 .rating > label{ 
-    color: rgba(183,162,147, 0.8); 
     float: right; 
     transition: .2s;
 }
