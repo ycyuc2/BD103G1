@@ -138,10 +138,10 @@
             <h3>業障干擾值</h3>
             <img src="../img/showKarma/700.png">
             <span><?php
-	            if( empty($_SESSION["karma_val"]) ){
-					echo $_SESSION["karma_inc"]+100;
+	            if( isset($_SESSION["karma_val"]) ){
+	            	echo $_SESSION["karma_val"];
 				}else{
-					echo $_SESSION["karma_val"];
+					echo $_SESSION["karma_inc"]+100;
 				}?>
 			</span>
         </div>

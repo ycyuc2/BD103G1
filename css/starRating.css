@@ -6,7 +6,7 @@ fieldset, label{
 
 .rating{ 
     border: none;
-    float: left;
+    float: right;
 }
 
 .rating > input{

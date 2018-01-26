@@ -78,20 +78,25 @@ body {
     display: block;
     clear: both; }
   .frame .title {
+    font-size: 0;
     margin-top: 2%;
     background-color: #564826;
-    padding-left: 10%;
    }
     .frame .title:after {
       content: '';
       display: block;
       clear: both; }
+    .frame .title h2:first-of-type {
+      margin-left: 17%;
+    }
     .frame .title h2 {
-      float: left;
-      margin-left: 12%;
+      display: inline-block;
+      margin-left: 2%;
+      width: 15%;
       font-size: 14px;
       color: #fff;
       font-weight: 200;
+      text-align: center;
       letter-spacing: 2px; }
       @media all and (max-width: 479px) {
         .frame .title h2 {
@@ -106,8 +111,19 @@ body {
       display: block;
       clear: both; }
 
-    .frame .cartList .section table .item td {
-      padding-left: 10%;
+    .frame .cartList section table .item{
+      font-size: 0;
+    }
+    .frame .cartList section table .item td{
+      text-align: center;
+      font-size: 16px;
+      width: 15%;
+    }
+    .frame .cartList section table .item td+td{
+      padding-left: 2%;
+    } 
+    .frame .cartList section table .item td .adc{
+      width: 100%;
     }
   .frame hr {
     background-color: #000;

@@ -24,6 +24,10 @@ body{
     z-index: -5;
     min-width: 1500px;
 }
+.headerBlank{
+	width: 100%;
+	height: 70px;
+}
 .specialColumn{
 	position: relative;
 	max-width: 960px;
@@ -75,19 +79,33 @@ body{
 	position: relative;
 	padding: 70px;
 }
-
+@media all and (min-width: 760px) and (max-width: 959px) {
+		.specialColumn .columnBorder {
+			padding: 70px 20px;
+		}
+}
+@media all and (min-width: 480px) and (max-width: 759px) {
+	.specialColumn .columnBorder {
+		padding: 70px 15px;
+	}
+}
+@media all and (max-width: 479px) {
+	.specialColumn .columnBorder {
+		padding: 70px 10px;
+	}
+}
 .specialColumn .columnBorder:after{
 	content: '';
 	display: block;
 	clear: both;
 }
 .headerTitle{
-	width: 100%;
+	width: 80%;
 	text-align: center;
-	margin: 80px 10px;
+	margin: 150px auto 0;
 }
 .headerTitle img{
-	width: 40%;
+	width: 80%;
 }
 
 .text{
@@ -95,13 +113,18 @@ body{
 	margin: 30px auto;
 	text-align: center;
 }
-.text p{
-	font-size: 20px;
-	line-height: 38px;
-	letter-spacing: 1px;
-	color: #533e2f;
+@media all  and (max-width: 759px) {
+	.text{
+		width: 90%;
+	}
 }
-
+.text p{
+	font-size: 18px;
+	line-height: 42px;
+	letter-spacing: 6px;
+	color: #eee;
+	margin-bottom: 20%;
+}
 .text p span{
 	font-size: 34px;
 }
@@ -129,7 +152,7 @@ body{
 	color: #b41616;
 	font-weight: 400;
 	text-shadow: 0px -1px 2px #000;
-	animation: 0.5s move infinite;
+	animation: 2s move infinite;
 	transition:0.5s ;
 }
 @keyframes  move{
@@ -142,40 +165,72 @@ body{
 	}
 }
 .countBall{
-	width: 50%;
+	margin-left: 5%;
+	margin-top: 5%;
+	width: 45%;
 	float: left;
 	position: relative;
+
 }
 .countBall img{
 	width: 100%;
 }
+
 .countBall .kar{
-	position: absolute;
-	
+	margin-top: -30px;
+	text-align: center;
+	font-size: 70px;
+	color: #880000;
+	text-shadow: 1px 3px 2px #000, 1px 3px 3px #000;
 }
-@media screen and (max-width:960px){
+	/* .countWay .countInfo p span.clickBall {
+	display: inline-block;
+	vertical-align: top;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	color: #000000;
+	background-color: #800;
+	text-align: center;
+	padding-left: 0;
+	line-height: 50px;
+	margin-top: -10px;
+	margin-left: 20px;
+	cursor: url(../img/share/cursor.png) 20 15,
+	auto;
+}
+.countWay .countInfo p span.clickBall:hover{
+	color: #aaa;
+}
+.countWay .countInfo p span.clickBall:active {
+	cursor: url(../img/share/cursor2.png) 20 15,
+	auto;
+} */
+@media screen and (max-width:759px){
 	.countWay {
 		width: 100%;
 		float:none;
+		margin: 0 auto;
+		text-align: center;
 	}
 	.countBall {
-		width: 100%;
+		width: 70%;
 		float:none;
+		margin: 0 auto;
 	}
-}
-@media all and (min-width: 760px) and (max-width: 959px) {
-	.countWay .countInfo p span:nth-of-type(1) {
+	.countWay .countInfo {
+		padding-left: 0;
 	}
-	.countWay .countInfo p span:nth-of-type(2) {
+		.countWay .countInfo p span:nth-of-type(1) {
+			font-size: 23px;
 	}
-}
-@media all and (min-width: 480px) and (max-width: 759px) {
-	.countWay .countInfo p span:nth-of-type(1) {}
-
-	.countWay .countInfo p span:nth-of-type(2) {}
-}
-@media all and (max-width: 479px) {
-	.countWay .countInfo p span:nth-of-type(1) {}
-
-	.countWay .countInfo p span:nth-of-type(2) {}
+	.countWay .countInfo p span:nth-of-type(2){
+		font-size: 17px;
+	}
+	.headerTitle img{
+		width: 100%;
+	}
+	.karCounting h2 {
+		font-size: 30px;
+	}
 }

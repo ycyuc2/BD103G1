@@ -41,6 +41,7 @@
 		$fortRows = $fortune->fetchAll();
 		$fortNo = randomNo( $fortune -> rowCount() );
 		if (empty($_SESSION["fort_no"])) {
+			$_SESSION["karma_inc"] = $fortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["fort_no"] = $fortRows[$fortNo[0]]["fort_no"];
 		}else{
 			$fortNo[0] = 0;
@@ -53,9 +54,8 @@
 			<div class="resultTitle">
 				<img class="titleImg" src="../img/index/text/4.png" alt="感受自己的靈魂狀態">
 				<p><?php echo $constelation[$singleConstelation]; ?></p>
-				<p>整體：<?php 
-					$_SESSION["karma_inc"] = $fortRows[$fortNo[0]]["karma_inc"];
-					echo karmaShow($_SESSION["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
+				<p>整體：<?php
+					echo karmaShow($fortRows[$fortNo[0]]["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
 				?></p>
 			</div>
 			<img class="titleImg" src="../img/index/text/5.png" alt="首當其衝!靈力透視!">
@@ -130,6 +130,7 @@
 		$singleFortRows = $fortune->fetchAll();
 		$fortNo = randomNo( $fortune -> rowCount() );
 		if (empty($_SESSION["fort_no"])) {
+			$_SESSION["karma_inc"] = $singleFortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["fort_no"] = $singleFortRows[$fortNo[0]]["fort_no"];
 		}else{
 			$fortNo[0] = 0;
@@ -176,9 +177,8 @@
 			<div class="resultTitle">
 				<img class="titleImg" src="../img/index/text/4.png" alt="感受自己的靈魂狀態">
 				<p><?php echo $constelation[$singleConstelation]; ?></p>
-				<p>整體：<?php 
-					$_SESSION["karma_inc"] = $singleFortRows[$fortNo[0]]["karma_inc"];
-					echo karmaShow($_SESSION["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
+				<p>整體：<?php
+					echo karmaShow($singleFortRows[$fortNo[0]]["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
 				?></p>
 			</div>
 			<img class="titleImg" src="../img/index/text/5.png" alt="首當其衝!靈力透視!">

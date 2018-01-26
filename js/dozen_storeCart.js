@@ -15,7 +15,6 @@ window.addEventListener('load', function (){
    
 	var itemString = storage.getItem('addItemList');
 	var items = itemString.substr(0, itemString.length - 2).split(', ');
-	changeItemAmount();
 	newSection = document.createElement('section');
 	newTable = document.createElement('table');
    
@@ -41,7 +40,8 @@ window.addEventListener('load', function (){
 	 var itemTitle = itemValue.split('|')[0];
 	 var itemImage = itemValue.split('|')[1];
 	 var itemPrice = parseInt(itemValue.split('|')[2]);
-	 var amount = parseInt(itemValue.split('|')[3]);
+	 var itemKarma = parseInt(itemValue.split('|')[3]);
+	 var amount = parseInt(itemValue.split('|')[4]);
    
 	 //建立每個品項的清單區域 -- tr
 	 var trItemList = document.createElement('tr');
@@ -51,14 +51,11 @@ window.addEventListener('load', function (){
    
 	 //商品圖片 -- 第一個td
 	 var tdImage = document.createElement('td');
-	 tdImage.style.width = '23%';
-	 tdImage.valign = 'center';
    
 	 var image = document.createElement('img');
 	 // console.log(itemImage);
 	 image.className = 'adc';
 	 image.src = '../img/products/' + itemImage;
-	 image.width = '100';
    
 	 tdImage.appendChild(image);
 	 trItemList.appendChild(tdImage);
@@ -69,9 +66,7 @@ window.addEventListener('load', function (){
    
 	 //商品名稱 -- 第二個td
 	 var tdTitle = document.createElement('td');
-	 tdTitle.style.width = '16%';
 	 tdTitle.id = itemKey;
-	 tdTitle.valign = 'center';
    
 	 var pTitle = document.createElement('p');
 	 pTitle.innerText = itemTitle;
@@ -81,10 +76,12 @@ window.addEventListener('load', function (){
    
 	 trItemList.appendChild(tdTitle);
 
-	
+	//單價 -- 第三個td
+	 var tdKarma = document.createElement('td');
+	 tdKarma.innerText = itemKarma;
+	 trItemList.appendChild(tdKarma);
 	 //單價 -- 第三個td
 	 var tdPrice = document.createElement('td');
-	 tdPrice.style.width = '11%';
 	 tdPrice.setAttribute('data-price', itemPrice);
 	 tdPrice.innerText = itemPrice;
    
@@ -92,14 +89,12 @@ window.addEventListener('load', function (){
    
 	 //數量 -- 第四個td
 	 var tdItemCount = document.createElement('td');
-	 tdItemCount.style.width = '1%';
    
 	 var itemCount = document.createElement('input');
 	 itemCount.type = 'number';
 	 itemCount.min = 1;
 	 itemCount.value = amount;
 	 itemCount.className = 'count';
-	 itemCount.style.width = '50px';
 	 //itemCount.appendChild[1]
 	 
 
@@ -111,14 +106,9 @@ window.addEventListener('load', function (){
    
 	 //x -- 第五個td
 	 var tdDelete = document.createElement('td');
-	 tdDelete.style.width = '18%';
    
 	 var delButton = document.createElement('button');
 	 delButton.innerText = 'x';
-	 delButton.style.width = '20px';
-	 delButton.style.height = '20px';
-	 delButton.style.marginLeft = '70px';
-	 delButton.style.border = '1px solid black';
 	 delButton.addEventListener('click', deleteItem);
    
 	 tdDelete.appendChild(delButton);
@@ -138,9 +128,9 @@ window.addEventListener('load', function (){
 	 
 	var itemValue = storage.getItem(itemId);
 	//刪除該筆資料之前，先將金額扣除
-	document.getElementById('subtotal').innerText -= itemValue.split('|')[2]*itemValue.split('|')[3];
+	document.getElementById('subtotal').innerText -= itemValue.split('|')[2]*itemValue.split('|')[4];
 	 //刪除該筆資料之前，先將數量扣除
-	document.getElementById('amount').textContent -= itemValue.split('|')[3];
+	document.getElementById('amount').textContent -= itemValue.split('|')[4];
 	 //清除storage的資料
 	 storage.removeItem(itemId);
 	 storage['addItemList'] = storage['addItemList'].replace(itemId + ', ', '');
@@ -152,35 +142,17 @@ window.addEventListener('load', function (){
     cartCountMinus();
 	}
    
-	function changeItemAmount() {
-		var amount =0;
-		console.log(items);
-		for (let i = 0; i < items.length; i++) {
-			amount += parseInt(storage.getItem(items[i]).split('|')[3]);
-		}
-		document.getElementById('amount').textContent = amount ;
-	}
+
 
 
 	function changeItemCount() {
-	var inputValue = parseInt(this.value);
-	var itemId = this.parentNode.parentNode.childNodes[1].getAttribute('id');
-	itemValue = storage[itemId].substr(0,storage[itemId].lastIndexOf('|'));
-	itemValue += "|" + inputValue;
-	storage[itemId] = itemValue;
-	 let totalAmount = 0
-	 let total = 0;
-	
-		for (let i = 0; i < items.length; i++) {
-			var cost = parseInt(storage[items[i]].split('|')[2]);
-			var amount = parseInt(storage[items[i]].split('|')[3]);
-			
-			totalAmount += amount;
-			total += cost * amount;
-
-		}
-	document.getElementById('subtotal').textContent = total;
-	document.getElementById('amount').textContent = totalAmount ;
+		var inputValue = parseInt(this.value);
+		var itemId = this.parentNode.parentNode.childNodes[1].getAttribute('id');
+		itemValue = storage[itemId].substr(0,storage[itemId].lastIndexOf('|'));
+		itemValue += "|" + inputValue;
+		storage[itemId] = itemValue;
+		sum();
+		
 	 }
 	
 
@@ -190,7 +162,52 @@ window.addEventListener('load', function (){
 	//  itemValue +="|"+inputValue;
 	//  storage[id] = itemValue;
 	//  let subTotal = inputValue * parseInt(storage[id].split('|')[2]);
+	function sum() {
+		let totalAmount = 0;
+		let totalKarma = 0;
+		let total = 0;
 	
+		for (let i = 0; i < items.length; i++) {
+			var cost = parseInt(storage[items[i]].split('|')[2]);
+			var karma = parseInt(storage[items[i]].split('|')[3]);
+			var amount = parseInt(storage[items[i]].split('|')[4]);
+			
+			totalAmount += amount;
+			totalKarma += karma * amount;
+			total += cost * amount;
+
+		}
+		document.getElementById('subtotal').textContent = total;
+		document.getElementById('amount').textContent = totalAmount ;
+		document.getElementById('karma').textContent = totalKarma ;
+	}
+
+	sum();
+	document.querySelector('.agree .pay').addEventListener('click', function () {
+		if(document.querySelector('.agree input').checked){
+			var url = '';
+			for (var i = 0; i < items.length; i++) {
+				url +='pdname'+i+'='+items[i]+'&amount'+i+'='+parseInt(storage[items[i]].split('|')[4])+'&';
+			}
+			url += 'total='+document.getElementById('subtotal').textContent+'&total_karma='+document.getElementById('karma').textContent;
+
+			var xhttp = new XMLHttpRequest();
+		    xhttp.onreadystatechange = function() {
+		        if (this.readyState == 4 && this.status == 200) {
+		        	alert('購買成功');
+		        	for (var i = 0; i < items.length; i++) {
+		        		storage.removeItem(items[i]);
+		        	}
+		        	storage.removeItem('addItemList');
+		        	location.href = '../php/index.php';
+		        }
+		    };
+		    xhttp.open("GET", "../php/cartPay.php?"+url);
+		    xhttp.send();
+		}else{
+			alert('請勾選同意購買須知');
+		}
+	});
 });
 
 function cartCountMinus() {

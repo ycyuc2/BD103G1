@@ -18,7 +18,7 @@ session_start();
 	<?php 
 		require_once("connectBD103G1.php");
 		require_once("header.php");
-		$_SESSION["where"] = 'article.php?art_no='.$_REQUEST["art_no"];
+		$_SESSION["where"] = 'karmainfo.php';
 	?>
 
 	<div class="background">
@@ -29,25 +29,13 @@ session_start();
 		
 	</div>
 	<div class="headerBlank"></div>
-	<?php 
-		$sql = "select * from article join teacher using(teacher_no) where art_no = :art_no";
-		$art = $pdo->prepare($sql);
-		$art->bindValue(":art_no", $_REQUEST["art_no"]);
-		$art->execute();
-		$artRow = $art->fetchObject();
-	 ?>
 
 <!-- 標題 -->
         <div class="headerTitle">
-            <img src="../img/karmainfo/title.png">
+            <img src="../img/index/text/kama.png">
         </div>
 
-<div class="specialColumn">
-<!-- 外框專用 -->
-    <div class="border"></div>
-    <div class="columnBorder">
-            
-        
+
         
         <!-- 簡介 -->
         <div class="preface">
@@ -60,22 +48,29 @@ session_start();
                 </p>
             </div>
         </div>
+
+<div class="specialColumn">
+<!-- 外框專用 -->
+    <div class="border"></div>
+    <div class="columnBorder">
+            
+        
+
         <div class="karCounting">
 
             <h2>業障干擾計算方式</h2>
-            <div class="countBall"><img src="../img/karmaInfo/400.png" alt="業障"> <div class="kar"> <p>200</p></div></div>
-            <div class="countWay">
+            <div class="countBall"><img src="../img/karmaInfo/400.png" alt="業障"> <div class="kar"><p></p></div></div>
+            <div class="countWay">              
+                <div class="countInfo"><p><span>商品</span ><span >依照商品業力扣除值</span></p></div>
                 <div class="countInfo"><p><span>每日運勢</span><span>按照每日運勢增減</span></p></div>
-                <div class="countInfo"><p><span>算命結果-大吉</span><span>+0</span></p></div>
-                <div class="countInfo"><p><span>算命結果-吉</span><span>+50</span></p></div>
-                <div class="countInfo"><p><span>算命結果-凶</span><span>+100</span></p></div>
-                <div class="countInfo"><p><span>算命結果-大凶</span><span>+200</span></p></div>
-                <div class="countInfo"><p><span>購買商品</span><span>依照商品業力扣除值</span></p></div>
-
+                <div class="countInfo"><p><span>算命結果-大吉</span><span class="clickBall">+0</span></p></div>
+                <div class="countInfo"><p><span>算命結果-吉</span><span class="clickBall">+50</span></p></div>
+                <div class="countInfo"><p><span>算命結果-凶</span><span class="clickBall">+100</span></p></div>
+                <div class="countInfo"><p><span>算命結果-大凶</span><span class="clickBall">+200</span></p></div>
+            
             </div>
         </div>
-        <!-- 業障干擾計算表格 -->
-        
+ 
 
     </div>
 </div>

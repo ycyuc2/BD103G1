@@ -25,6 +25,7 @@ try {
   $PRODUCT_NAME = $product_rows['pd_name'];
   $PRODUCT_PRICE = $product_rows['pd_price'];
   $PRODUCT_INTRO = $product_rows['pd_describe'];
+  $PRODUCT_KARMA = $product_rows['karma_dec'];
 
  $result .="<div class='content'>
                     
@@ -51,7 +52,7 @@ try {
                  <div id='pd$PRODUCT_NO ' class='name'>
                  <span class='addButton buyNow'>
                          加入購物車
-                         <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|0' '>
+                         <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|',$PRODUCT_KARMA,'|0' '>
                      </span>
 
 
@@ -59,7 +60,7 @@ try {
 
                      <span class='addButton buyNow'>         
                          立即購買
-                         <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|0' '>
+                         <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|',$PRODUCT_KARMA,'|0' '>
                      </span>
                  </div>
              

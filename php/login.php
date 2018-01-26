@@ -27,14 +27,14 @@
 		    		$_SESSION["obj_fort_no"] = $memRow->obj_fort_no;
 		    	}	//obj_fort_no if-else
 
-				if(empty($memRow->karma_val)){
-					$_SESSION["karma_val"] = $_SESSION["karma_inc"]+100;
-				}else{
+				if( isset($_SESSION["karma_val"]) ){
 					$_SESSION["karma_val"] = $memRow->karma_val;
+				}else{
+					$_SESSION["karma_val"] = $_SESSION["karma_inc"]+100;
 				}	//karma value if-else
 				$_SESSION["karma_inc"] = 0;
 		    }elseif($_SESSION["fort_sta"] == 1){
-				if( empty($memRow->karma_val) ){
+				if( isset($_SESSION["karma_val"]) ){
 		    		$sql = "update member set fort_sta = :fort_sta, fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = ifnull(karma_val, 0)+".$_SESSION["karma_inc"]."+100 where mem_no = :mem_no";
 				}else{
 					$sql = "update member set fort_sta = :fort_sta, fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = ifnull(karma_val, 0)+".$_SESSION["karma_inc"]." where mem_no = :mem_no";
@@ -45,10 +45,10 @@
 				$fort_sta -> bindValue(":obj_fort_no",$_SESSION["obj_fort_no"]);
 				$fort_sta -> bindValue(":mem_no",$memRow->mem_no);
 				$fort_sta -> execute();
-				if( empty($memRow->karma_val) ){
-					$_SESSION["karma_val"] = $memRow->karma_val+$_SESSION["karma_inc"]+100;	
-				}else{
+				if( isset($_SESSION["karma_val"]) ){
 					$_SESSION["karma_val"] = $memRow->karma_val+$_SESSION["karma_inc"];
+				}else{
+					$_SESSION["karma_val"] = $memRow->karma_val+$_SESSION["karma_inc"]+100;	
 				}
 				$_SESSION["karma_inc"] = 0;
 		    }
