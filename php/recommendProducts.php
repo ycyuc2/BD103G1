@@ -28,7 +28,7 @@ $_SESSION["where"] = "recommendProducts.php";
 		
 	</div>
 
-	<div class="headerBlank"></div>
+
 <?php 
 
 try{
