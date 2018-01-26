@@ -90,7 +90,7 @@
                                             <div  id="pd<?php echo $productRow["pd_no"] ?>" class="name" >
                                                 
                                                 <span class="addButton buyNow btnM"><span class="btnText btnText4">加入購物車</span>
-                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                                <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|',$productRow["karma_dec"],'|0' ?>">
                                                 
                                                 </span>
 
@@ -99,7 +99,7 @@
                                             <br>
                                             
                                                 <span class="addButton buyNow btnM"><span class="btnText btnText4">立即購買</span>
-                                                    <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                                    <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|',$productRow["karma_dec"],'|0' ?>">
                                                 </span>
                                             </div>
                                         </div>

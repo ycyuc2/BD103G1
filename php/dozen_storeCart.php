@@ -1,7 +1,7 @@
 <?php 
-	ob_start();
-    session_start();
-    ?>
+ob_start();
+session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/dozen_storeCart.css">
-
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/dozen_storeCart.js"></script>
     <script src="../js/count.js"></script>
@@ -75,7 +74,7 @@
 
        <hr>
 
-       <p class="all">共<span id='amount'>0</span>件商品，總金額<span id="subtotal">0</span>元</p>
+       <p class="all">共<span id='amount'>0</span>件商品減少<span id='karma'>0</span>業力，總金額<span id="subtotal">0</span>元</p>
 
        <h2 class="know">購買須知</h2>
        <div class="contract">
@@ -137,7 +136,7 @@
        </div>
 
        <div class="agree">
-       <input type="radio"><p>我同意</p>
+       <input type="checkbox"><p>我同意</p>
        <br>
        <a class="pay" href="#">結帳</a>
         </div>
