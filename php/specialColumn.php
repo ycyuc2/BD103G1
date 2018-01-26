@@ -110,14 +110,7 @@ try {
 						<a href="recommendProducts.php?teacher_no=<?php echo $_REQUEST["teacher_no"] ?>" class="btnText btnText4">商品推薦</a>
 					</span>
 				</div>
-				<div class="middle">
-					<form action="articlePost.php" method="post">
-						<span class="btnM">
-							<input type="hidden" name="teacherNo" value="<?php echo $_REQUEST["teacher_no"]?>">
-							<input type="submit" class="btnText btnText2" value="發文"></input>
-						</span>
-					</form>
-				</div>	
+
 				<div class="right">
 						<span class="btnM">
 							<p href="specialColumn.php?teacher_no='.$teacherNo"class="btnText btnText4">老師專欄</p>
@@ -145,10 +138,9 @@ try {
 
 				<hr class="hr">
 
-
-				<!-- 商品推薦 -->
-				<div class="merchandise">
-					<h2>商品推薦</h2>
+<?php if(isset($_SESSION["teacher_no"])==false){  ?>
+<div class="merchandise">
+<h2>商品推薦</h2>
 
 
 <?php 
@@ -168,15 +160,17 @@ try {
 	foreach( $recommend_rows as $i=>$recommendRow){
  ?>
 					<div class="content">
-						<div class="merchandisePhoto">
-							<div class="picBorder"></div>
-							<?php echo '<img class="photo" src="../img/products/',$recommendRow["pd_pic1"],'" alt="">' ?>
-						</div>
+							<div class="merchandisePhoto">
+								<a href="dozen_storedetail.php?pd_no=<?php echo $recommendRow["pd_no"]?>">
+								<div class="picBorder"></div>
+								<img class="photo" src="../img/products/<?php echo $recommendRow["pd_pic1"]?>" alt="">
+								</a>
+							</div>
+						
 						<div class="merchandiseIntro">
+							<a href="dozen_storedetail.php?pd_no=<?php echo $recommendRow["pd_no"]?>">
 							<p>
-									<a href="dozen_storedetail.php?pd_no=<?php echo $recommendRow["pd_no"]?>">
-									<?php echo $recommendRow["pd_name"] ?>	
-									</a>
+								<?php echo $recommendRow["pd_name"] ?>	
 							</p>
 							<p>
 								<?php echo mb_substr($recommendRow["pd_describe"],0,50,"utf-8")."..." ?>
@@ -185,6 +179,7 @@ try {
 								<span>$<?php echo $recommendRow["pd_price"] ?></span>
 								<span><?php echo $recommendRow["pd_sale"] ?> </span>元
 							</p>
+							</a>
 						</div>
 					</div>
 
@@ -204,13 +199,30 @@ try {
 
 			</div>
 				<hr class="hr">
+<?php }?>
+
 
 
 
 				<div class="articleList">
 					<h2>文章列表</h2>
+<?php 
+	if (isset($_SESSION["teacher_no"])) {
+		if($_SESSION["teacher_no"]==$teacherNo){?>
+				<div class="newArticle">
+					<form action="articlePost.php" method="post">
+						<span class="btnM">
+							<input type="hidden" name="teacherNo" value="<?php echo $_REQUEST["teacher_no"]?>">
+							<input type="submit" class="btnText btnText2" value="發文"></input>
+						</span>
+					</form>
+				</div>	
 
 
+		<?php }
+	}
+ ?>
+	
 
 
 <?php 
@@ -232,21 +244,17 @@ try {
 				
 					<div class="article first">
 						<div class="pic">
+							<a href="article.php?art_no=<?php echo $articleRow["art_no"]?>"> 
 							<div class="picContainer">
 								<div class="picBorder"></div>
 								<?php echo '<img src="../img/article/'.$articleRow["art_img_1"].'">' ?>
 							</div>
-						</div>
+						</a>
+						</div><a href="article.php?art_no=<?php echo $articleRow["art_no"]?>">
 						<div class="content">
 							<div class="topic">
-								<h3>
-									<?php echo 
-									'<a href="article.php?art_no='
-									.$articleRow["art_no"]
-									.'">'
-									.$articleRow["art_title"]
-									.'</a>' 
-									?>
+								<h3> 
+									 <?php echo $articleRow["art_title"] ?> 
 										
 								</h3>
 								<div class="detail">
@@ -256,10 +264,10 @@ try {
 							<div class="preview">
 								<p>
 									<?php echo mb_substr($articleRow["art_content_1"],0,100,"utf-8")."..." ?>
-										
+									<span>more</span>
 								</p>
 							</div>
-						</div>
+						</div></a>
 
 						<?php 
 							if (isset($_SESSION["teacher_no"])) {

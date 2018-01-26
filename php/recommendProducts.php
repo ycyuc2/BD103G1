@@ -111,13 +111,6 @@ try{
 						</span>
 					</div>
 					<div class="middle">
-					<form action="articlePost.php" method="post">
-						<span class="btnM">
-							<input type="hidden" name="teacherNo" value="<?php echo $_REQUEST["teacher_no"]?>">
-							<input type="submit" class="btnText btnText2" value="發文"></input>
-						</span>
-					</form>
-				</div>	
 					<div class="right">
 						<span class="btnM">
 							<a href="specialColumn.php?teacher_no=<?php echo $_SESSION['teacher_no']?> "class="btnText btnText4">老師專欄</a>
@@ -140,11 +133,6 @@ try{
 	</div>
 </div>
 
-<?php 
-    // 到products資料庫撈出商品的細項
-    $sql="select  * from products where pd_no =?" ;
-    $pd=$pdo->prepare($sql);
-?>
 
 
 

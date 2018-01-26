@@ -87,13 +87,17 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     letter-spacing: 6px;
     padding-left: 6px;
     text-align: center;
+    color:#000;
+    font-size: 15px;
 }
 .teacher .teacherBorder .btnM {
     display: block;
     margin: 15px auto;
 }
-.teacher .teacherBorder .btnM p {
+.teacher .teacherBorder .btnMRec p {
     color: rgb(223, 211, 174);
+        font-size: 15px;
+
 }
 .teacher .teacherBorder .merchandise.recommend {
     margin: 15px 0 0;
@@ -236,6 +240,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
 
 .teacher .teacherBorder .productsSelect .container .content {
     display: inline-block;
+    vertical-align: top;
     vertical-align: center;
     margin: 0;
     padding: 10px;
@@ -278,11 +283,10 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     box-sizing: border-box;
     float: left;
     margin: 0 1.66666%;
-   
 }
 .teacher .teacherBorder .merchandise.recommend .content.drag .merchandiseIntro{
     padding:5px 10px 0 0;
-   margin: 15px -10px 0 0;
+    margin: 15px -10px 0 0;
     border-right:1px #3a2912 double;
     box-sizing: border-box;
 }
@@ -291,7 +295,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
 }
 
 .teacher .teacherBorder .merchandise .content .merchandiseIntro p:nth-of-type(2) span:nth-of-type(2) {
-    font-size: 40px;
+    font-size: 25px;
     color: #800;
     font-weight: bold;
 }
@@ -370,4 +374,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
         margin: 15px auto;
         display: block;
     }
+}
+hr {
+    border-color: #533e2f;
 }
