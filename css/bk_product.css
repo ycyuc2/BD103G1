@@ -8,31 +8,43 @@
 	vertical-align: middle;
 }
 .tr .no{
-	width: 9%;
+	width: 5%;
 }
 .tr .category{
-	width: 9%;
+	width: 5%;
 }
 .tr .name{
-	width: 20%;
+	width: 13%;
 }
 .tr .price{
-	width: 10%;
+	width: 5%;
+}
+.tr .sale{
+	width: 5%;
 }
 .tr .stock{
-	width: 9%;
+	width: 5%;
 }
 .tr .decrement{
-	width: 9%;
+	width: 7%;
+}
+.tr .pic{
+	width: 10%;
+}
+.tr .describe{
+	width: 30%;
 }
 .tr .stat{
-	width: 9%;
+	width: 5%;
 }
 .tr .alter{
-	width: 15%;
+	width: 10%;
 }
 .tr .alter a{
 	margin-left: 10%;
+}
+.right > div:last-child{
+	border-bottom: 0;
 }
 
 	/*lightBox*/
