@@ -100,12 +100,12 @@ body{
 	clear: both;
 }
 .headerTitle{
-	width: 100%;
+	width: 80%;
 	text-align: center;
-	margin: 80px 10px;
+	margin: 150px auto 0;
 }
 .headerTitle img{
-	width: 50%;
+	width: 80%;
 }
 
 .text{
@@ -113,13 +113,18 @@ body{
 	margin: 30px auto;
 	text-align: center;
 }
-.text p{
-	font-size: 20px;
-	line-height: 38px;
-	letter-spacing: 1px;
-	color: #533e2f;
+@media all  and (max-width: 759px) {
+	.text{
+		width: 90%;
+	}
 }
-
+.text p{
+	font-size: 18px;
+	line-height: 42px;
+	letter-spacing: 6px;
+	color: #eee;
+	margin-bottom: 20%;
+}
 .text p span{
 	font-size: 34px;
 }
@@ -178,7 +183,7 @@ body{
 	color: #880000;
 	text-shadow: 1px 3px 2px #000, 1px 3px 3px #000;
 }
-	.countWay .countInfo p span.clickBall {
+	/* .countWay .countInfo p span.clickBall {
 	display: inline-block;
 	vertical-align: top;
 	width: 50px;
@@ -200,7 +205,7 @@ body{
 .countWay .countInfo p span.clickBall:active {
 	cursor: url(../img/share/cursor2.png) 20 15,
 	auto;
-}
+} */
 @media screen and (max-width:759px){
 	.countWay {
 		width: 100%;
@@ -223,7 +228,7 @@ body{
 		font-size: 17px;
 	}
 	.headerTitle img{
-		width: 80%;
+		width: 100%;
 	}
 	.karCounting h2 {
 		font-size: 30px;

@@ -97,7 +97,8 @@ try{
 	}
 	}
 }else if(isset($_SESSION["teacher_no"])==null){
-		header('Location:specialColumn.php?teacher_no='.$_SESSION["teacher_no"]);
+
+		header("Location:specialColumn.php?teacher_no=".$_REQUEST["teacher_no"]);
 	}
 ?>
 
