@@ -194,6 +194,12 @@ window.addEventListener('load', function (){
 			var xhttp = new XMLHttpRequest();
 		    xhttp.onreadystatechange = function() {
 		        if (this.readyState == 4 && this.status == 200) {
+		        	alert('購買成功');
+		        	for (var i = 0; i < items.length; i++) {
+		        		storage.removeItem(items[i]);
+		        	}
+		        	storage.removeItem('addItemList');
+		        	location.href = '../php/index.php';
 		        }
 		    };
 		    xhttp.open("GET", "../php/cartPay.php?"+url);
