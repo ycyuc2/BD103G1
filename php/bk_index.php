@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	ob_start();
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,21 +41,21 @@
 			<ol class="sideNav">
 				<li class="fstNav maintain">網頁維護
 					<ol class="innerNav maintain">
-						<li class="p1"><a class="queryPage" href="#">前端首頁維護</a></li>
-						<li class="p2"><a class="queryPage" href="#">老師專區維護</a></li>
-						<li class="p3"><a class="queryPage" href="#">商城維護</a></li>
+						<li class="p1"><a class="queryPage" href="bk_fortuneDB.php">前端首頁維護</a></li>
+						<li class="p2"><a class="queryPage" href="bk_forum.php">老師專區維護</a></li>
+						<li class="p3"><a class="queryPage" href="bk_product.php">商城維護</a></li>
 					</ol>
 				</li>
 				<li class="fstNav trade">交易管理
 					<ol class="innerNav trade">
-						<li class="p4"><a class="queryPage" href="#">檢視交易紀錄</a></li>
-						<li class="p5"><a class="queryPage" href="#">訂單管理</a></li>
+						<li class="p4"><a class="queryPage" href="bk_trade.php">檢視交易紀錄</a></li>
+						<li class="p5"><a class="queryPage" href="bk_pdList.php">訂單管理</a></li>
 					</ol>
 				</li>
 				<li class="fstNav member">會員管理
 					<ol class="innerNav member">
-						<li class="p6"><a class="queryPage" href="#">檢視會員資料</a></li>
-						<li class="p7"><a class="queryPage" href="#">老師資格審核</a></li>
+						<li class="p6"><a class="queryPage" href="bk_member.php">檢視會員資料</a></li>
+						<li class="p7"><a class="queryPage" href="bk_teacherApplication.php">老師資格審核</a></li>
 					</ol>
 				</li>
 			</ol>
@@ -77,7 +82,7 @@
 
 	</div>
 
-<script>
+<!-- <script>
 	window.addEventListener('load', function(){
 		var btns = document.getElementsByClassName('queryPage');
 		for (var i = 0; i < btns.length; i++) {
@@ -108,7 +113,7 @@
 
 
 	})
-</script>
+</script> -->
     
 </body>
 </html>

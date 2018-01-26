@@ -1,10 +1,14 @@
+<?php 
+	session_start();
+	ob_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>配對資料庫</title>
+	<title>線上算命資料庫</title>
 	<link rel="stylesheet" type="text/css" href="../css/bk_basic.css">
-	<link rel="stylesheet" type="text/css" href="../css/bk_matchDB.css">
+	<link rel="stylesheet" type="text/css" href="../css/bk_fortuneDB.css">
 	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 </head>
 <body>
@@ -17,21 +21,21 @@
 			<ol class="sideNav">
 				<li class="fstNav maintain">網頁維護
 					<ol class="innerNav maintain">
-						<li><a href="bk_fortuneDB.html">前端首頁維護</a></li>
-						<li><a href="bk_forum.html">老師專區維護</a></li>
-						<li><a href="bk_product.html">商城維護</a></li>
+						<li><a href="bk_fortuneDB.php">前端首頁維護</a></li>
+						<li><a href="bk_forum.php">老師專區維護</a></li>
+						<li><a href="bk_product.php">商城維護</a></li>
 					</ol>
 				</li>
 				<li class="fstNav trade">交易管理
 					<ol class="innerNav trade">
-						<li><a href="bk_trade.html">檢視交易紀錄</a></li>
-						<li><a href="bk_pdList.html">訂單管理</a></li>
+						<li><a href="bk_trade.php">檢視交易紀錄</a></li>
+						<li><a href="bk_pdList.php">訂單管理</a></li>
 					</ol>
 				</li>
 				<li class="fstNav member">會員管理
 					<ol class="innerNav member">
-						<li><a href="bk_member.html">檢視會員資料</a></li>
-						<li><a href="bk_teacherApplication.html">老師資格審核</a></li>
+						<li><a href="bk_member.php">檢視會員資料</a></li>
+						<li><a href="bk_teacherApplication.php">老師資格審核</a></li>
 					</ol>
 				</li>
 			</ol>
@@ -42,64 +46,92 @@
 		<div class="right">
 			<ol class="breadcrumb">
 				<li>
-					<a href="bk_index.html">首頁</a>
+					<a href="#">首頁</a>
 				</li>
 				<li class="active">前端首頁維護</li>
 			</ol>
 
 			<ol class="rightNav rightNav3">
-				<li><a href="bk_fortuneDB.html">線上算命資料庫</a></li>
-				<li><a class="nowAt" href="bk_matchDB.html">配對資料庫</a></li>
+				<li><a class="nowAt" href="bk_fortuneDB.php">線上算命資料庫</a></li>
+				<li><a href="bk_matchDB.php">配對資料庫</a></li>
 			</ol>
 			<div class="tr">
 				<span class="col no">編號</span>
 				<span class="col constel">星座</span>
-				<span class="col constel2">對象星座</span>
-				<span class="col title">標題</span>
+				<span class="col content1">顯示內文</span>
+				<span class="col content2">登入後才顯示之內容</span>
+				<span class="col karmaInc">業力增加值</span>
+				<span class="col category">推薦類別</span>
 				<span class="col alter">修改/刪除</span>
 			</div>
+<?php 
+	require_once("connectBD103G1.php");
+	$sql = "select * from fortune";
+	$fortune = $pdo->prepare($sql);
+	$fortune->execute();
+	$fortune_rows = $fortune->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($fortune_rows as $i => $fortuneRow) {
+?>
 			<div class="tr">
-				<span class="col no">1</span>
-				<span class="col constel">雙魚座</span>
-				<span class="col constel2">雙子座</span>
-				<span class="col title">嘎嘎烏拉拉</span>
+				<span class="col no"><?php echo $fortuneRow["fort_no"] ?></span>
+				<span class="col constel">
+
+<?php
+			if ($fortuneRow["const"] == 0) {
+				echo "摩羯座";
+			}else if ($fortuneRow["const"] == 1) {
+				echo "水瓶座";
+			}else if ($fortuneRow["const"] == 2) {
+				echo "雙魚座";
+			}else if ($fortuneRow["const"] == 3) {
+				echo "牡羊座";
+			}else if ($fortuneRow["const"] == 4) {
+				echo "金牛座";
+			}else if ($fortuneRow["const"] == 5) {
+				echo "雙子座";
+			}else if ($fortuneRow["const"] == 6) {
+				echo "巨蟹座";
+			}else if ($fortuneRow["const"] == 7) {
+				echo "獅子座";
+			}else if ($fortuneRow["const"] == 8) {
+				echo "處女座";
+			}else if ($fortuneRow["const"] == 9) {
+				echo "天秤座";
+			}else if ($fortuneRow["const"] == 10) {
+				echo "天蠍座";
+			}else{
+				echo "射手座";
+			}
+?>
+				
+				</span>
+				<span class="col content1"><?php echo $fortuneRow["fort_content"] ?></span>
+				<span class="col content2"><?php echo $fortuneRow["fort_content2"] ?></span>
+				<span class="col karmaInc"><?php echo $fortuneRow["karma_inc"] ?></span>
+				<span class="col category"><?php echo $fortuneRow["recommend_type"] ?></span>
 				<span class="col alter"><a href="#">A</a><a href="#">X</a></span>
 			</div>
+<?php
+	
+		}
+?>		
+
+
 			<div class="tr">
 				<label for="lightBoxControl"><span class="btnS"><p class="btnText btnText2">新增</p></span></label>
 			</div>
 		</div>
 
 		<!-- end right -->
-		
 		<input type="checkbox" id="lightBoxControl">
 		<div class="lightBox">
 			
 			<div class="boxContent">
+
 				<label for="lightBoxControl"><p class="exit">X</p></label>
 				<form>
 					<p class="input">
 						<span>星座</span>
-						<span>
-							<select>
-								<option value="0">請選擇星座</option>
-								<option value="1">水瓶座</option>
-								<option value="2">雙魚座</option>
-								<option value="3">白羊座</option>
-								<option value="4">金牛座</option>
-								<option value="5">雙子座</option>
-								<option value="6">巨蟹座</option>
-								<option value="7">獅子座</option>
-								<option value="8">處女座</option>
-								<option value="9">天秤座</option>
-								<option value="10">天蠍座</option>
-								<option value="11">射手座</option>
-								<option value="12">摩羯座</option>
-							</select>
-						</span>
-					</p>
-					<p class="input">
-						<span>對象星座</span>
 						<span>
 							<select >
 								<option value="0">請選擇星座</option>
@@ -127,6 +159,7 @@
 				</form>
 			</div>
 		</div>
+
 	</div>
 	
     

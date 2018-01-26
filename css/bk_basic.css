@@ -151,9 +151,14 @@ ol{
 	transition: .2s;
 }
 .rightNav3 li a:hover{
-	border: 0;
 	background: #333;
 	color: #ddd;
+	border: 2px solid #333;
+}
+.rightNav .nowAt{
+	background: #333;
+	color: #ddd;
+	border: 2px solid #333;
 }
 
 	/*麵包屑*/
@@ -166,7 +171,7 @@ ol{
 	content: '>';
 	margin: 0 8px;
 }
-.tr{
+.right > div{
 	margin-top: 1%;
 	margin-left: 2%;
 	width: 98%;
@@ -174,4 +179,16 @@ ol{
 	text-align: center;
 	border-bottom: 1px solid #000;
 	padding-bottom: 5px;
+}
+.right > div:lastchild{
+	border-bottom: 0;
+}
+.right .tr > span{
+	border-right: 1px solid #000;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.right .tr > span:last-child{
+	border-right: 0;
 }

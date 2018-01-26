@@ -2,7 +2,7 @@
 $teacherNo = $_REQUEST["teacher_no"];
 try {
 	require_once("connectBD103G1.php");
-	$sql = "select * from teacher where teacher_no = :teacher_no";
+	$sql = "select * from teacher where teacher_no = :teacher_no and teacher_app = 1";
 	$teachers = $pdo->prepare($sql);
 	$teachers->bindValue(":teacher_no",$teacherNo);
 	$teachers->execute();
