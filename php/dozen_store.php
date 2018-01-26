@@ -145,14 +145,14 @@
 
                                 <div id="pd<?php echo $productRow["pd_no"] ?>" class="name">
                                     <span class="addButton buyNow btnM"><span class="btnText btnText4">加入購物車</span>
-                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|1|',$productRow["karma_dec"] ?>">
+                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|',$productRow["karma_dec"],'|1' ?>">
                                     </span>
 
 
                                     
                                     <?php echo '<a href="../php/dozen_storedetail.php?pd_no=',$productRow["pd_no"],'">' ?>
                                     <span class="buyNow btnM"><span class="btnText btnText4">查看細節</span>
-                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|1|',$productRow["karma_dec"] ?>">
+                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|',$productRow["karma_dec"],'|1' ?>">
                                     </span>
                                     </a>
 
