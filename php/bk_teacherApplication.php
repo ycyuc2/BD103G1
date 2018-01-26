@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	ob_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,18 +66,32 @@
 				<span class="col intro">簡介</span>
 				<span class="col alter">批准</span>
 			</div>
-			
+<?php 
+	require_once("connectBD103G1.php");
+	$sql = "SELECT * from teacher where teacher_app = 0";
+	$teacherApp = $pdo->prepare($sql);
+	$teacherApp->execute();
+	$teacherApp_rows = $teacherApp->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($teacherApp_rows as $i => $teacherAppRow) {
+		
+?>
+
 			<div class="tr">
-				<span class="col no">12</span>
-				<span class="col name">allen</span>
-				<span class="col nickname">甲甲</span>
-				<span class="col tel">0987654321</span>
-				<span class="col intro">小辣辣想吃</span>
+				<span class="col no"><?php echo $teacherAppRow["mem_no"] ?></span>
+				<span class="col name"><?php echo $teacherAppRow["teacher_name"] ?></span>
+				<span class="col nickname"><?php echo $teacherAppRow["teacher_nn"] ?></span>
+				<span class="col tel"><?php echo $teacherAppRow["teacher_tel"] ?></span>
+				<span class="col intro"><?php echo $teacherAppRow["teacher_info"] ?></span>
 				<span class="col alter">
 					<input type="radio" value="0" name="valid">拒絕
 					<input type="radio" value="1" name="valid">接受
 				</span>
 			</div>
+
+<?php
+	}
+ ?>			
+
 		</div>
 
 		<!-- end right -->

@@ -1,10 +1,15 @@
+<?php 
+	session_start();
+	ob_start();
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>老師資格審核</title>
 	<link rel="stylesheet" type="text/css" href="../css/bk_basic.css">
-	<link rel="stylesheet" type="text/css" href="../css/bk_pdList.css">
+	<link rel="stylesheet" type="text/css" href="../css/bk_trade.css">
 	<link rel="stylesheet" type="text/css" href="../css/btn.css">
 </head>
 <body>
@@ -44,36 +49,62 @@
 				<li>
 					<a href="bk_index.php">首頁</a>
 				</li>
-				<li class="active">訂單管理</li>
+				<li class="active">檢視交易紀錄</li>
 			</ol>
 		<!-- end basic -->
 
 
 			<ol class="rightNav rightNav2">
 				<li><a href="bk_trade.php">檢視交易紀錄</a></li>
-				<li><a href="bk_pdList.php">訂單管理</a></li>
+				<li><a href="bk_matchDB.php">訂單管理</a></li>
 			</ol>
+
 
 			<div class="tr">
 				<span class="col memNo">會員編號</span>
 				<span class="col pdNo">訂單編號</span>
 				<span class="col orderTime">訂單時間</span>
 				<span class="col stat">訂單狀態</span>
+				<span class="col total">總金額</span>
+				<span class="col karmaDec">總業力扣除額</span>
 				<span class="col alter">狀態修改</span>
 			</div>
+
+<?php 
+	require_once("connectBD103G1.php");
+	$sql = "SELECT * from order_list where order_sta = 0";
+	$order = $pdo->prepare($sql);
+	$order->execute();
+	$order_rows = $order->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($order_rows as $i => $orderRow) {
+?>
 			
 			<div class="tr">
-				<span class="col memNo">12</span>
-				<span class="col pdNo">2233</span>
-				<span class="col orderTime">12:34</span>
-				<span class="col stat">未出貨</span>
+				<span class="col memNo"><?php echo $orderRow["mem_no"] ?></span>
+				<span class="col pdNo"><?php echo $orderRow["pd_no"] ?></span>
+				<span class="col orderTime"><?php echo $orderRow["order_time"] ?></span>
+				<span class="col stat">
+					<?php 
+						if ($orderRow["order_sta"] == 0) {
+							echo "未出貨";
+						}else{
+							echo "已出貨";
+						}
+						
+					 ?>
+						
+				</span>
+				<span class="col total"><?php echo $orderRow["total"] ?></span>
+				<span class="col karmaDec"><?php echo $orderRow["total_karma"] ?></span>
 				<span class="col alter">
 					<input type="radio" value="0" name="valid">未出貨
 					<input type="radio" value="1" name="valid">已出貨
 				</span>
 			</div>
 		</div>
-
+<?php 
+}
+ ?>
 		<!-- end right -->
 		
 		

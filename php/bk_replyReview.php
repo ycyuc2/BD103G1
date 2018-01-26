@@ -78,7 +78,16 @@
 			<div class="tr">
 				<span class="col msgNo"><?php echo $msgRepRow["msg_no"] ?></span>
 				<span class="col memNO"><?php echo $msgRepRow["mem_nn"] ?></span>
-				<span class="col reason"><?php echo $msgRepRow["msg_rep_reason"] ?></span>
+				<span class="col reason">
+					<?php 
+						if ($msgRepRow["msg_rep_reason"] == null) {
+							echo "無資料";
+						}else{
+							echo $msgRepRow["msg_rep_reason"];
+						}
+					?>
+						
+					</span>
 				<span class="col link"><span class="btnS"><a href="article.php?art_no=<?php echo $msgRepRow["art_no"] ?>" target="showArticle" class="btnText btnText4 iframeBtn" onclick="">檢視網站</a></span></span>
 				<span class="col alter">
 					<p><a href="#">刪除文章</a></p>
