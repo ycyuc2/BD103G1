@@ -75,7 +75,7 @@
 				<span class="col teacherNo"><?php echo $articleRow["teacher_nn"] ?></span>
 				<span class="col artTitle"><?php echo $articleRow["art_title"] ?></span>
 				<span class="col link"><span class="btnS"><a href="article.php?art_no=<?php echo $articleRow["art_no"] ?>" target="showArticle" class="btnText btnText4 iframeBtn">檢視網站</a></span></span>
-				<span class="col alter"><a href="#">X</a></span>
+				<span class="col alter"><a href="bk_deleteArticle.php?artNo=<?php echo $articleRow["art_no"] ?>">X</a></span>
 			</div>
 		
 <?php 
