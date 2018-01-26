@@ -109,7 +109,10 @@
 				<span class="col content2"><?php echo $fortuneRow["fort_content2"] ?></span>
 				<span class="col karmaInc"><?php echo $fortuneRow["karma_inc"] ?></span>
 				<span class="col category"><?php echo $fortuneRow["recommend_type"] ?></span>
-				<span class="col alter"><a href="#">A</a><a href="#">X</a></span>
+				<span class="col alter">
+					<a href="bk_fortuneChangeDB.php?fortNo=<?php echo $fortuneRow["fort_no"] ?>&action=1">A</a>
+					<a href="bk_fortuneChangeDB.php?fortNo=<?php echo $fortuneRow["fort_no"] ?>&action=0">X</a>
+				</span>
 			</div>
 <?php
 	

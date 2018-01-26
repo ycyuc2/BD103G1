@@ -1,6 +1,14 @@
 <?php 
 	session_start();
 	ob_start();
+	require_once("connectBD103G1.php");
+	$pairNo = $_REQUEST["pairNo"];
+	if ($_REQUEST["action"] == 0) {
+		$sql = "DELETE from pair where pair_no = $pairNo";
+		$deleteData = $pdo->prepare($sql);
+		$deleteData->ececute();
+		header("location:bk_fortuneDB.php");
+	}else{
  ?>
 <!DOCTYPE html>
 <html>
@@ -60,33 +68,32 @@
 				<span class="col value">配對指數</span>
 				<span class="col content">未登入內文</span>
 				<span class="col content2">已登入內文</span>
-				<span class="col alter">修改/刪除</span>
+				<span class="col alter">確認修改</span>
 			</div>
 
 <?php 
 	require_once("connectBD103G1.php");
-	$sql = "select * from pair";
-	$fortune = $pdo->prepare($sql);
-	$fortune->execute();
-	$fortune_rows = $fortune->fetchAll(PDO::FETCH_ASSOC);
-	foreach ($fortune_rows as $i => $fortuneRow) {
+	$sql = "select * from pair where pair_no = $pairNo";
+	$pair = $pdo->prepare($sql);
+	$pair->execute();
+	$pair_rows = $pair->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($pair_rows as $i => $pairRow) {
 ?>
-			<div class="tr">
-				<span class="col no"><?php echo $fortuneRow["pair_no"] ?></span>
-				<span class="col value"><?php echo $fortuneRow["pair_value"] ?></span>
-				<span class="col content"><?php echo $fortuneRow["pair_content"] ?></span>
-				<span class="col content2"><?php echo $fortuneRow["pair_content2"] ?></span>
-				<span class="col alter">
-					<a href="bk_matchChangeDB.php?pairNo=<?php echo $fortuneRow["pair_no"] ?>&action=1">A</a>
-					<a href="bk_matchChangeDB.php?pairNo=<?php echo $fortuneRow["pair_no"] ?>&action=0">X</a>
-				</span>
-			</div>
+			<form action="bk_matchUpdateDB.php" method="get">
+				<div class="tr">
+					<input type="hidden" name="pairNo" value="<?php echo $pairRow["pair_no"] ?>">
+					<span class="col no"><?php echo $pairRow["pair_no"] ?></span>
+					<span class="col value"><input type="text" name="pairValue" value="<?php echo $pairRow["pair_value"] ?>"></span>
+					<span class="col content"><textarea name="pairContent" ><?php echo $pairRow["pair_content"] ?></textarea></span>
+					<span class="col content2"><textarea name="pairContent2"><?php echo $pairRow["pair_content2"] ?></textarea></span>
+					<input type="submit" value="送出" class="col alter btnS btnText btnText2">
+				</div>
+			</form>
 <?php 
 }
+	}
  ?>
-			<div class="tr">
-				<label for="lightBoxControl"><span class="btnS"><p class="btnText btnText2">新增</p></span></label>
-			</div>
+
 		</div>
 
 		<!-- end right -->
