@@ -74,7 +74,10 @@
 							$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
 							$member -> execute();
 							$memRow = $member->fetchObject();
-							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>\n\t\t\t\t\t\t\t\t<li><a href='#'>購物車(0)</a></li>", $memRow->mem_nn);
+							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>", $memRow->mem_nn);
+							if (isset($cartCount)) {
+								echo '\n\t\t\t\t\t\t\t\t<li><a href="dozen_store.php">購物車($_SESSION["cartCount"])</a></li>';
+							}
 							$sql = "select * from message msg
 									join member mem on msg.mem_no = mem.mem_no 
 									join article art on msg.art_no = art.art_no
@@ -93,7 +96,7 @@
 							$collection -> execute();
 							$collectRow = $collection->fetchObject();
 							if($message->rowCount()+$collection->rowCount()!=0){
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>新訊息(%d)</a></li>", $message->rowCount()+$collection->rowCount());
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='replyView.php?page=1'>新訊息(%d)</a></li>", $message->rowCount()+$collection->rowCount());
 							}
 							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no";
 							$teacher = $pdo->prepare($sql);
@@ -101,7 +104,7 @@
 							$teacher -> execute();
 							$teacherRow = $teacher->fetchObject();
 							if($teacher->rowCount()!=0){
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>我的專欄</a></li>");
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='specialColumn.php?teacher_no=%d'>我的專欄</a></li>", $_SESSION["teacher_no"]);
 								$_SESSION['teacher_no'] = $teacherRow->teacher_no;
 							}
 						}
