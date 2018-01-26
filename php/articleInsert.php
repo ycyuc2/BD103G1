@@ -58,7 +58,7 @@ session_start();
 		if ($confirm) {
 			try {
 				require_once("connectBD103G1.php");
-				$sql = "insert into article (teacher_no, art_title, art_content_1, art_content_2, art_content_3, art_img_1, art_img_2, art_img_3) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3)";
+				$sql = "insert into article (teacher_no, art_title, art_content_1, art_content_2, art_content_3, art_img_1, art_img_2, art_img_3, art_post_time) values (:teacher_no, :art_title, :art_content_1, :art_content_2, :art_content_3, :art_img_1, :art_img_2, :art_img_3, :art_post_time)";
 				$article = $pdo->prepare($sql);
 				$article = $pdo->prepare($sql);
 				$article->bindValue(":teacher_no", $_REQUEST["teacherNo"]);
@@ -69,6 +69,7 @@ session_start();
 				$article->bindValue(":art_img_1", $uploadFileName1);
 				$article->bindValue(":art_img_2", $uploadFileName2);
 				$article->bindValue(":art_img_3",$uploadFileName3);
+				$article->bindValue(":art_post_time",date('Y-h-m h:i:s'));
 				$article->execute();
 				header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacherNo"]);
 
