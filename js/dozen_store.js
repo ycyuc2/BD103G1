@@ -105,6 +105,7 @@ function addButton() {
 		        } else {
 		            storage['addItemList'] += itemId + ', ';
 		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
+                    cartCountAdd();
 		        }
 				itemValue = itemValue.substr(0,itemValue.lastIndexOf('|'));
 				var inputValue = parseInt(document.querySelector('.qty').value);
@@ -119,11 +120,22 @@ function addButton() {
 		        } else {
 		            storage['addItemList'] += itemId + ', ';
 		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
+                    cartCountAdd();
 		        }
 			}
 	    });
 	
 	}
+}
+function cartCountAdd() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            location.reload();
+        }
+    };
+    xhttp.open("GET", "../php/cartCount.php?action=add");
+    xhttp.send();
 }
 
 
