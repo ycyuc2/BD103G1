@@ -120,7 +120,7 @@ try {
 				</div>	
 				<div class="right">
 						<span class="btnM">
-							<a href="specialColumn.php?teacher_no='.$teacherNo"class="btnText btnText4">老師專欄</a>
+							<p href="specialColumn.php?teacher_no='.$teacherNo"class="btnText btnText4">老師專欄</p>
 						</span>
 					</div>
 		<?php }
@@ -173,10 +173,11 @@ try {
 							<?php echo '<img class="photo" src="../img/products/',$recommendRow["pd_pic1"],'" alt="">' ?>
 						</div>
 						<div class="merchandiseIntro">
-									<?php echo '<a href="dozen_storedetail.php?pd_no=',$recommendRow["pd_no"],'">' ?>
-									<?php echo $recommendRow["pd_name"] ?>
-									
-								</a>
+							<p>
+									<a href="dozen_storedetail.php?pd_no=<?php echo $recommendRow["pd_no"]?>">
+									<?php echo $recommendRow["pd_name"] ?>	
+									</a>
+							</p>
 							<p>
 								<?php echo mb_substr($recommendRow["pd_describe"],0,50,"utf-8")."..." ?>
 							</p>
@@ -186,6 +187,7 @@ try {
 							</p>
 						</div>
 					</div>
+
 				
 
 

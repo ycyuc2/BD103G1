@@ -1,14 +1,15 @@
 *{
 	margin: 0;
 	padding: 0;
-	color: #fff;
-	/*outline: 1px solid red;*/
 }
 
 body{
 	overflow-x:hidden;
 }
-
+@font-face{
+	font-family: 王漢宗特明體 – 標準;
+	src:url('../font/王漢宗中明體繁- 細.ttf');
+}
 .background {
 	width: 100%;
 	height: 100vh;
@@ -23,246 +24,158 @@ body{
     z-index: -5;
     min-width: 1500px;
 }
+.specialColumn{
+	position: relative;
+	max-width: 960px;
+	margin: 30px auto;
+	box-sizing: border-box;
+	background-image: url(../img/share/texture.png);
+	background-position: center center;
+	background-size: 100% 100%;
+}
 
+.specialColumn .border{
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border: 50px solid transparent;
+	border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+	filter: drop-shadow(0px 0px 5px black) drop-shadow(2px 2px 5px black);
+	box-sizing: border-box;
+}
+
+@media all and (min-width: 760px) and (max-width: 959px) {
+	.specialColumn .border{
+		border: 40px solid transparent;
+		border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+		padding: 20px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 759px) {
+	.specialColumn .border{
+		border: 30px solid transparent;
+		border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+		padding: 10px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.specialColumn .border{
+		border: 30px solid transparent;
+		border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
+		padding: 0;
+	}
+}
+
+.specialColumn .columnBorder{
+	position: relative;
+	padding: 70px;
+}
+
+.specialColumn .columnBorder:after{
+	content: '';
+	display: block;
+	clear: both;
+}
 .headerTitle{
 	width: 100%;
 	text-align: center;
+	margin: 80px 10px;
 }
-
 .headerTitle img{
 	width: 40%;
-	margin-top: 200px;
 }
 
 .text{
 	width: 70%;
-	margin: 0 auto;
+	margin: 30px auto;
 	text-align: center;
 }
-
 .text p{
 	font-size: 20px;
 	line-height: 38px;
 	letter-spacing: 1px;
+	color: #533e2f;
 }
 
 .text p span{
 	font-size: 34px;
 }
-
-.karmatable .wrapper{
-	width: 40%;
-	margin: 0 auto;
+.karCounting h2 {
+	font-size: 40px;
 	text-align: center;
-}
+	margin: 70px auto 20px;
+	font-family: 王漢宗特明體 – 標準;
 
-.karmatable .wrapper h3{
-	color: #f00;
-	font-size: 30px;
-	margin-top: 100px;
-	text-decoration: underline;
 }
-
-.karmatable .wrapper table{
+.countWay{
+	width: 50%;
+	float: left;
+}
+.countWay .countInfo{
+	margin: 30px auto;
+	padding-left: 30px;
+}
+.countWay .countInfo p span:nth-of-type(1){
+	font-size: 25px;
+}
+.countWay .countInfo p span:nth-of-type(2) {
+	padding-left: 5px;
 	font-size: 20px;
-	width: 80%;
-	margin: 0 auto;
-	background-color: #000;
-	margin-top: 20px;
+	color: #b41616;
+	font-weight: 400;
+	text-shadow: 0px -1px 2px #000;
+	animation: 0.5s move infinite;
+	transition:0.5s ;
 }
-
-.karmatable .wrapper table th{
-	color: #f00;
+@keyframes  move{
+	0%{transform: translateY(0px);}
+	50% {
+		transform: translateY(3px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
 }
-
-.effects .wrapper{
-	border: 40px solid transparent;
-	border-image: url(../img/karmaInfo/frame_960x960.png)90 90 repeat;
-	background-position: cover;
-	background-size: 100%;
-	width: 960px;
-	height: 960px;
-	margin: 0 auto;
-	margin-top: 100px;
-	margin-bottom: 100px;
-	background-color: #000;
+.countBall{
+	width: 50%;
+	float: left;
+	position: relative;
 }
-
-.effects .wrapper .pics{
-	position: relative;	
-
+.countBall img{
+	width: 100%;
 }
-
-.effects .wrapper h3{
-	font-size: 30px;
-	color: #f00;
-	text-align: center;
-	line-height: 200px;
-	text-decoration: underline;
-}
-
-.effects .wrapper .pics .logo{
-	width: 200px;
+.countBall .kar{
 	position: absolute;
-	top: 180px;
-	left: 380px;
-}
-
-.effects .wrapper .pics .one{
-	position: absolute;
-	left: 400px;
-}
-
-.effects .wrapper .pics .two{
-	position: absolute;
-	right: 300px;
-	top: 100px;
-}
-
-.effects .wrapper .pics .three{
-	position: absolute;
-	right: 300px;
-	top: 300px;
-}
-
-.effects .wrapper .pics .four{
-	position: absolute;
-	left: 400px;
-	bottom: -450px;
-}
-
-.effects .wrapper .pics .five{
-	position: absolute;
-	top: 300px;
-	left: 150px;
-}
-
-.effects .wrapper .pics .six{
-	position: absolute;
-	top: 100px;
-	left: 150px;
-}
-
-.effects .wrapper .pics img{
-	width: 150px;
-	position: absolute;
-}
-
-.effects .wrapper .pics p{
-	position: absolute;
-	width: 200px;
-	z-index: 999;
-	color: #f00;
-	text-align: center;
-	left: -25px;
-	top: -20px;
-}
-
-/*RWD開始*/
-/*平板*/
-@media screen and (min-width:760px) and (max-width: 959px){
-	.headerTitle img{
-		width: 60%;
-	}
-
-	.table .wrapper{
-		width: 80%;
-	}
-
-	table th,td{
-		padding: 20px 60px;
-	}
-
-	.effects .wrapper{
-		background-image: none;
-	}
-}
-
-/*小平板*/
-@media screen and (min-width: 480px) and (max-width:759px){
-	.headerTitle img{
-		width: 80%;
-	}
-
-	.text p{
-		font-size: 18px;
-	}
-
-	.text p span{
-		font-size: 30px;
-	}
-
-	.table .wrapper{
-		width: 80%;
-		font-size: 18px;
-	}
-
-	.effects .wrapper{
-		background-image: none;
-	}
-}
-
-/*手機*/
-@media screen and (max-width: 480px){
-	.headerTitle img{
-		width: 80%;
-	}
-
-	.text p{
-		font-size: 16px;
-	}
-
-	.text p span{
-		font-size: 24px;
-	}
-
-	.table .wrapper{
-		width: 80%;
-		font-size: 16px;
-	}
-
-	.effects .wrapper{
-		background-image: none;
-	}
-}
-/*RWD開始*/
-/*手機*/
-@media screen and (max-width: 480px){
-	.footer{
-		height: 120px;
-	}
 	
-	/*左邊icon*/
-	.footer .icon{
-		display: block;
-		width: 80%;
-		margin: 0 auto;
+}
+@media screen and (max-width:960px){
+	.countWay {
+		width: 100%;
+		float:none;
 	}
+	.countBall {
+		width: 100%;
+		float:none;
+	}
+}
+@media all and (min-width: 760px) and (max-width: 959px) {
+	.countWay .countInfo p span:nth-of-type(1) {
+	}
+	.countWay .countInfo p span:nth-of-type(2) {
+	}
+}
+@media all and (min-width: 480px) and (max-width: 759px) {
+	.countWay .countInfo p span:nth-of-type(1) {}
 
-	.footer .icon ul{
-		text-align: center;
-	}
+	.countWay .countInfo p span:nth-of-type(2) {}
+}
+@media all and (max-width: 479px) {
+	.countWay .countInfo p span:nth-of-type(1) {}
 
-	.footer .icon ul li:nth-child(1){
-		padding-left: 0;
-	}
-
-	.footer .icon ul li:nth-child(2),
-	.footer .icon ul li:nth-child(3){
-		padding-left: 20px;
-	}
-
-	.footer .icon ul li i{
-		padding: 20px 0 0 0;
-	}
-	
-	/*右邊copyright*/
-	.footer .copyright{
-		display: block;
-		text-align: center;
-	}
-
-	.footer .copyright p{
-		margin: 10px 0 0 0;
-	}
+	.countWay .countInfo p span:nth-of-type(2) {}
 }

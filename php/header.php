@@ -130,7 +130,7 @@
 	</div>
 	<!-- 業力球 -->
 
-	<a class="showKarma" href="#">
+	<a class="showKarma" href="karmainfo.php">
         <div class="face">
             <h3>業障干擾值</h3>
             <img src="../img/showKarma/700.png">
