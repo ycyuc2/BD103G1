@@ -107,7 +107,7 @@ try {
 		if($_SESSION["teacher_no"]==$teacherNo){?>
 				<div class="left">
 					<span class="btnM">
-						<a href="recommendProducts.php?teacher_no='.$teacherNo.'" class="btnText btnText4">商品推薦</a>
+						<a href="recommendProducts.php?teacher_no=<?php echo $_REQUEST["teacher_no"] ?>" class="btnText btnText4">商品推薦</a>
 					</span>
 				</div>
 				<div class="middle">
