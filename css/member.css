@@ -113,7 +113,7 @@ ol li{
 .info p{
 	margin: 1% 0px;
 }
-.info p span{
+.info p>span{
 	margin-left: 5%;
 	vertical-align: middle;
 }

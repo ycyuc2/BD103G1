@@ -1,4 +1,4 @@
-function doFirst() {
+window.addEventListener('load', function (){
 	var pay = document.getElementsByClassName('pay');
 	
 	var storage = localStorage;
@@ -33,8 +33,7 @@ function doFirst() {
    
 	//最後將table放進section，再將section放進cartList
 	newSection.appendChild(newTable);
-	var cartList = document.getElementsByClassName('cartList');
-	cartList[0].appendChild(newSection);
+	document.querySelector('.cartList').appendChild(newSection);
    
    
    
@@ -134,14 +133,14 @@ function doFirst() {
    
 	function deleteItem() {
    
-	 var itemId = this.parentNode.parentNode.childNodes[1].getAttribute('id');
+	var itemId = this.parentNode.parentNode.childNodes[1].getAttribute('id');
    
-	 //刪除該筆資料之前，先將金額扣除
-	 var itemValue = storage.getItem(itemId);
-	 subtotal -= parseInt(itemValue.split('|')[2]);
-   
-	 document.getElementById('subtotal').innerText = subtotal;
-   
+	 
+	var itemValue = storage.getItem(itemId);
+	//刪除該筆資料之前，先將金額扣除
+	document.getElementById('subtotal').innerText -= itemValue.split('|')[2]*itemValue.split('|')[3];
+	 //刪除該筆資料之前，先將數量扣除
+	document.getElementById('amount').textContent -= itemValue.split('|')[3];
 	 //清除storage的資料
 	 storage.removeItem(itemId);
 	 storage['addItemList'] = storage['addItemList'].replace(itemId + ', ', '');
@@ -161,25 +160,24 @@ function doFirst() {
 
 
 	function changeItemCount() {
-	 let inputValue = parseInt(this.value);
-	 let itemTr = this.parentNode.parentNode.parentNode.childNodes;
+	var inputValue = parseInt(this.value);
+	var itemId = this.parentNode.parentNode.childNodes[1].getAttribute('id');
+	itemValue = storage[itemId].substr(0,storage[itemId].lastIndexOf('|'));
+	itemValue += "|" + inputValue;
+	storage[itemId] = itemValue;
 	 let totalAmount = 0
 	 let total = 0;
 	
-		for (let i = 0; i < itemTr.length; i++) {
-			var cost = parseInt(itemTr[i].childNodes[2].textContent);
-			var amount = parseInt(itemTr[i].childNodes[3].firstChild.value);
+		for (let i = 0; i < items.length; i++) {
+			var cost = parseInt(storage[items[i]].split('|')[2]);
+			var amount = parseInt(storage[items[i]].split('|')[3]);
 			
 			totalAmount += amount;
-		total += cost * amount;
+			total += cost * amount;
 
 		}
 	document.getElementById('subtotal').textContent = total;
-
-	 
-	  
-	
-	 document.getElementById('amount').textContent = totalAmount ;
+	document.getElementById('amount').textContent = totalAmount ;
 	 }
 	
 
@@ -190,7 +188,7 @@ function doFirst() {
 	//  storage[id] = itemValue;
 	//  let subTotal = inputValue * parseInt(storage[id].split('|')[2]);
 	
-	}
+});
    
    
 	// let select = document.getElementById('hi')
@@ -205,13 +203,3 @@ function doFirst() {
 	//  subtotal.textContent=total - parseInt(this.value);
 	 
 	// })
-   
-
-   
-   
-
-
-
-
-
-window.addEventListener('load',doFirst, false);

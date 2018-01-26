@@ -11,11 +11,8 @@
     <?php require_once("publicHeader.php"); ?>
     <title>dozen_storedetail</title>
     <link rel="stylesheet" type="text/css" href="../css/dozen_storedetail.css">
-    <!-- <script type="text/javascript" src="../js/header.js"></script> -->
-    <!-- <script src="../js/addcart.js"></script> -->
     <script src="../js/count.js"></script>
-    <!-- <script src="../js/dozen_storedetailAJAX .js"></script> -->
-    <script src="../js/addcart.js"></script>
+    <script src="../js/dozen_store.js"></script>
 </head>
 
 <body>
@@ -23,7 +20,7 @@
 <?php 
     require_once("connectBD103G1.php");
     require_once("header.php");
-    $_SESSION["where"] = "dozen_store.php";
+    $_SESSION["where"] = "dozen_storedetail.php";
     ?>
 
     <div class="frame">
@@ -92,8 +89,7 @@
 
                                             <div  id="pd<?php echo $productRow["pd_no"] ?>" class="name" >
                                                 
-                                                <span class="addButton buyNow">
-                                                加入購物車
+                                                <span class="addButton buyNow btnM"><span class="btnText btnText4">加入購物車</span>
                                                 <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
                                                 
                                                 </span>
@@ -102,8 +98,7 @@
 
                                             <br>
                                             
-                                                <span class="addButton buyNow">
-                                                    立即購買
+                                                <span class="addButton buyNow btnM"><span class="btnText btnText4">立即購買</span>
                                                     <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
                                                 </span>
                                             </div>

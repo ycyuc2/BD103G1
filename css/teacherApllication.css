@@ -4,7 +4,7 @@
 .teacher p{
 	margin: 5% 0px;
 }
-.teacher p span{
+.teacher p>span{
 	margin-left: 5%;
 }
 .teacher p .input{

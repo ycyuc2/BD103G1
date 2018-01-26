@@ -1,7 +1,7 @@
 <?php 
 	ob_start();
     session_start();
-    ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,6 @@
     <title>商城</title>
     <?php require_once("publicHeader.php") ?>
     <link rel="stylesheet" type="text/css" href="../css/dozen_store.css">
-    <link rel="stylesheet" href="../css/footer.css">
 
     
     <script src="../js/jquery-3.2.1.min.js"></script>
@@ -113,7 +112,6 @@
 
             <?php
             try {
-                require_once("connectBD103G1.php");
                 $sql = "select * from products";
                 $products = $pdo->prepare($sql);
                 $products->execute();
@@ -146,18 +144,15 @@
                             <div class="purchase">
 
                                 <div id="pd<?php echo $productRow["pd_no"] ?>" class="name">
-                                    <span class="addButton buyNow">
-                                            加入購物車
-                                            <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                    <span class="addButton buyNow btnM"><span class="btnText btnText4">加入購物車</span>
+                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|1' ?>">
                                     </span>
 
 
                                     
                                     <?php echo '<a href="../php/dozen_storedetail.php?pd_no=',$productRow["pd_no"],'">' ?>
-                                    <span class="addButton buyNow">         
-                                        查看細節
-                                        
-                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|0' ?>">
+                                    <span class="buyNow btnM"><span class="btnText btnText4">查看細節</span>
+                                        <input type="hidden" value="<?php echo $productRow["pd_name"],'|',$productRow["pd_pic1"],'|',$productRow["pd_price"],'|1' ?>">
                                     </span>
                                     </a>
 
@@ -211,8 +206,8 @@
 
         <script>
 
-        let ttt = document.getElementById("select");
-        ttt.addEventListener("change" , getProducts, false);
+        let selectPdOption = document.getElementById("select");
+        selectPdOption.addEventListener("change" , getProducts, false);
         
         
 
@@ -235,6 +230,7 @@
             if( xhr.status == 200 ){
                
             document.getElementById("pdContent").innerHTML = this.responseText;
+            addButton();
             }else{
             alert(xhr.status);
             }

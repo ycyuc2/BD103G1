@@ -2,74 +2,56 @@
 
 //瀏覽器load完成執行：
 window.addEventListener('load', function () {
-
+	
+	addButton();
     let searchName = '';
-    let searchBtn = document.getElementsByClassName('fa-search')[0];
-    searchBtn.addEventListener('click', ajaxData);
-
-    
-
-
-    //找到所有class名為buyNow的物件
-    var buyNow = document.getElementsByClassName('addButton');
-    //跑迴圈註冊按鈕click事件
-    for (let i = 0; i < buyNow.length; i++) {
-        buyNow[i].addEventListener('click', function () {
-
-            var inputValue = document.querySelector('.addButton').value;
-
-            localStorage.setItem('item', inputValue);
-            console.log(inputValue);
-
-        });
-
+    let search = document.querySelector('.searchName');
+    if(search){
+    	search.addEventListener('change', ajaxData);
     }
 
     function ajaxData(e) {
 
-        var searchName = document.getElementsByClassName('searchName')[0].value;
-           
-        if (searchName !== '') {
-         //getData('searchName=' + searchName);
-         var url = "changePage.php?searchValue=" + searchName;
-         console.log(url);
-         var xhr = new XMLHttpRequest();
+		var searchName = document.getElementsByClassName('searchName')[0].value;
+
+        //getData('searchName=' + searchName);
+        var url = "changePage.php?searchValue=" + searchName;
+        console.log(url);
+        var xhr = new XMLHttpRequest();
          
-         xhr.onload = function(){
+        xhr.onload = function(){
          
-          if( xhr.status == 200 ){
+        if( xhr.status == 200 ){
              
-           document.getElementById("pdContent").innerHTML = xhr.responseText;
-           console.log(xhr.responseText);
-          }else{
-           alert(xhr.status);
-          }
-         
-         }
-         xhr.open("Get",url, true);
-         xhr.send( null );
-        } else if (searchName === '') {
-         alert("請輸入您需要的開運聖品...");
+			document.getElementById("pdContent").innerHTML = xhr.responseText;
+			addButton();
+        	console.log(xhr.responseText);
+        }else{
+        	alert(xhr.status);
         }
+         
+        }
+        xhr.open("Get",url, true);
+        xhr.send( null );
         
-       }
+    }
+	
 
 
 
 
 
 
-    var storage = localStorage;
 
     function addItem(itemId, itemValue) {
+
+        var title = document.createElement('span');
+        title.innerText = itemValue.split('|')[0];
 
         var image = document.createElement('img');
         image.src = itemValue.split('|')[1];
         //刪掉 '../images/productPic/' + 
         image.id = 'imageSelect';
-
-        var title = document.createElement('span');
-        title.innerText = itemValue.split('|')[0];
 
         var price = document.createElement('span');
         price.innerText = parseInt(itemValue.split('|')[2]);
@@ -104,7 +86,45 @@ window.addEventListener('load', function () {
     }
 
 });
+var storage = localStorage;
+	if(storage['addItemList'] == null){
+		storage['addItemList'] = ''; //storage.setItem('addItemList','');
+	}
+function addButton() {
+	//找到所有class名為addButton的物件
+	var buyNow = document.querySelectorAll('.addButton');
+	//跑迴圈註冊按鈕click事件
+	for (let i = 0; i < buyNow.length; i++) {
+	    buyNow[i].addEventListener('click', function () {
 
+			var itemId = this.parentNode.id;
+			var itemValue = this.childNodes[2].value;
+	        if(document.querySelector('.qty')){
+	        	if (storage[itemId] ) {
+					if(i == 0){alert('商品已在購物車裡囉！')};
+		        } else {
+		            storage['addItemList'] += itemId + ', ';
+		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
+		        }
+				itemValue = itemValue.substr(0,itemValue.lastIndexOf('|'));
+				var inputValue = parseInt(document.querySelector('.qty').value);
+				itemValue += "|" + inputValue;
+				storage[itemId] = itemValue;
+				if(i == 1){
+			    	document.location.href='../php/dozen_storeCart.php';
+			    }
+			}else{
+				if (storage[itemId] ) {
+					alert('商品已在購物車裡囉！');
+		        } else {
+		            storage['addItemList'] += itemId + ', ';
+		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
+		        }
+			}
+	    });
+	
+	}
+}
 
 
 

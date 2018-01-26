@@ -1,35 +1,31 @@
 <?php 
 ob_start();
 session_start();
- ?>
-
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>會員專區</title>
 <link rel="stylesheet" type="text/css" href="../css/member.css">
-<?php require_once("publicHeader.php") ?>
-
+<link rel="stylesheet" type="text/css" href="../css/pageSelector.css">
+<?php require_once 'publicHeader.php'; ?>
+<style type="text/css">
+	.trade h2:before{
+		content: '';
+	}
+</style>
 </head>
 <body>
-	
-<?php
-	require_once("connectBD103G1.php");
-	require_once("header.php"); 
-	$_SESSION["where"] = 'member.php';
-?>
-	<?php if (empty($_SESSION["mem_no"])) {?>
-		<script type="text/javascript">
-			document.querySelector('#loginControl').checked = true;
-		</script>
-	<?php } ?>
-	
+<?php 
+	require_once 'connectBD103G1.php';
+	require_once 'header.php';
+ ?>
 	<div class="topBlank"></div>
-		
+
 	<div class="wrapper">
 		<div class="borderFrame"></div>
-		<?php if (isset($_SESSION["mem_no"])) {?>
+		
 		<div class="left">
 			
 			<ol class="nav">		<!-- 一般會員 -->
@@ -43,116 +39,18 @@ session_start();
 			</ol>
 		</div>
 
-		
+
 		<div class="right">
-			
-			<div class="content info">
-					
-				<h2>個人資料</h2>
-				<?php
-					//=====連資料庫，做測試
-					try{
-						require_once("connectBD103G1.php");
-						$sql = "select * from member where mem_no = :mem_no";
-						$member = $pdo->prepare($sql);
-						$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
-						$member -> execute();
-
-						if($memRow = $member->fetchObject()){
-							?>
-							<script type="text/javascript">
-							</script>
-							<p>
-								<span>會員帳號</span><span class="name"><?php echo $memRow->mem_acc;?></span>
-							</p>
-							<p>
-								<span>會員暱稱</span><span class="nickname"><?php echo $memRow->mem_nn;?></span>
-							</p>
-							<p>
-								<span>會員電話</span><span class="tel"><?php echo $memRow->mem_tel;?></span>
-							</p>
-							<?php
-						}
-
-					}catch(PDOException $ex){
-						echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
-						echo "行號：",$ex->getLine(),"<br>";
-					}
-				?>
-				
-				
-			
-			</div>
-			
-			
-			<div class="content reply">
-			
-				<h2 >檢視留言</h2>
-				<div class="table">
-					<div class="tr">
-						<div class="th tdWidth">回復數</div>
-						<div class="th tdWidth">留言</div>
-						<div class="tdRight">
-							<div class="th tdWidth">發文老師</div>
-							<div class="th tdWidth">最新回復</div>
-						</div>
-					</div>
-
-					<?php
-					try{
-						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message group by art_no) order by art_update_time limit 3";
-						$reply = $pdo->prepare($sql);
-						$reply -> bindValue(":mem_no",$_SESSION["mem_no"]);
-						$reply -> execute();
-						while($msgArtRow = $reply->fetchObject()){
-							?>
-							
-							<div class="tr"><a href="article.php?art_no=<?php echo $msgArtRow->art_no;?>">
-								<div class="td tdWidth replyNo">12</div>
-								<div class="td tdWidth replyContent">
-									<p>
-										<?php echo $msgArtRow->art_title;?>
-									</p>
-									<p>
-										<?php echo $msgArtRow->msg_content;?>
-									</p>
-								</div>
-								<div class="tdRight">
-									<div class="td tdWidth">
-										<?php
-											$sql = "select * from teacher where teacher_no = :teacher_no";
-											$teacher = $pdo->prepare($sql);
-											$teacher -> bindValue(":teacher_no",$msgArtRow->teacher_no);
-											$teacher -> execute();
-											if($teacherRow = $teacher->fetchObject()){
-										?>
-										<p><?php echo $teacherRow->teacher_nn;}?></p>
-										<p><?php echo $msgArtRow->art_post_time;?></p>
-									</div>
-									<div class="td tdWidth">
-										<p>回文人名稱</p>
-										<p><?php echo $msgArtRow->art_update_time;?></p>
-									</div>
-								</div>
-							</a></div>
-							<?php 
-						}
-					}catch(PDOException $ex){
-						echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
-						echo "行號：",$ex->getLine(),"<br>";
-					}	
-					?>
-				</div>
-
-				
-			
-			</div>
-			
-			
 			<div class="content trade">
 			
 				<h2 >交易紀錄</h2>
-				<?php $sql = "select * from order_list where mem_no = :mem_no";
+				<?php 
+				$sql = "select * from order_list where mem_no = :mem_no";
+				$listCount = $pdo->prepare($sql);
+				$listCount->bindValue(':mem_no', $_SESSION["mem_no"]);
+				$listCount->execute();
+				$pages = ceil($listCount->rowCount()/5);
+				$sql = "select * from order_list where mem_no = :mem_no limit ".(($_REQUEST["page"]-1)*5)." ,5";
 				$orderList = $pdo->prepare($sql);
 				$orderList->bindValue(':mem_no', $_SESSION["mem_no"]);
 				$orderList->execute();?>
@@ -216,14 +114,19 @@ session_start();
 						});
 					}
 				</script>
+
+				<?php if ($pages > 1) {?>
+					<ol class="pageSelector">
+						<?php if($_REQUEST["page"] > 1)echo "<a href='tradView.php?page=".($_REQUEST["page"]-1)."'><li>上一頁</li></a>"; 
+						for ($i=0; $i < $pages; $i++) { 
+							echo "<a href='tradView.php?page=".($i+1)."'><li>".($i+1)."</li></a>";
+						}
+						if($_REQUEST["page"] < $pages)echo "<a href='tradView.php?page=".($_REQUEST["page"]+1)."'><li>下一頁</li></a>"; ?>
+					</ol>
+				<?php } ?>
+
 			</div>
-			
-				
-			
 		</div>
-		<?php }else{
-			header('location:index.php');
-		} ?>
 		<div class="blank"></div>
 	</div>
 </body>
