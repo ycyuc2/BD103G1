@@ -131,9 +131,25 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 100; }
+  z-index: 100;
+  
+ }
 
-.loading {
+ .LOGOrotate{
+   width: 300px;
+  animation: loadLOGO 3s linear infinite ;
+
+
+ }
+
+  @keyframes loadLOGO {
+    from {
+      transform: rotate(0deg); }
+    to {
+      transform: rotate(180deg); } 
+    }
+
+/* .loading {
   border: 1px solid #000;
   height: 150px;
   width: 150px;
@@ -148,7 +164,7 @@
   animation: loading 1s infinite linear;
   position: fixed;
   left: calc(50% - 75px);
-  top: calc(50% - 75px); }
+  top: calc(50% - 75px); } */
 
 @keyframes loading {
   from {
