@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	ob_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,25 +65,69 @@
 				<span class="col nickname">暱稱</span>
 				<span class="col tel">電話</span>
 				<span class="col karma">業力</span>
-				<span class="col result">資料</span>
-				<span class="col time">時間</span>
+				<span class="col pic">照片</span>
+				<span class="col sta">會員狀態</span>
 				<span class="col alter">停權</span>
 			</div>
-			
+
+<?php 
+	require_once("connectBD103G1.php");
+	$sql = "SELECT * from member";
+	$mem = $pdo->prepare($sql);
+	$mem->execute();
+	$mem_rows = $mem->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($mem_rows as $i => $memRow) {
+?>			
+
 			<div class="tr">
-				<span class="col no">1</span>
-				<span class="col account">allen123</span>
-				<span class="col psw">eateat</span>
-				<span class="col nickname">allen</span>
-				<span class="col tel">123456789</span>
-				<span class="col karma">6666</span>
-				<span class="col result">3</span>
-				<span class="col time">12:34</span>
+				<span class="col no"><?php echo $memRow["mem_no"] ?></span>
+				<span class="col account"><?php echo $memRow["mem_acc"] ?></span>
+				<span class="col psw"><?php echo $memRow["mem_psw"] ?></span>
+				<span class="col nickname"><?php echo $memRow["mem_nn"] ?></span>
+				<span class="col tel">
+					<?php 
+						if ($memRow["mem_tel"] == null) {
+							echo "無資料";
+						}else{
+							echo $memRow["mem_tel"];
+						}
+						 
+					?>
+						
+				</span>
+				<span class="col karma">
+					<?php 
+						if ($memRow["karma_val"] == null) {
+							echo "無資料";
+						}else{
+							echo $memRow["karma_val"]; 
+						}
+						
+					?>
+						
+				</span>
+				<span class="col pic">
+					<?php 
+						if ($memRow["mem_pic"] == null) {
+							echo "無資料";
+						}else{
+							echo $memRow["mem_pic"];
+						}
+						 
+					?>
+						
+				</span>
+				<span class="col sta"><?php echo $memRow["mem_sta"] ?></span>
 				<span class="col alter">
 					<input type="radio" value="0" name="valid">停權
 					<input type="radio" value="1" name="valid">復權
 				</span>
 			</div>
+
+<?php 
+	}
+ ?>
+
 		</div>
 
 		<!-- end right -->

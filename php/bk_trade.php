@@ -72,7 +72,7 @@
 
 <?php 
 	require_once("connectBD103G1.php");
-	$sql = "SELECT * from order_list";
+	$sql = "SELECT * from order_list where order_sta = 1";
 	$order = $pdo->prepare($sql);
 	$order->execute();
 	$order_rows = $order->fetchAll(PDO::FETCH_ASSOC);

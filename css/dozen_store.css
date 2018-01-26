@@ -235,11 +235,7 @@
   100% {
     left: 0; } }
 
-.logo {
-  width: 100px;
-  position: fixed;
-  left: calc(50% - 50px);
-  top: 3%; }
+
 
 .frame {
   position: relative;
@@ -577,24 +573,6 @@
                   margin-top: 10px;
                   font-size: 12px;
                   width: 120px; } }
-
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 150px; }
-  .header p {
-    color: white;
-    font-family: "王漢宗中明體繁- 細";
-    display: inline-block;
-    margin-right: 2%;
-    margin-top: 5%;
-    position: fixed;
-    right: 2%;
-    color: #fff; }
-    .header p a {
-      text-decoration: none;
-      color: red; }
 
 #person {
   color: red; }

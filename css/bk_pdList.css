@@ -24,21 +24,26 @@
 	vertical-align: middle;
 }
 .tr .memNo{
-	width: 17.5%;
+	width: 13%;
 }
 .tr .pdNo{
-	width: 17.5%;
+	width: 13%;
 }
 .tr .orderTime{
-	width: 17.5%;
+	width: 22%;
 }
 .tr .stat{
-	width: 17.5%;
+	width: 13%;
+}
+.tr .total{
+	width: 13%;
+}
+.tr .karmaDec{
+	width: 13%;
 }
 .tr .alter{
-	width: 30%;
+	width: 13%;
 }
 .tr .alter a{
 	margin-left: 10%;
 }
-
