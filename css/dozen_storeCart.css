@@ -72,7 +72,9 @@ body {
 
 .cartFrame {
   padding: 0 2%;
-  min-height: 500px; }
+  min-height: 500px; 
+  margin-top: 200px;
+}
   .cartFrame:after {
     content: '';
     display: block;
@@ -101,10 +103,14 @@ body {
       @media all and (max-width: 479px) {
         .cartFrame .title h2 {
           font-size: 1px;
-          margin-left: 7%; } }
+     } }
   .cartFrame .cartList {
     padding-top: 5%;
     box-sizing: border-box; }
+
+    .cartFrame .cartList table .item td .count {
+      width: 30px;
+    }
 
     .cartFrame .cartList:after {
       content: '';
@@ -155,6 +161,12 @@ body {
     margin: 0 auto;
     overflow: scroll;
     border: 5px solid #533e2f; }
+
+    @media all and (max-width: 479px) {
+      .cartFrame .contract {
+      padding: 20px;
+    }
+  }
     .cartFrame .contract td {
       vertical-align: top;
       line-height: 30px; }
