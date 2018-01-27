@@ -547,7 +547,6 @@
               float: none; } }
           .storeFrame .content .intro .options .purchase .name .buyNow {
             color: #fff;
-            font-size: 12px;
             letter-spacing: 4px;
             cursor: pointer;
             margin-right: 5%;
@@ -561,6 +560,21 @@
             letter-spacing: 2px;
             background-image: url(../img/dozen_store/btn.png);
             background-size: contain;
+           }
+            
+           .storeFrame .content .intro .options .purchase .name .buyNow .btnText{
+                         cursor: url(../img/share/cursor.png)20 15,
+                         auto;
+
+             font-size: 12px;
+             line-height: 35.5px;
+           }
+           .storeFrame .content .intro .options .purchase .name .buyNow .btnText:hover {
+             cursor: url(../img/share/cursor.png)20 15, auto;
+           }
+
+           .storeFrame .content .intro .options .purchase .name .buyNow, .btnText:active {
+             cursor: url(../img/share/cursor2.png)20 15, auto;
            }
             @media all and (min-width: 480px) and (max-width: 759px) {
               .storeFrame .content .intro .options .purchase a {

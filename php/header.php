@@ -8,7 +8,9 @@
 	if(empty($_SESSION["karma_inc"])){
 		$_SESSION["karma_inc"] = 0;
 	}
-	$_SESSION["karma_val"]=100;
+	if(!isset($_SESSION["karma_val"])){
+		$_SESSION["karma_val"] = 100;
+	}
 ?>
 	<!-- hamnurger -->
 	<!-- 漢堡選單 -->
@@ -152,11 +154,7 @@
 		</div>
 	
 	    <script language="JavaScript">
-		var karCount =<?php if( isset($_SESSION["karma_val"]) ){
-	            	echo $_SESSION["karma_val"];
-				}else{
-					echo $_SESSION["karma_inc"]+100;
-				}?>;
+		var karCount =<?php echo $_SESSION["karma_val"]; ?>;
         var config1 = liquidFillGaugeDefaultSettings();
         config1.circleColor = "#850000";
         config1.textColor = "#d00";        

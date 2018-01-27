@@ -8,8 +8,12 @@
 	$msg->bindValue(':mem_no', $_SESSION["mem_no"]);
 	$msg->bindValue(':art_no', $_REQUEST["art_no"]);
 	$msg->bindValue(':msg_content', $_REQUEST["msg_content"]);
-	$msg->bindValue(':msg_time', date("YmdHis"));
-	$msg->bindValue(':last_view', date("YmdHis"));
+	$msg->bindValue(':msg_time', date("Y-m-d H:i:s"));
+	$msg->bindValue(':last_view', date("Y-m-d H:i:s"));
 	$msg->execute();
+	$sql = "update article set art_update_time where art_no = :art_no";
+	$update = $pdo->prepare($sql);
+	$update->bindValue(':art_no', $_REQUEST["art_no"]);
+	$update->execute();
 	header('location:'.$_SESSION['where']);
 ?>

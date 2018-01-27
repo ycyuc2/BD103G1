@@ -76,16 +76,38 @@
 ?>
 			<div class="tr">
 				<span class="col no"><?php echo $productRow["pd_no"] ?></span>
-				<span class="col category"><?php echo $productRow["pd_type"] ?></span>
+				<span class="col category">
+					<?php 
+						if ($productRow["pd_type"] == 1) {
+							echo "飾品";
+						}else if ($productRow["pd_type"] == 2) {
+							echo "擺飾";
+						}else if ($productRow["pd_type"] == 3) {
+							echo "食品";
+						}else{
+							echo "文具";
+						}
+					
+					 ?>
+				</span>
 				<span class="col name"><?php echo $productRow["pd_name"] ?></span>
 				<span class="col price"><?php echo $productRow["pd_price"] ?></span>
 				<span class="col sale"><?php echo $productRow["pd_sale"] ?></span>
 				<span class="col stock"><?php echo $productRow["pd_stock"] ?></span>
 				<span class="col decrement"><?php echo $productRow["karma_dec"] ?></span>
-				<span class="col stat"><?php echo $productRow["pd_sta"] ?></span>
+				<span class="col stat">
+					<?php 
+						if ($productRow["pd_sta"] == 1) {
+						 	echo "上架";
+						 }else{
+						 	echo "下架";
+						 }
+					 ?>
+						
+				</span>
 				<span class="col pic"><?php echo $productRow["pd_pic1"] ?></span>
 				<span class="col describe"><?php echo $productRow["pd_describe"] ?></span>
-				<span class="col alter"><a href="#">A</a><a href="#">X</a></span>
+				<span class="col alter"><a href="bk_productAction.php?action=edit&pdNo=<?php echo $productRow["pd_no"] ?>">A</a><a href="bk_productAction.php?action=delete&pdNo=<?php echo $productRow["pd_no"] ?>">X</a></span>
 			</div>
 
 <?php 
@@ -109,10 +131,11 @@
 						<span>種類</span>
 						<span>
 							<select name="category">
-								<option value="0">請選擇種類</option>
-								<option value="1">巨型種</option>
-								<option value="2">奇形種</option>
-								<option value="3">好多種</option>
+								<option value="">請選擇種類</option>
+								<option value="1">飾品類</option>
+								<option value="2">擺飾類</option>
+								<option value="3">食品類</option>
+								<option value="4">文具類</option>
 							</select>
 						</span>
 					</p>

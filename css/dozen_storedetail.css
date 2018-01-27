@@ -261,13 +261,16 @@ body {
          .storedetailFrame  .productContent .btn .buy .name .btnM .btnText  {
            font-size: 12px;
            display: block;
+           cursor: url(../img/share/cursor.png)20 15,
+           auto;
+         }
+         .storedetailFrame .productContent .btn .buy .name .btnM .btnText:active{
+            sbackground-image: url(../img/dozen_storedetail/btn2.png);
+
          }
          .storedetailFrame  .productContent .btn .buy .name .buyNow:hover  {
           background-image: url(../img/dozen_storedetail/btn2.png);
          }
-
-          .storedetailFrame .product .productContent .btn .buy a:hover {
-            cursor: url(../img/share/cursor.png) 20 15, auto; }
 
           .storedetailFrame .product .productContent .btn .buy .btnM .btnText:focus {
             outline: none; }
