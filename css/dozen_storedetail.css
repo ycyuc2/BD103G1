@@ -179,9 +179,9 @@ body {
     .frame .product .productContent .innerText {
       color: #533e2f; }
       .frame .product .productContent .innerText p {
-        letter-spacing: 1px;
+        letter-spacing: 3px;
         font-size: 16px;
-        line-height: 24px; }
+        line-height:30px; }
     .frame .product .productContent .btn {
       margin-top: 10%; }
       .frame .product .productContent .btn:after {
@@ -229,8 +229,17 @@ body {
           text-align: center; }
       .frame .product .productContent .btn .buy {
         float: right; }
+
+        .frame .product .productContent .btn .buy：hover {
+          cursor: url(../img/share/cursor.png)20 15,auto;
+        }
+
+        .frame .product .productContent .btn .buy：active {
+          cursor: url(../img/share/cursor2.png)20 15,auto;
+        }
         @media all and (max-width: 479px) {
           .frame .product .productContent .btn .buy {
+            
             float: none;
             width: 100%; } }
             
