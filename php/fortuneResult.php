@@ -89,19 +89,19 @@
 			</div>
 			<div class="item">
 				<?php 
-					$sql = "select * from products";
+					$sql = "select * from products where pd_type = :pd_type";
 					$products = $pdo->prepare($sql);
+					$products ->bindValue(':pd_type', $fortRows[$fortNo[0]]["recommend_type"]);
 					$products -> execute();
-					$productsRow = $products->fetchAll();
-					$randomproducts = randomNo($products->rowCount());
+					$productsRow = $products->fetchObject();
 				 ?>
 				<p>專屬必需品</p>
-				<img src="<?php echo '../img/products/'.$productsRow[$randomproducts[0]]["pd_pic1"]; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/products/'.$productsRow->pd_pic1; ?>" class="itemLeft"></img>
 				<div class="itemRight">
-					<p class="itemName"><?php echo $productsRow[$randomproducts[0]]["pd_name"]; ?></p>
-					<p class="itemIntro"><?php echo mb_substr($productsRow[$randomproducts[0]]["pd_describe"],0,50,"utf-8"); ?>...</p>
-					<p class="itemPrice">特價：<?php echo $productsRow[$randomproducts[0]]["pd_sale"]; ?></p>
-					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow[$randomproducts[0]]["pd_no"]; ?>'>直接購買</span></span>
+					<p class="itemName"><?php echo $productsRow->pd_name; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($productsRow->pd_describe,0,50,"utf-8"); ?>...</p>
+					<p class="itemPrice">特價：<?php echo $productsRow->pd_sale; ?></p>
+					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow->pd_no; ?>'>直接購買</span></span>
 				</div>
 			</div>
 		</div>
@@ -212,19 +212,19 @@
 			</div>
 			<div class="item">
 				<?php 
-					$sql = "select * from products";
+					$sql = "select * from products where pd_type = :pd_type";
 					$products = $pdo->prepare($sql);
-					$products -> execute();
-					$productsRow = $products->fetchAll();
-					$randomproducts = randomNo($products->rowCount());
+					$products ->bindValue(':pd_type', $singleFortRows[$fortNo[0]]["recommend_type"]);
+					$products ->execute();
+					$productsRow = $products->fetchObject();
 				 ?>
 				<p>專屬必需品</p>
-				<img src="<?php echo '../img/products/'.$productsRow[$randomproducts[0]]["pd_pic1"]; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/products/'.$productsRow->pd_pic1; ?>" class="itemLeft"></img>
 				<div class="itemRight">
-					<p class="itemName"><?php echo $productsRow[$randomproducts[0]]["pd_name"]; ?></p>
-					<p class="itemIntro"><?php echo mb_substr($productsRow[$randomproducts[0]]["pd_describe"],0,50,"utf-8"); ?>...</p>
-					<p class="itemPrice">特價：<?php echo $productsRow[$randomproducts[0]]["pd_sale"]; ?></p>
-					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow[$randomproducts[0]]["pd_no"]; ?>'>直接購買</span></span>
+					<p class="itemName"><?php echo $productsRow->pd_name; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($productsRow->pd_describe,0,50,"utf-8"); ?>...</p>
+					<p class="itemPrice">特價：<?php echo $productsRow->pd_sale; ?></p>
+					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow->pd_no; ?>'>直接購買</span></span>
 				</div>
 			</div>
 		</div>
@@ -259,13 +259,20 @@
 				</div>
 			</div>
 			<div class="item">
+				<?php 
+					$sql = "select * from products where pd_type = :pd_type";
+					$products = $pdo->prepare($sql);
+					$products ->bindValue(':pd_type', $pairFortRows[$fortNo[1]]["recommend_type"]);
+					$products ->execute();
+					$productsRow = $products->fetchObject();
+				 ?>
 				<p>專屬必需品</p>
-				<img src="<?php echo '../img/products/'.$productsRow[$randomproducts[1]]["pd_pic1"]; ?>" class="itemLeft"></img>
+				<img src="<?php echo '../img/products/'.$productsRow->pd_pic1; ?>" class="itemLeft"></img>
 				<div class="itemRight">
-					<p class="itemName"><?php echo $productsRow[$randomproducts[1]]["pd_name"]; ?></p>
-					<p class="itemIntro"><?php echo mb_substr($productsRow[$randomproducts[1]]["pd_describe"],0,50,"utf-8"); ?>...</p>
-					<p class="itemPrice">特價：<?php echo $productsRow[$randomproducts[1]]["pd_sale"]; ?></p>
-					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow[$randomproducts[1]]["pd_no"]; ?>'>直接購買</span></span>
+					<p class="itemName"><?php echo $productsRow->pd_name; ?></p>
+					<p class="itemIntro"><?php echo mb_substr($productsRow->pd_describe,0,50,"utf-8"); ?>...</p>
+					<p class="itemPrice">特價：<?php echo $productsRow->pd_sale; ?></p>
+					<span class="btnS"><span class="btnText btnText4 cursorHand" onclick='document.location.href="dozen_storedetail.php?pd_no="+<?php echo $productsRow->pd_no; ?>'>直接購買</span></span>
 				</div>
 			</div>
 		</div>
@@ -288,9 +295,9 @@
 	function karmaShow($karma){
 		if($karma <= 0) {
 			return '大吉';
-		}elseif ($karma < 50){
+		}elseif ($karma <= 50){
 			return '吉';
-		}elseif ($karma < 100){
+		}elseif ($karma <= 100){
 			return '凶';
 		}else{
 			return '大凶';
