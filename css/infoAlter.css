@@ -41,6 +41,7 @@
 	box-sizing: border-box;
 	margin-left: 4%;
 	vertical-align: middle;
+	padding-left: 10px;
 }
 /*.info p label:before{
 	content: '請選擇照片';

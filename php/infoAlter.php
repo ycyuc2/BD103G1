@@ -85,7 +85,7 @@ session_start();
 					</p>
 					<p>
 						<span>新增照片</span>
-						<label><input type="file" name="mem_pic" value="<?php echo $memberRow->mem_pic;?>"></label>
+						<label>請選擇照片<input type="file" name="mem_pic" value="<?php echo $memberRow->mem_pic;?>"></label>
 					</p>
 					<p class="btn">
 						<span class="btnS"><span class="btnText btnText2">提交</span></span>
