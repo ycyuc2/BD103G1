@@ -194,6 +194,9 @@ ol li{
 	height: 1.5px;
 	background:rgba(83, 62, 47, 0.7);
 }
+.reply .newMsg{
+	font-weight: bold;
+}
 
 	/*trade*/
 
@@ -309,6 +312,9 @@ ol li{
 .essay .table .tr .essayContent{
 	text-align: left;
 	font-size: 18px;
+}
+.essay .newMsg{
+	font-weight: bold;
 }
 @media all and (min-width: 760px) and (max-width: 959px) {
 

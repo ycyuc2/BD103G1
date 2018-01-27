@@ -63,11 +63,16 @@
 		<div class="singleResult result">
 			<div class="resultFrame"></div>
 			<div class="resultTitle">
-				<img class="titleImg" src="../img/index/text/4.png" alt="感受自己的靈魂狀態">
-				<p><?php echo $constelation[$singleConstelation]; ?></p>
+				
+					<img class="titleImg" src="../img/index/text/4.png" alt="感受自己的靈魂狀態">
+					<p><?php echo $constelation[$singleConstelation]; ?></p>
+				
 				<p>整體：<?php
+
 					echo karmaShow($fortRows[$fortNo[0]]["karma_inc"]);/*大吉0 吉0~50 兇50~100 大兇200*/ 
+
 				?></p>
+
 			</div>
 			<img class="titleImg" src="../img/index/text/5.png" alt="首當其衝!靈力透視!">
 			<p class="text"><?php echo $fortRows[$fortNo[0]]["fort_content"];?></p>

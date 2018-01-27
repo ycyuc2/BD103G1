@@ -69,6 +69,8 @@
             </div>
         </div>
 
+         
+
 
         <!--  進版圖 end  -->
 
@@ -113,27 +115,27 @@
     <?php } ?>
 		<!-- chooseBirthday end-->
 	<div class="resultArea"></div>
-	<script type="text/javascript">
-        <?php if (isset($_SESSION["fort_no"])){
-        	$sql = "select * from fortune where fort_no = :fort_no";
-			$singleFortune = $pdo->prepare($sql);
-			$singleFortune -> bindValue(":fort_no",$_SESSION["fort_no"]);
-			$singleFortune -> execute();
-			$singleFortuneRow = $singleFortune->fetchObject();?>
-			var single = <?php echo $singleFortuneRow->const; ?>;
-    		<?php if ( isset($_SESSION["obj_fort_no"]) ){
-	        	$sql = "select * from fortune where fort_no = :fort_no";
-				$pairFortune = $pdo->prepare($sql);
-				$pairFortune -> bindValue(":fort_no",$_SESSION["obj_fort_no"]);
-				$pairFortune -> execute();
-				$pairFortuneRow = $pairFortune->fetchObject();?>
-				var pair = <?php echo $pairFortuneRow->const; ?>;
-				window.addEventListener('onload',printResult(single, pair));
-			<?php }else{?>
-    			window.addEventListener('onload',printResult(single));
-        	<?php }
-        }?>
-	</script>
+        <script type="text/javascript">
+            <?php if (isset($_SESSION["fort_no"])){
+                $sql = "select * from fortune where fort_no = :fort_no";
+                $singleFortune = $pdo->prepare($sql);
+                $singleFortune -> bindValue(":fort_no",$_SESSION["fort_no"]);
+                $singleFortune -> execute();
+                $singleFortuneRow = $singleFortune->fetchObject();?>
+                var single = <?php echo $singleFortuneRow->const; ?>;
+                <?php if ( isset($_SESSION["obj_fort_no"]) ){
+                    $sql = "select * from fortune where fort_no = :fort_no";
+                    $pairFortune = $pdo->prepare($sql);
+                    $pairFortune -> bindValue(":fort_no",$_SESSION["obj_fort_no"]);
+                    $pairFortune -> execute();
+                    $pairFortuneRow = $pairFortune->fetchObject();?>
+                    var pair = <?php echo $pairFortuneRow->const; ?>;
+                    window.addEventListener('onload',printResult(single, pair));
+                <?php }else{?>
+                    window.addEventListener('onload',printResult(single));
+                <?php }
+            }?>
+        </script>
     </div>
 </body>
 </html>

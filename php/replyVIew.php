@@ -58,20 +58,22 @@ require_once 'header.php';
 
 					<?php
 					try{
-						$sql = "select * from message msg where mem_no = :mem_no and msg_time in (select max(msg_time) from message group by art_no)";
+						$sql = "select * from message msg where mem_no = :mem_no and msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no)";
 						$msgCount = $pdo->prepare($sql);
+						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$msgCount -> execute();
 						$pages = ceil($msgCount->rowCount()/5);
-						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message group by art_no) limit ".(($_REQUEST["page"]-1)*5)." ,5";
+						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no) limit ".(($_REQUEST["page"]-1)*5)." ,5";
 						$reply = $pdo->prepare($sql);
 						$reply -> bindValue(":mem_no",$_SESSION["mem_no"]);
+						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$reply -> execute();
 
 						while($msgArtRow = $reply->fetchObject()){
 							?>
 							
-							<div class="tr"><a href="article.php?art_no=<?php echo $msgArtRow->art_no;?>">
+							<div class="tr msgNo<?php echo $msgArtRow->msg_no;?>"><a href="article.php?art_no=<?php echo $msgArtRow->art_no;?>">
 								<div class="td tdWidth replyNo"><?php 
 									$sql = "select count(*) c from message where art_no = :art_no";
 									$msgCount = $pdo->prepare($sql);
@@ -129,5 +131,22 @@ require_once 'header.php';
 		</div>
 		<div class="blank"></div>
 	</div>
+
+	<?php 
+		$sql = "select * from message msg join article art on msg.art_no = art.art_no
+				where msg.mem_no = :mem_no and msg.last_view < art.art_update_time and msg.msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no)";
+		$msg = $pdo->prepare($sql);
+		$msg -> bindValue(":mem_no",$_SESSION["mem_no"]);
+		$msg -> bindValue(":mem_no",$_SESSION["mem_no"]);
+		$msg -> execute();
+		while($msgRow = $msg->fetchObject()){?>
+			<script type="text/javascript">
+				window.addEventListener('load', function () {
+					var target = document.querySelector('.msgNo<?php echo $msgRow->msg_no;?>');
+					target.className += ' newMsg';
+				})
+					
+			</script>
+		<?php }?>
 </body>
 </html>
