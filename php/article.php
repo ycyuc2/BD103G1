@@ -14,12 +14,27 @@ session_start();
 	<?php require_once("publicHeader.php") ?>
 </head>
 <body>
-	
 	<?php 
 		require_once("connectBD103G1.php");
+		date_default_timezone_set("Asia/Taipei");
+	    if(isset($_SESSION["mem_no"])){
+	    	$sql = "update message set last_view = :last_view where art_no = :art_no and mem_no = :mem_no";
+			$update = $pdo->prepare($sql);
+			$update->bindValue(':last_view', date('Y-m-d H:i:s') );
+			$update->bindValue(':art_no', $_REQUEST["art_no"]);
+			$update->bindValue(':mem_no', $_SESSION["mem_no"]);
+			$update->execute();
+			$sql = "update art_collection set last_view = :last_view where art_no = :art_no and mem_no = :mem_no";
+			$update = $pdo->prepare($sql);
+			$update->bindValue(':last_view', date('Y-m-d H:i:s'));
+			$update->bindValue(':art_no', $_REQUEST["art_no"]);
+			$update->bindValue(':mem_no', $_SESSION["mem_no"]);
+			$update->execute();
+	    }
 		require_once("header.php");
 		$_SESSION["where"] = 'article.php?art_no='.$_REQUEST["art_no"];
 	?>
+	
 
 	<div class="background">
 		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
@@ -271,12 +286,7 @@ session_start();
 		</div>
 		
 	</div>
-<?php 
-	$sql = "update article set art_update_time = :art_update_time where art_no = :art_no";
-	$update = $pdo->prepare($sql);
-	$update->bindValue(':art_no', $_REQUEST["art_no"]);
-	$update->execute();
- ?>
+
 
 	
 </body>

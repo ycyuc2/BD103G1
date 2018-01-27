@@ -58,14 +58,16 @@ require_once 'header.php';
 
 					<?php
 					try{
-						$sql = "select * from message msg where mem_no = :mem_no and msg_time in (select max(msg_time) from message group by art_no)";
+						$sql = "select * from message msg where mem_no = :mem_no and msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no)";
 						$msgCount = $pdo->prepare($sql);
+						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$msgCount -> execute();
 						$pages = ceil($msgCount->rowCount()/5);
-						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message group by art_no) limit ".(($_REQUEST["page"]-1)*5)." ,5";
+						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no) limit ".(($_REQUEST["page"]-1)*5)." ,5";
 						$reply = $pdo->prepare($sql);
 						$reply -> bindValue(":mem_no",$_SESSION["mem_no"]);
+						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$reply -> execute();
 
 						while($msgArtRow = $reply->fetchObject()){

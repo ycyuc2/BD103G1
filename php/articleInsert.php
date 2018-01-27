@@ -70,7 +70,7 @@ session_start();
 				$article->bindValue(":art_img_2", $uploadFileName2);
 				$article->bindValue(":art_img_3",$uploadFileName3);
 				$article->bindValue(":art_post_time",date('Y-h-m h:i:s'));
-				$article->bindValue(":art_post_time",date('Y-h-m h:i:s'));
+				$article->bindValue(":art_update_time",date('Y-h-m h:i:s'));
 				$article->execute();
 				header('Location:specialColumn.php?teacher_no='.$_REQUEST["teacherNo"]);
 
