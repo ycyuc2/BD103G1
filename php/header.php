@@ -76,8 +76,8 @@
 							$member -> execute();
 							$memRow = $member->fetchObject();
 							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>", $memRow->mem_nn);
-							if (isset($_SESSION["cartCount"])) {
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車(%d)</a></li>", $_SESSION["cartCount"]);
+							if (!empty($_SESSION["cartCount"])) {
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車<span>%d</span></a></li>", $_SESSION["cartCount"]);
 							}
 							$sql = "select * from message msg
 									join member mem on msg.mem_no = mem.mem_no 
@@ -110,8 +110,10 @@
 							}
 						}
 						else{
-							printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>登入/註冊</a></li>\n\t\t\t\t\t\t\t\t
-								<li><a href='#'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
+							printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>登入/註冊</a></li>");
+							if (!empty($_SESSION["cartCount"])) {
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車<span>%d</span></a></li>", $_SESSION["cartCount"]);
+							}
 						}
 					
 				

@@ -64,7 +64,7 @@ body {
 #person {
   color: red; }
 
-.frame {
+.storedetailFrame {
   position: relative;
   margin: 0 auto;
   margin-top: 13%;
@@ -74,7 +74,7 @@ body {
   background-size: cover;
   box-sizing: border-box;
   padding: 70px; }
-  .frame .frameFrame {
+  .storedetailFrame .frameFrame {
     position: absolute;
     z-index: 3;
     top: 0;
@@ -85,21 +85,21 @@ body {
     border-image: url(../img/frame_960x960.png) 90 90 repeat;
     box-sizing: border-box;
     filter: drop-shadow(0px 0px 5px #000) drop-shadow(2px 2px 5px #000); }
-  .frame .product {
+  .storedetailFrame .product {
     position: relative;
     z-index: 4; }
-    .frame .product .productContent:after {
+    .storedetailFrame .product .productContent:after {
       content: '';
       display: block;
       clear: both; }
-    .frame .product .productContent .one {
+    .storedetailFrame .product .productContent .one {
       position: relative;
       box-sizing: border-box;
       width: 50%;
       float: left;
       background-size: cover;
       text-align: center; }
-      .frame .product .productContent .one .picFrame {
+      .storedetailFrame .product .productContent .one .picFrame {
         position: absolute;
         box-sizing: border-box;
         margin: 0;
@@ -110,25 +110,25 @@ body {
         border: 40px solid transparent;
         border-image: url(../img/dozen_storedetail/frame3.png) 20 20 repeat; }
       @media all and (max-width: 479px) {
-        .frame .product .productContent .one {
+        .storedetailFrame .product .productContent .one {
           float: none;
           width: 100%; } }
-      .frame .product .productContent .one img {
+      .storedetailFrame .product .productContent .one img {
         padding: 10% 0;
         width: 80%; }
-    .frame .product .productContent .text {
+    .storedetailFrame .product .productContent .text {
       width: 50%;
       float: left;
       padding: 10%;
       box-sizing: border-box;
       padding: 5%; }
-      .frame .product .productContent .text #textTitle {
+      .storedetailFrame .product .productContent .text #textTitle {
         font-family: "王漢宗特明體 – 標準";
         font-size: 25px;
         letter-spacing: 5px;
         color: #533e2f;
         display: inline-block; }
-      .frame .product .productContent .text #price {
+      .storedetailFrame .product .productContent .text #price {
       
         letter-spacing: 5px;
         color: #533e2f;
@@ -136,73 +136,73 @@ body {
         margin-bottom: 2%; 
       }
 
-        .frame .product .productContent .text #karma_dec {
+        .storedetailFrame .product .productContent .text #karma_dec {
           font-family: "王漢宗中明體繁- 細";
           font-size: 14px;
           letter-spacing: 5px;
           color: #c53522;
           display: inline-block;
           margin-bottom: 2%; }
-      .frame .product .productContent .text i {
+      .storedetailFrame .product .productContent .text i {
         color: yellow; }
-        .frame .product .productContent .text .rating{
+        .storedetailFrame .product .productContent .text .rating{
           display: inline-block;
           vertical-align: top;
           float:none;
         }/*
-        .frame .product .productContent .text .rating:after{
+        .storedetailFrame .product .productContent .text .rating:after{
           content:'';
           display: inline-block;
           width: 10px;
           height: 20px;
           background-color: #aaa;
         }*/
-        .frame .product .productContent .text hr{
+        .storedetailFrame .product .productContent .text hr{
           margin-top: 20px;
         }
-      .frame .product .productContent .text .rate {
+      .storedetailFrame .product .productContent .text .rate {
         margin-top: 5px;
         font-size: 16px;
         vertical-align: top;
         display: inline-block;
         color: #533e2f; }
-      .frame .product .productContent .text hr {
+      .storedetailFrame .product .productContent .text hr {
         margin: 5% auto; }
       @media all and (max-width: 479px) {
-        .frame .product .productContent .text {
+        .storedetailFrame .product .productContent .text {
           float: none;
           width: 100%; } }
-    .frame .product .productContent hr {
+    .storedetailFrame .product .productContent hr {
       height: 1px;
       border: none;
       background-color: #533e2f; }
-    .frame .product .productContent .innerText {
+    .storedetailFrame .product .productContent .innerText {
       color: #533e2f; }
-      .frame .product .productContent .innerText p {
+      .storedetailFrame .product .productContent .innerText p {
         letter-spacing: 3px;
         font-size: 16px;
         line-height:30px; }
-    .frame .product .productContent .btn {
+    .storedetailFrame .product .productContent .btn {
       margin-top: 10%; }
-      .frame .product .productContent .btn:after {
+      .storedetailFrame .product .productContent .btn:after {
         content: '';
         display: block;
         clear: both; }
-      .frame .product .productContent .btn .amount {
+      .storedetailFrame .product .productContent .btn .amount {
         float: left;
         color: #fff; }
         @media all and (max-width: 479px) {
-          .frame .product .productContent .btn .amount {
+          .storedetailFrame .product .productContent .btn .amount {
             float: none;
             width: 100%;
             margin-bottom: 50px; } }
-        .frame .product .productContent .btn .amount label {
+        .storedetailFrame .product .productContent .btn .amount label {
           display: inline-block;
           margin-bottom: 2%;
           color: #533e2f;
           letter-spacing: 5px;
           font-size: 14px; }
-        .frame .product .productContent .btn .amount .qtyminus, .frame .product .productContent .btn .amount .qtyplus {
+        .storedetailFrame .product .productContent .btn .amount .qtyminus, .storedetailFrame .product .productContent .btn .amount .qtyplus {
           width: 30px;
           height: 30px;
           border: 0;
@@ -211,14 +211,14 @@ body {
           background-image: url(../img/dozen_storedetail/btn1.png);
           background-size: cover;
           background-position: center center; }
-          .frame .product .productContent .btn .amount .qtyminus:hover, .frame .product .productContent .btn .amount .qtyplus:hover {
+          .storedetailFrame .product .productContent .btn .amount .qtyminus:hover, .storedetailFrame .product .productContent .btn .amount .qtyplus:hover {
             cursor: url(../img/share/cursor.png) 20 15, auto; }
-          .frame .product .productContent .btn .amount .qtyminus:focus, .frame .product .productContent .btn .amount .qtyplus:focus {
+          .storedetailFrame .product .productContent .btn .amount .qtyminus:focus, .storedetailFrame .product .productContent .btn .amount .qtyplus:focus {
             outline: none; }
-          .frame .product .productContent .btn .amount .qtyminus:active, .frame .product .productContent .btn .amount .qtyplus:active {
+          .storedetailFrame .product .productContent .btn .amount .qtyminus:active, .storedetailFrame .product .productContent .btn .amount .qtyplus:active {
             box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
             cursor: url(../img/share/cursor2.png) 20 15, auto; }
-        .frame .product .productContent .btn .amount .qty {
+        .storedetailFrame .product .productContent .btn .amount .qty {
           background-image: url(../img/dozen_storedetail/input.png);
           background-size: cover;
           width: 70px;
@@ -227,23 +227,23 @@ body {
           outline: none;
           color: #fff;
           text-align: center; }
-      .frame .product .productContent .btn .buy {
+      .storedetailFrame .product .productContent .btn .buy {
         float: right; }
 
-        .frame .product .productContent .btn .buy .name .btnText：hover {
+        .storedetailFrame .product .productContent .btn .buy .name .btnText：hover {
           cursor: url(../img/share/cursor.png)20 15,auto;
         }
 
-        .frame .product .productContent .btn .buy .name .btnText：active {
+        .storedetailFrame .product .productContent .btn .buy .name .btnText：active {
           cursor: url(../img/share/cursor2.png)20 15,auto;
         }
         @media all and (max-width: 479px) {
-          .frame .product .productContent .btn .buy {
+          .storedetailFrame .product .productContent .btn .buy {
             
             float: none;
             width: 100%; } }
             
-        .frame  .productContent .btn .buy .name .buyNow  {
+        .storedetailFrame  .productContent .btn .buy .name .buyNow  {
           color: #fff;
           font-size: 12px;
           letter-spacing: 4px;
@@ -258,25 +258,25 @@ body {
           cursor: pointer;
          }
 
-         .frame  .productContent .btn .buy .name .btnM .btnText  {
+         .storedetailFrame  .productContent .btn .buy .name .btnM .btnText  {
            font-size: 12px;
            display: block;
          }
-         .frame  .productContent .btn .buy .name .buyNow:hover  {
+         .storedetailFrame  .productContent .btn .buy .name .buyNow:hover  {
           background-image: url(../img/dozen_storedetail/btn2.png);
          }
 
-          .frame .product .productContent .btn .buy a:hover {
+          .storedetailFrame .product .productContent .btn .buy a:hover {
             cursor: url(../img/share/cursor.png) 20 15, auto; }
 
-          .frame .product .productContent .btn .buy .btnM .btnText:focus {
+          .storedetailFrame .product .productContent .btn .buy .btnM .btnText:focus {
             outline: none; }
 
-          .frame .product .productContent .btn .buy .btnM .btnText:active {
+          .storedetailFrame .product .productContent .btn .buy .btnM .btnText:active {
             box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
             cursor: url(../img/share/cursor2.png) 20 15, auto;
            }
 
           @media all and (max-width: 479px) {
-            .frame .product .productContent .btn .buy a {
+            .storedetailFrame .product .productContent .btn .buy a {
               margin: 0 auto; } }
