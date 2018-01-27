@@ -24,25 +24,7 @@
 		$checkRow = $check->fetchObject();
 		$star = $checkRow->$typeStar;
 	if($_REQUEST["action"] == 'show'){
-		
-		?>
-		<input type="radio" id="star5" name="rating" value="5" class="starIcon" />
-		<label class = "full" for="star5" title="Awesome - 5 stars"></label>
-		<input type="radio" id="star4" name="rating" value="4" class="starIcon" />
-		<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-		<input type="radio" id="star3" name="rating" value="3" class="starIcon" />
-		<label class = "full" for="star3" title="Meh - 3 stars"></label>
-		<input type="radio" id="star2" name="rating" value="2" class="starIcon" />
-		<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-		<input type="radio" id="star1" name="rating" value="1" class="starIcon" />
-		<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-		<script type="text/javascript">
-			var starIcon = document.querySelectorAll('.starIcon');
-			starIcon[5-Math.round(<?php echo $star; ?>)].checked = true;
-		</script>
-
-
-		<?php
+		echo round(5-$star);
 	}elseif($_REQUEST["action"] == 'review'){
 		$sql = "select * from ".$type."_review where ".$type."_no = :".$type."_no and mem_no = :mem_no";
 		$count = $pdo->prepare($sql);

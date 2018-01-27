@@ -62,7 +62,7 @@
                                      <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
                                      <h2 id="karma_dec">業力值扣減(<?php echo $productRow["karma_dec"] ?>)</h2>
                                     <br>
-                                    <fieldset class="rating ">
+                                    <fieldset class="rating">
                                         <input type="radio" id="star5" name="rating" value="5" class="starIcon">
                                         <label class = "full" for="star5" title="Awesome - 5 stars"></label>
                                         <input type="radio" id="star4" name="rating" value="4" class="starIcon">
@@ -75,27 +75,20 @@
                                         <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
                                     </fieldset>
                                     <script type="text/javascript">
-                                        var starIcon = document.querySelectorAll('.starIcon');
-                                        for (var i = 0; i < starIcon.length; i++) {
-                                            starIcon[i].addEventListener('click',function () {
-                                                <?php if (isset($_SESSION["mem_no"])) {?>
-                                                    var xhttp = new XMLHttpRequest();
-                                                    xhttp.onreadystatechange = function() {
-                                                        if (this.readyState == 4 && this.status == 200) {
-                                                            // 燈箱
-                                                            alert('成功評價商品');
-                                                        }else{
-                                                        }
-                                                    };
-                                                    xhttp.open("GET", "star.php?type=pd&action=review&target_no=<?php echo $_REQUEST["pd_no"]; ?>&value="+this.value);
-                                                    alert(this.value);
-                                                    xhttp.send();
-                                                <?php }else{?>					
-                                                    document.querySelector('#loginControl').checked = true;
-                                                <?php } ?>
-                                                
-                                            });	//starIcon addEvent end
-                                        }
+                                        var xhttp = new XMLHttpRequest();
+                                        xhttp.onreadystatechange = function() {
+                                            if (this.readyState == 4 && this.status == 200) {
+                                                var starIcon = document.querySelectorAll('.starIcon');
+                                                starIcon[this.responseText].checked = true;
+                                                for (var i = 0; i < starIcon.length; i++) {
+                                                    starIcon[i].disabled = true;
+                                                }
+                                            }else{
+                                            }
+                                        };
+                                        xhttp.open("GET", "star.php?type=products&action=show&target_no=<?php echo $_REQUEST["pd_no"]; ?>");
+                                        xhttp.send();
+                                        
                                     </script>
                                     
                                     <p class="rate">4.5/5</p>

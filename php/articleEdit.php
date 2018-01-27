@@ -88,6 +88,27 @@ session_start();
 		</div>
 		
 	</div>
+<script>
+	window.addEventListener('load', function(){
+		var imgInput = document.getElementsByClassName('inputImg');
+		for (var i = 0; i < imgInput.length; i++) {
+			imgInput[i].addEventListener('change', function(e){
+				var fileName = this.value;
+				var fileType = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length);
+				if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
+					alert('檔案格式須為jpg、jpeg、png或gif');
+					this.value = null;
+				}
 
+
+			});
+		};
+
+
+
+	});
+
+
+</script>
 </body>
 </html>
