@@ -8,6 +8,7 @@
 	if(empty($_SESSION["karma_inc"])){
 		$_SESSION["karma_inc"] = 0;
 	}
+	$_SESSION["karma_val"]=100;
 ?>
 	<!-- hamnurger -->
 	<!-- 漢堡選單 -->
@@ -134,18 +135,35 @@
 	<!-- 業力球 -->
 
 	<a class="showKarma" href="karmainfo.php">
-        <div class="face">
-            <h3>業障干擾值</h3>
-            <img src="../img/showKarma/700.png">
-            <span><?php
-	            if( isset($_SESSION["karma_val"]) ){
+		<div class="showKarma"> 
+			<p>業障干擾值</p>
+			<img src="../img/showKarma/karma_frame.png" alt="" class="frame">
+			<div class="balls">
+				<img src="../img/showKarma/ball.png" alt="" class="outBall">
+				<svg id="fillgauge2" width="90" height="90"></svg>
+			</div>
+			<p class="number">
+			</p>
+		</div>
+	</a>
+	    <script language="JavaScript">
+		var karCount =<?php if( isset($_SESSION["karma_val"]) ){
 	            	echo $_SESSION["karma_val"];
 				}else{
 					echo $_SESSION["karma_inc"]+100;
-				}?>
-			</span>
-        </div>
-    </a>
+				}?>;
+        var config1 = liquidFillGaugeDefaultSettings();
+        config1.circleColor = "#850000";
+        config1.textColor = "#d00";        
+        config1.waveTextColor = "#ddd";
+        config1.waveColor = "#eb0202";
+        config1.circleThickness = 0.05;
+        config1.textVertPosition = 0.5;
+        config1.waveAnimateTime = 3000;
+        var gauge2= loadLiquidFillGauge("fillgauge2", karCount, config1);    
+    </script>
+
+
 	<!-- 燈箱開始 -->
 	
 	<input type="checkbox" id="loginControl">

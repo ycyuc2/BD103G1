@@ -31,14 +31,13 @@
 	top: 70px;
 	display: inline-block;
 	font-size: 25px;
-	color: #533e2f;
+	color: #533E23;
 	transition: 0.2s filter;
-	filter: drop-shadow(0px 0px 5px #fec16a);
+	filter: drop-shadow(0px 0px 2px #fec16a);
 	z-index: 12;
 }
 .boxContent i:hover{
-	color: #e9b060;
-	filter: drop-shadow(0px 0px 10px #fec16a) drop-shadow(0px 0px 5px #fec16a);
+	color: #422a10;
 }
 .boxContent .loginClose{
 	right: 30px;
