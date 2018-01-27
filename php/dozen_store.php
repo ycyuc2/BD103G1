@@ -84,8 +84,8 @@
 
 
 <!-- 內文 -->
-
-<div class="frame">
+<h1 class="storeH1">開運聖店</h1>
+<div class="storeFrame">
     <div class="frameFrame"></div>
 
     <div class="wrapper">

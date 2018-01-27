@@ -65,11 +65,12 @@
 	background-color: red;
 	border-radius: 19px;
 	box-sizing: border-box;
-	padding-left: 6px;
-	padding-top: 1px;
-	line-height: 20px;
+	text-align: center;
+	line-height: 22px;
 
 }
+
+
 
 .header .memArea a,
 

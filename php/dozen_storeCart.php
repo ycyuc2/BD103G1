@@ -26,7 +26,7 @@ session_start();
         $_SESSION["where"] = "dozen_store.php";
         ?>
    
-    <div class="frame">
+    <div class="cartFrame">
         <div class="frameFrame"></div>
         
        <div class="title">
