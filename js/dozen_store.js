@@ -124,6 +124,7 @@ function addButton() {
 		            storage['addItemList'] += itemId + ', ';
 		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
                     cartCountAdd();
+                    document.location.reload();
 		        }
 
 			}
