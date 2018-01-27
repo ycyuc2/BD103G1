@@ -1,93 +1,53 @@
-@font-face {
-    font-family: "王漢宗粗明體繁-中";
-    src: url(../font/王漢宗粗明體繁-中.ttf);
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Arial',"微軟正黑體"; 
+	box-sizing: border-box;
 }
 
-body{
-	background-color: #000;
-	color: #fff;
-	font-family: "王漢宗粗明體繁-中";
-	margin:0;
-	/*cursor: url(../img/gudie/cursor.png),pointer;*/
-}
-
-.background img{
+.bg{
 	width: 100vw;
+	height: 100vh;
+	background-image: url(img/bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	position: fixed;
-	z-index: -999999;
-}
-
-.logo{
-	width: 12%;
-	margin: 0 auto;
 }
 
 .logo img{
-	width: 100%;
-	margin: 0 auto;
-	margin-top: 80px;
-}
-
-h1{
-	text-align: center;
-	font-size: 24px;
-	margin-top: 50px;
-}
-
-.button .wrapper{
-	width: 50%;
-	margin: 0 auto;
-	margin-top: 100px;
-	text-align: center;	
-}
-
-.left-button{
-	float: left;
-}
-
-.right-button{
-	float: right;
-}
-
-.left-button:after,
-.right-button:after{
 	display: block;
-	content: "";
-	clear: both;
-}
-
-.button .wrapper img{
-	background-color: #4e4aff;
-}
-
-.button .wrapper a{
-	position: relative;
-}
-
-.button .wrapper img:hover{
-	background-color: #f00;
-	transition: .3s;
-}
-
-h2{
-	display: inline-block;
-	color:#fff;
+	width: 150px;
 	position: absolute;
-	bottom: 10px;
+	left: calc(50% - 75px);
+	top: 70px;	
 }
 
-.left-button h2{
-	left: 90px;
+.title img{
+	width: 400px;
+	display: block;
+	position: absolute;
+	left: calc(50% - 200px);
+	top: 300px;
 }
 
-.right-button h2{
-	right: 80px;
+.btnM{
+	width: 100px;
+	height: 30px;
 }
 
-@media screen and (max-width: 480px){
-	a{
-		display: block;
+.btnText2{
+	line-height: 30px;
+}
+
+@media all and (max-width: 479px){
+	.title img{
+		width: 300px;
+		left: calc(50% - 150px);
 	}
 }
+
+
+
 
 
