@@ -2,7 +2,14 @@
 @font-face {
   font-family: "王漢宗粗明體繁-中";
   src: url(../font/王漢宗粗明體繁-中.ttf); }
-
+@font-face{
+  font-family: '王漢宗中明體繁- 細.';
+  src:url('../font/王漢宗中明體繁- 細.ttf');
+}
+@font-face{
+  font-family: '王漢宗特明體 – 標準';
+  src:url('../font/王漢宗特明體 – 標準.ttf');
+}
 @font-face {
   font-family: custom-sans-serif;
   src: url(../font/王漢宗粗明體繁-中.ttf), local("Microsoft JhengHei");
@@ -113,13 +120,18 @@
       top: 150px;
       left: 0; } }
   #teacherInfo #closeBtn {
-    z-index: 30;
     position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px; }
+    top: 70px;
+    display: inline-block;
+    font-size: 25px;
+    color: #533E23;
+    transition: 0.2s filter;
+    filter: drop-shadow(0px 0px 2px #fec16a);
+}
+  #teacherInfo #closeBtn:hover {
+    color:#422a10;
+filter:drop-shadow(0px 0px 2px #fec16a);
+    }
     #teacherInfo #closeBtn i {
       color: #333;
       font-size: 30px;
@@ -294,6 +306,10 @@
         width: 95%; } }
     .directions .content p {
       font-size: 18px;
+        font-family: '王漢宗中明體繁- 細.';
+
+      text-align: justify;
+      text-justify: distribute;
       letter-spacing: 2px;
       line-height: 30px;
       color: #ddd;
@@ -301,11 +317,12 @@
     .directions .content .btnarea {
       margin: 40px auto 0px auto; }
       .directions .content .btnarea #clickCloseDirection {
+        font-family: '王漢宗特明體 – 標準';
+        letter-spacing: 2px;
         width: 180px;
         height: 90px;
         line-height: 50px;
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 19px;
         display: block;
         background-color: transparent;
         background-image: url(../img/findTeacher/hint_btn.png);
