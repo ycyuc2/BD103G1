@@ -7,14 +7,21 @@
 	font-size: 16px;
 	vertical-align: middle;
 }
+.tr .category input,.name input,.price input,.sale input,.stock input,.decrement input{
+	width: 90%;
+}
+.tr textarea{
+	width: 90%;
+	height: 150px;
+}
 .tr .no{
 	width: 5%;
 }
 .tr .category{
-	width: 5%;
+	width: 9%;
 }
 .tr .name{
-	width: 13%;
+	width: 9%;
 }
 .tr .price{
 	width: 5%;
@@ -31,6 +38,20 @@
 .tr .pic{
 	width: 10%;
 }
+.tr .pic label{
+	width: 90%;
+	margin: auto;
+	height: 24px;
+	border: 2px solid #333;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+	color: #333;
+}
+#fileInput{
+	display: none;
+}
 .tr .describe{
 	width: 30%;
 }
@@ -41,7 +62,6 @@
 	width: 10%;
 }
 .tr .alter a{
-	margin-left: 10%;
 }
 .right > div:last-child{
 	border-bottom: 0;
@@ -73,7 +93,7 @@
 	position: absolute;
 	top: 0;right: 0;bottom: 0;left: 0;
 	width: 400px;
-	height: 400px;
+	height: 500px;
 	margin: auto auto;
 	background: #ccc;
 	box-sizing: border-box;

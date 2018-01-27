@@ -63,7 +63,7 @@
 				<span class="col stat">狀態</span>
 				<span class="col pic">照片</span>
 				<span class="col describe">商品敘述</span>
-				<span class="col alter">修改/刪除</span>
+				<span class="col alter">操作</span>
 			</div>
 
 <?php 
@@ -106,8 +106,8 @@
 						
 				</span>
 				<span class="col pic"><?php echo $productRow["pd_pic1"] ?></span>
-				<span class="col describe"><?php echo $productRow["pd_describe"] ?></span>
-				<span class="col alter"><a href="bk_productAction.php?action=edit&pdNo=<?php echo $productRow["pd_no"] ?>">A</a><a href="bk_productAction.php?action=delete&pdNo=<?php echo $productRow["pd_no"] ?>">X</a></span>
+				<span class="col describe"><?php echo nl2br($productRow["pd_describe"]) ?></span>
+				<span class="col alter"><a class="btnS btnText btnText2" href="bk_productAction.php?action=edit&pdNo=<?php echo $productRow["pd_no"] ?>">編輯</a>
 			</div>
 
 <?php 
@@ -126,11 +126,11 @@
 			
 			<div class="boxContent">
 				<label for="lightBoxControl"><p class="exit">X</p></label>
-				<form>
+				<form action="bk_productInsert.php" method="post" enctype="multipart/form-data">
 					<p class="input">
 						<span>種類</span>
 						<span>
-							<select name="category">
+							<select name="pd_type" required>
 								<option value="">請選擇種類</option>
 								<option value="1">飾品類</option>
 								<option value="2">擺飾類</option>
@@ -141,25 +141,41 @@
 					</p>
 					<p class="input">
 						<span>名稱</span>
-						<span><input type="text" name="name"></span>
+						<span><input type="text" name="pd_name" required></span>
 					</p>
 					<p class="input">
 						<span>價格</span>
-						<span><input type="text" name="price"></span>
+						<span><input type="number" name="pd_price" required></span>
+					</p>
+					<p class="input">
+						<span>特價</span>
+						<span><input type="number" name="pd_sale" required></span>
 					</p>
 					<p class="input">
 						<span>庫存</span>
-						<span><input type="text" name="stock"></span>
+						<span><input type="number" name="pd_stock" required></span>
 					</p>
 					<p class="input">
 						<span>減少值</span>
-						<span><input type="text" name="decrement"></span>
+						<span><input type="number" name="karma_dec" required></span>
 					</p>
 					<p class="input">
 						<span>狀態</span>
 						<span>
-							<input type="radio" name="stat" value="0">下架
-							<input type="radio" name="stat" value="1">上架
+							<input type="radio" name="pd_sta" value="0">下架
+							<input type="radio" name="pd_sta" value="1">上架
+						</span>
+					</p>
+					<p class="input">
+						<span>照片</span>
+						<span>
+							<input id="inputFile" type="file" name="pd_pic1" required>
+						</span>
+					</p>
+					<p class="input">
+						<span>商品敘述</span>
+						<span>
+							<textarea name="pd_describe" required></textarea>
 						</span>
 					</p>
 					<p class="center">
@@ -169,7 +185,27 @@
 			</div>
 		</div>
 	</div>
-	
+<script>
+	window.addEventListener('load', function(){
+		var imgInput = document.getElementById('inputFile');
+		
+		imgInput.addEventListener('change', function(){
+			var fileName = this.value;
+			var fileType = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length);
+			if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
+				alert('檔案格式須為jpg、jpeg、png或gif');
+				this.value = null;
+			}
+
+
+		});
+
+		
+
+
+	});	
+
+</script>
     
 </body>
 </html>

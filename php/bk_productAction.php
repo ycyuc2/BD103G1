@@ -78,11 +78,12 @@
 
  ?>
 			<div class="tr">
-				<form action="">
+				<form method="post" action="bk_productUpdate.php" enctype="multipart/form-data">
 					<span class="col no"><?php echo $productRow["pd_no"] ?></span>
+					<input type="hidden" name="pd_no" value="<?php echo $productRow["pd_no"] ?>">
 					<span class="col category">
 						<select>
-							<option value="">請選擇種類</option>
+							<option value="">選擇</option>
 							<option value="1">飾品類</option>
 							<option value="2">擺飾類</option>
 							<option value="3">食品類</option>
@@ -108,10 +109,13 @@
 						<input type="radio" name="pd_sta" value="0">下架<br>
 						<input type="radio" name="pd_sta" value="1">上架
 					</span>
-					<span class="col pic"><input type="file" name="pd_pic1"></span>
+					<span class="col pic">
+						<label for="fileInput">請選擇檔案</label>
+						<input id="fileInput" type="file" name="pd_pic1">
+					</span>
 					<span class="col describe">
 						<textarea name="pd_describe">
-							<?php echo $productRow["pd_describe"] ?>
+							<?php echo nl2br($productRow["pd_describe"]) ?>
 						</textarea>
 							
 						</span>
@@ -126,8 +130,31 @@
 <?php } ?>
 		</div>
 	</div>
-</body>
-</html>
+<script>
+	window.addEventListener('load', function(){
+		var imgInput = document.getElementById('fileInput');
+		var label = document.querySelector('form label');
+		
+		imgInput.addEventListener('change', function(){
+			var fileName = this.value;
+			var fileType = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length);
+			label.textContent = '已選擇檔案';
+			if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
+				alert('檔案格式須為jpg、jpeg、png或gif');
+				this.value = null;
+				label.textContent = '請選擇檔案';
+			}
+
+
+		});
+
+		
+
+
+	});	
+
+</script>
+
 <?php
 	}else{
 
@@ -140,3 +167,6 @@
 
 
  ?>
+
+</body>
+</html>
