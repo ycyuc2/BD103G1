@@ -41,8 +41,19 @@
 		$fortRows = $fortune->fetchAll();
 		$fortNo = randomNo( $fortune -> rowCount() );
 		if (empty($_SESSION["fort_no"])) {
-			$_SESSION["karma_inc"] = $fortRows[$fortNo[0]]["karma_inc"];
+			$_SESSION["karma_val"] += $fortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["fort_no"] = $fortRows[$fortNo[0]]["fort_no"];
+
+			if (isset($_SESSION["mem_no"])) {
+				$sql = "update member set fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = :karma_val where mem_no = :mem_no";
+				$update = $pdo->prepare($sql);
+				$update->bindValue(':fort_no', $_SESSION["fort_no"]);
+				$update->bindValue(':obj_fort_no', $_SESSION["obj_fort_no"]);
+				$update->bindValue(':karma_val', $_SESSION["karma_val"]);
+				$update->bindValue(':mem_no', $_SESSION["mem_no"]);
+				$update->execute();
+			}
+
 		}else{
 			$fortNo[0] = 0;
 		}
@@ -130,7 +141,6 @@
 		$singleFortRows = $fortune->fetchAll();
 		$fortNo = randomNo( $fortune -> rowCount() );
 		if (empty($_SESSION["fort_no"])) {
-			$_SESSION["karma_inc"] = $singleFortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["fort_no"] = $singleFortRows[$fortNo[0]]["fort_no"];
 		}else{
 			$fortNo[0] = 0;
@@ -149,7 +159,19 @@
 		$fortune -> execute();
 		$pairFortRows = $fortune->fetchAll();
 		if (empty($_SESSION["obj_fort_no"])) {
+			$_SESSION["karma_val"] += $singleFortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["obj_fort_no"] = $pairFortRows[$fortNo[1]]["fort_no"];
+
+			if (isset($_SESSION["mem_no"])) {
+				$sql = "update member set fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = :karma_val where mem_no = :mem_no";
+				$update = $pdo->prepare($sql);
+				$update->bindValue(':fort_no', $_SESSION["fort_no"]);
+				$update->bindValue(':obj_fort_no', $_SESSION["obj_fort_no"]);
+				$update->bindValue(':karma_val', $_SESSION["karma_val"]);
+				$update->bindValue(':mem_no', $_SESSION["mem_no"]);
+				$update->execute();
+			}
+			
 		}else{
 			$fortNo[1] = 0;
 		}
