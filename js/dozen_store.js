@@ -112,8 +112,9 @@ function addButton() {
 				itemValue += "|" + inputValue;
 				storage[itemId] = itemValue;
 				if(i == 1){
-			    	document.location.href='../php/dozen_storeCart.php';
+			    	href='../php/dozen_storeCart.php';
 			    }
+                    document.location.href=href;
 			}else{
 				if (storage[itemId] ) {
 					alert('商品已在購物車裡囉！');
@@ -131,7 +132,7 @@ function cartCountAdd() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            location.reload();
+            href='../php/dozen_store.php';
         }
     };
     xhttp.open("GET", "../php/cartCount.php?action=add");
