@@ -53,7 +53,26 @@
 	padding: 20px 37px 0 0;
 }
 
+.header .memArea ul li a i{
+	font-size: 22px;
+}
+
+.header .memArea ul li a span{
+	margin-left: 5px;
+	height: 23px;
+	width: 23px;
+	display: inline-block;
+	background-color: red;
+	border-radius: 19px;
+	box-sizing: border-box;
+	padding-left: 6px;
+	padding-top: 1px;
+	line-height: 20px;
+
+}
+
 .header .memArea a,
+
 .header .memArea p
 {
 	text-decoration: none;

@@ -230,11 +230,11 @@ body {
       .frame .product .productContent .btn .buy {
         float: right; }
 
-        .frame .product .productContent .btn .buy：hover {
+        .frame .product .productContent .btn .buy .name .btnText：hover {
           cursor: url(../img/share/cursor.png)20 15,auto;
         }
 
-        .frame .product .productContent .btn .buy：active {
+        .frame .product .productContent .btn .buy .name .btnText：active {
           cursor: url(../img/share/cursor2.png)20 15,auto;
         }
         @media all and (max-width: 479px) {
@@ -258,17 +258,25 @@ body {
           cursor: pointer;
          }
 
+         .frame  .productContent .btn .buy .name .btnM .btnText  {
+           font-size: 12px;
+           display: block;
+         }
          .frame  .productContent .btn .buy .name .buyNow:hover  {
           background-image: url(../img/dozen_storedetail/btn2.png);
          }
 
           .frame .product .productContent .btn .buy a:hover {
             cursor: url(../img/share/cursor.png) 20 15, auto; }
-          .frame .product .productContent .btn .buy a:focus {
+
+          .frame .product .productContent .btn .buy .btnM .btnText:focus {
             outline: none; }
-          .frame .product .productContent .btn .buy a:active {
+
+          .frame .product .productContent .btn .buy .btnM .btnText:active {
             box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.5);
-            cursor: url(../img/share/cursor2.png) 20 15, auto; }
+            cursor: url(../img/share/cursor2.png) 20 15, auto;
+           }
+
           @media all and (max-width: 479px) {
             .frame .product .productContent .btn .buy a {
               margin: 0 auto; } }
