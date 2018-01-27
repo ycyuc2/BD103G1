@@ -8,11 +8,12 @@
 .bg{
 	width: 100vw;
 	height: 100vh;
-	background-image: url(img/bg.jpg);
+	background-image: url(../img/guide/bg.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: fixed;
+	z-index: -10;
 }
 
 .logo img{
@@ -31,14 +32,10 @@
 	top: 300px;
 }
 
-.btnM{
-	width: 100px;
-	height: 30px;
+.btn{
+	
 }
 
-.btnText2{
-	line-height: 30px;
-}
 
 @media all and (max-width: 479px){
 	.title img{
