@@ -271,7 +271,12 @@ session_start();
 		</div>
 		
 	</div>
-
+<?php 
+	$sql = "update article set art_update_time = :art_update_time where art_no = :art_no";
+	$update = $pdo->prepare($sql);
+	$update->bindValue(':art_no', $_REQUEST["art_no"]);
+	$update->execute();
+ ?>
 
 	
 </body>

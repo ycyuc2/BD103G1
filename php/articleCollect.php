@@ -16,7 +16,7 @@ try{
             $artInsert = $pdo->prepare($sql);
             $artInsert->bindValue(':mem_no', $_SESSION["mem_no"]);
             $artInsert->bindValue(':art_no', $_REQUEST["art_no"]);
-            $artInsert->bindValue(':last_view', date("YmdHis"));
+            $artInsert->bindValue(':last_view', date("Y-m-d H:i:s"));
             $artInsert->execute();
             echo "已收藏";
         }else{
