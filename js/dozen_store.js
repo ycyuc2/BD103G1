@@ -102,6 +102,7 @@ function addButton() {
 	        if(document.querySelector('.qty')){
 	        	if (storage[itemId] ) {
 					if(i == 0){alert('商品已在購物車裡囉！')};
+                    href='../php/dozen_store.php';
 		        } else {
 		            storage['addItemList'] += itemId + ', ';
 		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
@@ -112,9 +113,10 @@ function addButton() {
 				itemValue += "|" + inputValue;
 				storage[itemId] = itemValue;
 				if(i == 1){
-			    	href='../php/dozen_storeCart.php';
-			    }
-                    document.location.href=href;
+			    	document.location.href='../php/dozen_storeCart.php';
+			    }else{
+                    document.location.reload();
+                }
 			}else{
 				if (storage[itemId] ) {
 					alert('商品已在購物車裡囉！');
@@ -123,6 +125,7 @@ function addButton() {
 		            storage[itemId] = itemValue; //storage.setItem(itemId,itemValue);
                     cartCountAdd();
 		        }
+
 			}
 	    });
 	
@@ -132,7 +135,7 @@ function cartCountAdd() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            href='../php/dozen_store.php';
+            
         }
     };
     xhttp.open("GET", "../php/cartCount.php?action=add");
