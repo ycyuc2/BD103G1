@@ -84,7 +84,8 @@ session_start();
 						<span>修改電話</span><span class="input"><input type="text" name="mem_tel" value="<?php echo $memberRow->mem_tel;?>"></span>
 					</p>
 					<p>
-						<span>新增大頭貼</span><span class="input"><input type="file" name="mem_pic" value="<?php echo $memberRow->mem_pic;?>"></span>
+						<span>新增照片</span>
+						<label><input type="file" name="mem_pic" value="<?php echo $memberRow->mem_pic;?>"></label>
 					</p>
 					<p class="btn">
 						<span class="btnS"><span class="btnText btnText2">提交</span></span>
@@ -120,7 +121,18 @@ session_start();
 							alert('資料修改成功');
 							document.querySelector('.info form').submit();
 						}
-					})
+					});
+					document.querySelector('input[type=file]').addEventListener('change', function(){
+							var fileType = this.value.substring(this.value.lastIndexOf('.') + 1, this.value.length);
+							if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
+								alert('檔案格式須為jpg、jpeg、png或gif');
+								this.value = null;
+							}else{
+								document.querySelector('p label').innerText = this.value.substring(this.value.lastIndexOf('\\') + 1, this.value.length);
+							}
+							
+					});
+
 				</script>
 			</div>
 		</div>
