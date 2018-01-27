@@ -108,7 +108,7 @@ try{
 				<div class="links">
 					<div class="left">
 						<span class="btnM">
-							<p href="#" class="btnText btnText4">商品推薦</p>
+							<p  class="btnText btnText4">商品推薦</p>
 						</span>
 					</div>
 					<div class="middle">

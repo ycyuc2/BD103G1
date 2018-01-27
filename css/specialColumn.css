@@ -194,6 +194,26 @@ h1 {
         content: '';
         display: block;
         clear: both; }
+
+        .teacher .teacherBorder .links .left .btnM .btnText {
+          cursor: url(../img/share/cursor.png)20 15,auto;
+
+
+        }
+
+        .teacher .teacherBorder .links .left .btnM .btnText:active {
+          cursor: url(../img/share/cursor2.png)20 15,auto;
+        }
+
+        .teacher .teacherBorder .links .right .btnM .btnText {
+          cursor: url(../img/share/cursor.png)20 15,auto;
+
+
+        }
+
+        .teacher .teacherBorder .links .right .btnM .btnText:active {
+          cursor: url(../img/share/cursor2.png)20 15,auto;
+        }
         .teacher .teacherBorder .links .left,
         /* .teacher .teacherBorder .links .middle, */
       .teacher .teacherBorder .links .right {
