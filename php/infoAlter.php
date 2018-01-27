@@ -30,11 +30,22 @@ session_start();
 			if ( empty($_REQUEST["mem_psw"]) ) {
 				$_REQUEST["mem_psw"] = $memberRow->mem_psw;
 			}
-			$sql = "update member set mem_psw = :mem_psw, mem_tel = :mem_tel, mem_nn = :mem_nn where mem_no = :mem_no";
+			if( $_FILES["mem_pic"]["error"]==0){
+				$tmpFileName = strrchr($_FILES["mem_pic"]["name"],".");
+				$uploadFileName =  $_SESSION["mem_no"].$tmpFileName;
+				$from = $_FILES["mem_pic"]["tmp_name"];
+				$to ="../img/member/".$uploadFileName;
+				copy( $from, $to);
+				
+			}else{
+				$_FILES["mem_pic"]["name"] = null;
+			}
+			$sql = "update member set mem_psw = :mem_psw, mem_tel = :mem_tel, mem_nn = :mem_nn, mem_pic = :mem_pic where mem_no = :mem_no";
 			$update = $pdo->prepare($sql);
 			$update->bindValue(':mem_psw', $_REQUEST["mem_psw"]);
 			$update->bindValue(':mem_nn', $_REQUEST["mem_nn"]);
 			$update->bindValue(':mem_tel', $_REQUEST["mem_tel"]);
+			$update->bindValue(':mem_pic', $uploadFileName);
 			$update->bindValue(':mem_no', $_SESSION["mem_no"]);
 			$update->execute();
 			header('location:'.$_SESSION["where"]);
@@ -58,7 +69,7 @@ session_start();
 			<div class="content info">
 				
 				<h2>個人資料</h2>
-				<form action="infoAlter.php?action=update" method="post">
+				<form action="infoAlter.php?action=update" method="post" enctype="multipart/form-data">
 					
 					<p>
 						<span>修改密碼</span><span class="input"><input type="password" name="mem_psw"></span><span class="pswConfirm">密碼與確認密碼不符</span>
@@ -71,6 +82,9 @@ session_start();
 					</p>
 					<p>
 						<span>修改電話</span><span class="input"><input type="text" name="mem_tel" value="<?php echo $memberRow->mem_tel;?>"></span>
+					</p>
+					<p>
+						<span>新增大頭貼</span><span class="input"><input type="file" name="mem_pic" value="<?php echo $memberRow->mem_pic;?>"></span>
 					</p>
 					<p class="btn">
 						<span class="btnS"><span class="btnText btnText2">提交</span></span>
