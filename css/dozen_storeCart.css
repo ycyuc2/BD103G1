@@ -144,6 +144,7 @@ body {
     clear: both;
     text-align: center;
     margin: 20px auto;
+    letter-spacing: 10px;
     color: #533e2f; }
   .frame .contract {
     width: 80%;
@@ -167,18 +168,16 @@ body {
       margin-left: 10px;
       display: inline; }
 
-    .frame .pay{
-      
-        color: #fff;
-        font-size: 15px;
-        letter-spacing: 10px;
-        display: block;
+    .frame .btnM{
         margin: 50px auto;
-        width: 150px;
-        height: 40px;
-        line-height: 37px;
-        text-decoration: none;
-        background-image: url(../img/dozen_storedetail/btn.png);
-        background-size: contain;
+        display: block;
       
+    }
+    .frame .btnM:hover{
+      cursor: url(../img/share/cursor.png)20 15,auto;
+      
+    }
+
+    .frame .btnM:active{
+      cursor: url(../img/share/cursor2.png)20 15,auto;
     }

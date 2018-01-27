@@ -111,7 +111,7 @@
 						}
 						else{
 							printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>登入/註冊</a></li>\n\t\t\t\t\t\t\t\t
-								<li><a href='#'>購物車(%d)</a></li>", $_SESSION["cartCount"]);
+								<li><a href='#'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
 						}
 					
 				
