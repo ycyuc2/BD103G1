@@ -88,6 +88,7 @@
                                                         }
                                                     };
                                                     xhttp.open("GET", "star.php?type=pd&action=review&target_no=<?php echo $_REQUEST["pd_no"]; ?>&value="+this.value);
+                                                    alert(this.value);
                                                     xhttp.send();
                                                 <?php }else{?>					
                                                     document.querySelector('#loginControl').checked = true;

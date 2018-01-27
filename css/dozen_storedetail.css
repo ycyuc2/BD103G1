@@ -150,13 +150,7 @@ body {
           vertical-align: top;
           float:none;
         }
-        .frame .product .productContent .text .rating:after{
-          content:'';
-          display: inline-block;
-          width: 10px;
-          height: 20px;
-          background-color: #aaa;
-        }
+
         .frame .product .productContent .text hr{
           margin-top: 20px;
         }

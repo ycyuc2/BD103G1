@@ -54,7 +54,7 @@ try{
 				<div class="intro">
 					<div class="teacherPhoto">
 						<div class="picBorder"></div>
-						<img class="photo" src="../img/findTeacher/horseman.jpg" alt="">
+						<img class="photo" src="../img/findTeacher/<?php echo $teacherRow['teacher_img'] ?>" alt="">
 					</div>
 					<div class="introContent">
 						<p><?php  echo $teacherRow["teacher_nn"] ?></p>
@@ -75,18 +75,18 @@ try{
 							</fieldset>
 
 <?php 
-	$sql="select * from teacher_review where  teacher_no =?";
+	$sql="select * from teacher where  teacher_no =?";
 	$check=$pdo->prepare($sql);
 	$check->bindValue(1,$_SESSION["teacher_no"]);
 	$check->execute();
-	$count=$check->rowCount();
-	if($count!=0){
-		$starScore=0;
-		while($checkRow=$check->fetchObject()){
-			$starScore+=$checkRow->review_star;
-		}?>
+	$countRow=$check->fetchObject();
+	$teacher_star=$countRow->teacher_star;
+	$teacher_review_times=$countRow->teacher_review_times;
+	if($teacher_review_times !=0){
+		$count=round($teacher_star/$teacher_review_times);
+		?>
 		<script>
-			var star= <?php echo round($starScore/$count);?>;
+			var star= <?php echo $count;?>;
 			var inputElems= $('.teacherStar input[type="radio"]');
 			inputElems[5-star].checked=true;
 			for(var i=0;i<5;++i){
@@ -98,7 +98,7 @@ try{
 	}
 }else if(isset($_SESSION["teacher_no"])==null){
 
-		header("Location:specialColumn.php?teacher_no=".$_REQUEST["teacher_no"]);
+		header("Location:specialColumn.php?teacher_no=".$_REQUEST["teacher_no"]."");
 	}
 ?>
 
@@ -170,7 +170,7 @@ try{
 				<div class="merchandiseIntro">
 					<p> <?php  echo $recRow["pd_name"] ?> </p>
 					<p class="describe"> <?php  echo mb_substr($recRow["pd_describe"],0,50,"utf-8")."..." ?> </p>
-					<p><span> <?php  echo $recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
+					<p>$<span><?php  echo '$'.$recRow["pd_price"] ?> </span> <span> <?php  echo $recRow["pd_sale"] ?> </span>元</p>
 				</div>
 			</div>  
 		
@@ -219,7 +219,7 @@ try{
 					<div class="merchandiseIntro">
 						<a href="#"> <?php echo $dragRow-> pd_name ?> </a>
 						<p class="describe"><?php echo mb_substr($dragRow -> pd_describe,0,30,"utf-8")."..."?></p>
-						<p><span> <?php  echo $dragRow-> pd_price ?> </span> <span> <?php echo $dragRow-> pd_sale ?> </span>元</p>
+						<p>$<span><?php  echo $dragRow-> pd_price ?> </span> <span> <?php echo $dragRow-> pd_sale ?> </span>元</p>
 
 					</div>
 				</div>  
@@ -252,7 +252,7 @@ try{
 				<div class="prodPhoto"><div class="pictureBorder"></div> <img src="../img/products/<?php echo $prodRow->pd_pic1?>" alt=""></div>
 				<div class="prodInfo">
 					<p><?php echo  $prodRow->pd_name ?></p>
-					<p><span><?php echo $prodRow->pd_price?></span> <span><?php echo $prodRow->pd_sale?></span>元</p>
+					<p>$<span><?php echo $prodRow->pd_price?></span> <span><?php echo $prodRow->pd_sale?></span>元</p>
 				</div>
 			</div>
 	<?php }?>
