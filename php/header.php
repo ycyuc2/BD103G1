@@ -79,7 +79,7 @@
 							$memRow = $member->fetchObject();
 							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>", $memRow->mem_nn);
 							if (!empty($_SESSION["cartCount"])) {
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車<span>%d</span></a></li>", $_SESSION["cartCount"]);
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
 							}
 							$sql = "select * from article";
 							$article = $pdo->prepare($sql);
@@ -122,7 +122,7 @@
 						else{
 							printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>登入/註冊</a></li>");
 							if (!empty($_SESSION["cartCount"])) {
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車<span>%d</span></a></li>", $_SESSION["cartCount"]);
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
 							}
 						}
 					
