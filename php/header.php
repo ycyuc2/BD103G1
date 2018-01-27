@@ -141,7 +141,9 @@
 			<img src="../img/showKarma/karma_frame.png" alt="" class="karFrame">
 			<div class="balls">
 				<img src="../img/showKarma/ball.png" alt="" class="outBall">
+				<img src="../img/showKarma/ballDown.png" class="outBall outBall2" alt="">		
 				<svg id="fillgauge2" width="90" height="90"></svg>
+				
 			</div>
 			<p class="number">
 			</p></a>
