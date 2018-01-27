@@ -19,7 +19,7 @@ h1 {
   text-align: center;
   color: #ddd; 
   margin:80px 10px;
-  text-shadow:2px 3px 1px #000;
+ 
   }
   @media all and (min-width: 480px) and (max-width: 759px) {
     h1 {
@@ -140,6 +140,7 @@ h1 {
           letter-spacing: 1px;
           margin-top: 10px;
           text-align:justify;
+          line-height: 30px;
         text-justify: distribute;}
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .intro .introContent p {
@@ -319,10 +320,10 @@ h1 {
               cursor: url(../img/share/cursor2.png) 20 15, auto;
             }
         .teacher .teacherBorder .articleList .article .content {
-          width: 65%;
+          width: 70%;
           box-sizing: border-box;
           float: left;
-          padding: 10px 10px 20px 10px;
+          padding: 10px 10px 20px 45px;
           position: relative; }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .articleList .article .content {
@@ -492,14 +493,16 @@ h1 {
           font-weight: 500;
           margin-top: 10px;
           font-size: 16px;
-          line-height: 24px;
+          line-height: 30px;
           letter-spacing: 1px;
-          text-align: center;
+          text-align: justify;
+          margin-top: 10px;
            }
           .teacher .teacherBorder .merchandise .content .merchandiseIntro a p:nth-of-type(1) {
             transition:0.2s all linear;
             font-weight:400;
             font-size: 25px;
+            margin-top: 25px;
           }
 @keyframes move{
    0%{transform:translateY(0.2px)}
@@ -652,19 +655,30 @@ h1 {
     }
   }
 .teacher .teacherBorder h1 {
-  color: #533e2f; }
+
+  letter-spacing: 20px;
+  filter: drop-shadow(0px 3px 1px #9c795f) drop-shadow(0px 3px 1px #9c795f);
+  color: #503e30; }
 
 .teacher .teacherBorder .line {
-  border-top: 1px solid #fff;
-  padding-top: 10px; }
+  border-top: 1px solid #533e2f;
+  /* padding-top: 10px; */
+ }
 
 .teacher .teacherBorder .intro {
+  /* background: #533e2f; */
+  letter-spacing: 5px;
+  /* padding: 30px; */
+  margin-top: 30px;
   font-size: 20px;
   color: #533e2f;
   font-weight: 600;
-  padding: 0;}
+}
 
 .teacher .teacherBorder .inputTopic {
+  background:linear-gradient(to right, rgba(43, 26, 3, 1) 0%, rgba(128, 99, 59, 0.3) 1%,    rgba(128, 99, 59, 0.3) 99%, rgba(43, 26, 3, 1) 100%);
+  border: 2px solid #533e2f;
+  
   display: block;
   width: 90%;
   height: 40px;
@@ -679,6 +693,8 @@ h1 {
   display: none;
 }
 .teacher .teacherBorder form .fileLabel {
+  cursor: url(../img/share/cursor.png)20 15,auto;
+  text-align: center;
   display: block;
   margin-left: 5%;
   border: 2px solid #333;
@@ -688,16 +704,30 @@ h1 {
   box-sizing: border-box;
   padding: 2px;
   font-family: "微軟正黑體"; }
+
+  .teacher .teacherBorder form .fileLabel:hover {
+background-color: #533e2f;
+color: #ddd;
+  }
+  .teacher .teacherBorder form .fileLabel:active {
+    cursor: url(../img/share/cursor2.png)20 15,auto;
+      
+
+  }
+
+
   .teacher .teacherBorder .inputImg:focus {
     outline: none; }
 
 .teacher .teacherBorder .inputContent {
+  background:linear-gradient(to right, rgba(43, 26, 3, 1) 0%, rgba(128, 99, 59, 0.3) 1%,    rgba(128, 99, 59, 0.3) 99%, rgba(43, 26, 3, 1) 100%);
   width: 90%;
   display: block;
   height: 200px;
   font-size: 20px;
   margin: auto;
   margin-top: 10px;
+  border: 2px solid #533e2f;
   box-sizing: border-box;
   padding: 10px; }
   .teacher .teacherBorder .inputContent:focus {
