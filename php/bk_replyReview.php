@@ -61,7 +61,7 @@
 				<span class="col memNO">會員暱稱</span>
 				<span class="col reason">檢舉原因</span>
 				<span class="col link">連結</span>
-				<span class="col alter">刪除</span>
+				<span class="col alter">操作</span>
 			</div>
 
 
@@ -90,8 +90,8 @@
 					</span>
 				<span class="col link"><span class="btnS"><a href="article.php?art_no=<?php echo $msgRepRow["art_no"] ?>" target="showArticle" class="btnText btnText4 iframeBtn" onclick="">檢視網站</a></span></span>
 				<span class="col alter">
-					<p><a href="#">刪除文章</a></p>
-					<p><a href="#">保留文章</a></p>
+					<p><a href="bk_replyReviewAction.php?action=delete&msgNo=<?php echo $msgRepRow["msg_no"] ?>&memNo=<?php echo $msgRepRow["mem_no"] ?>">刪除留言</a></p>
+					<p><a href="bk_replyReviewAction.php?action=keep&msgNo=<?php echo $msgRepRow["msg_no"] ?>&memNo=<?php echo $msgRepRow["mem_no"] ?>">保留留言</a></p>
 				</span>
 			</div>
 		
