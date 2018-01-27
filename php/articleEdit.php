@@ -51,10 +51,10 @@ session_start();
 				required>
 
 				<p class="intro line">請選擇文章圖片1</p>
-				<input class="inputImg first" type="file" name="contentImg1">
+				<input class="inputImg first" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落1</p>
-				<textarea class="inputContent first" name="content1">
+				<textarea class="inputContent first" name="content1" required>
 					<?php echo $articleRow["art_content_1"]?> 
 				</textarea>
 
@@ -77,7 +77,7 @@ session_start();
 				<input type="hidden" name="teacherNo" value=<?php echo '"'.$teacherNo.'"' ?>>
 				<input type="hidden" name="artNo" value=<?php echo '"'.$artNo.'"' ?>>
 
-				<input class="submit" type="submit" name="" value="發表">
+				<input class="btnM btnText btnText2 submit" type="submit" name="" value="發表">
 			</form>
 		</div>
 	</div>
