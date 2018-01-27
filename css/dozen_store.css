@@ -236,8 +236,19 @@
     left: 0; } }
 
 
+.storeH1{
+  /* padding-top: 100px; */
+  font-size: 45px;
+  text-align: center;
+  color: #ddd;
+  margin: 250px 10px 80px 10px;
+  letter-spacing: 30px;
+  text-shadow: 2px 3px 1px #000;
+}
 
-.frame {
+
+
+.storeFrame {
   position: relative;
   margin: 0 auto;
   margin-top: 13%;
@@ -262,7 +273,7 @@
   filter: drop-shadow(0px 0px 5px #000) drop-shadow(2px 2px 5px #000);
 }
 
-.frame .wrapper{
+.storeFrame .wrapper{
   position: relative;
   z-index: 4;
   padding: 70px;
@@ -271,7 +282,7 @@
 }
 
 @media all and (max-width: 479px) {
-  .frame .wrapper {
+  .storeFrame .wrapper {
     padding: 40px;
     padding-top: 100px;
   } }
@@ -279,13 +290,13 @@
 
 
 
-  .frame .search {
+  .storeFrame .search {
     width: 100%; 
     padding: 0 70px;
       box-sizing: border-box;
     
   }
-    .frame .search:after {
+    .storeFrame .search:after {
       content: '';
       display: block;
       clear: both; 
@@ -294,16 +305,16 @@
     
 
 
-    .frame .search .filter {
+    .storeFrame .search .filter {
       float: left;
       text-align: center; }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .frame .search .filter {
+        .storeFrame .search .filter {
           float: none; } }
       @media all and (max-width: 479px) {
-        .frame .search .filter {
+        .storeFrame .search .filter {
           float: none; } }
-      .frame .search .filter select {
+      .storeFrame .search .filter select {
         width: 200px;
         height: 30px; 
         background-color: #222;
@@ -312,19 +323,19 @@
         
       }
 
-      .frame .search .filter select:focus{
+      .storeFrame .search .filter select:focus{
         outline: none;
       }
 
         @media all and (min-width: 480px) and (max-width: 759px) {
-          .frame .search .filter select {
+          .storeFrame .search .filter select {
             width: 90%; } }
         @media all and (max-width: 479px) {
-          .frame .search .filter select {
+          .storeFrame .search .filter select {
             width: 90%; } }
 
 
-    .frame .search .searchBox {
+    .storeFrame .search .searchBox {
       float: right;
       text-align: center;
       position: relative;
@@ -332,16 +343,16 @@
     
     }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .frame .search .searchBox {
+        .storeFrame .search .searchBox {
           margin-top: 10px;
           float: none; } }
       @media all and (max-width: 479px) {
-        .frame .search .searchBox {
+        .storeFrame .search .searchBox {
           margin-top: 10px;
           float: none; } }
 
 
-      .frame .search .searchBox input {
+      .storeFrame .search .searchBox input {
         width: 200px;
         height: 32px; 
         background-image: url(../img/dozen_store/input.png);
@@ -355,19 +366,19 @@
       
       }
 
-      .frame .search .searchBox input:focus{
+      .storeFrame .search .searchBox input:focus{
         outline: none;
       }
 
 
         @media all and (min-width: 480px) and (max-width: 759px) {
-          .frame .search .searchBox input {
+          .storeFrame .search .searchBox input {
             width: 90%; } }
         @media all and (max-width: 479px) {
-          .frame .search .searchBox input {
+          .storeFrame .search .searchBox input {
             width: 90%; } }
 
-            .frame .search .searchBox i{
+            .storeFrame .search .searchBox i{
               position: absolute;
               top: 20%;
               right: 10%;
@@ -376,12 +387,12 @@
             }
 
             @media all and (max-width: 479px) {
-              .frame .search .searchBox i {
+              .storeFrame .search .searchBox i {
                 display: none;
               } }
 
 
-  .frame .content {
+  .storeFrame .content {
     margin-top: 50px;
     padding-left: 10%;
     margin-bottom: 30px;
@@ -398,14 +409,14 @@
   }
 
   @media all and (max-width: 479px) {
-    .frame .content {
+    .storeFrame .content {
       padding-left: 0;
     } }
-    .frame .content:after {
+    .storeFrame .content:after {
       content: '';
       display: block;
       clear: both; }
-    .frame .content .pic {
+    .storeFrame .content .pic {
 
       position: relative;
      
@@ -414,7 +425,7 @@
       text-align: center;
      }
 
-      .frame .content .pic .picFrame{
+      .storeFrame .content .pic .picFrame{
         
           position: absolute;
           box-sizing: border-box; 
@@ -429,31 +440,31 @@
       }
 
       @media all and (max-width: 479px) {
-        .frame .content .pic .picFrame {
+        .storeFrame .content .pic .picFrame {
           width: 60%;
           left: 20%;
           
            
         } }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .frame .content .pic {
+        .storeFrame .content .pic {
           width: 100%;
           float: none; } }
       @media all and (max-width: 479px) {
-        .frame .content .pic {
+        .storeFrame .content .pic {
           width: 100%;
           float: none; } }
-      .frame .content .pic img {
+      .storeFrame .content .pic img {
         width: 100%; }
         @media all and (min-width: 480px) and (max-width: 759px) {
-          .frame .content .pic img {
+          .storeFrame .content .pic img {
             width: 60%; } }
         @media all and (max-width: 479px) {
-          .frame .content .pic img {
+          .storeFrame .content .pic img {
             width: 60%; } }
 
 
-    .frame .content .intro {
+    .storeFrame .content .intro {
       
       width: 60%;
       float: left;
@@ -462,21 +473,21 @@
     
     }
       @media all and (min-width: 480px) and (max-width: 759px) {
-        .frame .content .intro {
+        .storeFrame .content .intro {
           width: 100%;
           float: none; } }
       @media all and (max-width: 479px) {
-        .frame .content .intro {
+        .storeFrame .content .intro {
           width: 100%;
           float: none; } }
-      .frame .content .intro h2 {
+      .storeFrame .content .intro h2 {
         text-align: center;
         font-weight: bold;
         color: #533e2f;
         letter-spacing: 2px;
         font-size: 35px; }
 
-      .frame .content .intro #karma_dec {
+      .storeFrame .content .intro #karma_dec {
           font-family: "王漢宗中明體繁- 細";
           font-size: 14px;
           letter-spacing: 5px;
@@ -485,56 +496,56 @@
 
       }
 
-      .frame .content .intro p {
+      .storeFrame .content .intro p {
         color: #533e2f;
         margin-top: 10px; }
-      .frame .content .intro .options {
+      .storeFrame .content .intro .options {
         margin-top: 20px;
         box-sizing: border-box;
         padding: 10px;
         font-size: 0; }
-        .frame .content .intro .options:after {
+        .storeFrame .content .intro .options:after {
           content: '';
           display: block;
           clear: both; }
-        .frame .content .intro .options .price {
+        .storeFrame .content .intro .options .price {
           float: left;
           width: 30%; }
           @media all and (min-width: 480px) and (max-width: 759px) {
-            .frame .content .intro .options .price {
+            .storeFrame .content .intro .options .price {
               display: inline-block;
               vertical-align: middle;
               float: none; } }
           @media all and (max-width: 479px) {
-            .frame .content .intro .options .price {
+            .storeFrame .content .intro .options .price {
               display: inline-block;
               vertical-align: middle;
               float: none; } }
-          .frame .content .intro .options .price p {
+          .storeFrame .content .intro .options .price p {
             margin-top: 0;
             font-size: 25px;
             font-weight: bold; }
             @media all and (min-width: 480px) and (max-width: 759px) {
-              .frame .content .intro .options .price p {
+              .storeFrame .content .intro .options .price p {
                 font-size: 20px; } }
             @media all and (max-width: 479px) {
-              .frame .content .intro .options .price p {
+              .storeFrame .content .intro .options .price p {
                 font-size: 20px; } }
-        .frame .content .intro .options .purchase {
+        .storeFrame .content .intro .options .purchase {
           float: left;
           text-align: right;
           width: 70%; }
           @media all and (min-width: 480px) and (max-width: 759px) {
-            .frame .content .intro .options .purchase {
+            .storeFrame .content .intro .options .purchase {
               display: inline-block;
               vertical-align: middle;
               float: none; } }
           @media all and (max-width: 479px) {
-            .frame .content .intro .options .purchase {
+            .storeFrame .content .intro .options .purchase {
               display: inline-block;
               vertical-align: middle;
               float: none; } }
-          .frame .content .intro .options .purchase .name .buyNow {
+          .storeFrame .content .intro .options .purchase .name .buyNow {
             color: #fff;
             font-size: 12px;
             letter-spacing: 4px;
@@ -552,23 +563,23 @@
             background-size: contain;
            }
             @media all and (min-width: 480px) and (max-width: 759px) {
-              .frame .content .intro .options .purchase a {
+              .storeFrame .content .intro .options .purchase a {
                 font-size: 16px;
                 width: 100px; } }
             @media all and (max-width: 479px) {
-              .frame .content .intro .options .purchase a {
+              .storeFrame .content .intro .options .purchase a {
                 font-size: 12px;
                 line-height: 33px;
                 width: 120px; } }
-            .frame .content .intro .options .purchase a + a {
+            .storeFrame .content .intro .options .purchase a + a {
               margin-left: 10px; }
               @media all and (min-width: 480px) and (max-width: 759px) {
-                .frame .content .intro .options .purchase a + a {
+                .storeFrame .content .intro .options .purchase a + a {
                   margin-top: 10px;
                   font-size: 12px;
                   width: 100px; } }
               @media all and (max-width: 479px) {
-                .frame .content .intro .options .purchase a + a {
+                .storeFrame .content .intro .options .purchase a + a {
                   margin-left: 0;
                   margin-top: 10px;
                   font-size: 12px;

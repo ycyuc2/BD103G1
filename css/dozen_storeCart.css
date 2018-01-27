@@ -42,7 +42,7 @@ body {
     .cart {
       display: none; } }
 
-.frame {
+.cartFrame {
   margin: 0 auto;
   margin-top: 13%;
   max-width: 960px;
@@ -70,26 +70,26 @@ body {
 #person {
   color: red; }
 
-.frame {
+.cartFrame {
   padding: 0 2%;
   min-height: 500px; }
-  .frame:after {
+  .cartFrame:after {
     content: '';
     display: block;
     clear: both; }
-  .frame .title {
+  .cartFrame .title {
     font-size: 0;
     margin-top: 2%;
     background-color: #564826;
    }
-    .frame .title:after {
+    .cartFrame .title:after {
       content: '';
       display: block;
       clear: both; }
-    .frame .title h2:first-of-type {
+    .cartFrame .title h2:first-of-type {
       margin-left: 17%;
     }
-    .frame .title h2 {
+    .cartFrame .title h2 {
       display: inline-block;
       margin-left: 2%;
       width: 15%;
@@ -99,54 +99,54 @@ body {
       text-align: center;
       letter-spacing: 2px; }
       @media all and (max-width: 479px) {
-        .frame .title h2 {
+        .cartFrame .title h2 {
           font-size: 1px;
           margin-left: 7%; } }
-  .frame .cartList {
+  .cartFrame .cartList {
     padding-top: 5%;
     box-sizing: border-box; }
 
-    .frame .cartList:after {
+    .cartFrame .cartList:after {
       content: '';
       display: block;
       clear: both; }
 
-    .frame .cartList section table .item{
+    .cartFrame .cartList section table .item{
       font-size: 0;
     }
-    .frame .cartList section table .item td{
+    .cartFrame .cartList section table .item td{
       text-align: center;
       font-size: 16px;
       width: 15%;
     }
-    .frame .cartList section table .item td+td{
+    .cartFrame .cartList section table .item td+td{
       padding-left: 2%;
     } 
-    .frame .cartList section table .item td .adc{
+    .cartFrame .cartList section table .item td .adc{
       width: 100%;
     }
-  .frame hr {
+  .cartFrame hr {
     background-color: #000;
     margin-top: 2%;
     height: 1px;
     border: none; }
-  .frame .all {
+  .cartFrame .all {
     float: right;
     margin: 2% 0;
     letter-spacing: 3px; }
     @media all and (max-width: 479px) {
-      .frame .all {
+      .cartFrame .all {
         font-size: 10px; } }
-    .frame .all span {
+    .cartFrame .all span {
       color: #BA3232;
       font-size: 20px; }
-  .frame .know {
+  .cartFrame .know {
     clear: both;
     text-align: center;
     margin: 20px auto;
     letter-spacing: 10px;
     color: #533e2f; }
-  .frame .contract {
+  .cartFrame .contract {
     width: 80%;
     padding: 30px;
     height: 300px;
@@ -155,29 +155,29 @@ body {
     margin: 0 auto;
     overflow: scroll;
     border: 5px solid #533e2f; }
-    .frame .contract td {
+    .cartFrame .contract td {
       vertical-align: top;
       line-height: 30px; }
-  .frame .agree {
+  .cartFrame .agree {
     text-align: center;
     margin-top: 10px; }
-    .frame .agree input {
+    .cartFrame .agree input {
       border-radius: 1px;
       display: inline; }
-    .frame .agree p {
+    .cartFrame .agree p {
       margin-left: 10px;
       display: inline; }
 
-    .frame .btnM{
+    .cartFrame .btnM{
         margin: 50px auto;
         display: block;
       
     }
-    .frame .btnM:hover{
+    .cartFrame .btnM:hover{
       cursor: url(../img/share/cursor.png)20 15,auto;
       
     }
 
-    .frame .btnM:active{
+    .cartFrame .btnM:active{
       cursor: url(../img/share/cursor2.png)20 15,auto;
     }

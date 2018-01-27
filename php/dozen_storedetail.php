@@ -24,7 +24,7 @@
     $_SESSION["where"] = "dozen_storedetail.php";
     ?>
 
-    <div class="frame">
+    <div class="storedetailFrame">
         <div class="frameFrame"></div>
 
         <div class="product">
