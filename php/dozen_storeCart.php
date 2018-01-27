@@ -138,7 +138,7 @@ session_start();
        <div class="agree">
        <input type="checkbox"><p>我同意</p>
        <br>
-       <span class="btnM"><p class="btnText btnText2">結帳</p></span>
+       <span class="btnM"><span class="btnText btnText2">結帳</span></span>
         </div>
 
 

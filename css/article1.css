@@ -364,12 +364,12 @@
   padding: 10px;
   resize: none;
   overflow: hidden;
-  transition: height .2s; }
+  transition: .2s; }
 
-.memberReply textarea:focus {
+/*.memberReply textarea:focus {
   height: 200px;
 
-}
+}*/
 .memberReply span {
   margin-top: 20px;
 }

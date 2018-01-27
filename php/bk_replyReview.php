@@ -94,10 +94,11 @@
 					<p><a href="#">保留文章</a></p>
 				</span>
 			</div>
-		</div>
+		
 <?php 
 }
  ?>
+		</div>
 		<!-- end right -->
 		
 		<input type="checkbox" id="lightBoxControl">
