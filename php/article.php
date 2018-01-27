@@ -274,13 +274,13 @@ session_start();
 <?php 
 	$sql = "update message set lasy_view = :lasy_view where art_no = :art_no mem_no = :mem_no";
 	$update = $pdo->prepare($sql);
-	$update->bindValue(':last_view', date(Y-m-d H:i:s));
+	$update->bindValue(':last_view', date('Y-m-d H:i:s') );
 	$update->bindValue(':art_no', $_REQUEST["art_no"]);
 	$update->bindValue(':mem_no', $_SESSION["mem_no"]);
 	$update->execute();
 	$sql = "update art_collection set lasy_view = :lasy_view where art_no = :art_no mem_no = :mem_no";
 	$update = $pdo->prepare($sql);
-	$update->bindValue(':last_view', date(Y-m-d H:i:s));
+	$update->bindValue(':last_view', date('Y-m-d H:i:s'));
 	$update->bindValue(':art_no', $_REQUEST["art_no"]);
 	$update->bindValue(':mem_no', $_SESSION["mem_no"]);
 	$update->execute();
