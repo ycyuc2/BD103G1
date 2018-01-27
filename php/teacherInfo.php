@@ -2,7 +2,7 @@
 $teacherNo = $_REQUEST["teacher_no"];
 try {
 	require_once("connectBD103G1.php");
-	$sql = "select * from teacher where teacher_no = :teacher_no";
+	$sql = "SELECT * FROM teacher t join member m on t.mem_no = m.mem_no where t.teacher_app = 1 and teacher_no = :teacher_no";
 	$teachers = $pdo->prepare($sql);
 	$teachers->bindValue(":teacher_no",$teacherNo);
 	$teachers->execute();
@@ -20,7 +20,7 @@ try {
 					<div class="pic">
 						<div class="frameBorder"></div>
 
-						<?php echo '<img src="../img/findTeacher/',$teacherRow["teacher_img"],'" alt="">' ?>
+						<?php echo '<img src="../img/member/',$teacherRow["mem_pic"],'" alt="">' ?>
 						
 					</div>
 				</div>

@@ -30,7 +30,7 @@ session_start();
 	</div>
 	<div class="headerBlank"></div>
 	<?php 
-		$sql = "select * from article join teacher using(teacher_no) where art_no = :art_no";
+		$sql = "SELECT * FROM article a join teacher t join member m where a.art_no = :art_no and t.mem_no = m.mem_no";
 		$art = $pdo->prepare($sql);
 		$art->bindValue(":art_no", $_REQUEST["art_no"]);
 		$art->execute();
@@ -45,7 +45,7 @@ session_start();
 		<div class="columnBorder">
 			<div class="authorIntro">
 				<div class="authorPhoto">
-					<img src="../img/findTeacher/horseman.jpg">
+					<?php echo '<img src="../img/member/',$artRow->mem_pic,'" alt="">' ?>
 				</div>
 <!-- 作者區 -->
 				<div class="author">
@@ -171,6 +171,11 @@ session_start();
 			</form>
 		</div>
 	</div>
+<script>
+	document.getElementById('replyArea').addEventListener('focus', function(){
+		this.style.height = '200px';
+	})
+</script>
 <script type="text/javascript">
 	//document.querySelector('.memberReply .columnBorder .btnM input').disabled = true;
 	document.querySelector('.memberReply .columnBorder .btnM input').addEventListener("click", function () {
@@ -202,7 +207,7 @@ session_start();
 				<div class="columnBorder">
 					<div class="authorIntro">
 						<div class="authorPhoto">
-							<img src="../img/specialColumn/heisenberg.jpg">
+							<?php echo '<img src="../img/member/',$msgRow["mem_pic"],'" alt="">' ?>
 						</div>
 						<div class="author">
 							<div class="intro">
