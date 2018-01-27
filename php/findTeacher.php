@@ -126,13 +126,13 @@ session_start();
 
 try {
 	require_once("connectBD103G1.php");
-	$sql = "select * from teacher where teacher_app = 1";
+	$sql = "SELECT * FROM teacher t join member m on t.mem_no = m.mem_no where t.teacher_app = 1";
 	$teachers = $pdo->query($sql);
 	$teacher_rows = $teachers->fetchAll(PDO::FETCH_ASSOC);
 
 	foreach( $teacher_rows as $i=>$teacherRow){
 ?>
-<?php echo '<input type="hidden" class="teachersHiddenInput" value="',$teacherRow["teacher_img"],'" name="',$teacherRow["teacher_nn"],'|',$teacherRow["teacher_no"],'">';
+<?php echo '<input type="hidden" class="teachersHiddenInput" value="',$teacherRow["mem_pic"],'" name="',$teacherRow["teacher_nn"],'|',$teacherRow["teacher_no"],'">';
 
 ?>
 		
@@ -190,7 +190,7 @@ try {
 			
 			//建立img
 			var contentImg = document.createElement('img');
-			contentImg.src = '../img/findTeacher/' + teachersHiddenInput[i].value;
+			contentImg.src = '../img/member/' + teachersHiddenInput[i].value;
 			contentImg.style.width = '100%';
 
 			//建立border
