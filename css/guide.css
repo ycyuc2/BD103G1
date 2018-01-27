@@ -181,11 +181,11 @@ body{
 	letter-spacing: 20px;
 }
 
-.btnL:hover{
+.btnText2:hover{
 	cursor: url(../img/share/cursor.png) 12 5, auto;
 }
 
-.btnL:active{
+.btnText2:active{
 	cursor: url(../img/share/cursor2.png) 12 5, auto;
 }
 
