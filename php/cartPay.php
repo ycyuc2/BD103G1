@@ -29,9 +29,10 @@
 			$orderDetail->execute();
 			$i++;
 		}
-		$sql = "update member set karma_val = :karma_val";
+		$sql = "update member set karma_val = :karma_val where mem_no = :mem_no";
 		$member = $pdo->prepare($sql);
 		$member->bindValue(':karma_val',$_SESSION["karma_val"] = max( ($_SESSION["karma_val"] - $_REQUEST["total_karma"]), 0) );
+		$orderList->bindValue(':mem_no', $_SESSION["mem_no"]);
 		$member->execute();
 	}
 		

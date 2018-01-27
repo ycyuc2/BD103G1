@@ -26,13 +26,8 @@
 		    	if(isset($memRow->obj_fort_no)){
 		    		$_SESSION["obj_fort_no"] = $memRow->obj_fort_no;
 		    	}	//obj_fort_no if-else
-
-				if( isset($_SESSION["karma_val"]) ){
 					$_SESSION["karma_val"] = $memRow->karma_val;
-				}else{
-					$_SESSION["karma_val"] = $_SESSION["karma_inc"]+100;
-				}	//karma value if-else
-				$_SESSION["karma_inc"] = 0;
+					//karma value if-else
 		    }elseif($_SESSION["fort_sta"] == 1){
 				if( isset($_SESSION["karma_val"]) ){
 		    		$sql = "update member set fort_sta = :fort_sta, fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = ifnull(karma_val, 0)+".$_SESSION["karma_inc"]."+100 where mem_no = :mem_no";
@@ -45,13 +40,13 @@
 				$fort_sta -> bindValue(":obj_fort_no",$_SESSION["obj_fort_no"]);
 				$fort_sta -> bindValue(":mem_no",$memRow->mem_no);
 				$fort_sta -> execute();
-				if( isset($_SESSION["karma_val"]) ){
-					$_SESSION["karma_val"] = $memRow->karma_val+$_SESSION["karma_inc"];
-				}else{
-					$_SESSION["karma_val"] = $memRow->karma_val+$_SESSION["karma_inc"]+100;	
-				}
-				$_SESSION["karma_inc"] = 0;
 		    }
+	    	$sql = "update member set karma_val = :karma_val where mem_no = :mem_no";
+	    	$update = $pdo->prepare($sql);
+	    	$update->bindValue(':mem_no', $_SESSION["mem_no"]);
+	    	$update->bindValue(':karma_val', $_SESSION["karma_val"]);
+	    	$update->execute();
+
 		    echo '<p>'.$_SESSION["mem_nn"]. '您好</p>';
 		}else{
 			echo '<a href="#">登入/註冊</a>';
