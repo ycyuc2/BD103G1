@@ -44,7 +44,6 @@ fieldset, label{
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label{ 
-    filter:hue-rotate(30deg);
     background: url('../img/share/star.png');
     background-size: 100% 100%;
 } 
