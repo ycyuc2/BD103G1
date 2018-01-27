@@ -9,3 +9,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="../js/countDown.js"></script>
 	<script src="../js/loginLightbox.js"></script>
+	    <link rel="stylesheet" type="text/css" href="../css/karmaBall.css">
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="../js/karmaBall.js" language="JavaScript"></script>

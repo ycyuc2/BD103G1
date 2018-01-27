@@ -21,8 +21,8 @@ function liquidFillGaugeDefaultSettings() {
         waveAnimate: true, // Controls if the wave scrolls or is static.
         waveColor: "#178BCA", // The color of the fill wave.
         waveOffset: 0, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
-        textVertPosition: 40, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
-        textSize: 0, // The relative height of the text to display in the wave circle. 1 = 50%
+        textVertPosition: 0.2, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
+        textSize: 1, // The relative height of the text to display in the wave circle. 1 = 50%
         valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
         displayPercent: true, // If true, a % symbol is displayed after the value.
         textColor: "#045681", // The color of the value text when the wave does not overlap it.

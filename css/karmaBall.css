@@ -16,14 +16,15 @@
 
 .showKarma {
     position: relative;
-    width: 200px;
+    width: 150px;
+    height: 180px;
 }
 .showKarma p:first-of-type{
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing:5px;
     position: absolute;
     top: 20%;
-    left: 21%;
+    left: 12%;
     color:whitesmoke;
     font-family:王漢宗特明體 – 標準;
 
@@ -43,8 +44,10 @@
 }
 
 .showKarma .balls {
+    width: 90px;
+    height: 90px;
     position: absolute;
-    top: 32%;
+    top: 39%;
     left: 20.5%;
     filter:drop-shadow(0px 0px 2px rgba(0 ,0,0,0.2));
 }

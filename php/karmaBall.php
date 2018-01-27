@@ -8,6 +8,8 @@
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script src="../js/karmaBall.js" language="JavaScript"></script>
 
+
+    
 </head>
 
 <body>
@@ -24,7 +26,6 @@
     
 
     <script language="JavaScript">
-        var count=0;
         var karCount = 300;
         var config1 = liquidFillGaugeDefaultSettings();
         config1.circleColor = "#850000";
