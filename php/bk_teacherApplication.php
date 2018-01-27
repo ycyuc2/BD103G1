@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	ob_start();
+	require_once 'connectBD103G1.php';
  ?>
 <!DOCTYPE html>
 <html>
@@ -66,8 +67,7 @@
 				<span class="col alter">批准</span>
 			</div>
 <?php 
-	require_once("connectBD103G1.php");
-	$sql = "SELECT * from teacher where teacher_app = 0";
+	$sql = "select * from teacher where teacher_app = 0";
 	$teacherApp = $pdo->prepare($sql);
 	$teacherApp->execute();
 	$teacherApp_rows = $teacherApp->fetchAll(PDO::FETCH_ASSOC);
@@ -82,8 +82,8 @@
 				<span class="col tel"><?php echo $teacherAppRow["teacher_tel"] ?></span>
 				<span class="col intro"><?php echo $teacherAppRow["teacher_info"] ?></span>
 				<span class="col alter">
-					<input type="radio" value="0" name="valid">拒絕
-					<input type="radio" value="1" name="valid">接受
+					<input type="radio" value="0" name="valid<?php echo $teacherAppRow["mem_no"];?>" class="valid<?php echo $teacherAppRow["mem_no"];?>">拒絕
+					<input type="radio" value="1" name="valid<?php echo $teacherAppRow["mem_no"];?>" class="valid<?php echo $teacherAppRow["mem_no"];?>">接受
 				</span>
 			</div>
 
@@ -95,6 +95,38 @@
 
 		<!-- end right -->
 		
+		<script type="text/javascript">
+			var radio = document.querySelectorAll('input[type=radio]');
+			for (var i = 0; i < radio.length; i++) {
+				radio[i].addEventListener('change', function () {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							location.reload();
+						}
+					};
+					xhttp.open("GET", "bk_teacherApplication.php?action=changeState&mem_no="+this.className.substr(5,this.className.length)+"&teacher_app="+this.value);
+					xhttp.send();
+				});
+			}
+			<?php 
+				if(isset($_REQUEST["action"]) == 'changeState'){
+					if($_REQUEST["teacher_app"] == '1'){
+						$sql = "update teacher set teacher_app = :teacher_app where mem_no = :mem_no";
+						$update = $pdo->prepare($sql);
+						$update -> bindValue(':mem_no', $_REQUEST["mem_no"]);
+						$update -> bindValue(':teacher_app', $_REQUEST["teacher_app"]);
+						$update -> execute();
+					}else{
+						$sql = "delete from teacher where mem_no = :mem_no";
+						$delete = $pdo->prepare($sql);
+						$delete -> bindValue(':mem_no', $_REQUEST["mem_no"]);
+						$delete -> execute();
+					}
+				} 
+							
+			?>
+		</script>
 		
 		</div>
 	</div>
