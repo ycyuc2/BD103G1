@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>專欄文章</title>
+	<title>業障干擾說明</title>
     <script src="../js/countDown.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/karmainfo.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>

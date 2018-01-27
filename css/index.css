@@ -190,7 +190,7 @@
 }
 .chooseBirthday p span:after{
 	display: inline-block;
-	font-size: 24px;
+	font-size: 19px;
 	margin: 0 6px;
 }
 .chooseBirthday p .year:after{
