@@ -138,19 +138,19 @@ session_start();
 						echo '<img src="../img/article/'.$artRow->art_img_1.'">';
 					}
 				?>
-				<p><?php echo $artRow->art_content_1; ?></p>
+				<p><?php echo nl2br($artRow->art_content_1); ?></p>
 				<?php 
 					if ($artRow->art_img_2 != null) {
 						echo '<img src="../img/article/'.$artRow->art_img_2.'">';
 					}
 				?>
-				<p><?php echo $artRow->art_content_2; ?></p>
+				<p><?php echo nl2br($artRow->art_content_2); ?></p>
 				<?php 
 					if ($artRow->art_img_3 != null) {
 						echo '<img src="../img/article/'.$artRow->art_img_3.'">';
 					}
 				?>
-				<p><?php echo $artRow->art_content_3; ?></p>
+				<p><?php echo nl2br($artRow->art_content_3); ?></p>
 			</article>
 		</div>
 	</div>
@@ -214,7 +214,7 @@ session_start();
 					</div>
 					
 					<article>
-						<p><?php echo $msgRow["msg_content"]; ?></p>
+						<p><?php echo nl2br($msgRow["msg_content"]); ?></p>
 					</article>
 				</div>
 			</div>
