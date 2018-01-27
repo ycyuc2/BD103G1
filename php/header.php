@@ -81,23 +81,33 @@
 							if (!empty($_SESSION["cartCount"])) {
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'>購物車<span>%d</span></a></li>", $_SESSION["cartCount"]);
 							}
-							$sql = "select * from message msg
-									join article art on msg.art_no = art.art_no
-									where msg.mem_no = :mem_no
-									and msg.last_view < art.art_update_time and msg.msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no)";
-							$message = $pdo->prepare($sql);
-							$message -> bindValue(":mem_no",$_SESSION["mem_no"]);
-							$message -> execute();
-							$msgRow = $message->fetchObject();
-							$sql = "select * from art_collection collect
-									join article art on collect.art_no = art.art_no
-									where collect.mem_no = :mem_no and collect.last_view < art.art_update_time";
-							$collection = $pdo->prepare($sql);
-							$collection -> bindValue(":mem_no",$_SESSION["mem_no"]);
-							$collection -> execute();
-							$collectRow = $collection->fetchObject();
-							if($message->rowCount()+$collection->rowCount()>0){
-								printf("\n\t\t\t\t\t\t\t\t<li><a href='replyView.php?page=1'>新訊息(%d)</a></li>", $message->rowCount()+$collection->rowCount());
+							$sql = "select * from article";
+							$article = $pdo->prepare($sql);
+							$article->execute();
+							$newMessageCount = 0;
+							while($artRow = $article->fetchObject()){
+								$sql = "select * from message msg
+										join article art on msg.art_no = art.art_no
+										where msg.mem_no = :mem_no and msg.art_no = :art_no 
+										and msg.last_view < art.art_update_time and msg.msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no)";
+								$message = $pdo->prepare($sql);
+								$message -> bindValue(":mem_no",$_SESSION["mem_no"]);
+								$message -> bindValue(":art_no",$artRow->art_no);
+								$message -> bindValue(":mem_no",$_SESSION["mem_no"]);
+								$message -> execute();
+								$msgRow = $message->fetchObject();
+								$sql = "select * from art_collection collect
+										join article art on collect.art_no = art.art_no 
+										where collect.mem_no = :mem_no and collect.art_no = :art_no and collect.last_view < art.art_update_time";
+								$collection = $pdo->prepare($sql);
+								$collection -> bindValue(":mem_no",$_SESSION["mem_no"]);
+								$collection -> bindValue(":art_no",$artRow->art_no);
+								$collection -> execute();
+								$collectRow = $collection->fetchObject();
+								$newMessageCount += $message->rowCount()||$collection->rowCount();
+							}
+							if($newMessageCount>0){
+								printf("\n\t\t\t\t\t\t\t\t<li><a href='replyView.php?page=1'>新訊息(%d)</a></li>", $newMessageCount);
 							}
 							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no";
 							$teacher = $pdo->prepare($sql);

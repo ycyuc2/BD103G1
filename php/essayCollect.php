@@ -63,19 +63,7 @@ session_start(); ?>
 						while($colArtRow = $artCol->fetchObject()){
 							?>
 							
-							<div class="tr"><a href="article.php?art_no=<?php echo $colArtRow->art_no;?>">
-								<?php 
-								// <div class="td tdWidth essayNo">12</div>
-								// <div class="td tdWidth essayContent">
-								// 	<p>
-								// 		[標題]標題標題標題
-								// 	</p>
-								// </div>
-								// <div class="td tdWidth">
-								// 	<p>老師名稱</p>
-								// 	<p>1226 08:00</p>
-								// </div>
-								 ?>
+							<div class="tr artCollectNo<?php echo $colArtRow->art_no;?>"><a href="article.php?art_no=<?php echo $colArtRow->art_no;?>">
 								<div class="td tdWidth essayNo"><?php 
 									$sql = "select count(*) c from message where art_no = :art_no";
 									$msgCount = $pdo->prepare($sql);
@@ -124,5 +112,20 @@ session_start(); ?>
 		</div>
 		<div class="blank"></div>
 	</div>
+
+	<?php 
+		$sql = "select * from art_collection collect join article art on collect.art_no = art.art_no  where collect.mem_no = :mem_no and collect.last_view < art.art_update_time";
+		$artCollect = $pdo->prepare($sql);
+		$artCollect -> bindValue(":mem_no",$_SESSION["mem_no"]);
+		$artCollect -> execute();
+		if($artCollectRow = $artCollect->fetchObject()){?>
+			<script type="text/javascript">
+				window.addEventListener('load', function () {
+					var target = document.querySelector('.artCollectNo<?php echo $artCollectRow->art_no;?>');
+					target.className += ' newMsg';
+				})
+					
+			</script>
+	<?php }?>
 </body>
 </html>
