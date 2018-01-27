@@ -60,7 +60,7 @@ session_start();
 				
 				<input type="hidden" name="teacherNo" value=<?php echo '"'.$_REQUEST["teacherNo"].'"' ?>>
 
-				<input class="btnM btnText btnText2" type="submit" name="" value="發表">
+				<span class="btnM"><input class="btnText btnText2" type="submit" name="" value="發表"></span>
 			</form>
 		</div>
 	</div>
