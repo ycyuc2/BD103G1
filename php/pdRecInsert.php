@@ -1,4 +1,4 @@
-<?
+<?php
 ob_start();
 session_start();
 ?>
@@ -11,7 +11,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <?
+    <?php
     try{
     @$_REQUEST["r"][0]==""? $_REQUEST["r"][0]= 0: $_REQUEST["r"][0];
     @$_REQUEST["r"][1]==""? $_REQUEST["r"][1]= 0: $_REQUEST["r"][1];
