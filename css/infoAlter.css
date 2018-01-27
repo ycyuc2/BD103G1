@@ -57,7 +57,7 @@
 .info p label:active{
 	cursor: url(../img/share/cursor2.png) 20 15, auto;
 }
-.info p label input{
+.info p input[type="file"]{
 	display: none;
 }
 .info p input:focus{

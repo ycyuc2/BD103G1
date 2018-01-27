@@ -85,7 +85,7 @@ session_start();
 					</p>
 					<p>
 						<span>新增照片</span>
-						<label>請選擇照片<input type="file" name="mem_pic" value="<?php echo $memberRow->mem_pic;?>"></label>
+						<label for="fileTag"></label><input id="fileTag" type="file" name="mem_pic" value="">
 					</p>
 					<p class="btn">
 						<span class="btnS"><span class="btnText btnText2">提交</span></span>
@@ -123,6 +123,7 @@ session_start();
 						}
 					});
 					document.querySelector('input[type=file]').addEventListener('change', function(){
+
 							var fileType = this.value.substring(this.value.lastIndexOf('.') + 1, this.value.length);
 							if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
 								alert('檔案格式須為jpg、jpeg、png或gif');
