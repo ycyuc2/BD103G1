@@ -139,7 +139,7 @@ require_once 'header.php';
 		$msg -> bindValue(":mem_no",$_SESSION["mem_no"]);
 		$msg -> bindValue(":mem_no",$_SESSION["mem_no"]);
 		$msg -> execute();
-		if($msgRow = $msg->fetchObject()){?>
+		while($msgRow = $msg->fetchObject()){?>
 			<script type="text/javascript">
 				window.addEventListener('load', function () {
 					var target = document.querySelector('.msgNo<?php echo $msgRow->msg_no;?>');

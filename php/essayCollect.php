@@ -118,7 +118,7 @@ session_start(); ?>
 		$artCollect = $pdo->prepare($sql);
 		$artCollect -> bindValue(":mem_no",$_SESSION["mem_no"]);
 		$artCollect -> execute();
-		if($artCollectRow = $artCollect->fetchObject()){?>
+		while($artCollectRow = $artCollect->fetchObject()){?>
 			<script type="text/javascript">
 				window.addEventListener('load', function () {
 					var target = document.querySelector('.artCollectNo<?php echo $artCollectRow->art_no;?>');
