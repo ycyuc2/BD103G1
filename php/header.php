@@ -163,7 +163,7 @@
                     </p>
                     <p>
                         <span>密碼：</span>
-                        <span><input type="text" name="mem_psw" maxlength="12" required></span>
+                        <span><input type="password" name="mem_psw" maxlength="12" required></span>
                     </p>
                     <p>
                         <input type="submit" value="登入" class="loginBtn cursorHand">
@@ -171,19 +171,19 @@
                     </p>
                 </form>
                 <form action="register.php" method="post" class="registerForm">
-                    <p>登入會員</p>
+                    <p>註冊為會員</p>
                     <p>
                         <span>新增帳號：</span>
-                        <span><input type="text" name="mem_acc" maxlength="12"></span>
+                        <span><input type="text" name="mem_acc" maxlength="12" required></span>
                     </p><p>
                         <span>新增密碼：</span>
-                        <span><input type="text" name="mem_psw" maxlength="12"></span>
+                        <span><input type="password" name="mem_psw" minlength="4" maxlength="12" required></span>
                     </p><p>
                         <span>確認密碼：</span>
-                        <span><input type="text" name="" maxlength="12"></span>
+                        <span><input type="password" name="" minlength="4" maxlength="12" required></span>
                     </p><p>
                         <span>暱稱：</span>
-                        <span><input type="text" name="mem_nn" maxlength="12"></span>
+                        <span><input type="text" name="mem_nn" maxlength="12" required></span>
                     </p>
                     <p>
                         <span>電話：</span>
