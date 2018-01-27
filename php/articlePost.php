@@ -38,21 +38,21 @@ session_start();
 				<input class="inputTopic" type="text" name="title" required>
 
 				<p class="intro line">請選擇文章圖片1</p>
-				<label for="inputImg1">請選擇檔案</label>
+				<label class="fileLabel" for="inputImg1">請選擇檔案</label>
 				<input id="inputImg1" class="inputImg first" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落1</p>
 				<textarea class="inputContent first" name="content1" required></textarea>
 
 				<p class="intro line">請選擇文章圖片2</p>
-				<label for="inputImg2">請選擇檔案</label>
+				<label class="fileLabel" for="inputImg2">請選擇檔案</label>
 				<input id="inputImg2" class="inputImg second" type="file" name="contentImg2">
 
 				<p class="intro">請輸入文章段落2</p>
 				<textarea class="inputContent second" name="content2"></textarea>
 
 				<p class="intro line">請選擇文章圖片3</p>
-				<label for="inputImg3">請選擇檔案</label>
+				<label class="fileLabel" for="inputImg3">請選擇檔案</label>
 				<input id="inputImg3" class="inputImg third" type="file" name="contentImg3">
 
 				<p class="intro">請輸入文章段落3</p>

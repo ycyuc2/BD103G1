@@ -678,7 +678,7 @@ h1 {
 .teacher .teacherBorder input[type="file"]{
   display: none;
 }
-.teacher .teacherBorder label {
+.teacher .teacherBorder form .fileLabel {
   display: block;
   margin-left: 5%;
   border: 2px solid #333;
