@@ -49,16 +49,29 @@ window.addEventListener("load", function () {
 	});
 	document.querySelector('.loginBtn[type=submit]').addEventListener("click", function (e) {
 		e.preventDefault();
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				document.querySelector('.memArea ul li:first-of-type').innerHTML = this.responseText;
-			}
-		};
-		var inputValue = document.querySelectorAll('.loginForm p span input[type=text]');
-		xhttp.open("GET", "login.php?mem_acc="+inputValue[0].value+"&mem_psw="+inputValue[1].value);
-		xhttp.send();
-    	location.reload();
+		var inputValue = document.querySelectorAll('.loginForm p span input');
+		if(inputValue[0].value == ''){
+			alert('請輸入帳號');
+		}
+		if(inputValue[1].value == ''){
+			alert('請輸入密碼');
+		}
+		if (inputValue[0].value != '' && inputValue[1].value != '') {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.querySelector('.memArea ul li:first-of-type').innerHTML = this.responseText;
+					if(this.responseText.substr(-2, 1) == 'a'){
+						alert('輸入帳號或密碼不正確');
+					}
+				}
+			};
+			
+			xhttp.open("GET", "login.php?mem_acc="+inputValue[0].value+"&mem_psw="+inputValue[1].value);
+			xhttp.send();
+	    	location.reload();
+	    	}
+			
 	});
 
 

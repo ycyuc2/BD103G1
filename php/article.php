@@ -60,12 +60,15 @@ session_start();
 								<script type="text/javascript">
 									var artCollectBtn = document.querySelector('.authorIntro .author .links p');
 									artCollectBtn.addEventListener("click", artCollect);
-									artCollect();
+									artCollect('show');
 									document.querySelector('#loginControl').checked = false;
 
-									function artCollect(artCollectBtn) {
+									function artCollect(action ) {
 										<?php if (isset($_SESSION["mem_no"])) {?>
 						 					var xhttp = new XMLHttpRequest();
+						 					if(action != 'show'){
+						 						action = 'collect'; 
+						 					}
 											xhttp.onreadystatechange = function() {
 												var artCollectBtn = document.querySelector('.authorIntro .author .links p');
 												if (this.readyState == 4 && this.status == 200) {
@@ -83,7 +86,7 @@ session_start();
 										    		}
 												}
 											}
-											xhttp.open("GET", "articleCollect.php?art_no=<?php echo $_REQUEST["art_no"];?>");
+											xhttp.open("GET", "articleCollect.php?art_no=<?php echo $_REQUEST["art_no"];?>&action="+action);
 											xhttp.send();
 						 				<?php }else{?>
 											document.querySelector('#loginControl').checked = true;

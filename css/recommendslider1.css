@@ -27,6 +27,11 @@
     z-index: 11;
     color:#533e2f;
 }
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .boxCloseLabel {
+    float: right;
+    padding-top: 10px;
+    padding-right: 20px;
+    }
 .teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .boxCloseLabel
 .teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox .boxCloseLabel,
 .teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .boxCloseLabel{
@@ -49,7 +54,9 @@
     cursor: url('../img/share/cursor.png') 12 5, auto;
     filter: drop-shadow(0px 0px 10px #533e2f);
 }
-.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:nth-child(2){
+.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:nth-child(2)
+    ,
+.teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox p:nth-child(2) {
     margin-top: 48px;
 }
 @font-face {
@@ -182,7 +189,6 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     width: 100%;
     box-sizing: border-box;
     clear: both;
-    overflow: scroll;
     position: relative;
     top: 0;
     box-sizing: border-box;
@@ -212,17 +218,6 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
 .teacher .teacherBorder  h3{
     padding-top: 20%;
     font-size: 20px;
-}
-@media all and (max-width: 470px) {
-    .teacher .teacherBorder .productsSelect {
-        height: 300px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-    .teacher .teacherBorder .productsSelect .content {
-        width: 300px;
-        margin: 0;
-    }
 }
 
 .teacher .teacherBorder .productsSelect .container {
@@ -330,6 +325,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
         opacity: 0;
     }
     .phone .phoneItems .prodCheck{
+        font-size: 15px;
         position: absolute;
         top: 5px;
         right: 10px;
@@ -358,6 +354,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     }
     .phone .phoneItems .prodInfo p{
         text-align: center;
+        font-size: 15px;
     }
     .phone .phoneItems .prodInfo p:nth-of-type(2) span:nth-of-type(1){
         text-decoration: line-through;
@@ -366,6 +363,7 @@ cursor: url(../img/share/cursor.png) 20 15,auto;
     .phone .phoneItems .prodInfo p:nth-of-type(2) span:nth-of-type(2) {
         color:#d00;
         font-weight:700;
+        font-size: 23px;
     }
     .phone .btnS{
         margin: 15px auto;
