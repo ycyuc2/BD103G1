@@ -121,11 +121,13 @@
       left: 0; } }
   #teacherInfo #closeBtn {
     position: absolute;
-    top: 70px;
+    top: 20px;
+    right: 30px;
     display: inline-block;
     font-size: 25px;
     color: #533E23;
     transition: 0.2s filter;
+    z-index: 10;
     filter: drop-shadow(0px 0px 2px #fec16a);
 }
   #teacherInfo #closeBtn:hover {
@@ -133,13 +135,13 @@
 filter:drop-shadow(0px 0px 2px #fec16a);
     }
     #teacherInfo #closeBtn i {
-      color: #333;
+      color: #533E23;
       font-size: 30px;
       text-align: center;
       transition: 0.2s; }
       #teacherInfo #closeBtn i:hover {
         cursor: url(../img/share/cursor.png) 20 15, auto;
-        color: #0ff; }
+        color: #422a10; }
       #teacherInfo #closeBtn i:active {
         cursor: url(../img/share/cursor2.png) 20 15, auto; }
   #teacherInfo .columnBorder {
