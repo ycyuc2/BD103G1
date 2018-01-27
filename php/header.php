@@ -134,18 +134,19 @@
 	</div>
 	<!-- 業力球 -->
 
-	<a class="showKarma" href="karmainfo.php">
+	
 		<div class="showKarma"> 
+			<a class="showKarma" href="karmainfo.php">
 			<p>業障干擾值</p>
-			<img src="../img/showKarma/karma_frame.png" alt="" class="frame">
+			<img src="../img/showKarma/karma_frame.png" alt="" class="karFrame">
 			<div class="balls">
 				<img src="../img/showKarma/ball.png" alt="" class="outBall">
 				<svg id="fillgauge2" width="90" height="90"></svg>
 			</div>
 			<p class="number">
-			</p>
+			</p></a>
 		</div>
-	</a>
+	
 	    <script language="JavaScript">
 		var karCount =<?php if( isset($_SESSION["karma_val"]) ){
 	            	echo $_SESSION["karma_val"];
