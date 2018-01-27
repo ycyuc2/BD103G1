@@ -12,6 +12,10 @@
 		$type = 'pd';
 		$typeStar = $type."_star";
 		$typeReview = $type."_review_times";
+	}elseif($_REQUEST["type"]== 'teacher'){
+		$type = 'teacher';
+		$typeStar = $type."_star";
+		$typeReview = $type."_review_times";
 	}
 		$sql = "select * from ".$_REQUEST["type"]." where ".$type."_no = :".$type."_no";
 		$check = $pdo->prepare($sql);
@@ -46,7 +50,6 @@
 		$count->bindValue(":mem_no", $_SESSION["mem_no"]);
 		$count -> execute();
 		$countRow = $count->fetchObject();
-		echo $countRow;
 		if($count->rowCount() == 0){
 			$sql = "select * from ".$_REQUEST["type"]." where ".$type."_no = :".$type."_no";
 			$review = $pdo->prepare($sql);
@@ -74,7 +77,6 @@
 			$review -> execute();
 			$reviewRow = $review->fetchObject();
 			$value = ($checkRow->$typeStar*$checkRow->$typeReview-$countRow->$typeStar+$_REQUEST["value"])/($checkRow->$typeReview);
-
 			$sql = "update ".$_REQUEST["type"]." set  ".$typeStar." = :".$typeStar." where ".$type."_no = :".$type."_no";
 			$update = $pdo->prepare($sql);
 			$update->bindValue(":".$typeStar, $value);

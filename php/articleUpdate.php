@@ -54,8 +54,7 @@ session_start();
 		}else{
 			$uploadFileName3 = null;
 		}
-
-		if ($confirm) {
+		if (isset($confirm)) {
 			try {
 				require_once("connectBD103G1.php");
 				$sql = "update article set art_title = :art_title, art_content_1 = :art_content_1, art_content_2 = :art_content_2, art_content_3 = :art_content_3, art_img_1 = :art_img_1, art_img_2 = :art_img_2, art_img_3 = :art_img_3, art_update_time = :art_update_time where art_no = :art_no and teacher_no = :teacher_no";

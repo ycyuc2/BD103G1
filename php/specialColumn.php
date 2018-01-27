@@ -43,7 +43,6 @@ try {
 	$teachers->bindValue(":teacher_no",$teacherNo);
 	$teachers->execute();
 	$teacher_rows = $teachers->fetchAll(PDO::FETCH_ASSOC);
-
 	foreach( $teacher_rows as $i=>$teacherRow){
 ?>
 	<div class="headerBlank"></div>
@@ -67,37 +66,40 @@ try {
 						<p>
 	<!-- 評價星等 -->
 	<fieldset class="rating teacherStar">
-	    <input type="radio" id="star5" name="rating" value="5" />
+	    <input type="radio" id="star5" name="rating" value="5" class="starIcon">
 	    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-	    <input type="radio" id="star4" name="rating" value="4" />
+	    <input type="radio" id="star4" name="rating" value="4" class="starIcon">
 	    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-	    <input type="radio" id="star3" name="rating" value="3" />
+	    <input type="radio" id="star3" name="rating" value="3" class="starIcon">
 	    <label class = "full" for="star3" title="Meh - 3 stars"></label>
-	    <input type="radio" id="star2" name="rating" value="2" />
+	    <input type="radio" id="star2" name="rating" value="2" class="starIcon">
 	    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-	    <input type="radio" id="star1" name="rating" value="1" />
+	    <input type="radio" id="star1" name="rating" value="1" class="starIcon">
 	    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 	</fieldset>
-<?php 
-	$sql="select * from teacher_review where  teacher_no =?";
-	$check=$pdo->prepare($sql);
-	$check->bindValue(1,$_REQUEST["teacher_no"]);
-	$check->execute();
-	$count=$check->rowCount();
-	if($count!=0){
-		$starScore=0;
-		while($checkRow=$check->fetchObject()){
-			$starScore+=$checkRow->review_star;
-		}?>
-		<script>
-			var star= <?php echo round($starScore/$count);?>;
-			var inputElems= $('.teacherStar input[type="radio"]');
-			inputElems[5-star].checked=true;
-			for(var i=0;i<5;++i){
-				inputElems[i].disabled=true;
-			}
-		</script>
-	<?php }?>
+	<script type="text/javascript">
+		var starIcon = document.querySelectorAll('.starIcon');
+		for (var i = 0; i < starIcon.length; i++) {
+			starIcon[i].addEventListener('click',function () {
+				<?php if (isset($_SESSION["mem_no"])) {?>
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							// 燈箱
+							alert('成功評價老師');
+						}else{
+						}
+					};
+					xhttp.open("GET", "star.php?type=teacher&action=review&target_no=<?php echo $_REQUEST["teacher_no"]; ?>&value="+this.value);
+					alert(this.value);
+					xhttp.send();
+				<?php }else{?>					
+					document.querySelector('#loginControl').checked = true;
+				<?php } ?>
+				
+			});	//starIcon addEvent end
+		}
+	</script>
 						</p>
 					</div>
 				</div>

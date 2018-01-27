@@ -7,8 +7,10 @@ session_start();
 <head>
 	<meta charset="UTF-8">
 <?php require_once("publicHeader.php") ?>
-	<script src="../js/iscroll.js"></script>
+	<script src="../js/iscroll.js"></script>	
 	<!-- <script src="../js/iscroll-zoom.js"></script> -->
+
+	<link rel="stylesheet" type="text/css" href="../css/starRating.css">
 	<link rel="stylesheet" type="text/css" href="../css/findTeacher.css">
 	<title>找老師</title>
 </head>

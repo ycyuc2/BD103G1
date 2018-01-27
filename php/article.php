@@ -116,6 +116,7 @@ session_start();
 					xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
 							// 燈箱
+							alert('成功評價此文章');
 						}
 					};
 					xhttp.open("GET", "star.php?type=article&action=review&target_no="+<?php echo $_REQUEST["art_no"]; ?>+"&value="+this.value);
