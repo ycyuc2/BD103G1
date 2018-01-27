@@ -109,7 +109,7 @@ ol{
 }
 .trade:hover .trade{
 	transform: scale(1);
-	height: 55px;
+	height: 30px;
 }
 .member:hover .member{
 	transform: scale(1);

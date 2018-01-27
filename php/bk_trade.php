@@ -30,7 +30,6 @@
 				<li class="fstNav trade">交易管理
 					<ol class="innerNav trade">
 						<li><a href="bk_trade.php">檢視交易紀錄</a></li>
-						<li><a href="bk_pdList.php">訂單管理</a></li>
 					</ol>
 				</li>
 				<li class="fstNav member">會員管理
@@ -67,7 +66,6 @@
 				<span class="col stat">訂單狀態</span>
 				<span class="col total">總金額</span>
 				<span class="col karmaDec">總業力扣除額</span>
-				<span class="col alter">狀態修改</span>
 			</div>
 
 <?php 
@@ -81,7 +79,7 @@
 			
 			<div class="tr">
 				<span class="col memNo"><?php echo $orderRow["mem_no"] ?></span>
-				<span class="col pdNo"><?php echo $orderRow["pd_no"] ?></span>
+				<span class="col pdNo"><?php echo $orderRow["order_no"] ?></span>
 				<span class="col orderTime"><?php echo $orderRow["order_time"] ?></span>
 				<span class="col stat">
 					<?php 
@@ -96,20 +94,16 @@
 				</span>
 				<span class="col total"><?php echo $orderRow["total"] ?></span>
 				<span class="col karmaDec"><?php echo $orderRow["total_karma"] ?></span>
-				<span class="col alter">
-					<input type="radio" value="0" name="valid">未出貨
-					<input type="radio" value="1" name="valid">已出貨
-				</span>
 			</div>
-		</div>
+		
 <?php 
 }
  ?>
 		<!-- end right -->
 		
-		
 		</div>
 	</div>
+</div>
 	
     
 </body>

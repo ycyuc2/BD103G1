@@ -37,7 +37,6 @@
 				<li class="fstNav trade">交易管理
 					<ol class="innerNav trade">
 						<li><a href="bk_trade.php">檢視交易紀錄</a></li>
-						<li><a href="bk_pdList.php">訂單管理</a></li>
 					</ol>
 				</li>
 				<li class="fstNav member">會員管理
