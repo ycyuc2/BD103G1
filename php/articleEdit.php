@@ -54,25 +54,19 @@ session_start();
 				<input class="inputImg first" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落1</p>
-				<textarea class="inputContent first" name="content1" required>
-					<?php echo $articleRow["art_content_1"]?> 
-				</textarea>
+				<textarea class="inputContent first" name="content1" required><?php echo $articleRow["art_content_1"]?></textarea>
 
 				<p class="intro line">請選擇文章圖片2</p>
 				<input class="inputImg second" type="file" name="contentImg2">
 
 				<p class="intro">請輸入文章段落2</p>
-				<textarea class="inputContent second" name="content2">
-					<?php echo $articleRow["art_content_2"]?>
-				</textarea>
+				<textarea class="inputContent second" name="content2"><?php echo $articleRow["art_content_2"]?></textarea>
 
 				<p class="intro line">請選擇文章圖片3</p>
 				<input class="inputImg third" type="file" name="contentImg3">
 
 				<p class="intro">請輸入文章段落3</p>
-				<textarea class="inputContent third" name="content3">
-					<?php echo $articleRow["art_content_3"]?>
-				</textarea>
+				<textarea class="inputContent third" name="content3"><?php echo $articleRow["art_content_3"]?></textarea>
 				
 				<input type="hidden" name="teacherNo" value=<?php echo '"'.$teacherNo.'"' ?>>
 				<input type="hidden" name="artNo" value=<?php echo '"'.$artNo.'"' ?>>
