@@ -242,9 +242,8 @@
 .resultArea{
 	width: 960px;
 	margin: 0 auto;
-	background-color: rgba(0,0,0, 0.5);
-	height: 530px;
 	
+
 }
 .resultArea .star{
 	width: 100%;

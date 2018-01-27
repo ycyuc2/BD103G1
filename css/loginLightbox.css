@@ -1,12 +1,25 @@
+@font-face{
+	font-family:'王漢宗粗明體繁-中';
+	src:url('../font/王漢宗粗明體繁-中.ttf');
+}
+@font-face {
+	font-family: '王漢宗特明體 – 標準';
+	src: url('../font/王漢宗特明體 – 標準.ttf');
+}
+@font-face {
+	font-family: '王漢宗特明體 – 標準';
+	src: url('../font/王漢宗特明體 – 標準.ttf');
+}
 .loginLightbox{
 	width: 100%;	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
 	right: -100%;
-	z-index: 10;
+	z-index: 21;
 	opacity: 0;
 	transition: opacity 0.2s 0s, right 0s 0.2s;
+	
 }
 .boxContent {
 	width: 360px;	height: 500px;
@@ -16,6 +29,8 @@
 	background: url('../img/index/hint.png');
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+		font-family:'王漢宗粗明體繁-中';
+
 }
 #loginControl{
 	position: fixed;
@@ -53,6 +68,7 @@
 	text-align: center;
 }
 .boxContent form p{
+	font-family:'王漢宗粗明體繁-中';
 	margin: 10px 0;
 	text-align: center;
 }
@@ -63,14 +79,19 @@
 	margin-left: 16px;
 	font-weight: bold;
 }
-.boxContent form p:first-of-type,
+	.boxContent form p:first-of-type {
+	margin: 11px 0 19px;
+}
+	.boxContent .loginForm p:nth-of-type(3) {
+	margin-top: 28px;
+}
 .boxContent form p:last-of-type{
-	margin: 20px 0;
+	margin: 67px 0 0;
 }
 .boxContent form p span{
 	display: inline-block;
 	color: rgb(100, 84, 72);
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
 	letter-spacing: 2px;
 	vertical-align: middle;
@@ -85,16 +106,18 @@
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	color: #fff;
-	font-size: 16px;
+	font-size: 15px;
 }
 .boxContent form p span input:focus{
 	outline: none;
 }
 .boxContent form p .loginBtn{
+	font-family: '王漢宗特明體 – 標準';
+	letter-spacing: 2px;
 	width: 125px;
 	height: 68px;
 	line-height: 68px;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
 	display: inline-block;
 	background-color: transparent;
