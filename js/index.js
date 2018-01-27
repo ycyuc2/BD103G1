@@ -129,9 +129,9 @@ function generateResult(className) {
 }	//printResult end
 
 
-function printResult(fort_no, obj_fort_no = 0) {
+function printResult(fort_no, obj_fort_no = -1) {
 	console.log(fort_no, obj_fort_no);
-	if (obj_fort_no != 0) {
+	if (obj_fort_no != -1) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
