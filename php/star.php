@@ -1,7 +1,6 @@
 <?php 
 	ob_start();
 	session_start();
-	$_SESSION["mem_no"] = 1;
 	//	$_REQUEST["type"], $_REQUEST["action"], $_REQUEST["target_no"], $_REQUEST["value"]
 	require_once('connectBD103G1.php');
 	if($_REQUEST["type"] == 'article'){
@@ -25,7 +24,7 @@
 		$star = $checkRow->$typeStar;
 	if($_REQUEST["action"] == 'show'){
 		echo round(5-$star);
-	}elseif($_REQUEST["action"] == 'review'){
+	}elseif($_REQUEST["action"] == 'review' && isset($_SESSION["mem_no"])){
 		$sql = "select * from ".$type."_review where ".$type."_no = :".$type."_no and mem_no = :mem_no";
 		$count = $pdo->prepare($sql);
 		$count->bindValue(":".$type."_no", $_REQUEST["target_no"]);

@@ -29,6 +29,7 @@
 	$member = $pdo->prepare($sql);
 	$member->bindValue(':karma_val',$_SESSION["karma_val"] = max( ($_SESSION["karma_val"] - $_REQUEST["total_karma"]), 0) );
 	$member->execute();
+	$_SESSION["cartCount"] = 0;
 
 
 		

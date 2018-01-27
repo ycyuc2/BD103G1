@@ -183,7 +183,7 @@ window.addEventListener('load', function (){
 	}
 
 	sum();
-	document.querySelector('.agree .pay').addEventListener('click', function () {
+	document.querySelector('.agree .btnM .btnText').addEventListener('click', function () {
 		if(document.querySelector('.agree input').checked){
 			var url = '';
 			for (var i = 0; i < items.length; i++) {
@@ -199,7 +199,6 @@ window.addEventListener('load', function (){
 		        		storage.removeItem(items[i]);
 		        	}
 		        	storage.removeItem('addItemList');
-		        	$_SESSION["cartCount"] = 0;
 		        	location.href = '../php/index.php';
 		        }
 		    };
