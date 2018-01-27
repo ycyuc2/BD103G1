@@ -675,14 +675,18 @@ h1 {
   padding: 10px; }
   .teacher .teacherBorder .inputTopic:focus {
     outline: none; }
-
-.teacher .teacherBorder .inputImg {
+.teacher .teacherBorder input[type="file"]{
+  display: none;
+}
+.teacher .teacherBorder label {
   display: block;
   margin-left: 5%;
+  border: 2px solid #333;
   height: 30px;
+  width: 100px;
   margin-top: 10px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 2px;
   font-family: "微軟正黑體"; }
   .teacher .teacherBorder .inputImg:focus {
     outline: none; }

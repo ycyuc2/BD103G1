@@ -51,19 +51,22 @@ session_start();
 				required>
 
 				<p class="intro line">請選擇文章圖片1</p>
-				<input class="inputImg first" type="file" name="contentImg1" required>
+				<label for="inputImg1">請選擇檔案</label>
+				<input id="inputImg1" class="inputImg first" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落1</p>
 				<textarea class="inputContent first" name="content1" required><?php echo $articleRow["art_content_1"]?></textarea>
 
 				<p class="intro line">請選擇文章圖片2</p>
-				<input class="inputImg second" type="file" name="contentImg2">
+				<label for="inputImg2">請選擇檔案</label>
+				<input id="inputImg2" class="inputImg second" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落2</p>
 				<textarea class="inputContent second" name="content2"><?php echo $articleRow["art_content_2"]?></textarea>
 
 				<p class="intro line">請選擇文章圖片3</p>
-				<input class="inputImg third" type="file" name="contentImg3">
+				<label for="inputImg3">請選擇檔案</label>
+				<input id="inputImg3" class="inputImg third" type="file" name="contentImg1" required>
 
 				<p class="intro">請輸入文章段落3</p>
 				<textarea class="inputContent third" name="content3"><?php echo $articleRow["art_content_3"]?></textarea>
