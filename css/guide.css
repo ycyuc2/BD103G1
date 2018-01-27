@@ -1,3 +1,11 @@
+@font-face {
+	font-family: "王漢宗特明體 – 標準";
+	src: url("../font/王漢宗特明體 – 標準.ttf"); }
+
+	@font-face {
+		font-family: "王漢宗中明體繁- 細";
+		src: url("../font/王漢宗中明體繁- 細.ttf"); }
+
 * {
 	padding: 0;
 	margin: 0;
@@ -5,42 +13,201 @@
 	box-sizing: border-box;
 }
 
-.bg{
-	width: 100vw;
-	height: 100vh;
+body{
 	background-image: url(../img/guide/bg.jpg);
-	background-position: center center;
+	/*background-position: center center;*/
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: fixed;
-	z-index: -10;
+	/*position: fixed;*/
+	/*z-index: -10;*/
 }
+
+.background {
+  background-image: url(../img/share/bg.jpg);
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: fixed;
+  z-index: -5;
+  top: 0;
+  left: 0; }
+  .background .flash {
+    position: absolute;
+    width: 700px;
+    opacity: 0; }
+  .background .lt1 {
+    left: -150px;
+    top: 30px;
+    animation: flashing1 10s;
+    animation-iteration-count: 2; }
+  .background .lt2 {
+    left: 0px;
+    top: 70px;
+    animation: flashing2 10s;
+    animation-iteration-count: 2; }
+  .background .lt3 {
+    right: 90px;
+    top: 50px;
+    animation: flashing3 10s;
+    animation-iteration-count: 2; }
+  .background .lt4 {
+    right: 130px;
+    top: 0px;
+    animation: flashing4 10s;
+    animation-iteration-count: 2; }
+
+@keyframes flashing1 {
+  24% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  35% {
+    opacity: 0; }
+  70% {
+    opacity: 0; }
+  71% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes flashing2 {
+  5% {
+    opacity: 0; }
+  6% {
+    opacity: 1; }
+  20% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  51% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  89% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes flashing3 {
+  34% {
+    opacity: 0; }
+  35% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  61% {
+    opacity: 1; }
+  70% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes flashing4 {
+  18% {
+    opacity: 0; }
+  19% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  38% {
+    opacity: 0; }
+  39% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  84% {
+    opacity: 0; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 .logo img{
 	display: block;
 	width: 150px;
-	position: absolute;
-	left: calc(50% - 75px);
-	top: 70px;	
+	margin: 70px auto 0 auto;
 }
 
 .title img{
-	width: 400px;
+	width: 500px;
 	display: block;
-	position: absolute;
-	left: calc(50% - 200px);
-	top: 300px;
+	margin: 100px auto 0 auto;
 }
 
 .btn{
-	
+	margin: 50px auto 0 auto;
+	text-align: center;
 }
 
+.btnText{
+	display: inline-block;
+	color:rgb(240, 225, 200);
+	text-decoration: none;
+	font-family: "王漢宗中明體繁- 細";
+	margin: 0;padding: 0;
+	border: none;
+	background: none;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	box-sizing: border-box;
+	transition:.2s all ;
+}
+.btnText:hover{
+	/* color: rgb(223, 211, 174); */
+	filter:drop-shadow(0px 0px 3px #fff) drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.1));
+}
+.btnL{
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+	background: url(../img/btn/01.png) center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	font-weight: bold;
+	margin: 0 50px;
+}
+.btnL .btnText{
+	font-size: 20px;
+	line-height: 50px;
+}
+.btnL .btnText2{
+	padding-left: 20px;
+	letter-spacing: 20px;
+}
 
-@media all and (max-width: 479px){
+.btnL:hover{
+	cursor: url(../img/share/cursor.png) 12 5, auto;
+}
+
+.btnL:active{
+	cursor: url(../img/share/cursor2.png) 12 5, auto;
+}
+
+@media all and (min-width: 551px) and (max-width: 1000px){
+	.btn{
+		margin: 50px auto 0 auto;
+		text-align: center;
+	}
+
+	.btnL{
+		margin: 0 20px;
+	}
+}
+
+@media all and (max-width: 550px){
 	.title img{
 		width: 300px;
 		left: calc(50% - 150px);
+	}
+
+	.btnL{
+		margin: 10px 20px;
 	}
 }
 
