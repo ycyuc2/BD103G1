@@ -199,6 +199,7 @@ window.addEventListener('load', function (){
 		        		storage.removeItem(items[i]);
 		        	}
 		        	storage.removeItem('addItemList');
+		        	$_SESSION["cartCount"] = 0;
 		        	location.href = '../php/index.php';
 		        }
 		    };
