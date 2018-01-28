@@ -365,7 +365,7 @@ try {
 			searchBox.style.opacity = 1;
 			searchBox.style.right = 'calc(50% - 271px)';
 			searchBox.style.transform = 'scale(1,1)';
-			searchBox.style.top = '40%';
+			searchBox.style.top = '30%';
 		}else{
 			searchBox.style.transform = 'scale(0,0)';
 			searchBox.style.opacity = 0;

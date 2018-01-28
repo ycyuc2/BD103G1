@@ -335,6 +335,7 @@ h1 {
             .teacher .teacherBorder .articleList .article a{
               cursor: url(../img/share/cursor.png) 20 15,
               auto;
+              text-decoration: none;
             }
             .teacher .teacherBorder .articleList .article a:active {
               cursor: url(../img/share/cursor2.png) 20 15, auto;
@@ -353,6 +354,7 @@ h1 {
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .articleList .article .content {
               width: 100%;
+              padding: 20px;
               float: none; } }
           .teacher .teacherBorder .articleList .article .content .topic h3 {
             color: #533e2f;

@@ -34,7 +34,7 @@ try {
          <div class='picFrame'></div>
          
          
-         <img src='../$PRODUCT_COVER' alt=''>
+         <img src='../img/products/$PRODUCT_COVER' alt=''>
          
      </div>
      </a>
@@ -50,16 +50,16 @@ try {
              <div class='purchase'>
 
                  <div id='pd$PRODUCT_NO ' class='name'>
-                 <span class='addButton buyNow'>
-                         加入購物車
+                 <span class='addButton buyNow btnM'>
+                         <span class='btnText btnText4'>加入購物車</span>
                          <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|',$PRODUCT_KARMA,'|0' '>
                      </span>
 
 
                      
 
-                     <span class='addButton buyNow'>         
-                         立即購買
+                     <span class='addButton buyNow btnM'>         
+                         <span class='btnText btnText4'>立即購買</span>
                          <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|',$PRODUCT_KARMA,'|0' '>
                      </span>
                  </div>

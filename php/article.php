@@ -45,7 +45,7 @@ session_start();
 	</div>
 	<div class="headerBlank"></div>
 	<?php 
-		$sql = "SELECT * FROM article a join teacher t join member m where a.art_no = :art_no and t.mem_no = m.mem_no";
+		$sql = "SELECT * FROM article join teacher USING(teacher_no) join member USING(mem_no) where art_no = :art_no";
 		$art = $pdo->prepare($sql);
 		$art->bindValue(":art_no", $_REQUEST["art_no"]);
 		$art->execute();

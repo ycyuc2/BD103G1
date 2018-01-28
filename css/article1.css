@@ -93,7 +93,8 @@
         border-image: url(../img/share/frame_960x960.png) 90 90 repeat;
         padding: 0; } }
     .specialColumn .columnBorder .authorIntro, .replys .columnBorder .authorIntro, .memberReply .columnBorder .authorIntro {
-      width: 100%; }
+      width: 100%;
+      font-size: 0; }
       .specialColumn .columnBorder .authorIntro:after, .replys .columnBorder .authorIntro:after, .memberReply .columnBorder .authorIntro:after {
         display: block;
         content: '';
@@ -128,6 +129,8 @@
             margin: auto;
             float: none; } 
            .replys .columnBorder .authorIntro .authorPhoto{
+            display: inline-block;
+            vertical-align: middle;
              width: 23%;
              margin: 5% auto 0;
            }
@@ -152,7 +155,7 @@
           clear: both; }
         @media all and (min-width: 760px) and (max-width: 959px) {
           .specialColumn .columnBorder .authorIntro .author, .replys .columnBorder .authorIntro .author, .memberReply .columnBorder .authorIntro .author {
-            width: 78%;
+            width: 100%;
             float: left; } }
         @media all and (min-width: 480px) and (max-width: 759px) {
           .specialColumn .columnBorder .authorIntro .author, .replys .columnBorder .authorIntro .author, .memberReply .columnBorder .authorIntro .author {
@@ -163,6 +166,8 @@
             width: 100%;
             float: none; } 
         .replys .columnBorder .authorIntro .author{
+          display: inline-block;
+          vertical-align: middle;
           width: 77%;
           padding: 16px 0;
         }}
@@ -272,9 +277,9 @@
       }
         @media all and (max-width: 479px) {
           .replys .columnBorder .authorIntro .author .links .btns .btnM {
-            width: 120px;
-            height: 56px;
-            line-height: 76px;
+            width: 86px;
+            height: 50px;
+            line-height: 72px;
             position: absolute;
             right: 12px;
             top: 5%;
@@ -340,7 +345,9 @@
         @media all and (max-width: 479px) {
           .specialColumn .columnBorder article p, .replys .columnBorder article p, .memberReply .columnBorder article p {
             font-size: 14px;
-            line-height: 29px; } 
+            line-height: 29px;
+            padding-left: 10px;
+            padding-right: 10px; } 
          }
         .specialColumn .columnBorder article p + p, .replys .columnBorder article p + p, .memberReply .columnBorder article p + p {
           margin-top: 20px; }
