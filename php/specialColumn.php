@@ -102,6 +102,7 @@ try {
 					xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200){
 							alert('成功評價此老師');
+							location.reload();
 						}
 					};
 					xhttp.open("GET", "star.php?type=teacher&action=review&target_no="+<?php echo $_REQUEST["teacher_no"]; ?>+"&value="+this.value);
@@ -112,8 +113,14 @@ try {
 					
 			});	//starIcon addEvent end
 		}
-	</script>
-						</p>
+	</script></p><?php 
+                    $sql = "select * from teacher where teacher_no = :teacher_no";
+                    $rate = $pdo->prepare($sql);
+                    $rate ->bindValue(':teacher_no', $_REQUEST["teacher_no"]);
+                    $rate ->execute();
+                    $rateRow = $rate->fetchObject();
+                     ?>
+                <p class="rate"><?php echo $rateRow->teacher_star; ?>/5</p>
 					</div>
 				</div>
 				<div class="links">
