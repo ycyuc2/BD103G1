@@ -166,7 +166,8 @@
 		if (empty($_SESSION["obj_fort_no"])) {
 			$_SESSION["karma_val"] += $singleFortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["obj_fort_no"] = $pairFortRows[$fortNo[1]]["fort_no"];
-			$_SESSION["pair_no"] = randomNo(3)[0]+1;
+			$rand24 = randomNo(3);
+			$_SESSION["pair_no"] = $rand24[0]+1;
 
 			if (isset($_SESSION["mem_no"])) {
 				$sql = "update member set fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = :karma_val, pair_no = :pair_no where mem_no = :mem_no";

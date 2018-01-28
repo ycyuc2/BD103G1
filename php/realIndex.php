@@ -17,7 +17,7 @@
     <?php 
         require_once("connectBD103G1.php");
         require_once("header.php");
-        $_SESSION["where"] = 'index.php';
+        $_SESSION["where"] = 'realIndex.php';
     ?>
 	<div class="wrapper">
 	    <!-- 底圖 --> 
