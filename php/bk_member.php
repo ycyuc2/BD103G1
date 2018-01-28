@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	ob_start();
+	require_once 'connectBD103G1.php';
  ?>
 <!DOCTYPE html>
 <html>
@@ -118,8 +119,8 @@
 				</span>
 				<span class="col sta"><?php echo $memRow["mem_sta"] ?></span>
 				<span class="col alter">
-					<input type="radio" value="0" name="valid">停權
-					<input type="radio" value="1" name="valid">復權
+					<input type="radio" value="0" class="valid<?php echo $memRow["mem_no"];?>" name="valid<?php echo $memRow["mem_no"];?>">停權
+					<input type="radio" value="1" class="valid<?php echo $memRow["mem_no"];?>" name="valid<?php echo $memRow["mem_no"];?>">復權
 				</span>
 			</div>
 
@@ -128,7 +129,31 @@
  ?>
 
 		</div>
-
+		<script type="text/javascript">
+			var radio = document.querySelectorAll('input[type=radio]');
+			for (var i = 0; i < radio.length; i++) {
+				radio[i].addEventListener('change', function () {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							location.reload();
+						}
+					};
+					xhttp.open("GET", "bk_member.php?action=changeState&mem_no="+this.className.substr(5,this.className.length)+"&mem_sta="+this.value);
+					xhttp.send();
+				});
+			}
+			<?php 
+				if(isset($_REQUEST["action"]) == 'changeState'){
+					$sql = "update member set mem_sta = :mem_sta where mem_no = :mem_no";
+					$update = $pdo->prepare($sql);
+					$update -> bindValue(':mem_no', $_REQUEST["mem_no"]);
+					$update -> bindValue(':mem_sta', $_REQUEST["mem_sta"]);
+					$update -> execute();
+				}
+							
+			?>
+		</script>
 		<!-- end right -->
 		
 		

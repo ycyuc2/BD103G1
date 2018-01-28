@@ -64,7 +64,7 @@ require_once 'header.php';
 						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$msgCount -> execute();
 						$pages = ceil($msgCount->rowCount()/5);
-						$sql = "select * from message msg JOIN article art using(art_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no) limit ".(($_REQUEST["page"]-1)*5)." ,5";
+						$sql = "select * from message msg JOIN article art using(art_no) JOIN member using(mem_no) where mem_no = :mem_no and msg_time in (select max(msg_time) from message where mem_no = :mem_no group by art_no) limit ".(($_REQUEST["page"]-1)*5)." ,5";
 						$reply = $pdo->prepare($sql);
 						$reply -> bindValue(":mem_no",$_SESSION["mem_no"]);
 						$msgCount -> bindValue(":mem_no",$_SESSION["mem_no"]);
@@ -97,13 +97,20 @@ require_once 'header.php';
 											$teacher = $pdo->prepare($sql);
 											$teacher -> bindValue(":teacher_no",$msgArtRow->teacher_no);
 											$teacher -> execute();
-											if($teacherRow = $teacher->fetchObject()){
+											$teacherRow = $teacher->fetchObject();
 										?>
-										<p><?php echo $teacherRow->teacher_nn;}?></p>
+										<p><?php echo $teacherRow->teacher_nn;?></p>
 										<p><?php echo $msgArtRow->art_post_time;?></p>
 									</div>
 									<div class="td tdWidth">
-										<p>回文人名稱</p>
+										<?php
+											$sql = "select * from message join member using(mem_no) where msg_time = :msg_time";
+											$message = $pdo->prepare($sql);
+											$message -> bindValue(":msg_time",$msgArtRow->art_update_time);
+											$message -> execute();
+											$messageRow = $message->fetchObject();
+										?>
+										<p><?php echo $messageRow->mem_nn;?></p>
 										<p><?php echo $msgArtRow->art_update_time;?></p>
 									</div>
 								</div>
