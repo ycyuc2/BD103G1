@@ -24,7 +24,7 @@
 
 	<div class="menu">
 		<!-- logo -->
-		<a  href="index.php"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
+		<a  href="realIndex.php"><img  class="logo" src="../img/share/LOGO-08.png" ></a>
 
 		<!-- 右邊的title區塊 -->
 
