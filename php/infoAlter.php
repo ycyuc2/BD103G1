@@ -39,30 +39,33 @@ session_start();
 			$member->bindValue(':mem_no', $_SESSION["mem_no"]);
 			$member->execute();
 			$memberRow = $member->fetchObject();
-			if ($_REQUEST["action"] == 'update') {
-			if ( empty($_REQUEST["mem_psw"]) ) {
-				$_REQUEST["mem_psw"] = $memberRow->mem_psw;
+			if(isset($_REQUEST["action"])){
+				if ($_REQUEST["action"] == 'update') {
+					if ( empty($_REQUEST["mem_psw"]) ) {
+						$_REQUEST["mem_psw"] = $memberRow->mem_psw;
+					}
+					if( $_FILES["mem_pic"]["error"]==0){
+						$tmpFileName = strrchr($_FILES["mem_pic"]["name"],".");
+						$uploadFileName =  $_SESSION["mem_no"].$tmpFileName;
+						$from = $_FILES["mem_pic"]["tmp_name"];
+						$to ="../img/member/".$uploadFileName;
+						copy( $from, $to);
+						
+					}else{
+						$_FILES["mem_pic"]["name"] = null;
+					}
+					$sql = "update member set mem_psw = :mem_psw, mem_tel = :mem_tel, mem_nn = :mem_nn, mem_pic = :mem_pic where mem_no = :mem_no";
+					$update = $pdo->prepare($sql);
+					$update->bindValue(':mem_psw', $_REQUEST["mem_psw"]);
+					$update->bindValue(':mem_nn', $_REQUEST["mem_nn"]);
+					$update->bindValue(':mem_tel', $_REQUEST["mem_tel"]);
+					$update->bindValue(':mem_pic', $uploadFileName);
+					$update->bindValue(':mem_no', $_SESSION["mem_no"]);
+					$update->execute();
+					header('location:'.$_SESSION["where"]);
+				} ?>
 			}
-			if( $_FILES["mem_pic"]["error"]==0){
-				$tmpFileName = strrchr($_FILES["mem_pic"]["name"],".");
-				$uploadFileName =  $_SESSION["mem_no"].$tmpFileName;
-				$from = $_FILES["mem_pic"]["tmp_name"];
-				$to ="../img/member/".$uploadFileName;
-				copy( $from, $to);
 				
-			}else{
-				$_FILES["mem_pic"]["name"] = null;
-			}
-			$sql = "update member set mem_psw = :mem_psw, mem_tel = :mem_tel, mem_nn = :mem_nn, mem_pic = :mem_pic where mem_no = :mem_no";
-			$update = $pdo->prepare($sql);
-			$update->bindValue(':mem_psw', $_REQUEST["mem_psw"]);
-			$update->bindValue(':mem_nn', $_REQUEST["mem_nn"]);
-			$update->bindValue(':mem_tel', $_REQUEST["mem_tel"]);
-			$update->bindValue(':mem_pic', $uploadFileName);
-			$update->bindValue(':mem_no', $_SESSION["mem_no"]);
-			$update->execute();
-			header('location:'.$_SESSION["where"]);
-		} ?>
 		<?php if (isset($_SESSION["mem_no"])) {?>
 		<div class="left">
 			
