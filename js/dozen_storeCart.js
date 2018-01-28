@@ -202,7 +202,7 @@ window.addEventListener('load', function (){
 			        		storage.removeItem(items[i]);
 			        	}
 			        	storage.removeItem('addItemList');
-			        	location.href = '../php/index.php';
+			        	location.href = '../php/realIndex.php';
 		        	}
 		        	
 		        }
