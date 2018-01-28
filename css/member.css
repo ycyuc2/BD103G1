@@ -100,6 +100,13 @@ ol li{
 	position: relative;	
 	margin: 25px 0;
 }
+.content h2:before{
+	position: absolute;
+	right: 10%;
+	bottom: 0;
+	font-size: 16px;
+	cursor: pointer;
+}
 .content h2:after{
 	content: '';
 	width: 92%;
@@ -113,7 +120,9 @@ ol li{
 
 	/*info*/
 
-
+.info h2:before{
+	content: '修改會員資料';
+}
 .info p{
 	margin: 1% 0px;
 }
@@ -125,7 +134,9 @@ ol li{
 
 	/*reply*/
 
-
+.reply h2:before{
+	content: '查看更多';
+}
 .reply .table{
 	width: 90%;
 	text-align: center;
@@ -189,7 +200,9 @@ ol li{
 
 	/*trade*/
 
-
+.trade h2:before{
+	content: '查看更多';
+}
 .trade .table{
 	width: 90%;
 	font-size: 0;
@@ -363,7 +376,7 @@ ol li{
 	}
 
 	.wrapper .right{
-		width: 90%;
+		width: 100%;
 		margin: 0 auto;
 		float: none;
 	}
@@ -395,10 +408,24 @@ ol li{
 	}
 
 
-	.trade table{
+	.trade .table{
 		width:100%;
-		table-layout: fixed;
-		word-wrap: break-word;
+	}
+	.trade .table .tr span:first-of-type>p+p{
+		display: none;
+	}
+	.trade .table .tr span:first-of-type{
+		width: 25%;
+	}
+	.trade .table .tr .detail span,
+	.trade .table .tr span,
+	.trade .table .tr .large,
+	.trade .table .tr .small{
+		width: 20%;
+	}
+	.trade .table .tr .detail span:first-of-type{
+		width: 35%;
+		margin-left: 10%;
 	}
 
 
