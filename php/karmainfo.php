@@ -59,7 +59,25 @@ session_start();
         <div class="karCounting">
 
             <h2>業障干擾計算方式</h2>
-            <div class="countBall"><img src="../img/karmaInfo/400.png" alt="業障"> <div class="kar"><p></p></div></div>
+            <div class="countBall">
+                    <div class="balls">
+                        <img src="../img/showKarma/ball.png" alt="" class="outBall">
+                        <img src="../img/showKarma/ballDown.png" class="outBall outBall2" alt="">		
+                        <svg id="fillgauge" width="80%" height="80%" preserveAspectRatio="none"></svg>
+                    </div>
+            </div>
+            <script language="JavaScript">
+                    var karCount =<?php echo $_SESSION["karma_val"]; ?>;
+                    var config1 = liquidFillGaugeDefaultSettings();
+                    config1.circleColor = "#850000";
+                    config1.textColor = "#eb0202";        
+                    config1.waveTextColor = "rgb(66, 0, 0";
+                    config1.waveColor = "#eb0202";
+                    config1.circleThickness = 0.05;
+                    config1.textVertPosition = 0.3;
+                    config1.waveAnimateTime = 3000;
+                    var gauge2= loadLiquidFillGauge("fillgauge", karCount, config1);    
+            </script>
             <div class="countWay">              
                 <div class="countInfo"><p><span>商品</span ><span >依照商品業力扣除值</span></p></div>
                 <div class="countInfo"><p><span>每日運勢</span><span>按照每日運勢增減</span></p></div>
@@ -70,7 +88,7 @@ session_start();
             
             </div>
         </div>
- 
+        
 
     </div>
 </div>
