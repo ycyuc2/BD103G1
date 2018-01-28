@@ -27,6 +27,7 @@
 		    		$_SESSION["obj_fort_no"] = $memRow->obj_fort_no;
 		    	}	//obj_fort_no if-else
 					$_SESSION["karma_val"] = $memRow->karma_val;
+					$_SESSION["pair_no"] = $memRow->pair_no;
 					//karma value if-else
 		    }elseif($_SESSION["fort_sta"] == 1){
 				if( isset($_SESSION["karma_val"]) ){
