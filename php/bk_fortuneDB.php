@@ -45,7 +45,7 @@
 		<div class="right">
 			<ol class="breadcrumb">
 				<li>
-					<a href="#">首頁</a>
+					<a href="bk_index.php">首頁</a>
 				</li>
 				<li class="active">前端首頁維護</li>
 			</ol>
