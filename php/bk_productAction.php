@@ -119,8 +119,8 @@
 							
 						</span>
 					<span class="col alter">
-						<input class="btnS btnText btnText2" type="submit" name="" value="完成">
-						<a class="btnS btnText btnText2" href="bk_product.php">取消</a>
+						<span class="btnS"><input class="btnText btnText2" type="submit" name="" value="完成"></span>
+						<span class="btnS"><a class="btnText btnText2" href="bk_product.php">取消</a></span>
 					</span>
 				</form>
 			</div>

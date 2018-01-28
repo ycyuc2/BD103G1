@@ -119,7 +119,7 @@
 					<span class="col content2"><textarea name="fortContent2"><?php echo $fortuneRow["fort_content2"] ?></textarea></span>
 					<span class="col karmaInc"><input name="karmaInc" type="number" value="<?php echo $fortuneRow["karma_inc"] ?>"></input></span>
 					<span class="col category"><input name="recommendType" type="number" value="<?php echo $fortuneRow["recommend_type"] ?>"></input></span>
-					<input type="submit" value="送出" class="col alter btnS btnText btnText2"></input>
+					<span class="btnS"><input type="submit" value="送出" class="col alter btnText btnText2"></span>
 				
 			</div>
 		</form>

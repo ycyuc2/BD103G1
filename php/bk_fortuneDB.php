@@ -185,7 +185,7 @@
 					</p>
 					<p class="center">
 						<span class="btnS"><input type="submit" value="新增" class="btnText btnText2"></span>
-						<span class="btnS"><input type="reset" value="重填" class="btnText btnText2"></span></p>
+						<span class="btnS"><input type="reset" value="重填" class="btnText btnText2">重填</span></p>
 				</form>
 			</div>
 		</div>
