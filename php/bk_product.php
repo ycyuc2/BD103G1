@@ -106,7 +106,7 @@
 				</span>
 				<span class="col pic"><?php echo $productRow["pd_pic1"] ?></span>
 				<span class="col describe"><?php echo nl2br($productRow["pd_describe"]) ?></span>
-				<span class="col alter"><a class="btnS btnText btnText2" href="bk_productAction.php?action=edit&pdNo=<?php echo $productRow["pd_no"] ?>">編輯</a>
+				<span class="col alter"><span class="btnS"><a class="btnText btnText2" href="bk_productAction.php?action=edit&pdNo=<?php echo $productRow["pd_no"] ?>">編輯</a></span>
 			</div>
 
 <?php 
