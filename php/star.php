@@ -73,7 +73,7 @@
 
 
 		}
-		$_SESSION["art_no".$_REQUEST["target_no"]."star"] = (5-$_REQUEST["value"]);
+		$_SESSION[$type."_no".$_REQUEST["target_no"]."star"] = (5-$_REQUEST["value"]);
 		
 	}
  ?>

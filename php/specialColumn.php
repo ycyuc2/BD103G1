@@ -92,24 +92,24 @@ try {
 	</fieldset>
 	<script type="text/javascript">
 		var starIcon = document.querySelectorAll('.starIcon');
+		<?php if( isset($_SESSION["teacher_no".$_REQUEST["teacher_no"]."star"]) ){?>
+			starIcon[<?php echo $_SESSION["teacher_no".$_REQUEST["teacher_no"]."star"]; ?>].checked = true;
+		<?php }?>
 		for (var i = 0; i < starIcon.length; i++) {
 			starIcon[i].addEventListener('click',function () {
 				<?php if (isset($_SESSION["mem_no"])) {?>
 					var xhttp = new XMLHttpRequest();
 					xhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							// 燈箱
-							alert('成功評價老師');
-						}else{
+						if (this.readyState == 4 && this.status == 200){
+							alert('成功評價此老師');
 						}
 					};
-					xhttp.open("GET", "star.php?type=teacher&action=review&target_no=<?php echo $_REQUEST["teacher_no"]; ?>&value="+this.value);
-					alert(this.value);
+					xhttp.open("GET", "star.php?type=teacher&action=review&target_no="+<?php echo $_REQUEST["teacher_no"]; ?>+"&value="+this.value);
 					xhttp.send();
-				<?php }else{?>					
+				<?php }else{?>
 					document.querySelector('#loginControl').checked = true;
 				<?php } ?>
-				
+					
 			});	//starIcon addEvent end
 		}
 	</script>
