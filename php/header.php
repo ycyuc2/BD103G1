@@ -77,7 +77,7 @@
 							$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
 							$member -> execute();
 							$memRow = $member->fetchObject();
-							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好</p></li>", $memRow->mem_nn);
+							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好/登出</p></li>", $memRow->mem_nn);
 							if (!empty($_SESSION["cartCount"])) {
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
 							}

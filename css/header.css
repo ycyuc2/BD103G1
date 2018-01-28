@@ -80,6 +80,16 @@
 	color: #ddd;
 	letter-spacing: 1px;
 }
+.header .memArea p:hover{
+	color: #f5da95;
+	transition: .2s;
+	cursor: url(../img/share/cursor.png)20 15,auto;
+
+}
+.header .memArea p:active{
+	
+	cursor: url(../img/share/cursor2.png)20 15,auto;
+}
 
 .header .memArea a:hover{
 	color: #f5da95;
