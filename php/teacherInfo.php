@@ -27,18 +27,41 @@ try {
 				<div class="authorIntro">
 					<h2><?php echo $teacherRow["teacher_nn"] ?></h2>
 					<p><?php echo mb_substr($teacherRow["teacher_info"],0,50,"utf-8")."..." ?></p>
-					<fieldset class="rating">
-						<input type="radio" id="star5" name="rating" value="5" class="starIcon">
-						<label class = "full" for="star5" title="Awesome - 5 stars"></label>
-						<input type="radio" id="star4" name="rating" value="4" class="starIcon">
-						<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-						<input type="radio" id="star3" name="rating" value="3" class="starIcon">
-						<label class = "full" for="star3" title="Meh - 3 stars"></label>
-						<input type="radio" id="star2" name="rating" value="2" class="starIcon">
-						<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-						<input type="radio" id="star1" name="rating" value="1" class="starIcon">
-						<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+					<fieldset class="rating teacherStar">
+					    <input type="radio" id="star5" name="rating" value="5" class="starIcon">
+					    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+					    <input type="radio" id="star4" name="rating" value="4" class="starIcon">
+					    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+					    <input type="radio" id="star3" name="rating" value="3" class="starIcon">
+					    <label class = "full" for="star3" title="Meh - 3 stars"></label>
+					    <input type="radio" id="star2" name="rating" value="2" class="starIcon">
+					    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+					    <input type="radio" id="star1" name="rating" value="1" class="starIcon">
+					    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 					</fieldset>
+					<script type="text/javascript">
+						var starIcon = document.querySelectorAll('.starIcon');
+						<?php if( isset($_SESSION["teacher_no".$teacherRow["teacher_no"]."star"]) ){?>
+							starIcon[<?php echo $_SESSION["teacher_no".$teacherRow["teacher_no"]."star"]; ?>].checked = true;
+						<?php }?>
+						for (var i = 0; i < starIcon.length; i++) {
+							starIcon[i].addEventListener('click',function () {
+								<?php if (isset($_SESSION["mem_no"])) {?>
+									var xhttp = new XMLHttpRequest();
+									xhttp.onreadystatechange = function() {
+										if (this.readyState == 4 && this.status == 200){
+											alert('成功評價此老師');
+										}
+									};
+									xhttp.open("GET", "star.php?type=teacher&action=review&target_no="+<?php echo $teacherRow["teacher_no"]; ?>+"&value="+this.value);
+									xhttp.send();
+								<?php }else{?>
+									document.querySelector('#loginControl').checked = true;
+								<?php } ?>
+									
+							});	//starIcon addEvent end
+						}
+					</script>
 					<script type="text/javascript">
 						var starIcon = document.querySelectorAll('.starIcon');
 						for (var i = 0; i < starIcon.length; i++) {
