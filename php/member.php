@@ -222,7 +222,7 @@ session_start();
 			
 		</div>
 		<?php }else{
-			header('location:index.php');
+			header('location:realIndex.php');
 		} ?>
 		<div class="blank"></div>
 	</div>
