@@ -1,5 +1,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="../css/dozen_nav.css">
+	<link rel="shortcut icon" href="../img/favicon.ico">
 	<link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/btn.css">
