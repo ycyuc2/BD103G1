@@ -109,7 +109,7 @@
 							if($newMessageCount>0){
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='replyView.php?page=1'>新訊息(%d)</a></li>", $newMessageCount);
 							}
-							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no";
+							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no and teacher_sta = 1" ;
 							$teacher = $pdo->prepare($sql);
 							$teacher -> bindValue(":mem_no",$_SESSION["mem_no"]);
 							$teacher -> execute();
