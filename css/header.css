@@ -22,10 +22,10 @@
 	top: 10px;
 }
 .header .logo a:hover{
-	cursor: url(../img/share/cursor.png)20 15,auto;
+	cursor: url(../img/share/cursor.png)20 5,auto;
 }
 .header .logo a:active{
-	cursor: url(../img/share/cursor2.png)20 15,auto;
+	cursor: url(../img/share/cursor2.png)20 5,auto;
 }
 .header .logo img{
 	width: 100%;
@@ -83,22 +83,22 @@
 .header .memArea p:hover{
 	color: #f5da95;
 	transition: .2s;
-	cursor: url(../img/share/cursor.png)20 15,auto;
+	cursor: url(../img/share/cursor.png)20 5,auto;
 
 }
 .header .memArea p:active{
-	
-	cursor: url(../img/share/cursor2.png)20 15,auto;
+
+	cursor: url(../img/share/cursor2.png)20 5,auto;
 }
 
 .header .memArea a:hover{
 	color: #f5da95;
 	transition: .2s;
-	cursor: url(../img/share/cursor.png)20 15,auto;
+	cursor: url(../img/share/cursor.png)20 5,auto;
 }
 
 .header .memArea a:active{
-	cursor: url(../img/share/cursor2.png)20 15,auto;
+	cursor: url(../img/share/cursor2.png)20 5,auto;
 }
 
 /*右邊水逆倒數*/
@@ -150,10 +150,10 @@
 }
 #backToPreviousPage i:hover {
 	color: #ff0;
-	cursor: url(../img/share/cursor.png)20 15,auto;
+	cursor: url(../img/share/cursor.png)20 5,auto;
 }
 #backToPreviousPage i:active{
-	cursor: url(../img/share/cursor2.png)20 15,auto;
+	cursor: url(../img/share/cursor2.png)20 5,auto;
 }
 @keyframes countdownAlert {
 	0% {

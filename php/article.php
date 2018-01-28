@@ -163,7 +163,7 @@ session_start();
 		}
 	</script>
 	<?php 
-        $sql = "select * from articles where art_no = :art_no";
+        $sql = "select * from article where art_no = :art_no";
         $rate = $pdo->prepare($sql);
         $rate ->bindValue(':art_no', $_REQUEST["art_no"]);
         $rate ->execute();

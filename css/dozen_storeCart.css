@@ -190,10 +190,10 @@ body {
       
     }
     .cartFrame .btnM:hover{
-      cursor: url(../img/share/cursor.png)20 15,auto;
+      cursor: url(../img/share/cursor.png)12 5,auto;
       
     }
 
     .cartFrame .btnM:active{
-      cursor: url(../img/share/cursor2.png)20 15,auto;
+      cursor: url(../img/share/cursor2.png)12 5,auto;
     }

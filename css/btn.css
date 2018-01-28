@@ -60,11 +60,11 @@
 	background-size: cover;
 	text-align: center;
 	font-weight: bold;
-	cursor: url(../img/share/cursor.png)20 15,auto;
+	cursor: url(../img/share/cursor.png)12 5,auto;
 }
 
 .btnM:active{
-	cursor: url(../img/share/cursor2.png)20 15,auto;
+	cursor: url(../img/share/cursor2.png)12 5,auto;
 }
 
 .btnM .btnText{

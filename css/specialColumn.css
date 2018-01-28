@@ -144,7 +144,7 @@ h1 {
           font-size: 16px;
           line-height: 24px;
           letter-spacing: 1px;
-          margin-top: 10px;
+          margin-top: 5px;
           text-align:justify;
           line-height: 30px;
         text-justify: distribute;}
@@ -154,6 +154,7 @@ h1 {
               line-height: 22px; } }
           @media all and (max-width: 479px) {
             .teacher .teacherBorder .intro .introContent p {
+              margin-top: 9px;
               font-size: 14px;
               line-height: 22px; 
             }
@@ -202,23 +203,23 @@ h1 {
         clear: both; }
 
         .teacher .teacherBorder .links .left .btnM .btnText {
-          cursor: url(../img/share/cursor.png)20 15,auto;
+          cursor: url(../img/share/cursor.png)12 5,auto;
 
 
         }
 
         .teacher .teacherBorder .links .left .btnM .btnText:active {
-          cursor: url(../img/share/cursor2.png)20 15,auto;
+          cursor: url(../img/share/cursor2.png)12 5,auto;
         }
 
         .teacher .teacherBorder .links .right .btnM .btnText {
-          cursor: url(../img/share/cursor.png)20 15,auto;
+          cursor: url(../img/share/cursor.png)12 5,auto;
 
 
         }
 
         .teacher .teacherBorder .links .right .btnM .btnText:active {
-          cursor: url(../img/share/cursor2.png)20 15,auto;
+          cursor: url(../img/share/cursor2.png)12 5,auto;
         }
         .teacher .teacherBorder .links .left,
         /* .teacher .teacherBorder .links .middle, */
@@ -231,9 +232,9 @@ h1 {
             width: 100%;
             float: none; } }
         .teacher .teacherBorder .links .left a:hover {
-          cursor: url(../img/share/cursor.png) 20 15, auto; }
+          cursor: url(../img/share/cursor.png) 12 5, auto; }
         .teacher .teacherBorder .links .left a:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
+          cursor: url(../img/share/cursor2.png) 12 5, auto; }
         @media all and (max-width: 759px) {
             /* .teacher .teacherBorder .links .middle , */
               .teacher .teacherBorder .links .right{
@@ -246,9 +247,9 @@ h1 {
             float: none;
             margin-top: 20px; } }
         .teacher .teacherBorder .links .right a:hover {
-          cursor: url(../img/share/cursor.png) 20 15, auto; }
+          cursor: url(../img/share/cursor.png) 12 5, auto; }
         .teacher .teacherBorder .links .right a:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
+          cursor: url(../img/share/cursor2.png) 12 5, auto; }
  
     .teacher .teacherBorder .articleList {
       width: 100%;
@@ -326,7 +327,7 @@ h1 {
               margin:20px auto;
               float: none; } }
           .teacher .teacherBorder .articleList .article .pic .picContainer .picBorder {
-            cursor: url(../img/share/cursor.png) 20 15,
+            cursor: url(../img/share/cursor.png) 12 5,
             auto;
             border: 30px solid transparent;
             position: absolute;
@@ -334,17 +335,17 @@ h1 {
             width: 100%;
             height: 100%; }
             .teacher .teacherBorder .articleList .article .pic .picContainer .picBorder:active{
-              cursor: url(../img/share/cursor2.png) 20 15,auto;
+              cursor: url(../img/share/cursor2.png) 12 5,auto;
             }
           .teacher .teacherBorder .articleList .article .pic img {
             width: 100%; }
             .teacher .teacherBorder .articleList .article a{
-              cursor: url(../img/share/cursor.png) 20 15,
+              cursor: url(../img/share/cursor.png) 12 5,
               auto;
               text-decoration: none;
             }
             .teacher .teacherBorder .articleList .article a:active {
-              cursor: url(../img/share/cursor2.png) 20 15, auto;
+              cursor: url(../img/share/cursor2.png) 12 5, auto;
             }
         .teacher .teacherBorder .articleList .article .content {
           width: 70%;
@@ -375,9 +376,9 @@ h1 {
                 color:#800;
                 filter:drop-shadow(0px 1px 1px #9c795f);
                 transform:translateY(3px);
-                cursor: url(../img/share/cursor.png) 20 15, auto; }
+                cursor: url(../img/share/cursor.png) 12 5, auto; }
               .teacher .teacherBorder .articleList .article .content .topic h3:active {
-                cursor: url(../img/share/cursor2.png) 20 15, auto; }
+                cursor: url(../img/share/cursor2.png) 12 5, auto; }
           .teacher .teacherBorder .articleList .article .content .topic .detail {
             float: right;
             margin-top: 5px; }
@@ -441,9 +442,9 @@ h1 {
             height: 30px;
             text-decoration: none; }
             .teacher .teacherBorder .articleList .article .edit a:hover {
-              cursor: url(../img/share/cursor.png) 20 15, auto; }
+              cursor: url(../img/share/cursor.png) 12 5, auto; }
             .teacher .teacherBorder .articleList .article .edit a:active {
-              cursor: url(../img/share/cursor2.png) 20 15, auto; }
+              cursor: url(../img/share/cursor2.png) 12 5, auto; }
             @media all and (min-width: 480px) and (max-width: 759px) {
               .teacher .teacherBorder .articleList .article .edit a {
                 display: inline-block;
@@ -489,11 +490,11 @@ h1 {
         margin: 0 1.66666%;
        }
        .teacher .teacherBorder .merchandise .content:hover{
-         cursor: url(../img/share/cursor.png) 20 15,
+         cursor: url(../img/share/cursor.png) 12 5,
          auto;
        }
        .teacher .teacherBorder .merchandise .content:active {
-         cursor: url(../img/share/cursor2.png) 20 15, auto;
+         cursor: url(../img/share/cursor2.png) 12 5, auto;
        }
         @media all and (max-width: 479px) {
           .teacher .teacherBorder .merchandise .content {
@@ -508,9 +509,9 @@ h1 {
           color: #533e2f;
           font-weight: 600; }
           .teacher .teacherBorder .merchandise .content .merchandiseIntro a:hover {
-            cursor: url(../img/share/cursor.png) 20 15, auto; }
+            cursor: url(../img/share/cursor.png) 12 5, auto; }
           .teacher .teacherBorder .merchandise .content .merchandiseIntro a:active {
-            cursor: url(../img/share/cursor2.png) 20 15, auto; }
+            cursor: url(../img/share/cursor2.png) 12 5, auto; }
           @media all and (min-width: 480px) and (max-width: 759px) {
             .teacher .teacherBorder .merchandise .content .merchandiseIntro a {
               font-size: 18px; } }
@@ -571,10 +572,10 @@ h1 {
           box-sizing: border-box;
       }
                 .teacher .teacherBorder .merchandise .content .merchandisePhoto a{
-                            cursor: url(../img/share/cursor.png) 20 15,auto;
+                            cursor: url(../img/share/cursor.png) 12 5,auto;
                 }
         .teacher .teacherBorder .merchandise .content .merchandisePhoto a:active {
-          cursor: url(../img/share/cursor2.png) 20 15,auto;
+          cursor: url(../img/share/cursor2.png) 12 5,auto;
         }
           @media all and (min-width: 760px) and (max-width: 959px) {
             .teacher .teacherBorder .merchandise .content .merchandisePhoto {
@@ -722,7 +723,7 @@ h1 {
   display: none;
 }
 .teacher .teacherBorder form .fileLabel {
-  cursor: url(../img/share/cursor.png)20 15,auto;
+  cursor: url(../img/share/cursor.png)12 5,auto;
   text-align: center;
   display: block;
   margin-left: 5%;
@@ -739,7 +740,7 @@ background-color: #533e2f;
 color: #ddd;
   }
   .teacher .teacherBorder form .fileLabel:active {
-    cursor: url(../img/share/cursor2.png)20 15,auto;
+    cursor: url(../img/share/cursor2.png)12 5,auto;
       
 
   }
@@ -782,11 +783,11 @@ color: #ddd;
     outline: none;
   }
   .teacher .teacherBorder .articleList .newArticle .btnM .btnText:hover {
-     cursor: url(../img/share/cursor.png) 20 15,
+     cursor: url(../img/share/cursor.png) 12 5,
      auto;
   }
     .teacher .teacherBorder .articleList .newArticle .btnM .btnText:active {
-   cursor: url(../img/share/cursor2.png) 20 15,
+   cursor: url(../img/share/cursor2.png) 12 5,
    auto;
     }
   @media all and (min-width: 760px) and (max-width: 959px) {
@@ -888,7 +889,7 @@ color: #ddd;
 
    @media all and (max-width: 479px) {
     .rating{
-      float:none;
-      margin-left: calc(50% - 83px);
+      float:right;
+      /*margin-left: calc(50% - 83px);*/
     }
    }

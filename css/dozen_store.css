@@ -580,18 +580,18 @@
            }
             
            .storeFrame .content .intro .options .purchase .name .buyNow .btnText{
-                         cursor: url(../img/share/cursor.png)20 15,
+                         cursor: url(../img/share/cursor.png)12 5,
                          auto;
 
              font-size: 12px;
              line-height: 35.5px;
            }
            .storeFrame .content .intro .options .purchase .name .buyNow .btnText:hover {
-             cursor: url(../img/share/cursor.png)20 15, auto;
+             cursor: url(../img/share/cursor.png)12 5, auto;
            }
 
            .storeFrame .content .intro .options .purchase .name .buyNow, .btnText:active {
-             cursor: url(../img/share/cursor2.png)20 15, auto;
+             cursor: url(../img/share/cursor2.png)12 5, auto;
            }
             @media all and (min-width: 480px) and (max-width: 759px) {
               .storeFrame .content .intro .options .purchase a {

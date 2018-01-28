@@ -169,7 +169,7 @@ body {
           margin-top: 20px;
         }
       .storedetailFrame .product .productContent .text .rate {
-        margin-top: 5px;
+        margin-top: 2px;
         font-size: 16px;
         vertical-align: top;
         display: inline-block;
@@ -177,6 +177,9 @@ body {
       .storedetailFrame .product .productContent .text hr {
         margin: 5% auto; }
       @media all and (max-width: 479px) {
+        .storedetailFrame .product .productContent .text .rate{
+          margin-top: 3px;
+        }
         .storedetailFrame .product .productContent .text {
           float: none;
           width: 100%; } }

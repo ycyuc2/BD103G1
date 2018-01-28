@@ -8,6 +8,12 @@ fieldset, label{
     border: none;
     float: none;
 }
+@media all and (max-width: 479px) {
+.rating{
+  margin: auto;
+  margin-left: calc(50% - 83px);
+}
+}
 
 .rating > input{
     display: none; 
