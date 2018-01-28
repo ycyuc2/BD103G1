@@ -511,7 +511,11 @@
 
       .storeFrame .content .intro p {
         color: #533e2f;
-        margin-top: 10px; }
+        margin-top: 10px;
+        text-align: justify;
+        line-height: 30px;
+        letter-spacing: 2px;
+       }
       .storeFrame .content .intro .options {
         margin-top: 20px;
         box-sizing: border-box;
