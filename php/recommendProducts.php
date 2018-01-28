@@ -47,7 +47,20 @@ try{
 		<h1> <?php echo $teacherRow["teacher_nn"] ?> X 運勢解析</h1>
 		<div class="teacher">
 			<div class="border"></div>
-			<div class="teacherBorder">
+			<div class="teacherBorder" style="position: relative;">
+				<div style="top:10px;left:10px;" id="backToPreviousPage">
+        <i class="fa fa-arrow-left"></i>
+      </div>
+      <script>
+        window.addEventListener('load',function(){
+            var backBtn = document.querySelector('#backToPreviousPage');
+            backBtn.addEventListener('click', function(){
+              window.history.back();
+            }, false)
+
+
+        })
+      </script>
 
 
 				<!-- 作者介紹 -->

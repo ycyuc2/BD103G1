@@ -25,7 +25,20 @@ require_once 'header.php';
 	<div class="topBlank"></div>
 
 
-	<div class="wrapper">
+	<div class="wrapper" style="position: relative;">
+			<div style="top:10px;left:10px;" id="backToPreviousPage">
+	        	<i class="fa fa-arrow-left"></i>
+	      	</div>
+	      <script>
+	        window.addEventListener('load',function(){
+	            var backBtn = document.querySelector('#backToPreviousPage');
+	            backBtn.addEventListener('click', function(){
+	              window.history.back();
+	            }, false)
+
+
+	        })
+	      </script>
 		<div class="borderFrame"></div>
 
 		<div class="left">

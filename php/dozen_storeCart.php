@@ -26,7 +26,20 @@ session_start();
         $_SESSION["where"] = "dozen_store.php";
         ?>
    
-    <div class="cartFrame">
+    <div class="cartFrame" style="position: relative;">
+      <div style="top:-40px;left:-40px;" id="backToPreviousPage">
+        <i class="fa fa-arrow-left"></i>
+      </div>
+      <script>
+        window.addEventListener('load',function(){
+            var backBtn = document.querySelector('#backToPreviousPage');
+            backBtn.addEventListener('click', function(){
+              window.history.back();
+            }, false)
+
+
+        })
+      </script>
         <div class="frameFrame"></div>
         
        <div class="title">

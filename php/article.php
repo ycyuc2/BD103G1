@@ -57,7 +57,20 @@ session_start();
 	<div class="specialColumn">
 <!-- 外框專用 -->
 		<div class="border"></div>
-		<div class="columnBorder">
+		<div class="columnBorder" style="position: relative;">
+			<div style="top:10px;left:10px;" id="backToPreviousPage">
+	        	<i class="fa fa-arrow-left"></i>
+	      	</div>
+	      <script>
+	        window.addEventListener('load',function(){
+	            var backBtn = document.querySelector('#backToPreviousPage');
+	            backBtn.addEventListener('click', function(){
+	              window.history.back();
+	            }, false)
+
+
+	        })
+	      </script>
 			<div class="authorIntro">
 				<div class="authorPhoto">
 					<?php echo '<img src="../img/member/',$artRow->mem_pic,'" alt="">' ?>
