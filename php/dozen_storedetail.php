@@ -64,12 +64,6 @@
                                     <div class="picFrame"></div>
                                     <?php echo '<img src="../img/products/',$productRow["pd_pic1"],'" alt="">' ?>
                                 </div>
-
-                            
-
-
-
-
                                 <div class="text">
                                     <h2 id="textTitle"><?php echo $productRow["pd_name"] ?></h2>
                                      <h2 id="price"><?php echo $productRow["pd_price"] ?>$</h2>
@@ -88,23 +82,37 @@
                                         <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
                                     </fieldset>
                                     <script type="text/javascript">
-                                        var xhttp = new XMLHttpRequest();
-                                        xhttp.onreadystatechange = function() {
-                                            if (this.readyState == 4 && this.status == 200) {
-                                                var starIcon = document.querySelectorAll('.starIcon');
-                                                starIcon[this.responseText].checked = true;
-                                                for (var i = 0; i < starIcon.length; i++) {
-                                                    starIcon[i].disabled = true;
-                                                }
-                                            }else{
-                                            }
-                                        };
-                                        xhttp.open("GET", "star.php?type=products&action=show&target_no=<?php echo $_REQUEST["pd_no"]; ?>");
-                                        xhttp.send();
-                                        
+                                        var starIcon = document.querySelectorAll('.starIcon');
+                                        <?php if( isset($_SESSION["pd_no".$_REQUEST["pd_no"]."star"]) ){?>
+                                            starIcon[<?php echo $_SESSION["pd_no".$_REQUEST["pd_no"]."star"]; ?>].checked = true;
+                                        <?php }?>
+                                        for (var i = 0; i < starIcon.length; i++) {
+                                            starIcon[i].addEventListener('click',function () {
+                                                <?php if (isset($_SESSION["mem_no"])) {?>
+                                                    var xhttp = new XMLHttpRequest();
+                                                    xhttp.onreadystatechange = function() {
+                                                        if (this.readyState == 4 && this.status == 200){
+                                                            alert('成功評價此商品');
+                                                            location.reload();
+                                                        }
+                                                    };
+                                                    xhttp.open("GET", "star.php?type=products&action=review&target_no="+<?php echo $_REQUEST["pd_no"]; ?>+"&value="+this.value);
+                                                    xhttp.send();
+                                                <?php }else{?>
+                                                    document.querySelector('#loginControl').checked = true;
+                                                <?php } ?>
+                                                    
+                                            }); //starIcon addEvent end
+                                        }
                                     </script>
-                                    
-                                    <p class="rate">4.5/5</p>
+                                    <?php 
+                                        $sql = "select * from products where pd_no = :pd_no";
+                                        $rate = $pdo->prepare($sql);
+                                        $rate ->bindValue(':pd_no', $_REQUEST["pd_no"]);
+                                        $rate ->execute();
+                                        $rateRow = $rate->fetchObject();
+                                         ?>
+                                    <p class="rate"><?php echo $rateRow->pd_star; ?>/5</p>
                                     <hr > 
                                     <div class="innerText">
                                         <p>
