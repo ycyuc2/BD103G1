@@ -30,7 +30,7 @@
 					//karma value if-else
 		    }elseif($_SESSION["fort_sta"] == 1){
 				if( isset($_SESSION["karma_val"]) ){
-		    		$sql = "update member set fort_sta = :fort_sta, fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = ifnull(karma_val, 0)+".$_SESSION["karma_inc"]."+100 where mem_no = :mem_no";
+		    		$sql = "update member set fort_sta = :fort_sta, fort_no = :fort_no, obj_fort_no = :obj_fort_no, pair_no = :pair_no, karma_val = ifnull(karma_val, 0)+".$_SESSION["karma_inc"]."+100 where mem_no = :mem_no";
 				}else{
 					$sql = "update member set fort_sta = :fort_sta, fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = ifnull(karma_val, 0)+".$_SESSION["karma_inc"]." where mem_no = :mem_no";
 				}
@@ -38,6 +38,7 @@
 				$fort_sta -> bindValue(":fort_sta",$_SESSION["fort_sta"]);
 				$fort_sta -> bindValue(":fort_no",$_SESSION["fort_no"]);
 				$fort_sta -> bindValue(":obj_fort_no",$_SESSION["obj_fort_no"]);
+				$fort_sta -> bindValue(":pair_no",$_SESSION["pair_no"]);
 				$fort_sta -> bindValue(":mem_no",$memRow->mem_no);
 				$fort_sta -> execute();
 		    }
