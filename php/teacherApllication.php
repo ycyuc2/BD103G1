@@ -18,7 +18,9 @@ session_start();
 ?>
 	<div class="topBlank"></div>
 
-	<?php if ($_REQUEST["action"] == 'insert') {
+	<?php 
+	if(isset($_REQUEST["action"])){
+		if ($_REQUEST["action"] == 'insert') {
 			$sql = "insert into teacher set teacher_name = :teacher_name, teacher_info = :teacher_info, teacher_nn = :teacher_nn, teacher_tel = :teacher_tel, mem_no = :mem_no, teacher_app = 0, teacher_img = :teacher_img";
 			$insert = $pdo->prepare($sql);
 			$insert->bindValue(':teacher_name', $_REQUEST["teacher_name"]);
@@ -29,7 +31,8 @@ session_start();
 			$insert->bindValue(':mem_no', $_SESSION["mem_no"]);
 			$insert->execute();
 			header('location:'.$_SESSION["where"]);
-	} ?>
+		} 
+	}?>
 	<div class="wrapper" style="position: relative;">
 			<div style="top:10px;left:10px;" id="backToPreviousPage">
 	        	<i class="fa fa-arrow-left"></i>
