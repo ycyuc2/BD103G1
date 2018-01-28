@@ -285,7 +285,7 @@ try {
 							</div>
 							<div class="preview">
 								<p>
-									<?php echo mb_substr($articleRow["art_content_1"],0,100,"utf-8")."..." ?>
+									<?php echo nl2br(mb_substr($articleRow["art_content_1"],0,100,"utf-8"))."..." ?>
 									<span>more</span>
 								</p>
 							</div>
