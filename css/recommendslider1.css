@@ -83,7 +83,7 @@
 .teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .btnMRec:hover
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btnMRec:hover{
 filter: drop-shadow(0px 0px 2px #533e2f) drop-shadow(0px 0px 5px #533e2f);
-cursor: url(../img/share/cursor.png) 20 15,auto;
+cursor: url(../img/share/cursor.png) 12 5,auto;
 }
 
 

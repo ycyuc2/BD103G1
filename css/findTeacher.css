@@ -48,10 +48,10 @@
     outline: 0px; }
   .btn:active {
     outline: 0px;
-    cursor: url(../img/share/cursor2.png) 20 15, auto; }
+    cursor: url(../img/share/cursor2.png) 12 5, auto; }
   .btn:hover {
     box-shadow: inset 0px 2px 1px rgba(255, 255, 255, 0.8), inset 0px -5px 8px rgba(0, 255, 255, 0.7), inset 0px 0px 10px rgba(0, 0, 0, 0.2), inset 0px 10px 10px rgba(0, 0, 0, 0.1), inset 0px 30px 30px rgba(0, 0, 0, 0.3);
-    cursor: url(../img/share/cursor.png) 20 15, auto; }
+    cursor: url(../img/share/cursor.png) 12 5, auto; }
 
 #moveContainer {
   position: absolute;
@@ -140,10 +140,10 @@ filter:drop-shadow(0px 0px 2px #fec16a);
       text-align: center;
       transition: 0.2s; }
       #teacherInfo #closeBtn i:hover {
-        cursor: url(../img/share/cursor.png) 20 15, auto;
+        cursor: url(../img/share/cursor.png) 12 5, auto;
         color: #422a10; }
       #teacherInfo #closeBtn i:active {
-        cursor: url(../img/share/cursor2.png) 20 15, auto; }
+        cursor: url(../img/share/cursor2.png) 12 5, auto; }
   #teacherInfo .columnBorder {
     padding: 7% 10%;
     position: relative; }
@@ -232,9 +232,9 @@ filter:drop-shadow(0px 0px 2px #fec16a);
           width: 100%;
           float: none; } }
       #teacherInfo .teacherInfoBtn .right a:hover {
-        cursor: url(../img/share/cursor.png) 20 15, auto; }
+        cursor: url(../img/share/cursor.png) 12 5, auto; }
       #teacherInfo .teacherInfoBtn .right a:active {
-        cursor: url(../img/share/cursor2.png) 20 15, auto; }
+        cursor: url(../img/share/cursor2.png) 12 5, auto; }
   #teacherInfo .teacherColumn {
     width: 100%;
     box-sizing: border-box; }
@@ -263,9 +263,9 @@ filter:drop-shadow(0px 0px 2px #fec16a);
             #teacherInfo .teacherColumn .column > a h3 {
               font-size: 14px; } }
           #teacherInfo .teacherColumn .column > a h3:hover {
-            cursor: url(../img/share/cursor.png) 20 15, auto; }
+            cursor: url(../img/share/cursor.png) 12 5, auto; }
           #teacherInfo .teacherColumn .column > a h3:active {
-            cursor: url(../img/share/cursor2.png) 20 15, auto; }
+            cursor: url(../img/share/cursor2.png) 12 5, auto; }
       #teacherInfo .teacherColumn .column p {
         text-align: left;
         margin-top: 10px;
@@ -338,9 +338,9 @@ filter:drop-shadow(0px 0px 2px #fec16a);
         .directions .content .btnarea #clickCloseDirection:hover {
           filter: drop-shadow(0px 0px 2px #fc9) drop-shadow(0px 0px 5px #fec16a);
           color: #fc9;
-          cursor: url(../img/share/cursor.png) 20 15, auto; }
+          cursor: url(../img/share/cursor.png) 12 5, auto; }
         .directions .content .btnarea #clickCloseDirection:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
+          cursor: url(../img/share/cursor2.png) 12 5, auto; }
     .directions .content #clickCloseDirection {
       margin: auto; }
 
@@ -390,11 +390,11 @@ filter:drop-shadow(0px 0px 2px #fec16a);
   .box img {
     transition: .2s; }
   .box:hover {
-    cursor: url(../img/share/cursor.png) 20 15, auto; }
+    cursor: url(../img/share/cursor.png) 12 5, auto; }
     .box:hover img {
       box-shadow: 0px 0px 10px #dc9,0px 0px 25px #e8b263; }
   .box:active {
-    cursor: url(../img/share/cursor2.png) 20 15, auto; }
+    cursor: url(../img/share/cursor2.png) 12 5, auto; }
   .box .frameBorder {
     border: 30px solid transparent;
     position: absolute;
@@ -433,11 +433,11 @@ filter:drop-shadow(0px 0px 2px #fec16a);
     width: 100%;
     transition: .2s; }
     #search img:hover {
-      cursor: url(../img/share/cursor.png) 20 15, auto;
+      cursor: url(../img/share/cursor.png) 12 5, auto;
       color: #333;
       filter: drop-shadow(0px 0px 10px white); }
     #search img:active {
-      cursor: url(../img/share/cursor2.png) 20 15, auto; }
+      cursor: url(../img/share/cursor2.png) 12 5, auto; }
 
 #inp {
   width: auto;
@@ -484,11 +484,11 @@ filter:drop-shadow(0px 0px 2px #fec16a);
         margin: 0 auto;
         transition: .2s; }
         #inp .findTeacher ul li:hover {
-          cursor: url(../img/share/cursor.png) 20 15, auto;
+          cursor: url(../img/share/cursor.png) 12 5, auto;
           background-color: #ddd;
           color: #333; }
         #inp .findTeacher ul li:active {
-          cursor: url(../img/share/cursor2.png) 20 15, auto; }
+          cursor: url(../img/share/cursor2.png) 12 5, auto; }
   @media all and (min-width: 480px) and (max-width: 759px) {
     #inp {
       width: 300px;

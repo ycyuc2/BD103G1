@@ -340,7 +340,7 @@
 	height: 53px;
 	background: url(../img/index/paylogin.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 	font-size: 0;
 }
 .blur .payLogin:hover{
@@ -422,6 +422,12 @@
 		height: 37.5px;
 		background-size: contain;
 	}
+	.blur .payLogin:hover{
+		background: url(../img/index/paylogin2.png);
+		background-size: 100% 100%;
+	}
+	
+
 	.result .item{
 		width: 90%;
 		margin-bottom: 20px;

@@ -16,7 +16,7 @@ session_start();
 <?php  
 	require_once 'connectBD103G1.php';
 	require_once 'header.php';
-;?>
+?>
 	<div class="topBlank"></div>
 	<div class="wrapper" style="position: relative;">
 			<div style="top:10px;left:10px;" id="backToPreviousPage">
@@ -63,8 +63,8 @@ session_start();
 					$update->bindValue(':mem_no', $_SESSION["mem_no"]);
 					$update->execute();
 					header('location:'.$_SESSION["where"]);
-				} ?>
-			}
+				} 
+			} ?>
 				
 		<?php if (isset($_SESSION["mem_no"])) {?>
 		<div class="left">
