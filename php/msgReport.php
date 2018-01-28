@@ -18,7 +18,8 @@
                                 <input type="hidden" name="msg_no" value="<?php echo $_REQUEST["msg_no"]?>">
                                 <input type="hidden" name="action" value="report">
                                 <textarea name="msg_rep_reason"></textarea>
-                                <input class="reportSubmit" type="submit" value="送出">
+                                <span class="btnM"><input class="reportSubmit btnText btnText2" type="submit" value="送出"></span>
+                                
                             </form>
                         </div>
                 <?php }else{?>
