@@ -210,8 +210,102 @@ body{
 		margin: 10px 20px;
 	}
 }
+.boxContent .loginClose {
+  right: 30px;
+}
 
 
+.boxContent .form {
+  position: absolute;
+  top: 105px;
+  width: 100%;
+  text-align: center;
+}
 
+.boxContent .form p {
+  font-family: '王漢宗粗明體繁-中';
+  margin: 10px 0;
+  text-align: center;
+}
 
+.boxContent .form p:first-of-type {
+  color: rgb(215, 189, 165);
+  letter-spacing: 6px;
+  font-size: 1.5em;
+  margin-left: 16px;
+  font-weight: bold;
+}
+
+.boxContent .form p:first-of-type {
+  margin: 11px 0 19px;
+}
+
+.boxContent .login.Form p:nth-of-type(3) {
+  margin-top: 28px;
+}
+
+.boxContent .form p:last-of-type {
+  margin: 67px 0 0;
+}
+
+.boxContent .form p span {
+  display: inline-block;
+  color: rgb(100, 84, 72);
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  vertical-align: middle;
+}
+
+.boxContent .form p span input {
+  display: inline-block;
+  height: 28px;
+  width: 140px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: none;
+  background: url("../img/share/input.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 15px;
+}
+
+.boxContent .form p span input:focus {
+  outline: none;
+}
+
+.boxContent .form p .loginBtn {
+  font-family: '王漢宗特明體 – 標準';
+  letter-spacing: 2px;
+  width: 125px;
+  height: 68px;
+  line-height: 68px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  background-color: transparent;
+  background-image: url(../img/findTeacher/hint_btn.png);
+  background-position: center center;
+  background-size: 100% 100%;
+  border: 0px;
+  transition: filter 0.2s;
+  color: #210;
+  letter-spacing: 8px;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+.boxContent .form p .loginBtn:focus {
+  outline: none;
+}
+
+.boxContent .form p .loginBtn:hover {
+  filter: drop-shadow(0px 0px 3px #fc9) drop-shadow(0px 0px 5px #fec16a);
+  color: rgb(236, 215, 174);
+}
+
+.login.Form {
+  display: block;
+}
 
