@@ -73,7 +73,7 @@
 
 
 		}
-
+		$_SESSION["art_no".$_REQUEST["target_no"]."star"] = $_REQUEST["value"];
 		
 	}
  ?>
