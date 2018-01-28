@@ -38,8 +38,8 @@ require_once 'connectBD103G1.php';
 
 	<!-- 前後端按鈕 -->
 	<div class="btn">
-		<span class="btnL"><a href="realIndex.php" class="btnText btnText2">前端</a></span>
-		<span class="btnL"><a href="bk_index.php" class="btnText btnText2 back">後端</a></span>
+		<span class="btnL"><a href="php/realIndex.php" class="btnText btnText2">前端</a></span>
+		<span class="btnL"><a href="php/bk_index.php" class="btnText btnText2 back">後端</a></span>
 	</div>
 
 

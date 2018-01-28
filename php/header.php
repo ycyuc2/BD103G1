@@ -62,7 +62,7 @@
 
 		<!-- 中間logo -->
 		<div class="logo">
-			<a href="index.php">
+			<a href="reaIindex.php">
 				<img src="../img/share/LOGO-08.png">
 			</a>
 		</div>
