@@ -3,9 +3,13 @@
 	src: url("../font/王漢宗特明體 – 標準.ttf"); }
 
 	@font-face {
-		font-family: "王漢宗中明體繁- 細";
-		src: url("../font/王漢宗中明體繁- 細.ttf"); }
-
+    font-family: "王漢宗中明體繁- 細";
+    src: url("../font/王漢宗中明體繁- 細.ttf");
+  }
+  @font-face{
+  font-family: '王漢宗粗明體繁-中';
+src:url("../font/王漢宗粗明體繁-中.ttf");
+  }
 * {
 	padding: 0;
 	margin: 0;
@@ -234,10 +238,8 @@ body{
   font-size: 1.5em;
   margin-left: 16px;
   font-weight: bold;
-}
-
-.boxContent .form p:first-of-type {
   margin: 11px 0 19px;
+    font-family: '王漢宗粗明體繁-中';
 }
 
 .boxContent .login.Form p:nth-of-type(3) {
