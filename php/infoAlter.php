@@ -140,7 +140,7 @@ session_start();
 					});
 					document.querySelector('input[type=file]').addEventListener('change', function(){
 
-							var fileType = this.value.substring(this.value.lastIndexOf('.') + 1, this.value.length);
+							var fileType = this.value.substring(this.value.lastIndexOf('.') + 1, this.value.length).toLowerCase();
 							if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
 								alert('檔案格式須為jpg、jpeg、png或gif');
 								this.value = null;
