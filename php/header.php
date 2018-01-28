@@ -70,13 +70,14 @@
 		<!-- 右邊會員專區 -->
 		<div class="memArea">
 			<ul><?php
-				 
-						if (isset($_SESSION["mem_no"])) {
+				
+						if (isset($_SESSION["mem_no"]) ) {
 							$sql = "select * from member where mem_no = :mem_no";
 							$member = $pdo->prepare($sql);
 							$member -> bindValue(":mem_no",$_SESSION["mem_no"]);
 							$member -> execute();
-							$memRow = $member->fetchObject();
+							$memRow = $member->fetchObject();}
+						if (isset($_SESSION["mem_no"]) && $memRow->mem_sta!=0) {
 							printf("\n\t\t\t\t\t\t\t\t<li><p>%s您好/登出</p></li>", $memRow->mem_nn);
 							if (!empty($_SESSION["cartCount"])) {
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
@@ -109,7 +110,7 @@
 							if($newMessageCount>0){
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='replyView.php?page=1'>新訊息(%d)</a></li>", $newMessageCount);
 							}
-							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no and teacher_sta = 1" ;
+							$sql = "select * from member join teacher using(mem_no) where mem_no = :mem_no and teacher_app = 1" ;
 							$teacher = $pdo->prepare($sql);
 							$teacher -> bindValue(":mem_no",$_SESSION["mem_no"]);
 							$teacher -> execute();
@@ -121,6 +122,11 @@
 						}
 						else{
 							printf("\n\t\t\t\t\t\t\t\t<li><a href='#'>登入/註冊</a></li>");
+							if (isset($memRow->mem_sta)) {?>
+								<script type="text/javascript">
+									alert('此帳號已被停權');
+								</script>
+							<?php }
 							if (!empty($_SESSION["cartCount"])) {
 								printf("\n\t\t\t\t\t\t\t\t<li><a href='dozen_storeCart.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i><span>%d</span></a></li>", $_SESSION["cartCount"]);
 							}

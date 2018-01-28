@@ -87,7 +87,7 @@ session_start();
 			
 			imgInput[i].addEventListener('change', function(){
 				var fileName = this.value;
-				var fileType = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length);
+				var fileType = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
 				this.previousSibling.previousSibling.textContent = '已選擇檔案';
 				if (!(fileType == 'jpg' || fileType == 'jpeg' || fileType == 'png' || fileType == 'gif')) {
 					alert('檔案格式須為jpg、jpeg、png或gif');
