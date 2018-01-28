@@ -8,6 +8,12 @@
 .headerBlank {
   width: 100%;
   height: 150px; }
+.rate{
+  margin-right: 5px;
+  font-size: 16px;
+  color: #533e2f;
+  float: right;
+}
 
   h2 {
     letter-spacing: 2px;
@@ -436,7 +442,6 @@
         color: #333;
         cursor: pointer; }
     .articleLightBox .content p {
-      letter-spacing: 1px;
       text-align: center;
       font-size: 20px;
       columns: #333;
@@ -449,9 +454,20 @@
       box-sizing: border-box;
       padding: 10px;
       resize: none; }
-    .articleLightBox .content .btnM{
-      margin: 15px auto;
+    .articleLightBox .content input {
       display: block;
-    }
+      width: 150px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 16px;
+      margin: 20px auto 0px auto;
+      border: 0;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: transparent;
+      background-image: url(../img/findTeacher/btn.png);
+      background-position: center center;
+      background-size: 100% 100%; }
       .articleLightBox .content input:focus {
         outline: 0; }

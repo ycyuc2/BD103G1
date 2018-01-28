@@ -21,6 +21,12 @@ h1 {
   margin:80px 10px;
  
   }
+.rate{
+  margin-right: 5px;
+  font-size: 16px;
+  color: #533e2f;
+  float: right;
+}
   @media all and (min-width: 480px) and (max-width: 759px) {
     h1 {
       font-size: 35px; } }

@@ -150,6 +150,7 @@ session_start();
 					xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200){
 							alert('成功評價此文章');
+							location.reload();
 						}
 					};
 					xhttp.open("GET", "star.php?type=article&action=review&target_no="+<?php echo $_REQUEST["art_no"]; ?>+"&value="+this.value);
@@ -161,6 +162,14 @@ session_start();
 			});	//starIcon addEvent end
 		}
 	</script>
+	<?php 
+        $sql = "select * from articles where art_no = :art_no";
+        $rate = $pdo->prepare($sql);
+        $rate ->bindValue(':art_no', $_REQUEST["art_no"]);
+        $rate ->execute();
+        $rateRow = $rate->fetchObject();
+    ?>
+        <p class="rate"><?php echo $rateRow->art_star; ?>/5</p>
 						</div>
 					</div>
 				</div>
