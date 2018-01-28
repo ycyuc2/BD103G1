@@ -34,7 +34,7 @@ $_SESSION["where"] = "recommendProducts.php";
 try{
 	if(isset($_SESSION["teacher_no"])){
     require_once("connectBD103G1.php");
-	$sql = "select * from teacher where teacher_no = :teacher_no";
+	$sql = "SELECT * FROM teacher join member using(mem_no) where teacher_no = :teacher_no";
 	$teacher = $pdo->prepare($sql);
 	$teacher->bindValue(":teacher_no",$_SESSION["teacher_no"]);
 	$teacher->execute();
@@ -67,7 +67,7 @@ try{
 				<div class="intro">
 					<div class="teacherPhoto">
 						<div class="picBorder"></div>
-						<img class="photo" src="../img/findTeacher/<?php echo $teacherRow['teacher_img'] ?>" alt="">
+						<img class="photo" src="../img/member/<?php echo $teacherRow['mem_pic'] ?>" alt="">
 					</div>
 					<div class="introContent">
 						<p><?php  echo $teacherRow["teacher_nn"] ?></p>
