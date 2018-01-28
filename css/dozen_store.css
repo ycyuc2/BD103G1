@@ -13,7 +13,9 @@
 
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: "微軟正黑體";
+   }
 
 
 .background {
@@ -285,7 +287,17 @@
   .storeFrame .wrapper {
     padding: 40px;
     padding-top: 100px;
-  } }
+  } 
+  .frameFrame{
+    border: 30px solid transparent;
+    border-image: url(../img/frame_960x960.png)90 90 repeat;
+  }
+
+
+
+
+
+}
 
 
 
@@ -356,7 +368,7 @@
         width: 200px;
         height: 32px; 
         background-image: url(../img/dozen_store/input.png);
-        background-size: cover;
+        background-size: 100% 100%;
         background-color: transparent;
         border: none;
         padding-left: 20px;
@@ -481,6 +493,7 @@
           width: 100%;
           float: none; } }
       .storeFrame .content .intro h2 {
+        font-family: "王漢宗粗明體繁-中";
         text-align: center;
         font-weight: bold;
         color: #533e2f;

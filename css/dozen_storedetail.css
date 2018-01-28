@@ -67,7 +67,7 @@ body {
 .storedetailFrame {
   position: relative;
   margin: 0 auto;
-  margin-top: 13%;
+  margin-top: 160px;
   max-width: 960px;
   background-image: url(../img/dozen_storedetail/texture.png);
   background-position: center center;
@@ -110,6 +110,14 @@ body {
         border: 40px solid transparent;
         border-image: url(../img/dozen_storedetail/frame3.png) 20 20 repeat; }
       @media all and (max-width: 479px) {
+        .storedetailFrame{
+          margin-top: 160px;
+          padding: 30px;
+        }
+        .storedetailFrame .frameFrame{
+          border: 30px solid transparent;
+          border-image: url(../img/frame_960x960.png) 90 90 repeat;
+        }
         .storedetailFrame .product .productContent .one {
           float: none;
           width: 100%; } }
@@ -183,6 +191,8 @@ body {
         font-size: 16px;
         line-height:30px; }
     .storedetailFrame .product .productContent .btn {
+      text-align: center;
+      
       margin-top: 10%; }
       .storedetailFrame .product .productContent .btn:after {
         content: '';
@@ -256,6 +266,7 @@ body {
           background-image: url(../img/dozen_storedetail/btn.png);
           background-size: contain;
           cursor: pointer;
+          margin: auto;
          }
 
          .storedetailFrame  .productContent .btn .buy .name .btnM .btnText  {
