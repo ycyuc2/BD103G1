@@ -91,7 +91,7 @@ session_start();
 									artCollect('show');
 									document.querySelector('#loginControl').checked = false;
 
-									function artCollect(action ) {
+									function artCollect(action) {
 										<?php if (isset($_SESSION["mem_no"])) {?>
 						 					var xhttp = new XMLHttpRequest();
 						 					if(action != 'show'){
@@ -140,13 +140,15 @@ session_start();
 	</fieldset>
 	<script type="text/javascript">
 		var starIcon = document.querySelectorAll('.starIcon');
+		<?php if( isset($_SESSION["art_no".$_REQUEST["art_no"]."star"]) ){?>
+			starIcon[<?php echo $_SESSION["art_no".$_REQUEST["art_no"]."star"]; ?>].checked = true;
+		<?php }?>
 		for (var i = 0; i < starIcon.length; i++) {
 			starIcon[i].addEventListener('click',function () {
 				<?php if (isset($_SESSION["mem_no"])) {?>
 					var xhttp = new XMLHttpRequest();
 					xhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							// 燈箱
+						if (this.readyState == 4 && this.status == 200){
 							alert('成功評價此文章');
 						}
 					};
