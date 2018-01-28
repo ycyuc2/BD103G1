@@ -50,18 +50,16 @@ try {
              <div class='purchase'>
 
                  <div id='pd$PRODUCT_NO ' class='name'>
-                 <span class='addButton buyNow btnM'>
-                         <span class='btnText btnText4'>加入購物車</span>
-                         <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|',$PRODUCT_KARMA,'|0' '>
+                 <span class='addButton buyNow btnM'><span class='btnText btnText4'>加入購物車</span>
+                         <input type='hidden' value=' $PRODUCT_NAME|$PRODUCT_COVER|$PRODUCT_PRICE|$PRODUCT_KARMA|0'>
                      </span>
 
 
                      
 
-                     <span class='addButton buyNow btnM'>         
-                         <span class='btnText btnText4'>立即購買</span>
-                         <input type='hidden' value=' $PRODUCT_NAME,'|',$PRODUCT_COVER,'|',$PRODUCT_PRICE,'|',$PRODUCT_KARMA,'|0' '>
-                     </span>
+                     <a href='../php/dozen_storedetail.php?pd_no=$PRODUCT_NO'><span class='buyNow btnM'><span class='btnText btnText4'>查看細節</span>
+                             <input type='hidden' value=' $PRODUCT_NAME|$PRODUCT_COVER|$PRODUCT_PRICE|$PRODUCT_KARMA|0'>
+                         </span></a>
                  </div>
              
 

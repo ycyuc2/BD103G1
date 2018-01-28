@@ -363,7 +363,7 @@ ol li{
 	}
 
 	.wrapper .right{
-		width: 90%;
+		width: 100%;
 		margin: 0 auto;
 		float: none;
 	}
@@ -395,10 +395,24 @@ ol li{
 	}
 
 
-	.trade table{
+	.trade .table{
 		width:100%;
-		table-layout: fixed;
-		word-wrap: break-word;
+	}
+	.trade .table .tr span:first-of-type>p+p{
+		display: none;
+	}
+	.trade .table .tr span:first-of-type{
+		width: 25%;
+	}
+	.trade .table .tr .detail span,
+	.trade .table .tr span,
+	.trade .table .tr .large,
+	.trade .table .tr .small{
+		width: 20%;
+	}
+	.trade .table .tr .detail span:first-of-type{
+		width: 35%;
+		margin-left: 10%;
 	}
 
 
