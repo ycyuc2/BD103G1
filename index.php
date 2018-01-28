@@ -1,7 +1,7 @@
 <?php 
 ob_start();
 session_start();
-require_once 'connectBD103G1.php';
+require_once 'php/connectBD103G1.php';
  ?>
 
 <!DOCTYPE html>
