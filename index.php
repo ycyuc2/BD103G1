@@ -9,9 +9,9 @@ require_once 'php/connectBD103G1.php';
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-	<link rel="stylesheet" type="text/css" href="../css/guide.css">
-	<!-- <link rel="stylesheet" type="text/css" href="../css/btn.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="../css/lightening.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/guide.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/btn.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/lightening.css"> -->
 	<title>導引頁</title>
 </head>
 <body>
@@ -20,20 +20,20 @@ require_once 'php/connectBD103G1.php';
 
 	<!-- LOGO -->
 	<div class="logo">
-		<img src="../img/guide/LOGO.png">
+		<img src="img/guide/LOGO.png">
 	</div>
 
 	<!-- 標題 -->
 	<div class="title">
-		<img src="../img/guide/index_title.png">
+		<img src="img/guide/index_title.png">
 	</div>
 
 	<!-- 打雷閃電 -->
 	<div class="background">
-		<img src="../img/lightening/flash1.png" alt="" class="flash lt1">
-		<img src="../img/lightening/flash2.png" alt="" class="flash lt2">
-		<img src="../img/lightening/flash3.png" alt="" class="flash lt3">
-		<img src="../img/lightening/flash4.png" alt="" class="flash lt4">	
+		<img src="img/lightening/flash1.png" alt="" class="flash lt1">
+		<img src="img/lightening/flash2.png" alt="" class="flash lt2">
+		<img src="img/lightening/flash3.png" alt="" class="flash lt3">
+		<img src="img/lightening/flash4.png" alt="" class="flash lt4">	
 	</div>
 
 	<!-- 前後端按鈕 -->
