@@ -166,13 +166,15 @@
 		if (empty($_SESSION["obj_fort_no"])) {
 			$_SESSION["karma_val"] += $singleFortRows[$fortNo[0]]["karma_inc"];
 			$_SESSION["obj_fort_no"] = $pairFortRows[$fortNo[1]]["fort_no"];
+			$_SESSION["pair_no"] = randomNo(3)[0]+1;
 
 			if (isset($_SESSION["mem_no"])) {
-				$sql = "update member set fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = :karma_val where mem_no = :mem_no";
+				$sql = "update member set fort_no = :fort_no, obj_fort_no = :obj_fort_no, karma_val = :karma_val, pair_no = :pair_no where mem_no = :mem_no";
 				$update = $pdo->prepare($sql);
 				$update->bindValue(':fort_no', $_SESSION["fort_no"]);
 				$update->bindValue(':obj_fort_no', $_SESSION["obj_fort_no"]);
 				$update->bindValue(':karma_val', $_SESSION["karma_val"]);
+				$update->bindValue(':pair_no', $_SESSION["pair_no"]);
 				$update->bindValue(':mem_no', $_SESSION["mem_no"]);
 				$update->execute();
 			}
@@ -180,22 +182,29 @@
 		}else{
 			$fortNo[1] = 0;
 		}
-		
+		$sql = "select * from pair where pair_no = :pair_no";
+		$pair = $pdo->prepare($sql);
+		$pair->bindValue(':pair_no', $_SESSION["pair_no"]);
+		$pair->execute();
+		$pairRow = $pair->fetchObject();
 		?>
 		<div class="matchResult result">
 			<div class="resultFrame"></div>
 			<div class="resultTitle">
 				<img class="titleImg" src="../img/index/text/1.png" alt="命運之輪已悄悄轉動">
-				<p>速配指數：100%</p>
-				<p>整體：吉</p>
+				<p>速配指數：<?php echo $pairRow->pair_value;?></p>
 			</div>
 			<img class="titleImg" src="../img/index/text/2.png" alt="透過點算，建立兩人間的連結">
-			<p class="text">天秤是好的開創者，但不能有始有終，牡羊正好可以彌補這個缺點，若雙方都能展現自己的長才，當天秤與牡羊一同處理危機時，可以說是無往不利。在交往後，就算兩個人只是做自己，都能成為相當登對的情人。但如果是在交往前，事情可就沒有那麼簡單了！ 由於天秤跟牡羊是對立的兩個星座，在還未了解對方以前，就算有一方偷偷暗戀對方，另外一方肯定因為習慣及個性的差距對這個人敬而遠之，很容易因為雙方在個性上沒有交集而不了了之。</p>
+			<p class="text"><?php echo $pairRow->pair_content;?></p>
 			<img class="titleImg" src="../img/index/text/3.png" alt="驚愕!見證預言瞬間">
+			<?php if(empty($_SESSION["mem_no"])){?>
 			<p class="blur">
 				<img src="../img/index/blur_words_666H200.png" alt="模糊文字" class="blurImg">
-				<label for="loginControl"><span class="payLogin cursorHand">立即登入查看結果</span></label>
+				<label for="loginControl"><span class="payLogin cursorHand" >立即登入查看結果</span></label>
 			</p>
+			<?php }else{ ?>
+				<p class="text"><?php echo $pairRow->pair_content2;?></p>
+			<?php } ?>
 		</div>
 
 
