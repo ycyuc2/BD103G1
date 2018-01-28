@@ -65,14 +65,14 @@
 		<div class="right">
 			<ol class="breadcrumb">
 				<li>
-					<a href="#">首頁</a>
+					<a href="bk_index.php">首頁</a>
 				</li>
 				<li class="active">前端首頁維護</li>
 			</ol>
 
 			<ol class="rightNav3">
-				<li><a href="#">線上算命資料庫</a></li>
-				<li><a href="#">配對資料庫</a></li>
+				<li><a href="bk_fortuneDB.php">線上算命資料庫</a></li>
+				<li><a href="bk_matchDB.php">配對資料庫</a></li>
 			</ol>
 		</div>
 

@@ -63,13 +63,14 @@ window.addEventListener("load", function () {
 					document.querySelector('.memArea ul li:first-of-type').innerHTML = this.responseText;
 					if(this.responseText.substr(-2, 1) == 'a'){
 						alert('輸入帳號或密碼不正確');
+					}else{
+						location.reload();
 					}
 				}
 			};
 			
 			xhttp.open("GET", "login.php?mem_acc="+inputValue[0].value+"&mem_psw="+inputValue[1].value);
 			xhttp.send();
-	    	location.reload();
 	    	}
 			
 	});

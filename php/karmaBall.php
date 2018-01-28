@@ -18,7 +18,7 @@
         <img src="../img/showKarma/karma_frame.png" alt="" class="frame">
         <div class="balls">
             <img src="../img/showKarma/ball.png" alt="" class="outBall">
-            <svg id="fillgauge2" width="120" height="120"></svg>
+            <svg id="fillgauge2" width="494" height="494"></svg>
         </div>
         <p class="number">200</p>
     </div>
@@ -35,7 +35,9 @@
         config1.circleThickness = 0.05;
         config1.textVertPosition = 0.3;
         config1.waveAnimateTime = 3000;
-        var gauge2= loadLiquidFillGauge("fillgauge2", karCount, config1);    
+        var gauge2= loadLiquidFillGauge("fillgauge2", karCount, config1);   
+
+
     </script>
 </body>
 
