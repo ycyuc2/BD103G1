@@ -2,14 +2,14 @@
 try {
  require_once("connectBD103G1.php");
  if(isset($_REQUEST["pdType"])){
-    $sql = "select * from products where pd_type = :TYPE";
+    $sql = "select * from products where pd_type = :TYPE and pd_sta = 1";
     $pdType = $_REQUEST["pdType"];
     $products = $pdo->prepare($sql);
     $products->bindValue(":TYPE",$pdType);
     $products->execute();
    }else{
     $text = $_REQUEST["searchValue"];
-    $sql = "select * from products where pd_name like '%$text%' ";
+    $sql = "select * from products where pd_name like '%$text%' and pd_sta = 1";
     $products = $pdo->prepare($sql);
   
    }

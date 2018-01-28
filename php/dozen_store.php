@@ -112,7 +112,7 @@
 
             <?php
             try {
-                $sql = "select * from products";
+                $sql = "select * from products where pd_sta = 1";
                 $products = $pdo->prepare($sql);
                 $products->execute();
                 $product_rows = $products->fetchAll(PDO::FETCH_ASSOC);
