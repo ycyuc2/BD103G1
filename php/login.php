@@ -49,7 +49,7 @@
 	    	$update->bindValue(':karma_val', $_SESSION["karma_val"]);
 	    	$update->execute();
 
-		    echo '<p>'.$_SESSION["mem_nn"]. '您好</p>';
+		    echo '<p>'.$_SESSION["mem_nn"]. '您好 登出</p>';
 		}else{
 			echo '<a href="#">登入/註冊</a>';
 		}
