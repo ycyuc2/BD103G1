@@ -1,7 +1,11 @@
-<?php 
-	session_start();
-	ob_start();
- ?>
+<?php
+ob_start();
+session_start();
+if(empty($_SESSION["bkLogin"])){
+	header('location:../index.php');
+}
+?>
+
 
 <!DOCTYPE html>
 <html>

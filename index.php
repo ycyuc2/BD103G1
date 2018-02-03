@@ -74,15 +74,22 @@ require_once 'php/connectBD103G1.php';
 		var submitBtn=document.querySelector('.loginBtn');
 		submitBtn.onclick=function(){
 			var inputValue = document.querySelectorAll('.loginForm p span input');
-			var input1=inputValue[0];
-			var input2=inputValue[1];
-			if(inputValue[0].value == 'master' && inputValue[1].value =='zxc987' ){
-				document.querySelector('#form').reset();
-				document.querySelector("#loginControl").checked = false;
-				window.location.href="php/bk_index.php"; 
-			}else{
-				alert('您輸入的帳號或密碼不正確。');
-			}
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					alert(this.responseText);
+					if(this.responseText == 'true'){
+						document.querySelector('#form').reset();
+						document.querySelector("#loginControl").checked = false;
+						window.location.href="php/bk_index.php"; 
+					}else{
+						alert('您輸入的帳號或密碼不正確。');
+					}
+				}
+			};
+			xhttp.open("GET", "php/bk_login.php?mem_acc="+inputValue[0].value+"&mem_psw="+inputValue[1].value);
+			xhttp.send();
+					
 		}
 
 	});
