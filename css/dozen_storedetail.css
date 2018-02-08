@@ -1,16 +1,17 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Special+Elite");
 @font-face {
-  font-family: "王漢宗中明體繁- 細";
-  src: url("../font/王漢宗中明體繁- 細.ttf"); }
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
 
 @font-face {
-  font-family: "王漢宗粗明體繁-中";
-  src: url("../font/王漢宗粗明體繁-中.ttf"); }
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
 
-@font-face {
-  font-family: "王漢宗特明體 – 標準";
-  src: url("../font/王漢宗特明體 – 標準.ttf"); }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; }
 
 body {
   font-family: "微軟正黑體";
@@ -38,7 +39,6 @@ body {
 
 .cart {
   color: white;
-  font-family: "王漢宗中明體繁- 細";
   display: inline-block;
   position: fixed;
   top: 10%;
@@ -131,7 +131,6 @@ body {
       box-sizing: border-box;
       padding: 5%; }
       .storedetailFrame .product .productContent .text #textTitle {
-        font-family: "王漢宗特明體 – 標準";
         font-size: 25px;
         letter-spacing: 5px;
         color: #533e2f;
@@ -145,7 +144,6 @@ body {
       }
 
         .storedetailFrame .product .productContent .text #karma_dec {
-          font-family: "王漢宗中明體繁- 細";
           font-size: 14px;
           letter-spacing: 5px;
           color: #c53522;

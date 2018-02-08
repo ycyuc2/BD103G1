@@ -1,12 +1,18 @@
-* {
-    padding: 0;
-    margin: 0;
-}
+@font-face {
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
 
 @font-face {
-    font-family:王漢宗特明體 – 標準;
-    src: url('../font/王漢宗特明體 – 標準.ttf');
-}
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; }
+
 
 .liquidFillGaugeText {
     font-family: Helvetica;
@@ -25,7 +31,6 @@
     top: 20%;
     left: 12%;
     color:whitesmoke;
-    font-family:王漢宗特明體 – 標準;
 
 }
 .showKarma p.number{

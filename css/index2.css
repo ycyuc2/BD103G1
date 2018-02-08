@@ -1,8 +1,18 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "微軟正黑體";
-}
+@font-face {
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
+
+@font-face {
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; }
+
 .background {
     width: 100vw;
     height: 100vh;
@@ -112,16 +122,7 @@
 .btnM.index:active{
     cursor: url(../img/share/cursor2.png) 12 5, auto;
 }
-@font-face {
-    font-family:'漢宗特明體 – 標準';
-    src: url('../font/王漢宗特明體 – 標準.ttf');
-}
-@font-face {
-    font-family: '王漢宗粗明體繁-中';
-    src: url('../font/王漢宗粗明體繁-中.ttf');
-}
 .btnM.index p {
-    font-family:'王漢宗粗明體繁-中';
     font-size: 19px;
     line-height: 44px;
     color: rgba(231,206,139,1);
@@ -590,7 +591,6 @@
     outline:none;
 }
 .log .btnM p{
-    font-family:'漢宗特明體 – 標準';
     font-weight: 900;
     ;
 }

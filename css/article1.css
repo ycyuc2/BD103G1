@@ -1,9 +1,19 @@
 @charset "UTF-8";
+@font-face {
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
+
+@font-face {
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
 * {
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: 'Arial',"微軟正黑體"; }
+  font-family: "custom-sans-serif"; }
 
 .headerBlank {
   width: 100%;
@@ -21,7 +31,6 @@
 
   h2 {
     letter-spacing: 2px;
-  font-family:w4;
   margin: 80px 10px;
   font-size: 45px;
   text-align: center;
@@ -41,10 +50,6 @@
   @media all and (max-width: 479px) {
     h2 {
       font-size: 24px; } }
-@font-face{
-  font-family:w4;
-  src: url('../font/wt004.ttf');
-}
 .specialColumn, .replys, .memberReply {
   position: relative;
   max-width: 960px;

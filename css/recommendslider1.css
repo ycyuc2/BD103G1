@@ -1,3 +1,19 @@
+@font-face {
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
+
+@font-face {
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; }
+
+
 .teacher .teacherBorder .pdRec_wrapper3
 ,.teacher .teacherBorder .pdRec_wrapper2
 ,.teacher .teacherBorder .pdRec_wrapper {
@@ -59,10 +75,6 @@
 .teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox p:nth-child(2) {
     margin-top: 48px;
 }
-@font-face {
-    font-family: '王漢宗粗明體繁-中';
-    src: url('../font/王漢宗粗明體繁-中.ttf');
-}
 .teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox .btnMRec
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox .btnMRec{
     width: 150px;
@@ -90,7 +102,6 @@ cursor: url(../img/share/cursor.png) 12 5,auto;
 .teacher .teacherBorder .pdRec_wrapper3 .pdRec_lightbox p:nth-child(2)
 ,.teacher .teacherBorder .pdRec_wrapper2 .pdRec_lightbox p:nth-child(2)
 ,.teacher .teacherBorder .pdRec_wrapper .pdRec_lightbox p:nth-child(2) {
-    font-family: '王漢宗粗明體繁-中';
     padding-top: 55px;
     letter-spacing: 6px;
     padding-left: 6px;

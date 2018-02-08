@@ -1,22 +1,18 @@
 @font-face {
-	font-family: "王漢宗特明體 – 標準";
-	src: url("../font/王漢宗特明體 – 標準.ttf"); }
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
 
-	@font-face {
-    font-family: "王漢宗中明體繁- 細";
-    src: url("../font/王漢宗中明體繁- 細.ttf");
-  }
-  @font-face{
-  font-family: '王漢宗粗明體繁-中';
-src:url("../font/王漢宗粗明體繁-中.ttf");
-  }
+@font-face {
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
 * {
-	padding: 0;
-	margin: 0;
-	font-family: 'Arial',"微軟正黑體"; 
-	box-sizing: border-box;
-}
-
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; 
+  box-sizing: border-box; }
 body{
 	background-image: url(../img/guide/bg.jpg);
 	/*background-position: center center;*/
@@ -151,7 +147,6 @@ body{
 	display: inline-block;
 	color:rgb(240, 225, 200);
 	text-decoration: none;
-	font-family: "王漢宗中明體繁- 細";
 	margin: 0;padding: 0;
 	border: none;
 	background: none;
@@ -227,7 +222,6 @@ body{
 }
 
 .boxContent .form p {
-  font-family: '王漢宗粗明體繁-中';
   margin: 10px 0;
   text-align: center;
 }
@@ -239,7 +233,6 @@ body{
   margin-left: 16px;
   font-weight: bold;
   margin: 11px 0 19px;
-    font-family: '王漢宗粗明體繁-中';
 }
 
 .boxContent .login.Form p:nth-of-type(3) {
@@ -278,7 +271,6 @@ body{
 }
 
 .boxContent .form p .loginBtn {
-  font-family: '王漢宗特明體 – 標準';
   letter-spacing: 2px;
   width: 125px;
   height: 68px;

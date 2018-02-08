@@ -1,20 +1,17 @@
 @font-face {
-    font-family: 王漢宗粗明體繁-中;
-    src: url(../font/王漢宗粗明體繁-中.ttf);
-}
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
+
 @font-face {
-    font-family: 王漢宗粗明體繁-細;
-    src: url(../font/王漢宗中明體繁- 細.ttf);
-}
-@font-face {
-    font-family: 王漢宗粗明體繁-標準;
-    src: url(../font/王漢宗特明體 – 標準.ttf);
-}
-*{
-	padding: 0;
-	margin: 0;
-	font-family: "微軟正黑體";
- }
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; }
  body{
  	width: 100%;
  	height: 100%;
@@ -60,7 +57,6 @@ ol{
 	margin-top: 10px;
 }
 .fstNav{
-	font-family: "王漢宗粗明體繁-中";
 	background: #221;
 	font-weight: bold;
 	color: rgb(238,217,145);
@@ -96,7 +92,6 @@ ol{
 	height: 100%;
 }
 .innerNav li a{
-	font-family: "王漢宗粗明體繁-中";
 	color: #cca879;
 }
 .innerNav li:hover a{

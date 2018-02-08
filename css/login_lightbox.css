@@ -1,7 +1,17 @@
 @font-face {
-    font-family: '王漢宗粗明體繁-中';
-    src: url('../font/王漢宗粗明體繁-中.ttf');
-}
+  font-family: custom-sans-serif;
+  src: local("Microsoft JhengHei");
+  unicode-range: U+4E00-9FFF; }
+
+@font-face {
+  font-family: custom-sans-serif;
+  src: local(Times New Roman), local(Arial);
+  unicode-range: U+00-024F; }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "custom-sans-serif"; }
 
 
 /* header點選的登入或註冊按鈕設定 */
@@ -186,14 +196,12 @@
 
 .loginbox h2 {
     color: #d7bda5;
-    font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     margin-left: 30px;
 }
 
 .loginbox p {
     color: #645448;
-    font-family: '王漢宗粗明體繁-中';
 }
 
 .loginbox table tr td {
@@ -268,7 +276,6 @@
 
 .loginbox table tr #btn .btn p {
     color: rgb(236, 215, 174);
-    font-family: '王漢宗粗明體繁-中';
     letter-spacing: 6px;
     padding-left: 6px;
 }
