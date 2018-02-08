@@ -40,8 +40,8 @@ require_once 'php/connectBD103G1.php';
 
 	<!-- 前後端按鈕 -->
 	<div class="btn">
-		<span class="btnL"><a href="php/realIndex.php" class="btnText btnText2">前端</a></span>
-		<span class="btnL"><p class="btnText btnText2 back">後端</p></span>
+		<span class="btnL"><a href="php/realIndex.php" class="btnText btnText2">前台</a></span>
+		<span class="btnL"><p class="btnText btnText2 back">後台</p></span>
 	</div>
 	<input type="checkbox" id="loginControl">
 		<div class="loginLightbox">
