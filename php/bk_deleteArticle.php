@@ -1,6 +1,11 @@
+<?php
+ob_start();
+session_start();
+if(empty($_SESSION["bkLogin"])){
+	header('location:../index.php');
+}
+?>
 <?php 
-	session_start();
-	ob_start();
 	require_once("connectBD103G1.php");
 	$sql = "DELETE from article where art_no = ".$_REQUEST["artNo"];
 	$delete = $pdo->prepare($sql);
