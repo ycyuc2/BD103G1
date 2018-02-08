@@ -19,11 +19,8 @@ body {
   padding: 0;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url(../img/dozen_storedetail/bg.jpg); }
+  background-image: url(../img/share/bg.jpg); }
 
-  h2{
-    font-family: "王漢宗特明體 – 標準";
-  }
 
 @media all and (max-width: 479px) {
   background-image: url(../img/hamburger/bright-galaxy-space-plain.jpg);

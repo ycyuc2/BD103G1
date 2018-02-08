@@ -18,7 +18,7 @@ body {
   padding: 0;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url(../img/dozen_storedetail/bg.jpg); }
+  background-image: url(../img/share/bg.jpg); }
 
 @media all and (max-width: 479px) {
   background-image: url(../img/hamburger/bright-galaxy-space-plain.jpg);
