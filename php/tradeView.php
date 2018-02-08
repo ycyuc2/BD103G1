@@ -130,11 +130,11 @@ session_start();
 
 				<?php if ($pages > 1) {?>
 					<ol class="pageSelector">
-						<?php if($_REQUEST["page"] > 1)echo "<a href='tradView.php?page=".($_REQUEST["page"]-1)."'><li>上一頁</li></a>"; 
+						<?php if($_REQUEST["page"] > 1)echo "<a href='tradeView.php?page=".($_REQUEST["page"]-1)."'><li>上一頁</li></a>"; 
 						for ($i=0; $i < $pages; $i++) { 
-							echo "<a href='tradView.php?page=".($i+1)."'><li>".($i+1)."</li></a>";
+							echo "<a href='tradeView.php?page=".($i+1)."'><li>".($i+1)."</li></a>";
 						}
-						if($_REQUEST["page"] < $pages)echo "<a href='tradView.php?page=".($_REQUEST["page"]+1)."'><li>下一頁</li></a>"; ?>
+						if($_REQUEST["page"] < $pages)echo "<a href='tradeView.php?page=".($_REQUEST["page"]+1)."'><li>下一頁</li></a>"; ?>
 					</ol>
 				<?php } ?>
 
