@@ -61,7 +61,7 @@
 				<li><a href="bk_member.php">檢視會員資料</a></li>
 				<li><a href="bk_teacherApplication.php">老師資格審核</a></li>
 			</ol>
-
+			<div class="resetBtn"><a href="bk_resetFortSta.php">重置算命狀態</a></div>
 			<div class="tr">
 				<span class="col no">編號</span>
 				<span class="col account">帳號</span>

@@ -14,6 +14,26 @@
 	background: #999;
 }
 
+.resetBtn a{
+	display: inline-block;
+	width: 20%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin:0 auto;
+	font-size: 16px;
+	text-align: center;
+	border: 2px solid #fff;
+	transition: .2s;
+	height: 50px;
+	line-height: 50px;
+}
+.resetBtn a:hover{
+	background: #333;
+	color: #ddd;
+	border: 2px solid #333;
+}
+
 	/*表單*/
 
 .tr:first-of-type{
